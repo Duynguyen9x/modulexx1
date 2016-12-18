@@ -36,13 +36,13 @@
     </string-array>
 
     <!-- Toolbar titles when navigation menu item is selected -->
-    <string-array name="nav_item_activity_titles">
+    <string-array name="tab_titles">
         <item>Vocabulary</item>
         <item>Practice</item>
     </string-array>
 
     <!-- Tab titles -->
-    <string-array name="tab_titles">
+    <string-array name="nav_item_activity_titles">
         <item>Home</item>
         <item>Photos</item>
         <item>Movies</item>
