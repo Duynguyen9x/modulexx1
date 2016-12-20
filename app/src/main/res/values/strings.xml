@@ -18,6 +18,7 @@
     <string name="vocabulary">Vocabulary</string>
     <string name="remind">Reminder</string>
     <string name="notes">Notes</string>
+    <string name="practice">Practice</string>
 
     <string-array name="new_word_eng">
         <item>General Business</item>
