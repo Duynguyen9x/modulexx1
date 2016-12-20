@@ -12,16 +12,18 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import info.androidhive.navigationdrawer.R;
-import info.androidhive.navigationdrawer.activity.AboutUsActivity;
-import info.androidhive.navigationdrawer.activity.MainActivity;
 import info.androidhive.navigationdrawer.activity.TopicItemActivity;
-import info.androidhive.navigationdrawer.util.WordInfo;
-import info.androidhive.navigationdrawer.adapter.ViewVocabularyAdapter;
+import info.androidhive.navigationdrawer.model.HeaderWord;
+import info.androidhive.navigationdrawer.model.WordInfo;
+import info.androidhive.navigationdrawer.adapter.VocabularyGroupAdapter;
+import info.androidhive.navigationdrawer.utils.ImageUtils;
+import info.androidhive.navigationdrawer.utils.WordUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,17 +43,18 @@ public class VocabularyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ArrayList<WordInfo> mArrList = null;
-    private ViewVocabularyAdapter mVocabularyAdapter = null;
+    private VocabularyGroupAdapter mVocabularyAdapter = null;
     private ExpandableListView mListView = null;
     private Context mContext;
     private View view;
     private static String[] eng_word = null;
     private static String[] viet_word = null;
 
-//    private ExpandableListAdapter listAdapter;
+    //    private ExpandableListAdapter listAdapter;
     private List<WordInfo> mListDataHeader;
     private HashMap<WordInfo, List<WordInfo>> mListDataChild;
+
+    private static ArrayList<HeaderWord> mHederWord;
 
     private OnFragmentInteractionListener mListener;
 
@@ -84,8 +87,19 @@ public class VocabularyFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        eng_word = getActivity().getResources().getStringArray(R.array.new_word_eng);
-        viet_word = getActivity().getResources().getStringArray(R.array.new_word_viet);
+        eng_word = mContext.getResources().getStringArray(R.array.new_word_eng);
+        viet_word = mContext.getResources().getStringArray(R.array.new_word_viet);
+
+
+        try {
+            mHederWord = WordUtils.readAllHeaderWord(mContext);
+
+//            for (int i = 0; i < mHederWord.size(); i++) {
+//                Log.i("duy.pq", "mhedaer=" + mHederWord.get(i).toString());
+//            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -105,7 +119,7 @@ public class VocabularyFragment extends Fragment {
         // preparing list data
         prepareListData();
 
-        mVocabularyAdapter = new ViewVocabularyAdapter(getContext(), mListDataHeader, mListDataChild);
+        mVocabularyAdapter = new VocabularyGroupAdapter(getContext(), mListDataHeader, mListDataChild);
 
         // setting list adapter
         mListView.setAdapter(mVocabularyAdapter);
@@ -128,7 +142,17 @@ public class VocabularyFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                startActivity(new Intent(getActivity(), TopicItemActivity.class));
+                Log.i("duy.pq", "setOnChildClickListener=" + groupPosition + "=" + childPosition);
+
+                int location = groupPosition * 5 + childPosition;
+
+                Log.i("duy.pq", "location=" + location);
+                WordInfo info = (WordInfo) mVocabularyAdapter.getChild(groupPosition, childPosition);
+
+                Intent intent = new Intent(getActivity(), TopicItemActivity.class);
+                intent.putExtra("keyName", info.getVietnamese());
+                intent.putExtra("location", location + "");
+                startActivity(intent);
                 return true;
             }
         });
@@ -171,88 +195,18 @@ public class VocabularyFragment extends Fragment {
 
             wordInfo.setEnglish(eng_word[i]);
             wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.ic_photo_library_black_24dp));
+            wordInfo.setIcon(ImageUtils.loadDrawableParent(mContext, i));
             wordInfo.setExpandIcon(getResources().getDrawable(R.drawable.ic_action_expand));
             mListDataHeader.add(wordInfo);
         }
 
         // Adding child data
-        List<WordInfo> top250 = new ArrayList<WordInfo>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
 
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.bg_circle));
 
-            top250.add(wordInfo);
+        for (int k = 0; k < 10; k++) {
+            mListDataChild.put(mListDataHeader.get(k), getGroupHeader(k));
         }
 
-        List<WordInfo> nowShowing = new ArrayList<WordInfo>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.bg_circle));
-
-            nowShowing.add(wordInfo);
-        }
-
-        List<WordInfo> comingSoon = new ArrayList<WordInfo>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.bg_circle));
-
-            comingSoon.add(wordInfo);
-        }
-
-        List<WordInfo> comingSoon1 = new ArrayList<WordInfo>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.bg_circle));
-
-            comingSoon1.add(wordInfo);
-        }
-
-        List<WordInfo> comingSoon2 = new ArrayList<WordInfo>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.bg_circle));
-
-            comingSoon2.add(wordInfo);
-        }
-
-        mListDataChild.put(mListDataHeader.get(0), top250); // Header, Child data
-        mListDataChild.put(mListDataHeader.get(1), nowShowing);
-        mListDataChild.put(mListDataHeader.get(2), comingSoon);
-        mListDataChild.put(mListDataHeader.get(3), comingSoon1);
-        mListDataChild.put(mListDataHeader.get(4), comingSoon2);
-    }
-
-
-    public List<WordInfo> getListWord() {
-        List<WordInfo> arr = new ArrayList<>();
-        for (int i = 0; i < eng_word.length; i++) {
-            WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(eng_word[i]);
-            wordInfo.setVietnamese(viet_word[i]);
-            wordInfo.setIcon(getResources().getDrawable(R.drawable.ic_photo_library_black_24dp));
-
-            arr.add(wordInfo);
-        }
-
-        return arr;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -289,5 +243,19 @@ public class VocabularyFragment extends Fragment {
     public void onDestroyView() {
         Log.i("duynq", "VocabularyFragment : onDestroyView");
         super.onDestroyView();
+    }
+
+    private List<WordInfo> getGroupHeader(int position) {
+        if (mHederWord == null)
+            return null;
+        List<WordInfo> header1 = new ArrayList<WordInfo>();
+        for (int i = 0; i < 5; i++) {
+            WordInfo wordInfo = new WordInfo();
+            wordInfo.setEnglish(mHederWord.get(position * 5 + i).getHeader_eng());
+            wordInfo.setVietnamese(mHederWord.get(position * 5 + i).getHeader_vi());
+            wordInfo.setIcon(ImageUtils.loadDrawableChild(mContext, position, i));
+            header1.add(wordInfo);
+        }
+        return header1;
     }
 }
