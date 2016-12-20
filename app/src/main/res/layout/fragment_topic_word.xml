@@ -5,9 +5,10 @@
     tools:context="info.androidhive.navigationdrawer.fragment.TopicWordFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+
+    <ListView
+        android:id="@+id/list_topic_word"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="match_parent"/>
 
 </FrameLayout>

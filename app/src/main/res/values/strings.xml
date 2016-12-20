@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Navigation Drawer</string>
+    <string name="app_name">Toeic 650+</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -25,6 +25,11 @@
         <item>Personal</item>
         <item>Purchasing</item>
         <item>Financing and Budgeting</item>
+        <item>Management Issues</item>
+        <item>Restaurants and Events</item>
+        <item>Travel</item>
+        <item>Entertainment</item>
+        <item>Health</item>
     </string-array>
 
     <string-array name="new_word_viet">
@@ -33,6 +38,11 @@
         <item>Nhân viên</item>
         <item>Mua bán</item>
         <item>Tài chính và ngân sách</item>
+        <item>Vấn đề quản lý</item>
+        <item>Nhà hàng và các sự kiện liên quan</item>
+        <item>Du lịch</item>
+        <item>Giải trí</item>
+        <item>Sức khỏe</item>
     </string-array>
 
     <!-- Toolbar titles when navigation menu item is selected -->

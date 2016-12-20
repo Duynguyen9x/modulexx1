@@ -2,13 +2,27 @@ package info.androidhive.navigationdrawer.fragment;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import info.androidhive.navigationdrawer.R;
+import info.androidhive.navigationdrawer.adapter.VocabularyTopicAdapter;
+import info.androidhive.navigationdrawer.model.Word;
+import info.androidhive.navigationdrawer.model.WordInfo;
+import info.androidhive.navigationdrawer.utils.ImageLoader;
+import info.androidhive.navigationdrawer.utils.SoundUtis;
+import info.androidhive.navigationdrawer.utils.WordUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,10 +42,23 @@ public class TopicWordFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private ArrayList<WordInfo> mArrList = null;
+    private ArrayList<Word> mArrWord = null;
 
-    public TopicWordFragment() {
-        // Required empty public constructor
+    private List<WordInfo> mListWord = null;
+    private VocabularyTopicAdapter mViewAdapter = null;
+    private ListView mListView = null;
+    private Context mContext;
+    private View view;
+    private static String[] eng_word = null;
+    private static String[] viet_word = null;
+
+    private OnFragmentInteractionListener mListener;
+    private static int mLocation;
+    private ImageLoader mImageLoader;
+
+    public TopicWordFragment(int location) {
+        mLocation = location;
     }
 
     /**
@@ -44,7 +71,7 @@ public class TopicWordFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static TopicWordFragment newInstance(String param1, String param2) {
-        TopicWordFragment fragment = new TopicWordFragment();
+        TopicWordFragment fragment = new TopicWordFragment(mLocation);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,13 +86,99 @@ public class TopicWordFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        eng_word = mContext.getResources().getStringArray(R.array.new_word_eng);
+        viet_word = mContext.getResources().getStringArray(R.array.new_word_viet);
+
+
+        Log.i("duy.pq", "TopicWordFragment=" + mLocation);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_topic_word, container, false);
+        view = inflater.inflate(R.layout.fragment_topic_word, container, false);
+        initWordList();
+
+        return view;
+    }
+
+    public void initWordList() {
+        mListView = (ListView) view.findViewById(R.id.list_topic_word);
+
+        mArrList = new ArrayList<>();
+        mImageLoader = new ImageLoader(mContext, 100);
+        //  mImageLoader.startIconLoaderThread();
+
+
+        mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout, mArrList, mImageLoader);
+        mListView.setAdapter(mViewAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
+                SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
+
+            }
+        });
+
+
+        initLoadData();
+    }
+
+    public void initLoadData() {
+        AsyncTask<Void, Void, List<WordInfo>> loadBitmapTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+//            private ProgressDialog progress = null;
+
+            @Override
+            protected void onPreExecute() {
+//                progress = ProgressDialog.show(getContext(), null, "Loading application info...");
+                super.onPreExecute();
+            }
+
+            @Override
+            protected List<WordInfo> doInBackground(Void... params) {
+                return getListWords();
+            }
+
+            @Override
+            protected void onPostExecute(List<WordInfo> listWords) {
+                try {
+//                    progress.dismiss();
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+
+                mListWord = listWords;
+                mViewAdapter.addAll(listWords);
+                mListView.setAdapter(mViewAdapter);
+                super.onPostExecute(listWords);
+            }
+        };
+
+        loadBitmapTask.execute();
+    }
+
+    public List<WordInfo> getListWords() {
+        List<WordInfo> listWord = new ArrayList<WordInfo>();
+        ArrayList<Word> arr = null;
+
+        try {
+            arr = WordUtils.readAllData(mContext);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < 12; i++) {
+            WordInfo wordInfo = new WordInfo();
+
+            wordInfo.setEnglish(arr.get(mLocation * 12 + i).getName());
+            wordInfo.setVietnamese(arr.get(mLocation * 12 + i).getName_key());
+
+            listWord.add(wordInfo);
+        }
+
+        return listWord;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,6 +191,7 @@ public class TopicWordFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        mContext = context;
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -92,16 +206,15 @@ public class TopicWordFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mImageLoader != null) {
+            mImageLoader.stopIconLoaderThread();
+        }
+    }
+
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

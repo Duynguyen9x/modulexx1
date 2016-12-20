@@ -11,8 +11,11 @@ import info.androidhive.navigationdrawer.fragment.TopicWordFragment;
  * Created by 8470p on 12/18/2016.
  */
 public class TabsPagerAdapter extends FragmentPagerAdapter {
-    public TabsPagerAdapter(FragmentManager fm) {
+    private int mLocation;
+
+    public TabsPagerAdapter(FragmentManager fm, int location) {
         super(fm);
+        mLocation = location;
     }
 
     @Override
@@ -21,7 +24,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         switch (index) {
             case 0:
                 // Top Rated fragment activity
-                return new TopicWordFragment();
+                return new TopicWordFragment(mLocation);
             case 1:
                 // Games fragment activity
                 return new TopicPracticeFragment();
