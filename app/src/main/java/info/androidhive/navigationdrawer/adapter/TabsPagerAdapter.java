@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.fragment.TopicPracticeFragment;
@@ -39,6 +40,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
+        Log.i("duy.nq","count="+2);
         // get item count - equal to number of tabs
         return 2;
     }
