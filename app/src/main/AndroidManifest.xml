@@ -30,7 +30,8 @@
             android:label="@string/activity_title_privacy_policy" />
         <activity
             android:name=".activity.TopicItemActivity"
-            android:label="@string/title_activity_topic_item" />
+            android:label="@string/title_activity_topic_item"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
