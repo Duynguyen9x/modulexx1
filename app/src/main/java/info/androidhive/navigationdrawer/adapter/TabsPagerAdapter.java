@@ -25,7 +25,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int index) {
-
+        Log.i("duy.nq","getItem = " + index);
         switch (index) {
             case 0:
                 // Top Rated fragment activity
