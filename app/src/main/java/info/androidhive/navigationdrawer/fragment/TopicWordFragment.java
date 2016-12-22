@@ -123,6 +123,10 @@ public class TopicWordFragment extends Fragment {
                 // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
 
                 Intent i = new Intent(mContext, DetailWordActivity.class);
+                i.putExtra("num_word", position + "");
+                i.putExtra("num_group", mLocation + "");
+
+                Log.i("duy.pq", "mListView.num_word=" + position + "/num_word= " + mLocation);
                 startActivity(i);
 
 

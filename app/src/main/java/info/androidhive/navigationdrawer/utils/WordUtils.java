@@ -162,9 +162,9 @@ public class WordUtils {
                     break;
             }
 
-            for (int i = 0; i < arr.size(); i++) {
-                Log.i("duy.pq", "i=" + i + " : " + arr.get(i).toString());
-            }
+//            for (int i = 0; i < arr.size(); i++) {
+//                Log.i("duy.pq", "i=" + i + " : " + arr.get(i).toString());
+//            }
 
             return arr;
         } catch (IOException e) {

@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -30,6 +32,7 @@ import java.util.TimerTask;
 
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.model.Word;
+import info.androidhive.navigationdrawer.utils.WordUtils;
 import info.androidhive.navigationdrawer.utils.ZoomOutPageTransformer;
 
 public class DetailWordActivity extends AppCompatActivity {
@@ -53,10 +56,29 @@ public class DetailWordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String s_num_group = getIntent().getExtras().getString("num_group");
+        int num_group = Integer.parseInt(s_num_group);
+
+        String s_num_word = getIntent().getExtras().getString("num_word");
+        int num_word = Integer.parseInt(s_num_word);
+
+        Log.i("duy.pq", "DetailWordActivity=" + num_group + "=" + num_word);
+
+        arrWord = getListData(num_group);
+
+        for (int i = 0; i < arrWord.size(); i++) {
+            Log.i("duy.pq", "arrWord" + arrWord.get(i).toString());
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // set data
+        mSectionsPagerAdapter.mGroupWord = num_word;
+        mSectionsPagerAdapter.mWord = num_word;
+        mSectionsPagerAdapter.mArrayList = arrWord;
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -83,7 +105,7 @@ public class DetailWordActivity extends AppCompatActivity {
                             .setAction("Action", null).setAction("Bắt đầu", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "duy hand some", Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(mContext, "duy hand some", Toast.LENGTH_SHORT).show();
                             isRunning = true;
                             auto();
                         }
@@ -91,8 +113,25 @@ public class DetailWordActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
+
+    private ArrayList<Word> getListData(int grorp) {
+        ArrayList<Word> arrAll = null;
+        ArrayList<Word> arr = new ArrayList<Word>();
+
+        try {
+            arrAll = WordUtils.readAllData(mContext);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (arrAll == null)
+            return null;
+        for (int i = grorp * 12; i < (grorp * 12 + 12); i++) {
+            arr.add(arrAll.get(i));
+        }
+        return arr;
+    }
+
 
     public void auto() {
         mTimer = new Timer();
@@ -213,6 +252,7 @@ public class DetailWordActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public int mGroupWord, mWord;
+        public ArrayList<Word> mArrayList;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -227,7 +267,7 @@ public class DetailWordActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 12;
+            return mArrayList.size();
         }
 
         @Override
