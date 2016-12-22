@@ -1,6 +1,7 @@
 package info.androidhive.navigationdrawer.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import info.androidhive.navigationdrawer.R;
+import info.androidhive.navigationdrawer.activity.DetailWordActivity;
 import info.androidhive.navigationdrawer.adapter.VocabularyTopicAdapter;
 import info.androidhive.navigationdrawer.model.Word;
 import info.androidhive.navigationdrawer.model.WordInfo;
@@ -118,7 +120,11 @@ public class TopicWordFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
-                SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
+                // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
+
+                Intent i = new Intent(mContext, DetailWordActivity.class);
+                startActivity(i);
+
 
             }
         });

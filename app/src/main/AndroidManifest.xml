@@ -31,7 +31,11 @@
         <activity
             android:name=".activity.TopicItemActivity"
             android:label="@string/title_activity_topic_item"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DetailWordActivity"
+            android:label="@string/title_activity_detail_word"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
