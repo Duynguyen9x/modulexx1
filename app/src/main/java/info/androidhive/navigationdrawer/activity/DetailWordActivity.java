@@ -228,7 +228,7 @@ public class DetailWordActivity extends AppCompatActivity {
             mImageButtonVoice = (ImageButton) rootView.findViewById(R.id.image_google_voice);
             mImageButtonSpeak = (ImageButton) rootView.findViewById(R.id.image_speak);
             mImageWord = (ImageView) rootView.findViewById(R.id.image_word);
-            mImageWord.setImageDrawable(ImageUtils.loadDrawableChild(mContext, mGroupWord, mWord));
+            mImageWord.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, mListData.get(num_pager - 1).getName()));
 
             mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -276,7 +276,7 @@ public class DetailWordActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            return PlaceholderFragment.newInstance(position + 1, mArrayList,mGroupWord,mWord);
+            return PlaceholderFragment.newInstance(position + 1, mArrayList, mGroupWord, mWord);
         }
 
         @Override
