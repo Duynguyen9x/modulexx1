@@ -34,6 +34,7 @@ import java.util.TimerTask;
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.model.Word;
 import info.androidhive.navigationdrawer.utils.ImageUtils;
+import info.androidhive.navigationdrawer.utils.SoundUtis;
 import info.androidhive.navigationdrawer.utils.WordUtils;
 import info.androidhive.navigationdrawer.utils.ZoomOutPageTransformer;
 
@@ -152,6 +153,7 @@ public class DetailWordActivity extends AppCompatActivity {
 
     public void opentag() {
         mViewPager.setCurrentItem(curent_item);
+        SoundUtis.play(mContext, arrWord.get(curent_item).getName());
         if (curent_item == 11) {
             curent_item = 0;
         } else {
@@ -221,7 +223,7 @@ public class DetailWordActivity extends AppCompatActivity {
             tv3 = (TextView) rootView.findViewById(R.id.tv_line_3);
             tv_num = (TextView) rootView.findViewById(R.id.tv_num);
 
-            int num_pager = getArguments().getInt(ARG_SECTION_NUMBER);
+            final int num_pager = getArguments().getInt(ARG_SECTION_NUMBER);
             int num_sum = mListData.size();
             mContext = getActivity();
             tv_num.setText("(" + num_pager + "/" + num_sum + ")");
@@ -230,6 +232,7 @@ public class DetailWordActivity extends AppCompatActivity {
             mImageWord = (ImageView) rootView.findViewById(R.id.image_word);
             mImageWord.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, mListData.get(num_pager - 1).getName()));
 
+
             mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -237,6 +240,13 @@ public class DetailWordActivity extends AppCompatActivity {
                     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                             RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                     startActivityForResult(intent, SPEECH_REQUEST_CODE);
+                }
+            });
+
+            mImageButtonSpeak.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SoundUtis.play(mContext, mListData.get(num_pager - 1).getName());
                 }
             });
 
