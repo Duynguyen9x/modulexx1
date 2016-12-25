@@ -97,35 +97,48 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     }
 
     public void initRemindList() {
-        inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater = LayoutInflater.from(mContext);
 
         mLinearLayout = (LinearLayout) view.findViewById(R.id.layout1);
 //        final View menuLayout = inflater.inflate(R.layout.delete_run_button_layout, mLinearLayout, true);
 
+        // anh duy dep trai
+
         mBtnDel = (Button) view.findViewById(R.id.delete_btn);
+        mBtnRunAuto = (Button) view.findViewById(R.id.run_auto_btn);
+
         mBtnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mLinearLayout.removeAllViews();
                 View menuLayout1 = inflater.inflate(R.layout.deleteall_done_button_layout, null);
                 mLinearLayout.addView(menuLayout1);
-            }
-        });
-        mBtnRunAuto = (Button) view.findViewById(R.id.run_auto_btn);
-
-        mBtnDelAll = (Button) view.findViewById(R.id.delete_all_btn);
-        mBtnDone = (Button) view.findViewById(R.id.done_btn);
-        Log.i("duy.nq", "mBtnDone = " + mBtnDone);
-        mBtnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLinearLayout.removeAllViews();
-                View menuLayout1 = inflater.inflate(R.layout.delete_run_button_layout, null);
-                mLinearLayout.addView(menuLayout1);
+                mBtnDelAll = (Button) view.findViewById((R.id.delete_all_btn));
+                mBtnDone = (Button) view.findViewById((R.id.done_btn));
+                Log.i("duy.nq", "mBtnDone = " + mBtnDone);
+                mBtnDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mLinearLayout.removeAllViews();
+                        View menuLayout1 = inflater.inflate(R.layout.delete_run_button_layout, null);
+                        mLinearLayout.addView(menuLayout1);
+                    }
+                });
             }
         });
 
+        Log.i("duy.nq", "mBtnDone1 = " + mBtnDone);
+        if (mBtnDone != null) {
+            mBtnDone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mLinearLayout.removeAllViews();
+                    View menuLayout1 = inflater.inflate(R.layout.delete_run_button_layout, null);
+                    mLinearLayout.addView(menuLayout1);
+                }
+            });
+        }
 
 
         mListView = (ListView) view.findViewById(R.id.list_remind);
