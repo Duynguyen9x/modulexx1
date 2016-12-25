@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
      */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Duy Nguyen");
+        txtName.setText("Toiec 650+");
         txtWebsite.setText("duynguyen93.vnu@gmail.com");
 
         // loading header background image
