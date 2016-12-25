@@ -30,12 +30,13 @@ import info.androidhive.navigationdrawer.fragment.HomeFragment;
 import info.androidhive.navigationdrawer.fragment.MoviesFragment;
 import info.androidhive.navigationdrawer.fragment.NotificationsFragment;
 import info.androidhive.navigationdrawer.fragment.PhotosFragment;
+import info.androidhive.navigationdrawer.fragment.RemindFragment;
 import info.androidhive.navigationdrawer.fragment.SettingsFragment;
 import info.androidhive.navigationdrawer.fragment.VocabularyFragment;
 import info.androidhive.navigationdrawer.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
-        VocabularyFragment.OnFragmentInteractionListener{
+        VocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener{
 
     private NavigationView navigationView;
     private DrawerLayout drawer;

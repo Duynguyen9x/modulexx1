@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ import info.androidhive.navigationdrawer.adapter.VocabularyTopicAdapter;
 import info.androidhive.navigationdrawer.model.Word;
 import info.androidhive.navigationdrawer.model.WordInfo;
 import info.androidhive.navigationdrawer.utils.ImageLoader;
-import info.androidhive.navigationdrawer.utils.SoundUtis;
 import info.androidhive.navigationdrawer.utils.WordUtils;
 
 /**
@@ -34,7 +34,7 @@ import info.androidhive.navigationdrawer.utils.WordUtils;
  * Use the {@link TopicWordFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TopicWordFragment extends Fragment {
+public class TopicWordFragment extends Fragment implements VocabularyTopicAdapter.OnRemindButtonClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -114,7 +114,8 @@ public class TopicWordFragment extends Fragment {
         //  mImageLoader.startIconLoaderThread();
 
 
-        mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout, mArrList, mImageLoader);
+        mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout_for_remind, mArrList, mImageLoader);
+        mViewAdapter.setOnRemindButtonClickListener(this);
         mListView.setAdapter(mViewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -222,6 +223,11 @@ public class TopicWordFragment extends Fragment {
         if (mImageLoader != null) {
             mImageLoader.stopIconLoaderThread();
         }
+    }
+
+    @Override
+    public void onHandleRemindButtonClick() {
+        Toast.makeText(mContext, "ImageButton clicked", Toast.LENGTH_SHORT).show();
     }
 
 

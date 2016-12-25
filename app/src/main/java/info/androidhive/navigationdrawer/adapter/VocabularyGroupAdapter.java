@@ -106,7 +106,7 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.word_item_layout, null);
+            convertView = layoutInflater.inflate(R.layout.word_item_layout_for_group, null);
 
             holder = new ViewHolder();
 

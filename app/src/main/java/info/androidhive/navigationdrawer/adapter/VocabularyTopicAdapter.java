@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,12 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
     private List<WordInfo> mWordList;
     private Context mContext;
     private ImageLoader mImageLoader;
+
+    private OnRemindButtonClickListener mListener;
+
+    public void setOnRemindButtonClickListener(OnRemindButtonClickListener listener) {
+        mListener = listener;
+    }
 
     public VocabularyTopicAdapter(Context context, int resource, ArrayList<WordInfo> mWordList, ImageLoader imageLoader) {
         super(context, resource, mWordList);
@@ -54,13 +62,14 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.word_item_layout, null);
+            convertView = layoutInflater.inflate(R.layout.word_item_layout_for_remind, null);
 
             holder = new ViewHolder();
 
             holder.eng_word = (TextView) convertView.findViewById(R.id.eng_word);
             holder.viet_word = (TextView) convertView.findViewById(R.id.viet_word);
             holder.iconView = (ImageView) convertView.findViewById(R.id.app_icon);
+            holder.remindView = (ImageButton) convertView.findViewById(R.id.remind);
 
             convertView.setTag(holder);
 
@@ -73,8 +82,15 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
             holder.viet_word.setText(wordInfo.getVietnamese());
             // holder.iconView.setImageResource(mImageLoader.loadDrawableLocal(wordInfo.getEnglsih()));
             holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, wordInfo.getEnglsih()));
+            holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
             //mImageLoader.loadIcon(wordInfo.getEnglsih(), holder.iconView);
         }
+
+        holder.remindView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListener.onHandleRemindButtonClick();
+            }
+        });
         return convertView;
     }
 
@@ -82,6 +98,13 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
         public TextView eng_word;
         public TextView viet_word;
         public ImageView iconView;
+        public ImageButton remindView;
+    }
+
+    // handle event click remind button
+    public interface OnRemindButtonClickListener {
+        // TODO: Update argument type and name
+        void onHandleRemindButtonClick();
     }
 
 }
