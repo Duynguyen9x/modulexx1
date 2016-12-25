@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,8 @@ import java.util.TimerTask;
 
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.model.Word;
+import info.androidhive.navigationdrawer.utils.ImageUtils;
+import info.androidhive.navigationdrawer.utils.SoundUtis;
 import info.androidhive.navigationdrawer.utils.WordUtils;
 import info.androidhive.navigationdrawer.utils.ZoomOutPageTransformer;
 
@@ -150,6 +153,7 @@ public class DetailWordActivity extends AppCompatActivity {
 
     public void opentag() {
         mViewPager.setCurrentItem(curent_item);
+        SoundUtis.play(mContext, arrWord.get(curent_item).getName());
         if (curent_item == 11) {
             curent_item = 0;
         } else {
@@ -187,19 +191,25 @@ public class DetailWordActivity extends AppCompatActivity {
 
         private static final String ARG_SECTION_NUMBER = "section_number";
         public static int mNum;
+        private Context mContext;
         TextView tv1, tv2, tv3, tv_num;
         ImageButton mImageButtonVoice, mImageButtonSpeak;
+        ImageView mImageWord;
         private static final int SPEECH_REQUEST_CODE = 0;
-
+        public static ArrayList<Word> mListData;
+        public static int mGroupWord, mWord;
 
         public PlaceholderFragment() {
         }
 
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        public static PlaceholderFragment newInstance(int sectionNumber, ArrayList<Word> arr, int group, int word) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
+            mListData = arr;
+            mGroupWord = word;
+            mWord = word;
             return fragment;
         }
 
@@ -213,11 +223,16 @@ public class DetailWordActivity extends AppCompatActivity {
             tv3 = (TextView) rootView.findViewById(R.id.tv_line_3);
             tv_num = (TextView) rootView.findViewById(R.id.tv_num);
 
-            int num_pager = getArguments().getInt(ARG_SECTION_NUMBER);
-            int num_sum = 12;
+            final int num_pager = getArguments().getInt(ARG_SECTION_NUMBER);
+            int num_sum = mListData.size();
+            mContext = getActivity();
             tv_num.setText("(" + num_pager + "/" + num_sum + ")");
             mImageButtonVoice = (ImageButton) rootView.findViewById(R.id.image_google_voice);
             mImageButtonSpeak = (ImageButton) rootView.findViewById(R.id.image_speak);
+            mImageWord = (ImageView) rootView.findViewById(R.id.image_word);
+            mImageWord.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, mListData.get(num_pager - 1).getName()));
+
+
             mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -228,8 +243,18 @@ public class DetailWordActivity extends AppCompatActivity {
                 }
             });
 
+            mImageButtonSpeak.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SoundUtis.play(mContext, mListData.get(num_pager - 1).getName());
+                }
+            });
+
             //  tv1.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            tv1.setText(mNum + "");
+            tv1.setText(mListData.get(num_pager - 1).getName());
+            tv2.setText(mListData.get(num_pager - 1).getSound());
+            tv3.setText(mListData.get(num_pager - 1).getExamle());
+
 //            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 //            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -261,7 +286,7 @@ public class DetailWordActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position + 1, mArrayList, mGroupWord, mWord);
         }
 
         @Override
