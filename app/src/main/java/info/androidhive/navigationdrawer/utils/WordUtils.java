@@ -152,7 +152,7 @@ public class WordUtils {
                     new_word.setKind_word(readkind(l3));
                     new_word.setName_key(readNameKey(l3));
 
-                    new_word.setExamle(readExample(l4));
+                    new_word.setExample(readExample(l4));
                     new_word.setExample_key(l5);
                     arr.add(new_word);
 

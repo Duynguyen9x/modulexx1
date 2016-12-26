@@ -253,7 +253,7 @@ public class DetailWordActivity extends AppCompatActivity {
             //  tv1.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             tv1.setText(mListData.get(num_pager - 1).getName());
             tv2.setText(mListData.get(num_pager - 1).getSound());
-            tv3.setText(mListData.get(num_pager - 1).getExamle());
+            tv3.setText(mListData.get(num_pager - 1).getExample());
 
 //            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 //            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));

@@ -65,11 +65,11 @@ public class Word {
 		this.name_key = name_key;
 	}
 
-	public String getExamle() {
+	public String getExample() {
 		return examle;
 	}
 
-	public void setExamle(String examle) {
+	public void setExample(String examle) {
 		this.examle = examle;
 	}
 
