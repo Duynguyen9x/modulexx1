@@ -21,6 +21,7 @@ import java.util.List;
 
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.adapter.VocabularyRemindAdapter;
+import info.androidhive.navigationdrawer.database.MyDatabaseHelper;
 import info.androidhive.navigationdrawer.model.Word;
 import info.androidhive.navigationdrawer.model.WordInfo;
 import info.androidhive.navigationdrawer.utils.WordUtils;
@@ -185,21 +186,34 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
 
     public List<WordInfo> getListWords() {
         List<WordInfo> listWord = new ArrayList<WordInfo>();
-        ArrayList<Word> arr = null;
 
-        try {
-            arr = WordUtils.readAllData(mContext);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < 12; i++) {
+        MyDatabaseHelper db = new MyDatabaseHelper(getActivity());
+        db.createDefaultNotesIfNeed();
+
+
+        ArrayList<Word> arr = db.getAllWords();
+        for (int i = 0; i < arr.size(); i++) {
+            Log.i("duy.pq", "item=" + arr.get(i).toString());
             WordInfo wordInfo = new WordInfo();
-
-            wordInfo.setEnglish(arr.get(1 * 12 + i).getName());
-            wordInfo.setVietnamese(arr.get(1 * 12 + i).getName_key());
-
+            wordInfo.setEnglish(arr.get(i).getName());
+            wordInfo.setVietnamese(arr.get(i).getName_key());
             listWord.add(wordInfo);
         }
+
+
+//        try {
+//            arr = WordUtils.readAllData(mContext);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        for (int i = 0; i < 12; i++) {
+//            WordInfo wordInfo = new WordInfo();
+//
+//            wordInfo.setEnglish(arr.get(1 * 12 + i).getName());
+//            wordInfo.setVietnamese(arr.get(1 * 12 + i).getName_key());
+//
+//            listWord.add(wordInfo);
+//        }
 
         return listWord;
     }
