@@ -52,7 +52,7 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.sub_word_item_layout, null);
+            convertView = layoutInflater.inflate(R.layout.word_vocabulary_item_child, null);
 
             holder = new ViewHolder();
 
@@ -72,7 +72,7 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
             holder.viet_word.setText(wordInfo.getVietnamese());
             holder.iconView.setImageDrawable(wordInfo.getIcon());
         }
-        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_next_item));
+        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
 
         return convertView;
     }
@@ -106,7 +106,7 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.word_item_layout_for_group, null);
+            convertView = layoutInflater.inflate(R.layout.word_vocabulary_item_parent, null);
 
             holder = new ViewHolder();
 

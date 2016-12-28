@@ -163,7 +163,7 @@ public class VocabularyFragment extends Fragment {
             @Override
             public void onGroupExpand(int groupPosition) {
                 WordInfo info = mListDataHeader.get(groupPosition);
-                info.setExpandIcon(getResources().getDrawable(R.drawable.ic_action_collapse));
+                info.setExpandIcon(getResources().getDrawable(R.drawable.arrow_up));
 
                 mVocabularyAdapter.notifyDataSetChanged();
             }
@@ -175,7 +175,7 @@ public class VocabularyFragment extends Fragment {
             @Override
             public void onGroupCollapse(int groupPosition) {
                 WordInfo info = mListDataHeader.get(groupPosition);
-                info.setExpandIcon(getResources().getDrawable(R.drawable.ic_action_expand));
+                info.setExpandIcon(getResources().getDrawable(R.drawable.arrow_dowm));
 
                 mVocabularyAdapter.notifyDataSetChanged();
             }
@@ -196,7 +196,7 @@ public class VocabularyFragment extends Fragment {
             wordInfo.setEnglish(eng_word[i]);
             wordInfo.setVietnamese(viet_word[i]);
             wordInfo.setIcon(ImageUtils.loadDrawableParent(mContext, i));
-            wordInfo.setExpandIcon(getResources().getDrawable(R.drawable.ic_action_expand));
+            wordInfo.setExpandIcon(getResources().getDrawable(R.drawable.arrow_dowm));
             mListDataHeader.add(wordInfo);
         }
 
