@@ -158,30 +158,30 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Word getWord(int id) {
-        Log.i(TAG, "MyDatabaseHelper.getNote ... " + id);
-
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_WORD, new String[]{COLUMN_WORD_ID,
-                        COLUMN_WORD_NAME, COLUMN_WORD_SOUND, COLUMN_WORD_NAME_KEY}, COLUMN_WORD_ID + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-        cursor.close();
-
-        Word word = new Word();
-        word.setId(Integer.parseInt(cursor.getString(0)));
-        word.setName(cursor.getString(1));
-        word.setSound(cursor.getString(2));
-        word.setName_key(cursor.getString(3));
-        word.setExample(cursor.getString(4));
-        word.setExample_key(cursor.getString(5));
-        word.setKind_word(Integer.parseInt(cursor.getString(6)));
-
-        return word;
-    }
+//    public Word getWord(int id) {
+//        Log.i(TAG, "MyDatabaseHelper.getNote ... " + id);
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = db.query(TABLE_WORD, new String[]{COLUMN_WORD_ID,
+//                        COLUMN_WORD_NAME, COLUMN_WORD_SOUND, COLUMN_WORD_NAME_KEY}, COLUMN_WORD_ID + "=?",
+//                new String[]{String.valueOf(id)}, null, null, null, null);
+//        if (cursor != null) {
+//            cursor.moveToFirst();
+//        }
+//        cursor.close();
+//
+//        Word word = new Word();
+//        word.setId(Integer.parseInt(cursor.getString(0)));
+//        word.setName(cursor.getString(1));
+//        word.setSound(cursor.getString(2));
+//        word.setName_key(cursor.getString(3));
+//        word.setExample(cursor.getString(4));
+//        word.setExample_key(cursor.getString(5));
+//        word.setKind_word(Integer.parseInt(cursor.getString(6)));
+//
+//        return word;
+//    }
 
     public boolean checkHasWord(Word word) {
         String wordname = word.getName();

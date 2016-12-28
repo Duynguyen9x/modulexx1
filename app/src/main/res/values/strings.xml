@@ -23,6 +23,9 @@
     <string name="notes">Notes</string>
     <string name="practice">Practice</string>
 
+    <string name="goodbook">Sách Hay</string>
+    <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
+
     <string-array name="new_word_eng">
         <item>General Business</item>
         <item>Office Issues</item>

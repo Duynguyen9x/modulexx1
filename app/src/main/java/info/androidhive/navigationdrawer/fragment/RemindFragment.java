@@ -106,6 +106,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
 
         // anh duy dep trai
 
+
         mBtnDel = (Button) view.findViewById(R.id.delete_btn);
         mBtnRunAuto = (Button) view.findViewById(R.id.run_auto_btn);
 

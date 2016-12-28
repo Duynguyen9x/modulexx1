@@ -3,7 +3,11 @@ package info.androidhive.navigationdrawer.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +32,11 @@ public class PhotosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private static int int_items = 2;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,7 +77,64 @@ public class PhotosFragment extends Fragment {
         // Inflate the layout for this fragment
 
         Log.i("duynq", "PhotosFragment : onCreateView");
-        return inflater.inflate(R.layout.fragment_photos, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_photos, container, false);
+
+        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
+
+        //Set an Apater for the View Pager
+        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
+        //setupViewPager(viewPager);
+
+        tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                tabLayout.setupWithViewPager(viewPager);
+            }
+        });
+
+        return rootView;
+    }
+
+    /////////////////////////////////////////////////
+    class MyAdapter extends FragmentPagerAdapter {
+
+        public MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        /**
+         * Return fragment with respect to Position .
+         */
+        @Override
+        public Fragment getItem(int position)
+        {
+            switch (position){
+                case 0 : return new GoodBookFragment();
+                case 1 : return new BasicTheoryFragment();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return int_items;
+        }
+
+        /**
+         * This method returns the title of the tab according to the position.
+         */
+        @Override
+        public CharSequence getPageTitle(int position) {
+
+            switch (position){
+                case 0 :
+                    return getString(R.string.goodbook);
+                case 1 :
+                    return getString(R.string.basic_theory);
+            }
+            return null;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

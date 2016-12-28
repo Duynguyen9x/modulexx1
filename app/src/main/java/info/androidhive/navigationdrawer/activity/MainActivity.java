@@ -26,6 +26,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import info.androidhive.navigationdrawer.R;
+import info.androidhive.navigationdrawer.fragment.BasicTheoryFragment;
+import info.androidhive.navigationdrawer.fragment.GoodBookFragment;
 import info.androidhive.navigationdrawer.fragment.HomeFragment;
 import info.androidhive.navigationdrawer.fragment.MoviesFragment;
 import info.androidhive.navigationdrawer.fragment.NotificationsFragment;
@@ -36,7 +38,8 @@ import info.androidhive.navigationdrawer.fragment.VocabularyFragment;
 import info.androidhive.navigationdrawer.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
-        VocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener{
+        VocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener, GoodBookFragment.OnFragmentInteractionListener,
+        BasicTheoryFragment.OnFragmentInteractionListener {
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
