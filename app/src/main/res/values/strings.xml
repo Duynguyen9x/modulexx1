@@ -7,9 +7,9 @@
     <string name="closeDrawer">close_drawer</string>
 
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_home">Home</string>
-    <string name="nav_photos">Photos</string>
-    <string name="nav_movies">Movies</string>
+    <string name="nav_word">Từ vựng TOEIC</string>
+    <string name="nav_book">Ngữ pháp TOEIC</string>
+    <string name="nav_practice">Luyện thi TOEIC</string>
     <string name="nav_notifications">Notifications</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about_us">About Us</string>
@@ -17,7 +17,7 @@
     <string name="delete_button">Delete</string>
     <string name="auto_run">Run Auto</string>
 
-    <!-- Sub titles of HomeFragment -->
+    <!-- Sub titles of WordFragment -->
     <string name="vocabulary">Vocabulary</string>
     <string name="remind">Reminder</string>
     <string name="notes">Notes</string>
@@ -60,9 +60,9 @@
 
     <!-- Tab titles -->
     <string-array name="nav_item_activity_titles">
-        <item>Home</item>
-        <item>Photos</item>
-        <item>Movies</item>
+        <item>@string/nav_word</item>
+        <item>@string/nav_book</item>
+        <item>@string/nav_practice</item>
         <item>Notifications</item>
         <item>Settings</item>
     </string-array>

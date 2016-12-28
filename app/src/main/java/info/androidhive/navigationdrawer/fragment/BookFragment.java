@@ -18,12 +18,12 @@ import info.androidhive.navigationdrawer.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link BookFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link BookFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class BookFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,11 +35,12 @@ public class HomeFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static int int_items = 3 ;
+    private static int int_items = 2;
+
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeFragment() {
+    public BookFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +50,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment BookFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static BookFragment newInstance(String param1, String param2) {
+        BookFragment fragment = new BookFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,11 +72,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i("duynq", "HomeFragment : onCreateView");
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Log.i("duynq", "BookFragment : onCreateView");
+        View rootView = inflater.inflate(R.layout.fragment_book, container, false);
+
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
 
@@ -90,17 +93,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        // tabLayout.setupWithViewPager(viewPager);
-
-        // Inflate the layout for this fragment
         return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-
-        Log.i("duynq", "HomeFragment : onDestroyView");
-        super.onDestroyView();
     }
 
     /////////////////////////////////////////////////
@@ -117,9 +110,8 @@ public class HomeFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new VocabularyFragment();
-                case 1 : return new RemindFragment();
-                case 2 : return new NoteFragment();
+                case 0 : return new GoodBookFragment();
+                case 1 : return new BasicTheoryFragment();
             }
             return null;
         }
@@ -137,15 +129,14 @@ public class HomeFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return getString(R.string.vocabulary);
+                    return getString(R.string.goodbook);
                 case 1 :
-                    return getString(R.string.remind);
-                case 2 :
-                    return getString(R.string.notes);
+                    return getString(R.string.basic_theory);
             }
             return null;
         }
     }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -156,12 +147,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
     }
 
     @Override

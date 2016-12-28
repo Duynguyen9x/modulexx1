@@ -16,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,16 +27,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.fragment.BasicTheoryFragment;
 import info.androidhive.navigationdrawer.fragment.GoodBookFragment;
-import info.androidhive.navigationdrawer.fragment.HomeFragment;
-import info.androidhive.navigationdrawer.fragment.MoviesFragment;
+import info.androidhive.navigationdrawer.fragment.PracticeFragment;
+import info.androidhive.navigationdrawer.fragment.WordFragment;
 import info.androidhive.navigationdrawer.fragment.NotificationsFragment;
-import info.androidhive.navigationdrawer.fragment.PhotosFragment;
+import info.androidhive.navigationdrawer.fragment.BookFragment;
 import info.androidhive.navigationdrawer.fragment.RemindFragment;
 import info.androidhive.navigationdrawer.fragment.SettingsFragment;
 import info.androidhive.navigationdrawer.fragment.VocabularyFragment;
 import info.androidhive.navigationdrawer.other.CircleTransform;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
+public class MainActivity extends AppCompatActivity implements WordFragment.OnFragmentInteractionListener,
         VocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener, GoodBookFragment.OnFragmentInteractionListener,
         BasicTheoryFragment.OnFragmentInteractionListener {
 
@@ -58,12 +57,12 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     public static int navItemIndex = 0;
 
     // tags used to attach the fragments
-    private static final String TAG_HOME = "home";
-    private static final String TAG_PHOTOS = "photos";
+    private static final String TAG_WORDs = "Words";
+    private static final String TAG_BOOKS = "Books";
     private static final String TAG_MOVIES = "movies";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
-    public static String CURRENT_TAG = TAG_HOME;
+    public static String CURRENT_TAG = TAG_WORDs;
 
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 
         if (savedInstanceState == null) {
             navItemIndex = 0;
-            CURRENT_TAG = TAG_HOME;
+            CURRENT_TAG = TAG_WORDs;
             loadHomeFragment();
         }
     }
@@ -154,16 +153,16 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         switch (navItemIndex) {
             case 0:
                 // home
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
+                WordFragment wordFragment = new WordFragment();
+                return wordFragment;
             case 1:
                 // photos
-                PhotosFragment photosFragment = new PhotosFragment();
-                return photosFragment;
+                BookFragment bookFragment = new BookFragment();
+                return bookFragment;
             case 2:
                 // movies fragment
-                MoviesFragment moviesFragment = new MoviesFragment();
-                return moviesFragment;
+                PracticeFragment practiceFragment = new PracticeFragment();
+                return practiceFragment;
             case 3:
                 // notifications fragment
                 NotificationsFragment notificationsFragment = new NotificationsFragment();
@@ -174,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
             default:
-                return new HomeFragment();
+                return new WordFragment();
         }
     }
 
@@ -249,15 +248,15 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.nav_home:
+                    case R.id.nav_word:
                         navItemIndex = 0;
-                        CURRENT_TAG = TAG_HOME;
+                        CURRENT_TAG = TAG_WORDs;
                         break;
-                    case R.id.nav_photos:
+                    case R.id.nav_book:
                         navItemIndex = 1;
-                        CURRENT_TAG = TAG_PHOTOS;
+                        CURRENT_TAG = TAG_BOOKS;
                         break;
-                    case R.id.nav_movies:
+                    case R.id.nav_practice:
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_MOVIES;
                         break;
@@ -334,7 +333,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             // rather than home
             if (navItemIndex != 0) {
                 navItemIndex = 0;
-                CURRENT_TAG = TAG_HOME;
+                CURRENT_TAG = TAG_WORDs;
                 loadHomeFragment();
                 return;
             }

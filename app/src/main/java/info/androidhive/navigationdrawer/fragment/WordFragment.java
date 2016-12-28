@@ -18,12 +18,12 @@ import info.androidhive.navigationdrawer.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PhotosFragment.OnFragmentInteractionListener} interface
+ * {@link WordFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PhotosFragment#newInstance} factory method to
+ * Use the {@link WordFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PhotosFragment extends Fragment {
+public class WordFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,12 +35,11 @@ public class PhotosFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static int int_items = 2;
-
+    private static int int_items = 3 ;
 
     private OnFragmentInteractionListener mListener;
 
-    public PhotosFragment() {
+    public WordFragment() {
         // Required empty public constructor
     }
 
@@ -50,11 +49,11 @@ public class PhotosFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PhotosFragment.
+     * @return A new instance of fragment WordFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PhotosFragment newInstance(String param1, String param2) {
-        PhotosFragment fragment = new PhotosFragment();
+    public static WordFragment newInstance(String param1, String param2) {
+        WordFragment fragment = new WordFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,13 +71,11 @@ public class PhotosFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i("duynq", "WordFragment : onCreateView");
+
         // Inflate the layout for this fragment
-
-        Log.i("duynq", "PhotosFragment : onCreateView");
-        View rootView = inflater.inflate(R.layout.fragment_photos, container, false);
-
+        View rootView = inflater.inflate(R.layout.fragment_word, container, false);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
 
@@ -93,7 +90,17 @@ public class PhotosFragment extends Fragment {
             }
         });
 
+        // tabLayout.setupWithViewPager(viewPager);
+
+        // Inflate the layout for this fragment
         return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+
+        Log.i("duynq", "WordFragment : onDestroyView");
+        super.onDestroyView();
     }
 
     /////////////////////////////////////////////////
@@ -110,8 +117,9 @@ public class PhotosFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new GoodBookFragment();
-                case 1 : return new BasicTheoryFragment();
+                case 0 : return new VocabularyFragment();
+                case 1 : return new RemindFragment();
+                case 2 : return new NoteFragment();
             }
             return null;
         }
@@ -129,14 +137,15 @@ public class PhotosFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return getString(R.string.goodbook);
+                    return getString(R.string.vocabulary);
                 case 1 :
-                    return getString(R.string.basic_theory);
+                    return getString(R.string.remind);
+                case 2 :
+                    return getString(R.string.notes);
             }
             return null;
         }
     }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -147,12 +156,12 @@ public class PhotosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
