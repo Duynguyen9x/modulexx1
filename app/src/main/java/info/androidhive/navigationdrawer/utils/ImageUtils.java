@@ -69,4 +69,12 @@ public class ImageUtils {
         return drawable;
     }
 
+    public static String loadDrawableChild(int parent) {
+
+        int k = 51 + parent;
+        String name = k + ".jpg";
+
+        return "file:///android_asset/imgtopic/" + name;
+    }
+
 }

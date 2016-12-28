@@ -33,11 +33,11 @@ import info.androidhive.navigationdrawer.fragment.NotificationsFragment;
 import info.androidhive.navigationdrawer.fragment.BookFragment;
 import info.androidhive.navigationdrawer.fragment.RemindFragment;
 import info.androidhive.navigationdrawer.fragment.SettingsFragment;
-import info.androidhive.navigationdrawer.fragment.VocabularyFragment;
+import info.androidhive.navigationdrawer.fragment.WordVocabularyFragment;
 import info.androidhive.navigationdrawer.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity implements WordFragment.OnFragmentInteractionListener,
-        VocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener, GoodBookFragment.OnFragmentInteractionListener,
+        WordVocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener, GoodBookFragment.OnFragmentInteractionListener,
         BasicTheoryFragment.OnFragmentInteractionListener {
 
     private NavigationView navigationView;

@@ -1,6 +1,7 @@
 package info.androidhive.navigationdrawer.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +9,19 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.HashMap;
 import java.util.List;
 
 import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.model.WordInfo;
+import info.androidhive.navigationdrawer.utils.ImageUtils;
 
 /**
  * Created by 8470p on 12/17/2016.
  */
-public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
+public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
     private Context mContext;
 
     private List<WordInfo> mVocabularyHeaderList;  // header titles
@@ -25,8 +29,8 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
     // child data in format of header title, child title
     private HashMap<WordInfo, List<WordInfo>> mVocabularyChildList;
 
-    public VocabularyGroupAdapter(Context context, List<WordInfo> listDataHeader,
-                                  HashMap<WordInfo, List<WordInfo>> listChildData) {
+    public WordVocabularyParentAdapter(Context context, List<WordInfo> listDataHeader,
+                                       HashMap<WordInfo, List<WordInfo>> listChildData) {
         this.mContext = context;
         this.mVocabularyHeaderList = listDataHeader;
         this.mVocabularyChildList = listChildData;
@@ -71,6 +75,7 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
             holder.eng_word.setText(wordInfo.getEnglsih());
             holder.viet_word.setText(wordInfo.getVietnamese());
             holder.iconView.setImageDrawable(wordInfo.getIcon());
+            holder.iconView.setClipToOutline(true);
         }
         holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
 
@@ -124,7 +129,10 @@ public class VocabularyGroupAdapter extends BaseExpandableListAdapter {
         if (null != wordInfo) {
             holder.eng_word.setText(wordInfo.getEnglsih());
             holder.viet_word.setText(wordInfo.getVietnamese());
-            holder.iconView.setImageDrawable(wordInfo.getIcon());
+//            holder.iconView.setImageDrawable(wordInfo.getIcon());
+            holder.iconView.setClipToOutline(true);
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableChild(groupPosition))).centerCrop().into(holder.iconView);
+
             holder.expandView.setImageDrawable(wordInfo.getExpandIcon());
         }
         return convertView;

@@ -21,19 +21,19 @@ import info.androidhive.navigationdrawer.R;
 import info.androidhive.navigationdrawer.activity.TopicItemActivity;
 import info.androidhive.navigationdrawer.model.HeaderWord;
 import info.androidhive.navigationdrawer.model.WordInfo;
-import info.androidhive.navigationdrawer.adapter.VocabularyGroupAdapter;
+import info.androidhive.navigationdrawer.adapter.WordVocabularyParentAdapter;
 import info.androidhive.navigationdrawer.utils.ImageUtils;
 import info.androidhive.navigationdrawer.utils.WordUtils;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link VocabularyFragment.OnFragmentInteractionListener} interface
+ * {@link WordVocabularyFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link VocabularyFragment#newInstance} factory method to
+ * Use the {@link WordVocabularyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VocabularyFragment extends Fragment {
+public class WordVocabularyFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +43,7 @@ public class VocabularyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private VocabularyGroupAdapter mVocabularyAdapter = null;
+    private WordVocabularyParentAdapter mVocabularyAdapter = null;
     private ExpandableListView mListView = null;
     private Context mContext;
     private View view;
@@ -58,7 +58,7 @@ public class VocabularyFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public VocabularyFragment() {
+    public WordVocabularyFragment() {
         // Required empty public constructor
     }
 
@@ -68,11 +68,11 @@ public class VocabularyFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VocabularyFragment.
+     * @return A new instance of fragment WordVocabularyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VocabularyFragment newInstance(String param1, String param2) {
-        VocabularyFragment fragment = new VocabularyFragment();
+    public static WordVocabularyFragment newInstance(String param1, String param2) {
+        WordVocabularyFragment fragment = new WordVocabularyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -104,7 +104,7 @@ public class VocabularyFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i("duynq", "VocabularyFragment : onCreateView");
+        Log.i("duynq", "WordVocabularyFragment : onCreateView");
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_vocabulary, container, false);
         initAppList();
@@ -119,7 +119,7 @@ public class VocabularyFragment extends Fragment {
         // preparing list data
         prepareListData();
 
-        mVocabularyAdapter = new VocabularyGroupAdapter(getContext(), mListDataHeader, mListDataChild);
+        mVocabularyAdapter = new WordVocabularyParentAdapter(getContext(), mListDataHeader, mListDataChild);
 
         // setting list adapter
         mListView.setAdapter(mVocabularyAdapter);
@@ -241,7 +241,7 @@ public class VocabularyFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        Log.i("duynq", "VocabularyFragment : onDestroyView");
+        Log.i("duynq", "WordVocabularyFragment : onDestroyView");
         super.onDestroyView();
     }
 

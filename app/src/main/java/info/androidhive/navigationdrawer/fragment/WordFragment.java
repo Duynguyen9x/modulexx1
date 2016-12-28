@@ -117,7 +117,7 @@ public class WordFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new VocabularyFragment();
+                case 0 : return new WordVocabularyFragment();
                 case 1 : return new RemindFragment();
                 case 2 : return new NoteFragment();
             }
