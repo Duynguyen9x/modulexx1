@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
+    private Button lockScreenBtn;
+    private Button remindWordBtn;
 
     // urls to load navigation header background image
     // and profile image
@@ -116,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
+        lockScreenBtn = (Button) navHeader.findViewById(R.id.lock_sreen);
+        remindWordBtn = (Button) navHeader.findViewById(R.id.remind_word);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -130,6 +135,20 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
         // name, website
         txtName.setText("Toiec 650+");
         txtWebsite.setText("duynguyen93.vnu@gmail.com");
+
+        lockScreenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "lock Screen started", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        remindWordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // loading header background image
         Glide.with(this).load(urlNavHeaderBg)

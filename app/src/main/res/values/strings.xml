@@ -23,6 +23,9 @@
     <string name="notes">Notes</string>
     <string name="practice">Practice</string>
 
+    <string name="lock_screen">Khóa màn hình</string>
+    <string name="remind_word">Nhắc từ</string>
+
     <string name="goodbook">Sách Hay</string>
     <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
 
