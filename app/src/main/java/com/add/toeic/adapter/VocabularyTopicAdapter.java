@@ -1,6 +1,7 @@
 package com.add.toeic.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.add.toeic.R;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by 8470p on 12/18/2016.
@@ -79,10 +81,12 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
         if (null != wordInfo) {
             holder.eng_word.setText(wordInfo.getEnglsih());
             holder.viet_word.setText(wordInfo.getVietnamese());
-            // holder.iconView.setImageResource(mImageLoader.loadDrawableLocal(wordInfo.getEnglsih()));
-            holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, wordInfo.getEnglsih()));
+            //  holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, wordInfo.getEnglsih()));
             holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
-            //mImageLoader.loadIcon(wordInfo.getEnglsih(), holder.iconView);
+
+            holder.iconView.setClipToOutline(true);
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(wordInfo.getEnglsih())))
+                    .centerCrop().into(holder.iconView);
         }
 
         holder.remindView.setOnClickListener(new View.OnClickListener() {

@@ -77,4 +77,10 @@ public class ImageUtils {
         return "file:///android_asset/imgtopic/" + name;
     }
 
+    public static String loadDrawableWord(String word) {
+        word = word.replaceAll(" ", "_");
+        word = word.replaceAll("-", "_");
+        String name = word + ".jpg";
+        return "file:///android_asset/jpeg/" + name;
+    }
 }
