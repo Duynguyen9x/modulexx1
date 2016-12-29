@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.add.toeic.R;
@@ -50,7 +51,9 @@ public class PracticeLevelAdapter extends ArrayAdapter<WordInfo> {
             convertView = layoutInflater.inflate(R.layout.practice_lv_item, null);
 
             holder = new ViewHolder();
-            holder.topic = (TextView) convertView.findViewById(R.id.tv_practice_item);
+            holder.tv_part_num = (TextView) convertView.findViewById(R.id.tv_part_num);
+            holder.tv_part_description = (TextView) convertView.findViewById(R.id.tv_part_description);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.img_part_topic);
 
             convertView.setTag(holder);
 
@@ -59,13 +62,17 @@ public class PracticeLevelAdapter extends ArrayAdapter<WordInfo> {
         }
 
         if(wordInfo != null){
-            holder.topic.setText(wordInfo.getVietnamese());
+            holder.tv_part_num.setText(wordInfo.getEnglsih());
+            holder.tv_part_description.setText(wordInfo.getVietnamese());
+            holder.imageView.setImageDrawable(wordInfo.getIcon());
         }
 
         return convertView;
     }
 
     private static class ViewHolder {
-        public TextView topic;
+        public ImageView imageView;
+        public TextView tv_part_num;
+        public TextView tv_part_description;
     }
 }
