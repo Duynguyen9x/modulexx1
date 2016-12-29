@@ -136,7 +136,7 @@ public class PracticeLvOneFragment extends Fragment {
         WordInfo wordInfo4 = new WordInfo();
         wordInfo4.setEnglish("Part 4");
         wordInfo4.setVietnamese("Incomplete Sentence");
-        wordInfo4.setIcon(getResources().getDrawable(R.drawable.incomplete_sentence, mContext.getTheme()));
+        wordInfo4.setIcon(getResources().getDrawable(R.drawable.iincomplete_sentence, mContext.getTheme()));
         wordInfoList.add(wordInfo4);
 
         WordInfo wordInfo5 = new WordInfo();

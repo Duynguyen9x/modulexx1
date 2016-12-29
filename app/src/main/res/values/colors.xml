@@ -10,4 +10,10 @@
     <color name="colorOrange">#F79743</color>
     <color name="colorGrayDetails">#F0F0F0</color>
 
+    <color name="colorBlue">#1976D2</color>
+    <color name="colorBlue1">#8BC34A</color>
+    <color name="colorBlue2">#00E676</color>
+    <color name="colorBlue3">#303F9F</color>
+
+
 </resources>

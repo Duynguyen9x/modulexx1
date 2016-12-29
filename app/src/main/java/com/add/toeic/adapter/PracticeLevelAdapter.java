@@ -1,6 +1,8 @@
 package com.add.toeic.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +67,7 @@ public class PracticeLevelAdapter extends ArrayAdapter<WordInfo> {
             holder.tv_part_num.setText(wordInfo.getEnglsih());
             holder.tv_part_description.setText(wordInfo.getVietnamese());
             holder.imageView.setImageDrawable(wordInfo.getIcon());
+            holder.imageView.setClipToOutline(true);
         }
 
         return convertView;
