@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="info.androidhive.navigationdrawer">
+    package="com.add.toeic">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.add.toeic.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,17 +23,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AboutUsActivity"
+            android:name="com.add.toeic.activity.AboutUsActivity"
             android:label="@string/activity_title_about_us" />
         <activity
-            android:name=".activity.PrivacyPolicyActivity"
+            android:name="com.add.toeic.activity.PrivacyPolicyActivity"
             android:label="@string/activity_title_privacy_policy" />
         <activity
-            android:name=".activity.TopicItemActivity"
+            android:name="com.add.toeic.activity.TopicItemActivity"
             android:label="@string/title_activity_topic_item"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.DetailWordActivity"
+            android:name="com.add.toeic.activity.DetailWordActivity"
             android:label="@string/title_activity_detail_word"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

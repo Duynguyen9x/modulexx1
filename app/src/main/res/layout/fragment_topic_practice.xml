@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.androidhive.navigationdrawer.fragment.TopicPracticeFragment">
+    tools:context="com.add.toeic.fragment.TopicPracticeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
