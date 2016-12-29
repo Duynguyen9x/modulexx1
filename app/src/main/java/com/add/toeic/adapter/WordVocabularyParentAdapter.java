@@ -3,11 +3,14 @@ package com.add.toeic.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -48,7 +51,7 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
+    public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
@@ -77,7 +80,34 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
             holder.iconView.setImageDrawable(wordInfo.getIcon());
             holder.iconView.setClipToOutline(true);
         }
-        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
+        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.icon_more));
+
+        holder.expandView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(mContext, "onclick position=" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+
+                PopupMenu popupMenu = new PopupMenu(mContext, v);
+                popupMenu.getMenuInflater().inflate(R.menu.pop_up_word_vocabulary, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_auto_learn:
+                                Toast.makeText(mContext, "Auto learn=" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_add_remider:
+                                Toast.makeText(mContext, "Add reminder=" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
 
         return convertView;
     }

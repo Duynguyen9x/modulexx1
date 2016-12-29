@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_auto_learn"
+        android:orderInCategory="100"
+        android:title="Học từ tự động"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_remider"
+        android:orderInCategory="101"
+        android:title="Thêm vào nhắc nhở"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_remove_remider"
+        android:orderInCategory="101"
+        android:title="Xóa khỏi nhắc nhở"
+        app:showAsAction="never" />
+</menu>
