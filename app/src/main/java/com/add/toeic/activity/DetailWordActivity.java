@@ -2,6 +2,7 @@ package com.add.toeic.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -38,6 +39,7 @@ import com.add.toeic.utils.ImageUtils;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.WordUtils;
 import com.add.toeic.utils.ZoomOutPageTransformer;
+import com.bumptech.glide.Glide;
 
 public class DetailWordActivity extends AppCompatActivity {
 
@@ -242,8 +244,9 @@ public class DetailWordActivity extends AppCompatActivity {
             mImageButtonVoice = (ImageButton) rootView.findViewById(R.id.image_google_voice);
             mImageButtonSpeak = (ImageButton) rootView.findViewById(R.id.image_speak);
             mImageWord = (ImageView) rootView.findViewById(R.id.image_word);
-            mImageWord.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, mListData.get(num_pager - 1).getName()));
-
+            //  mImageWord.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, mListData.get(num_pager - 1).getName()));
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(mListData.get(num_pager - 1).getName())))
+                    .centerCrop().into(mImageWord);
 
             mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
                 @Override
