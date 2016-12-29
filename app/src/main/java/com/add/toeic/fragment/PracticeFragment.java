@@ -36,7 +36,7 @@ public class PracticeFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static int item_cnt = 2;
+    private static int item_cnt = 3;
     private View view;
 
     public PracticeFragment() {

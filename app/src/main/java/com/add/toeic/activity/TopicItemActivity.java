@@ -16,9 +16,9 @@ import com.add.toeic.R;
 import com.add.toeic.adapter.TabsPagerAdapter;
 import com.add.toeic.fragment.TopicPracticeFragment;
 import com.add.toeic.fragment.TopicWordFragment;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 
-public class TopicItemActivity extends AppCompatActivity implements TopicWordFragment.OnFragmentInteractionListener,
-        TopicPracticeFragment.OnFragmentInteractionListener {
+public class TopicItemActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     private Toolbar mToolbar;
     private TabLayout tabLayout;

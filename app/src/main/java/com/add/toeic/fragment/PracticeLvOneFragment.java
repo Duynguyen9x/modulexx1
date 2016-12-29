@@ -109,10 +109,11 @@ public class PracticeLvOneFragment extends Fragment {
                 super.onPreExecute();
             }
         };
+        loadDataPracticeTask.execute();
     }
 
     private List<WordInfo> getListWord() {
-        List<WordInfo> wordInfoList = new ArrayList<>();
+        List<WordInfo> wordInfoList = new ArrayList<WordInfo>();
 
         WordInfo wordInfo1 = new WordInfo();
         wordInfo1.setVietnamese("Part1");
