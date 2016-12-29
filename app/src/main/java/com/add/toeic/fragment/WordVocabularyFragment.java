@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.add.toeic.R;
 import com.add.toeic.activity.TopicItemActivity;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.HeaderWord;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.adapter.WordVocabularyParentAdapter;
@@ -28,7 +29,6 @@ import com.add.toeic.utils.WordUtils;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link WordVocabularyFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link WordVocabularyFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -232,11 +232,6 @@ public class WordVocabularyFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 
     @Override

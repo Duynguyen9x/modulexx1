@@ -21,6 +21,7 @@ import java.util.List;
 import com.add.toeic.R;
 import com.add.toeic.activity.DetailWordActivity;
 import com.add.toeic.adapter.VocabularyTopicAdapter;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.utils.ImageLoader;
@@ -29,7 +30,6 @@ import com.add.toeic.utils.WordUtils;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TopicWordFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link TopicWordFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -229,11 +229,5 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     @Override
     public void onHandleRemindButtonClick() {
         Toast.makeText(mContext, "ImageButton clicked", Toast.LENGTH_SHORT).show();
-    }
-
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }

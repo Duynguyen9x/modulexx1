@@ -83,4 +83,10 @@
     <string name="title_activity_detail_word">DetailWordActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- Sub titles of PracticeFragment -->
+    <string name="practice_lv_one">Practice Level One</string>
+    <string name="practice_lv_two">Practice Level Two</string>
+    <string name="practice_lv_three">Practice Level Three</string>
+
 </resources>

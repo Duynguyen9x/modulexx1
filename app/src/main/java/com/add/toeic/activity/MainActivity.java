@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -37,9 +38,7 @@ import com.add.toeic.fragment.SettingsFragment;
 import com.add.toeic.fragment.WordVocabularyFragment;
 import com.add.toeic.other.CircleTransform;
 
-public class MainActivity extends AppCompatActivity implements WordFragment.OnFragmentInteractionListener,
-        WordVocabularyFragment.OnFragmentInteractionListener, RemindFragment.OnFragmentInteractionListener, GoodBookFragment.OnFragmentInteractionListener,
-        BasicTheoryFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener{
 
     private NavigationView navigationView;
     private DrawerLayout drawer;

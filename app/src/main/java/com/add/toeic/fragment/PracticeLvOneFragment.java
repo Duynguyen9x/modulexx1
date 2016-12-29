@@ -10,22 +10,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.add.toeic.R;
+import com.add.toeic.adapter.PracticeLevelAdapter;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
+import com.add.toeic.model.WordInfo;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.add.toeic.R;
-import com.add.toeic.adapter.BookTheoryAdapter;
-import com.add.toeic.listeners.OnFragmentInteractionListener;
-import com.add.toeic.model.BookTheory;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
+ * { PracticeLvOneFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link GoodBookFragment#newInstance} factory method to
+ * Use the {@link PracticeLvOneFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GoodBookFragment extends Fragment {
+public class PracticeLvOneFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,15 +36,15 @@ public class GoodBookFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ArrayList<BookTheory> mArrList = null;
-    private BookTheoryAdapter mViewAdapter = null;
-    private ListView mListView = null;
-    private Context mContext;
+    private ArrayList<WordInfo> mWordInfoArrayList;
+    private PracticeLevelAdapter mPracticeLevelAdapter;
+    private ListView mListView;
     private View view;
+    private Context mContext;
 
     private OnFragmentInteractionListener mListener;
 
-    public GoodBookFragment() {
+    public PracticeLvOneFragment() {
         // Required empty public constructor
     }
 
@@ -51,16 +52,12 @@ public class GoodBookFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GoodBookFragment.
+     * @return A new instance of fragment PracticeLvOneFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GoodBookFragment newInstance(String param1, String param2) {
-        GoodBookFragment fragment = new GoodBookFragment();
+    public static PracticeLvOneFragment newInstance() {
+        PracticeLvOneFragment fragment = new PracticeLvOneFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -77,73 +74,61 @@ public class GoodBookFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_good_book, container, false);
+        view = inflater.inflate(R.layout.fragment_practice_lv_one, container, false);
         initViewList();
-
+        // Inflate the layout for this fragment
         return view;
     }
 
-    public void initViewList() {
-        mListView = (ListView) view.findViewById(R.id.list_book);
-        mArrList = new ArrayList<>();
+    private void initViewList() {
 
-        mViewAdapter = new BookTheoryAdapter(getContext(), R.layout.booktheory_item_layout, mArrList);
-        mListView.setAdapter(mViewAdapter);
+        mListView = (ListView) view.findViewById(R.id.lv_practice_lv_one);
+        mWordInfoArrayList = new ArrayList<>();
+        mPracticeLevelAdapter = new PracticeLevelAdapter(mContext, R.layout.practice_lv_item, mWordInfoArrayList);
+        mListView.setAdapter(mPracticeLevelAdapter);
 
         initLoadData();
     }
 
-    public void initLoadData() {
-        AsyncTask<Void, Void, List<BookTheory>> loadBitmapTask = new AsyncTask<Void, Void, List<BookTheory>>() {
-//            private ProgressDialog progress = null;
+    private void initLoadData() {
+        AsyncTask<Void, Void, List<WordInfo>>  loadDataPracticeTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+            @Override
+            protected List<WordInfo> doInBackground(Void... params) {
+                return getListWord();
+            }
+
+            @Override
+            protected void onPostExecute(List<WordInfo> wordInfos) {
+                mPracticeLevelAdapter.addAll(wordInfos);
+                mListView.setAdapter(mPracticeLevelAdapter);
+                super.onPostExecute(wordInfos);
+            }
 
             @Override
             protected void onPreExecute() {
-//                progress = ProgressDialog.show(getContext(), null, "Loading application info...");
                 super.onPreExecute();
             }
-
-            @Override
-            protected List<BookTheory> doInBackground(Void... params) {
-                return getListBooks();
-            }
-
-            @Override
-            protected void onPostExecute(List<BookTheory> listBooks) {
-                try {
-//                    progress.dismiss();
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
-
-                mViewAdapter.addAll(listBooks);
-                mListView.setAdapter(mViewAdapter);
-                super.onPostExecute(listBooks);
-            }
         };
-
-        loadBitmapTask.execute();
     }
 
-    public List<BookTheory> getListBooks() {
-        List<BookTheory> listBook = new ArrayList<BookTheory>();
-        ArrayList<BookTheory> arr = new ArrayList<>();
+    private List<WordInfo> getListWord() {
+        List<WordInfo> wordInfoList = new ArrayList<>();
 
-        BookTheory book1 = new BookTheory();
-        book1.setNumber("1. ");
-        book1.setContent("Sach hay 1");
+        WordInfo wordInfo1 = new WordInfo();
+        wordInfo1.setVietnamese("Part1");
+        wordInfoList.add(wordInfo1);
 
-        BookTheory book2 = new BookTheory();
-        book2.setNumber("2. ");
-        book2.setContent("Sach hay 2");
+        WordInfo wordInfo2 = new WordInfo();
+        wordInfo2.setVietnamese("Part1");
+        wordInfoList.add(wordInfo2);
 
-        BookTheory book3 = new BookTheory();
-        book3.setNumber("3. ");
-        book3.setContent("Sach hay 3");
+        WordInfo wordInfo3 = new WordInfo();
+        wordInfo3.setVietnamese("Part1");
+        wordInfoList.add(wordInfo3);
 
-        return listBook;
+        return wordInfoList;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

@@ -21,6 +21,7 @@ import java.util.List;
 import com.add.toeic.R;
 import com.add.toeic.adapter.VocabularyRemindAdapter;
 import com.add.toeic.database.MyDatabaseHelper;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
 
@@ -251,20 +252,5 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     @Override
     public void onHandleRemindButtonClick() {
         Toast.makeText(mContext, "ImageButton clicked", Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }
