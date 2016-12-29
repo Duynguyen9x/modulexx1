@@ -94,6 +94,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
 
 
         Log.i("duy.pq", "TopicWordFragment=" + mLocation);
+        Log.i("anhdt1", "abc");
     }
 
     @Override
