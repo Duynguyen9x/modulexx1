@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:descendantFocusability="blocksDescendants">
 
@@ -9,6 +9,7 @@
         android:id="@+id/app_icon"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
         android:padding="5dp"
         android:scaleType="centerCrop" />
 
@@ -33,20 +34,18 @@
             android:id="@+id/viet_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="10dp"
+            android:paddingEnd="50dp"
+            android:paddingStart="10dp"
             android:text="TextView" />
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/remind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
-        android:layout_marginEnd="5dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical|right"
         android:scaleType="centerCrop" />
 
 
-</RelativeLayout>
+</FrameLayout>

@@ -25,6 +25,14 @@
         <item name="tabSelectedTextColor">@color/colorPrimary</item>
     </style>
 
+    <style name="TabLayoutStyleTopic" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">8dp</item>
+        <item name="tabPaddingEnd">8dp</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/colorOrange</item>
+    </style>
+
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">14sp</item>
         <item name="textAllCaps">true</item>

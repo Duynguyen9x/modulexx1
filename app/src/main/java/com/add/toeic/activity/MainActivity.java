@@ -1,5 +1,6 @@
 package com.add.toeic.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
     private FloatingActionButton fab;
     private Button lockScreenBtn;
     private Button remindWordBtn;
+    private Context mContext;
 
     // urls to load navigation header background image
     // and profile image
@@ -79,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext = this;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -108,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements WordFragment.OnFr
     }
 
     public void initView() {
+
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
