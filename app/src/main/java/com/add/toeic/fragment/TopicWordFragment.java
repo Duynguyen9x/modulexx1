@@ -121,7 +121,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
+              //  Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
                 // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
 
                 Intent i = new Intent(mContext, DetailWordActivity.class);

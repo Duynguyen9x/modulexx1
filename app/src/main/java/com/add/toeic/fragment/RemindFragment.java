@@ -40,7 +40,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     private String mParam1;
     private String mParam2;
 
-    private ArrayList<WordInfo> mArrList = null;
+    private ArrayList<Word> mArrList = null;
     private VocabularyRemindAdapter mVocabularyRemindAdapter = null;
     private ListView mListView = null;
     private Context mContext;
@@ -54,6 +54,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     private LinearLayout mLinearLayout;
 
     private OnFragmentInteractionListener mListener;
+    private MyDatabaseHelper db;
 
     public RemindFragment() {
         // Required empty public constructor
@@ -145,7 +146,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
         mListView = (ListView) view.findViewById(R.id.list_remind);
 
         mArrList = new ArrayList<>();
-        mVocabularyRemindAdapter = new VocabularyRemindAdapter(mContext, R.layout.word_item_layout_for_remind, mArrList);
+        mVocabularyRemindAdapter = new VocabularyRemindAdapter(mContext, R.layout.word_item_layout_for_remind, mArrList, false);
         mVocabularyRemindAdapter.setOnRemindButtonClickListener(this);
         mListView.setAdapter(mVocabularyRemindAdapter);
 
@@ -153,7 +154,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     }
 
     public void initLoadData() {
-        AsyncTask<Void, Void, List<WordInfo>> loadDataTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+        AsyncTask<Void, Void, List<Word>> loadDataTask = new AsyncTask<Void, Void, List<Word>>() {
 //            private ProgressDialog progress = null;
 
             @Override
@@ -163,12 +164,12 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
             }
 
             @Override
-            protected List<WordInfo> doInBackground(Void... params) {
+            protected List<Word> doInBackground(Void... params) {
                 return getListWords();
             }
 
             @Override
-            protected void onPostExecute(List<WordInfo> listWords) {
+            protected void onPostExecute(List<Word> listWords) {
                 try {
 //                    progress.dismiss();
                 } catch (IllegalArgumentException e) {
@@ -184,21 +185,21 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
         loadDataTask.execute();
     }
 
-    public List<WordInfo> getListWords() {
-        List<WordInfo> listWord = new ArrayList<WordInfo>();
+    public List<Word> getListWords() {
+        List<Word> listWord = new ArrayList<Word>();
 
-        MyDatabaseHelper db = new MyDatabaseHelper(getActivity());
-        db.createDefaultNotesIfNeed();
+        db = new MyDatabaseHelper(getActivity());
+        //  db.createDefaultNotesIfNeed();
 
 
         ArrayList<Word> arr = db.getAllWords();
-        for (int i = 0; i < arr.size(); i++) {
-            Log.i("duy.pq", "item=" + arr.get(i).toString());
-            WordInfo wordInfo = new WordInfo();
-            wordInfo.setEnglish(arr.get(i).getName());
-            wordInfo.setVietnamese(arr.get(i).getName_key());
-            listWord.add(wordInfo);
-        }
+//        for (int i = 0; i < arr.size(); i++) {
+//            Log.i("duy.pq", "item=" + arr.get(i).toString());
+//            WordInfo wordInfo = new WordInfo();
+//            wordInfo.setEnglish(arr.get(i).getName());
+//            wordInfo.setVietnamese(arr.get(i).getName_key());
+//            listWord.add(wordInfo);
+//        }
 
 
 //        try {
@@ -215,7 +216,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
 //            listWord.add(wordInfo);
 //        }
 
-        return listWord;
+        return arr;
     }
 
     @Override
