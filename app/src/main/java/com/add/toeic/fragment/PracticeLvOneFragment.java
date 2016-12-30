@@ -8,7 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.adapter.PracticeLevelAdapter;
@@ -88,10 +90,23 @@ public class PracticeLvOneFragment extends Fragment {
         mListView.setAdapter(mPracticeLevelAdapter);
 
         initLoadData();
+
+        initControl();
+    }
+
+    private void initControl() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Toast.makeText(mContext, "Photo", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void initLoadData() {
-        AsyncTask<Void, Void, List<WordInfo>>  loadDataPracticeTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+        AsyncTask<Void, Void, List<WordInfo>> loadDataPracticeTask = new AsyncTask<Void, Void, List<WordInfo>>() {
             @Override
             protected List<WordInfo> doInBackground(Void... params) {
                 return getListWord();
