@@ -2,9 +2,11 @@ package com.add.toeic.fragment;
 
 
 import android.content.Context;
+import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,18 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.add.toeic.R;
-import com.add.toeic.adapter.VocabularyRemindAdapter;
+import com.add.toeic.adapter.WordRemindAdapter;
 import com.add.toeic.database.MyDatabaseHelper;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.Word;
-import com.add.toeic.model.WordInfo;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RemindFragment#newInstance} factory method to
+ * Use the {@link WordRemindFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RemindFragment extends Fragment implements VocabularyRemindAdapter.OnRemindButtonClickListener {
+public class WordRemindFragment extends Fragment implements WordRemindAdapter.OnRemindButtonClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +42,7 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     private String mParam2;
 
     private ArrayList<Word> mArrList = null;
-    private VocabularyRemindAdapter mVocabularyRemindAdapter = null;
+    private WordRemindAdapter mWordRemindAdapter = null;
     private ListView mListView = null;
     private Context mContext;
     private View view;
@@ -56,7 +57,14 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     private OnFragmentInteractionListener mListener;
     private MyDatabaseHelper db;
 
-    public RemindFragment() {
+    public static final String AUTHORITY = "com.add.toeic";
+    public static final String BASE_PATH = "word";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
+    //= Uri.parse("/data/user/0/com.add.toeic/databases/word_manager");
+    //
+
+
+    public WordRemindFragment() {
         // Required empty public constructor
     }
 
@@ -66,11 +74,11 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RemindFragment.
+     * @return A new instance of fragment WordRemindFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RemindFragment newInstance(String param1, String param2) {
-        RemindFragment fragment = new RemindFragment();
+    public static WordRemindFragment newInstance(String param1, String param2) {
+        WordRemindFragment fragment = new WordRemindFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -88,8 +96,34 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+//        Log.i("duy.pq", "URI1=" + db.getDatabaseName());
+//        Log.i("duy.pq", "URI2=" + db.toString());
+//        Log.i("duy.pq", "URI3=" + db.getWritableDatabase().getPath());
+        mContext.getContentResolver().registerContentObserver(CONTENT_URI, true, contentObserver);
+    }
+
+    private ContentObserver contentObserver = new ContentObserver(new Handler()) {
+        @Override
+        public void onChange(boolean selfChange) {
+            mWordRemindAdapter.addAll(getListWords());
+            mListView.setAdapter(mWordRemindAdapter);
+            mWordRemindAdapter.notifyDataSetChanged();
+            Log.i("duy.pq", "contentObserver = ");
+
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mContext.getContentResolver().unregisterContentObserver(contentObserver);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i("duynq", "RemindFragment : onCreateView");
+        Log.i("duynq", "WordRemindFragment : onCreateView");
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_remind, container, false);
         initRemindList();
@@ -146,9 +180,9 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
         mListView = (ListView) view.findViewById(R.id.list_remind);
 
         mArrList = new ArrayList<>();
-        mVocabularyRemindAdapter = new VocabularyRemindAdapter(mContext, R.layout.word_item_layout_for_remind, mArrList, false);
-        mVocabularyRemindAdapter.setOnRemindButtonClickListener(this);
-        mListView.setAdapter(mVocabularyRemindAdapter);
+        mWordRemindAdapter = new WordRemindAdapter(mContext, R.layout.word_item_layout_for_remind, mArrList, false);
+        mWordRemindAdapter.setOnRemindButtonClickListener(this);
+        mListView.setAdapter(mWordRemindAdapter);
 
         initLoadData();
     }
@@ -176,8 +210,8 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
                     e.printStackTrace();
                 }
 
-                mVocabularyRemindAdapter.addAll(listWords);
-                mListView.setAdapter(mVocabularyRemindAdapter);
+                mWordRemindAdapter.addAll(listWords);
+                mListView.setAdapter(mWordRemindAdapter);
                 super.onPostExecute(listWords);
             }
         };
@@ -190,38 +224,14 @@ public class RemindFragment extends Fragment implements VocabularyRemindAdapter.
 
         db = new MyDatabaseHelper(getActivity());
         //  db.createDefaultNotesIfNeed();
-
-
         ArrayList<Word> arr = db.getAllWords();
-//        for (int i = 0; i < arr.size(); i++) {
-//            Log.i("duy.pq", "item=" + arr.get(i).toString());
-//            WordInfo wordInfo = new WordInfo();
-//            wordInfo.setEnglish(arr.get(i).getName());
-//            wordInfo.setVietnamese(arr.get(i).getName_key());
-//            listWord.add(wordInfo);
-//        }
-
-
-//        try {
-//            arr = WordUtils.readAllData(mContext);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        for (int i = 0; i < 12; i++) {
-//            WordInfo wordInfo = new WordInfo();
-//
-//            wordInfo.setEnglish(arr.get(1 * 12 + i).getName());
-//            wordInfo.setVietnamese(arr.get(1 * 12 + i).getName_key());
-//
-//            listWord.add(wordInfo);
-//        }
 
         return arr;
     }
 
     @Override
     public void onDestroyView() {
-        Log.i("duynq", "RemindFragment : onDestroyView");
+        Log.i("duynq", "WordRemindFragment : onDestroyView");
         super.onDestroyView();
     }
 

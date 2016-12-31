@@ -28,11 +28,11 @@ import com.add.toeic.model.BookTheory;
 public class GoodBookFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String PARAM_KIND = "param_kind";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private String mParamKind;
     private String mParam2;
 
     private ArrayList<BookTheory> mArrList = null;
@@ -42,6 +42,7 @@ public class GoodBookFragment extends Fragment {
     private View view;
 
     private OnFragmentInteractionListener mListener;
+    private int mKind;
 
     public GoodBookFragment() {
         // Required empty public constructor
@@ -59,7 +60,7 @@ public class GoodBookFragment extends Fragment {
     public static GoodBookFragment newInstance(String param1, String param2) {
         GoodBookFragment fragment = new GoodBookFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putString(PARAM_KIND, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -69,8 +70,15 @@ public class GoodBookFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParamKind = getArguments().getString(PARAM_KIND);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            if (mParamKind.equals("1")) {
+                mKind = 1;
+            }
+            if (mParamKind.equals("2")) {
+                mKind = 2;
+            }
         }
     }
 
@@ -96,11 +104,9 @@ public class GoodBookFragment extends Fragment {
 
     public void initLoadData() {
         AsyncTask<Void, Void, List<BookTheory>> loadBitmapTask = new AsyncTask<Void, Void, List<BookTheory>>() {
-//            private ProgressDialog progress = null;
 
             @Override
             protected void onPreExecute() {
-//                progress = ProgressDialog.show(getContext(), null, "Loading application info...");
                 super.onPreExecute();
             }
 
@@ -111,11 +117,6 @@ public class GoodBookFragment extends Fragment {
 
             @Override
             protected void onPostExecute(List<BookTheory> listBooks) {
-                try {
-//                    progress.dismiss();
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
 
                 mViewAdapter.addAll(listBooks);
                 mListView.setAdapter(mViewAdapter);
@@ -127,22 +128,50 @@ public class GoodBookFragment extends Fragment {
     }
 
     public List<BookTheory> getListBooks() {
-        List<BookTheory> listBook = new ArrayList<BookTheory>();
-        ArrayList<BookTheory> arr = new ArrayList<>();
+        if (mKind == 1) {
+            List<BookTheory> listBook = new ArrayList<BookTheory>();
+            ArrayList<BookTheory> arr = new ArrayList<>();
 
-        BookTheory book1 = new BookTheory();
-        book1.setNumber("1. ");
-        book1.setContent("Sach hay 1");
+            BookTheory book1 = new BookTheory();
+            book1.setNumber("1. ");
+            book1.setContent("Sach hay 1");
+            listBook.add(book1);
 
-        BookTheory book2 = new BookTheory();
-        book2.setNumber("2. ");
-        book2.setContent("Sach hay 2");
+            BookTheory book2 = new BookTheory();
+            book2.setNumber("2. ");
+            book2.setContent("Sach hay 2");
+            listBook.add(book2);
 
-        BookTheory book3 = new BookTheory();
-        book3.setNumber("3. ");
-        book3.setContent("Sach hay 3");
+            BookTheory book3 = new BookTheory();
+            book3.setNumber("3. ");
+            book3.setContent("Sach hay 3");
+            listBook.add(book3);
 
-        return listBook;
+            return listBook;
+        }
+
+        if (mKind == 2) {
+            List<BookTheory> listBook = new ArrayList<BookTheory>();
+            ArrayList<BookTheory> arr = new ArrayList<>();
+
+            BookTheory book1 = new BookTheory();
+            book1.setNumber("1. ");
+            book1.setContent("Sach deo hay 1");
+            listBook.add(book1);
+
+            BookTheory book2 = new BookTheory();
+            book2.setNumber("2. ");
+            book2.setContent("Sach deo hay 2");
+            listBook.add(book2);
+
+            BookTheory book3 = new BookTheory();
+            book3.setNumber("3. ");
+            book3.setContent("Sach deo hay 3");
+            listBook.add(book3);
+
+            return listBook;
+        }
+        return null;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

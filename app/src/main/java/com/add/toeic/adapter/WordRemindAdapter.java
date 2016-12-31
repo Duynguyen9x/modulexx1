@@ -23,7 +23,7 @@ import com.bumptech.glide.Glide;
 /**
  * Created by 8470p on 12/25/2016.
  */
-public class VocabularyRemindAdapter extends ArrayAdapter<Word> {
+public class WordRemindAdapter extends ArrayAdapter<Word> {
 
     private List<Word> mWordList;
     private Context mContext;
@@ -36,7 +36,7 @@ public class VocabularyRemindAdapter extends ArrayAdapter<Word> {
         mListener = listener;
     }
 
-    public VocabularyRemindAdapter(Context context, int resource, ArrayList<Word> mWordList, boolean isDelete) {
+    public WordRemindAdapter(Context context, int resource, ArrayList<Word> mWordList, boolean isDelete) {
         super(context, resource, mWordList);
         this.mContext = context;
         this.mWordList = mWordList;

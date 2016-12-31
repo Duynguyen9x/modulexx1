@@ -30,15 +30,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import com.add.toeic.R;
-import com.add.toeic.fragment.BasicTheoryFragment;
-import com.add.toeic.fragment.GoodBookFragment;
 import com.add.toeic.fragment.PracticeFragment;
 import com.add.toeic.fragment.WordFragment;
 import com.add.toeic.fragment.NotificationsFragment;
 import com.add.toeic.fragment.BookFragment;
-import com.add.toeic.fragment.RemindFragment;
 import com.add.toeic.fragment.SettingsFragment;
-import com.add.toeic.fragment.WordVocabularyFragment;
 import com.add.toeic.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener{
