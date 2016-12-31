@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.add.toeic.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,19 +23,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.add.toeic.activity.AboutUsActivity"
+            android:name=".activity.AboutUsActivity"
             android:label="@string/activity_title_about_us" />
         <activity
-            android:name="com.add.toeic.activity.PrivacyPolicyActivity"
+            android:name=".activity.PrivacyPolicyActivity"
             android:label="@string/activity_title_privacy_policy" />
         <activity
-            android:name="com.add.toeic.activity.TopicItemActivity"
+            android:name=".activity.TopicItemActivity"
             android:label="@string/title_activity_topic_item"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.add.toeic.activity.DetailWordActivity"
+            android:name=".activity.DetailWordActivity"
             android:label="@string/title_activity_detail_word"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".recievers.UnlockedScreenReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.UnlockedScreenService"
+            android:exported="false"
+            android:stopWithTask="false" />
+
+        <activity
+            android:name=".activity.LockScreenActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"></activity>
     </application>
 
 </manifest>
