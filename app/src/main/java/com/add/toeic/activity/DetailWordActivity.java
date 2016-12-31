@@ -248,7 +248,7 @@ public class DetailWordActivity extends AppCompatActivity {
             Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(mListData.get(num_pager - 1).getName())))
                     .centerCrop().into(mImageWord);
 
-            mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
+            mImageButtonSpeak.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -258,7 +258,7 @@ public class DetailWordActivity extends AppCompatActivity {
                 }
             });
 
-            mImageButtonSpeak.setOnClickListener(new View.OnClickListener() {
+            mImageButtonVoice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     SoundUtis.play(mContext, mListData.get(num_pager - 1).getName());
@@ -301,7 +301,7 @@ public class DetailWordActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            return PlaceholderFragment.newInstance(position + 1, mArrayList, mGroupWord, mWord);
+            return PlaceholderFragment.newInstance(mWord + 1, mArrayList, mGroupWord, mWord);
         }
 
         @Override

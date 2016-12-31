@@ -181,23 +181,23 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-//        for (int i = 0; i < 12; i++) {
-//            WordInfo wordInfo = new WordInfo();
-//
-//            wordInfo.setEnglish(arr.get(mLocation * 12 + i).getName());
-//            wordInfo.setVietnamese(arr.get(mLocation * 12 + i).getName_key());
-//
-//            listWord.add(wordInfo);
-//        }
-
-        for (int i = 0; i < arr.size(); i++) {
+        for (int i = 0; i < 12; i++) {
             WordInfo wordInfo = new WordInfo();
 
-            wordInfo.setEnglish(arr.get(i).getName());
-            wordInfo.setVietnamese(arr.get(i).getName_key());
+            wordInfo.setEnglish(arr.get(mLocation * 12 + i).getName());
+            wordInfo.setVietnamese(arr.get(mLocation * 12 + i).getName_key());
 
             listWord.add(wordInfo);
         }
+
+//        for (int i = 0; i < arr.size(); i++) {
+//            WordInfo wordInfo = new WordInfo();
+//
+//            wordInfo.setEnglish(arr.get(i).getName());
+//            wordInfo.setVietnamese(arr.get(i).getName_key());
+//
+//            listWord.add(wordInfo);
+//        }
 
         return listWord;
     }
