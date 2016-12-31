@@ -8,7 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.adapter.PracticeLevelAdapter;
@@ -88,10 +90,23 @@ public class PracticeLvOneFragment extends Fragment {
         mListView.setAdapter(mPracticeLevelAdapter);
 
         initLoadData();
+
+        initControl();
+    }
+
+    private void initControl() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Toast.makeText(mContext, "Photo", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void initLoadData() {
-        AsyncTask<Void, Void, List<WordInfo>>  loadDataPracticeTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+        AsyncTask<Void, Void, List<WordInfo>> loadDataPracticeTask = new AsyncTask<Void, Void, List<WordInfo>>() {
             @Override
             protected List<WordInfo> doInBackground(Void... params) {
                 return getListWord();
@@ -116,16 +131,34 @@ public class PracticeLvOneFragment extends Fragment {
         List<WordInfo> wordInfoList = new ArrayList<WordInfo>();
 
         WordInfo wordInfo1 = new WordInfo();
-        wordInfo1.setVietnamese("Part1");
+        wordInfo1.setEnglish("Part 1");
+        wordInfo1.setVietnamese("Photo");
+        wordInfo1.setIcon(getResources().getDrawable(R.drawable.photo, mContext.getTheme()));
         wordInfoList.add(wordInfo1);
 
         WordInfo wordInfo2 = new WordInfo();
-        wordInfo2.setVietnamese("Part1");
+        wordInfo2.setEnglish("Part 2");
+        wordInfo2.setVietnamese("Question response");
+        wordInfo2.setIcon(getResources().getDrawable(R.drawable.question_responce, mContext.getTheme()));
         wordInfoList.add(wordInfo2);
 
         WordInfo wordInfo3 = new WordInfo();
-        wordInfo3.setVietnamese("Part1");
+        wordInfo3.setEnglish("Part 3");
+        wordInfo3.setVietnamese("Short conversation");
+        wordInfo3.setIcon(getResources().getDrawable(R.drawable.short_conversatiob, mContext.getTheme()));
         wordInfoList.add(wordInfo3);
+
+        WordInfo wordInfo4 = new WordInfo();
+        wordInfo4.setEnglish("Part 4");
+        wordInfo4.setVietnamese("Incomplete Sentence");
+        wordInfo4.setIcon(getResources().getDrawable(R.drawable.iincomplete_sentence, mContext.getTheme()));
+        wordInfoList.add(wordInfo4);
+
+        WordInfo wordInfo5 = new WordInfo();
+        wordInfo5.setEnglish("Part 5");
+        wordInfo5.setVietnamese("Text Completion");
+        wordInfo5.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
+        wordInfoList.add(wordInfo5);
 
         return wordInfoList;
     }

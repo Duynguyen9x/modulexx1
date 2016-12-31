@@ -1,6 +1,7 @@
 package com.add.toeic.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,28 +14,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.add.toeic.R;
+import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by 8470p on 12/25/2016.
  */
-public class VocabularyRemindAdapter  extends ArrayAdapter<WordInfo> {
+public class WordRemindAdapter extends ArrayAdapter<Word> {
 
-    private List<WordInfo> mWordList;
+    private List<Word> mWordList;
     private Context mContext;
     private ImageLoader mImageLoader;
 
     private OnRemindButtonClickListener mListener;
+    private boolean mIsDelete;
 
     public void setOnRemindButtonClickListener(OnRemindButtonClickListener listener) {
         mListener = listener;
     }
-    public VocabularyRemindAdapter(Context context, int resource, ArrayList<WordInfo> mWordList) {
+
+    public WordRemindAdapter(Context context, int resource, ArrayList<Word> mWordList, boolean isDelete) {
         super(context, resource, mWordList);
         this.mContext = context;
         this.mWordList = mWordList;
+        this.mIsDelete = isDelete;
     }
 
     @Override
@@ -43,7 +49,7 @@ public class VocabularyRemindAdapter  extends ArrayAdapter<WordInfo> {
     }
 
     @Override
-    public WordInfo getItem(int position) {
+    public Word getItem(int position) {
         return ((null != mWordList) ? mWordList.get(position) : null);
     }
 
@@ -55,7 +61,7 @@ public class VocabularyRemindAdapter  extends ArrayAdapter<WordInfo> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        WordInfo wordInfo = getItem(position);
+        Word word = getItem(position);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -74,12 +80,17 @@ public class VocabularyRemindAdapter  extends ArrayAdapter<WordInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        if (null != wordInfo) {
-            holder.eng_word.setText(wordInfo.getEnglsih());
-            holder.viet_word.setText(wordInfo.getVietnamese());
-            // holder.iconView.setImageResource(mImageLoader.loadDrawableLocal(wordInfo.getEnglsih()));
-            holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, wordInfo.getEnglsih()));
-            holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
+        if (null != word) {
+            holder.eng_word.setText(word.getName());
+            holder.viet_word.setText(word.getName_key());
+
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(word.getName())))
+                    .centerCrop().into(holder.iconView);
+
+
+        //    Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableChild(groupPosition))).centerCrop().into(holder.iconView);
+
+            // holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
             //mImageLoader.loadIcon(wordInfo.getEnglsih(), holder.iconView);
         }
 

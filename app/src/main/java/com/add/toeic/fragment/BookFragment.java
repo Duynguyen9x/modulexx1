@@ -107,11 +107,12 @@ public class BookFragment extends Fragment {
          * Return fragment with respect to Position .
          */
         @Override
-        public Fragment getItem(int position)
-        {
-            switch (position){
-                case 0 : return new GoodBookFragment();
-                case 1 : return new BasicTheoryFragment();
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return GoodBookFragment.newInstance("1", null);
+                case 1:
+                    return GoodBookFragment.newInstance("2", null);
             }
             return null;
         }
@@ -127,10 +128,10 @@ public class BookFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
 
-            switch (position){
-                case 0 :
+            switch (position) {
+                case 0:
                     return getString(R.string.goodbook);
-                case 1 :
+                case 1:
                     return getString(R.string.basic_theory);
             }
             return null;
