@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.add.toeic.R;
+import com.add.toeic.database.MyDatabaseHelper;
+import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
@@ -22,23 +24,26 @@ import com.bumptech.glide.Glide;
 /**
  * Created by 8470p on 12/18/2016.
  */
-public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
+public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
 
-    private List<WordInfo> mWordList;
+    private List<Word> mWordList;
     private Context mContext;
     private ImageLoader mImageLoader;
 
     private OnRemindButtonClickListener mListener;
 
+    private MyDatabaseHelper db;// = new MyDatabaseHelper(getActivity());
+
     public void setOnRemindButtonClickListener(OnRemindButtonClickListener listener) {
         mListener = listener;
     }
 
-    public VocabularyTopicAdapter(Context context, int resource, ArrayList<WordInfo> mWordList, ImageLoader imageLoader) {
+    public VocabularyTopicAdapter(Context context, int resource, ArrayList<Word> mWordList, ImageLoader imageLoader) {
         super(context, resource, mWordList);
         this.mContext = context;
         this.mWordList = mWordList;
         this.mImageLoader = imageLoader;
+        db = new MyDatabaseHelper(mContext);
     }
 
     @Override
@@ -47,7 +52,7 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
     }
 
     @Override
-    public WordInfo getItem(int position) {
+    public Word getItem(int position) {
         return ((null != mWordList) ? mWordList.get(position) : null);
     }
 
@@ -57,9 +62,9 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        WordInfo wordInfo = getItem(position);
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder;
+        Word word = getItem(position);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -78,20 +83,35 @@ public class VocabularyTopicAdapter extends ArrayAdapter<WordInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        if (null != wordInfo) {
-            holder.eng_word.setText(wordInfo.getEnglsih());
-            holder.viet_word.setText(wordInfo.getVietnamese());
-            //  holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, wordInfo.getEnglsih()));
-            holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
+        final boolean isHasWord = db.checkHasWord(mWordList.get(position));
+
+        if (null != word) {
+            holder.eng_word.setText(word.getName());
+            holder.viet_word.setText(word.getName_key());
+            //  holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, word.getEnglsih()));
+
+            if (isHasWord) {
+                holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_on));
+            } else {
+                holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
+            }
 
             holder.iconView.setClipToOutline(true);
-            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(wordInfo.getEnglsih())))
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(word.getName())))
                     .centerCrop().into(holder.iconView);
         }
 
         holder.remindView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onHandleRemindButtonClick();
+
+                if (isHasWord) {
+                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
+                    db.deleteWord(mWordList.get(position));
+                } else {
+                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_on));
+                    db.addWord(mWordList.get(position));
+                }
             }
         });
         return convertView;

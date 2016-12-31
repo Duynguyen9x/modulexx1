@@ -44,7 +44,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     private String mParam1;
     private String mParam2;
 
-    private ArrayList<WordInfo> mArrList = null;
+    //  private ArrayList<WordInfo> mArrList = null;
     private ArrayList<Word> mArrWord = null;
 
     private List<WordInfo> mListWord = null;
@@ -110,18 +110,18 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     public void initWordList() {
         mListView = (ListView) view.findViewById(R.id.list_topic_word);
 
-        mArrList = new ArrayList<>();
+        mArrWord = new ArrayList<Word>();
         mImageLoader = new ImageLoader(mContext, 100);
         //  mImageLoader.startIconLoaderThread();
 
 
-        mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout_for_remind, mArrList, mImageLoader);
+        mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout_for_remind, mArrWord, mImageLoader);
         mViewAdapter.setOnRemindButtonClickListener(this);
         mListView.setAdapter(mViewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
+              //  Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
                 // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
 
                 Intent i = new Intent(mContext, DetailWordActivity.class);
@@ -140,7 +140,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     }
 
     public void initLoadData() {
-        AsyncTask<Void, Void, List<WordInfo>> loadBitmapTask = new AsyncTask<Void, Void, List<WordInfo>>() {
+        AsyncTask<Void, Void, List<Word>> loadBitmapTask = new AsyncTask<Void, Void, List<Word>>() {
 //            private ProgressDialog progress = null;
 
             @Override
@@ -150,19 +150,18 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
             }
 
             @Override
-            protected List<WordInfo> doInBackground(Void... params) {
+            protected List<Word> doInBackground(Void... params) {
                 return getListWords();
             }
 
             @Override
-            protected void onPostExecute(List<WordInfo> listWords) {
+            protected void onPostExecute(List<Word> listWords) {
                 try {
 //                    progress.dismiss();
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
 
-                mListWord = listWords;
                 mViewAdapter.addAll(listWords);
                 mListView.setAdapter(mViewAdapter);
                 super.onPostExecute(listWords);
@@ -172,8 +171,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         loadBitmapTask.execute();
     }
 
-    public List<WordInfo> getListWords() {
-        List<WordInfo> listWord = new ArrayList<WordInfo>();
+    public List<Word> getListWords() {
         ArrayList<Word> arr = null;
 
         try {
@@ -181,25 +179,8 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < 12; i++) {
-            WordInfo wordInfo = new WordInfo();
 
-            wordInfo.setEnglish(arr.get(mLocation * 12 + i).getName());
-            wordInfo.setVietnamese(arr.get(mLocation * 12 + i).getName_key());
-
-            listWord.add(wordInfo);
-        }
-
-//        for (int i = 0; i < arr.size(); i++) {
-//            WordInfo wordInfo = new WordInfo();
-//
-//            wordInfo.setEnglish(arr.get(i).getName());
-//            wordInfo.setVietnamese(arr.get(i).getName_key());
-//
-//            listWord.add(wordInfo);
-//        }
-
-        return listWord;
+        return arr;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
