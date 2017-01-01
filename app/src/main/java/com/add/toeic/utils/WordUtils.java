@@ -2,6 +2,7 @@ package com.add.toeic.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import com.add.toeic.model.BookTheory;
 import com.add.toeic.model.HeaderWord;
 import com.add.toeic.model.Word;
 
@@ -93,6 +95,19 @@ public class WordUtils {
         }
         return arr;
     }
+
+    public static ArrayList<BookTheory> readAllBookName(Context context) throws FileNotFoundException {
+        AssetManager am = context.getResources().getAssets();
+        ArrayList<BookTheory> arr = null;
+        try {
+            InputStreamReader ip = new InputStreamReader(context.getResources().getAssets().open("book.txt"));
+            arr = readDataBookFromLocal(ip);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
 
     public static ArrayList<Word> readDataFromLocalFinal(InputStreamReader isr) {
         try {
@@ -215,5 +230,31 @@ public class WordUtils {
         }
         return null;
     }
+
+    public static ArrayList<BookTheory> readDataBookFromLocal(InputStreamReader isr) {
+        try {
+            BufferedReader br = new BufferedReader(isr);
+            String s;
+            int count = 1;
+            ArrayList<BookTheory> arr = new ArrayList<BookTheory>();
+
+            //    Log.i("duy.pq","book"+br.toString());
+            String line = br.readLine();
+            while (line != null) {
+                BookTheory bookTheory = new BookTheory();
+                bookTheory.setNumber(count + "");
+                bookTheory.setContent(line);
+                count++;
+                arr.add(bookTheory);
+                line = br.readLine();
+            }
+
+            return arr;
+        } catch (IOException e) {
+            System.out.println("Đã có lỗi xảy ra!");
+        }
+        return null;
+    }
+
 
 }

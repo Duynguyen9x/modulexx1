@@ -25,7 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     // Tên cơ sở dữ liệu.
-    private static final String DATABASE_NAME = "Word_Manager";
+    private static final String DATABASE_NAME = "word_manager";
 
 
     // Tên bảng: Word.

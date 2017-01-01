@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_web_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    tools:context="com.add.toeic.activity.BookDetailsActivity">
+
+    <WebView
+        android:id="@+id/wv_html"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="duy dep zai"
+        tools:context=".MainActivity" />
+
+</FrameLayout>

@@ -36,7 +36,26 @@
             android:name=".activity.DetailWordActivity"
             android:label="@string/title_activity_detail_word"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.BookDetailsActivity"></activity>
+
+        <receiver
+            android:name=".recievers.UnlockedScreenReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.UnlockedScreenService"
+            android:exported="false"
+            android:stopWithTask="false" />
+
+        <activity
+            android:configChanges="orientation|touchscreen|screenLayout|uiMode|layoutDirection|screenSize"
+            android:name=".activity.LockScreenActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"></activity>
     </application>
 
 </manifest>

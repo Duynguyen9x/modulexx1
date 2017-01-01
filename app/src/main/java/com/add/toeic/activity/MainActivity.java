@@ -1,7 +1,9 @@
 package com.add.toeic.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,28 +22,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
+import com.add.toeic.R;
+import com.add.toeic.fragment.BookFragment;
+import com.add.toeic.fragment.NotificationsFragment;
+import com.add.toeic.fragment.PracticeFragment;
+import com.add.toeic.fragment.SettingsFragment;
+import com.add.toeic.fragment.WordFragment;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
+import com.add.toeic.other.CircleTransform;
+import com.add.toeic.services.UnlockedScreenService;
+import com.add.toeic.utils.Utils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import com.add.toeic.R;
-import com.add.toeic.fragment.BasicTheoryFragment;
-import com.add.toeic.fragment.GoodBookFragment;
-import com.add.toeic.fragment.PracticeFragment;
-import com.add.toeic.fragment.WordFragment;
-import com.add.toeic.fragment.NotificationsFragment;
-import com.add.toeic.fragment.BookFragment;
-import com.add.toeic.fragment.RemindFragment;
-import com.add.toeic.fragment.SettingsFragment;
-import com.add.toeic.fragment.WordVocabularyFragment;
-import com.add.toeic.other.CircleTransform;
-
-public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -50,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
-    private Button lockScreenBtn;
-    private Button remindWordBtn;
+    private ToggleButton tgBtnLockScreen;
+    private ToggleButton remindWordBtn;
     private Context mContext;
 
     // urls to load navigation header background image
@@ -77,6 +76,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
 
+    // Toggle button nav_header_main
+    private static final int REQUEST_CODE_SYSTEM_ALERT_WINDOW = 1;
+    private static String[] APP_PRE_PERMISSIONS = {Manifest.permission.SYSTEM_ALERT_WINDOW};
+    private static final String PREF_NAME = "saveStateToggleBtn";
+    private static final String quickAnswerState = "tgbtn_unlocked_quick_answer_state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +113,33 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             CURRENT_TAG = TAG_WORDs;
             loadHomeFragment();
         }
+
+        preLockScreenProcess();
+    }
+
+    private void preLockScreenProcess() {
+        SharedPreferences sharedPrefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        if (sharedPrefs == null) {
+            initSharePreference();
+        } else {
+            tgBtnLockScreen.setChecked(sharedPrefs.getBoolean(quickAnswerState, false));
+        }
+        if (!UnlockedScreenService.isCreated()) {
+            if (Utils.isUnderM()) {
+                startService(new Intent(getApplicationContext(), UnlockedScreenService.class));
+            } else {
+                // if not, the permission will be handled in onActivityResult
+                if (Utils.checkAndRequestPermissions(this, APP_PRE_PERMISSIONS, REQUEST_CODE_SYSTEM_ALERT_WINDOW)) {
+                    startService(new Intent(getApplicationContext(), UnlockedScreenService.class));
+                }
+            }
+        }
+    }
+
+    private void initSharePreference() {
+        SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit();
+        editor.putBoolean(quickAnswerState, false);
+        editor.apply();
     }
 
     public void initView() {
@@ -128,8 +159,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        lockScreenBtn = (Button) navHeader.findViewById(R.id.lock_sreen);
-        remindWordBtn = (Button) navHeader.findViewById(R.id.remind_word);
+        tgBtnLockScreen = (ToggleButton) navHeader.findViewById(R.id.lock_screen);
+        remindWordBtn = (ToggleButton) navHeader.findViewById(R.id.remind_word);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -145,10 +176,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         txtName.setText("Toiec 650+");
         txtWebsite.setText("duynguyen93.vnu@gmail.com");
 
-        lockScreenBtn.setOnClickListener(new View.OnClickListener() {
+        tgBtnLockScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "lock Screen started", Toast.LENGTH_SHORT).show();
+                boolean state1 = tgBtnLockScreen.isChecked();
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit();
+                editor.putBoolean(quickAnswerState, state1); // value to store
+                editor.apply();
             }
         });
 
@@ -425,5 +459,14 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_SYSTEM_ALERT_WINDOW && Utils.enabledDrawOverlays(mContext)) {
+            if (!UnlockedScreenService.isCreated()) {
+                startService(new Intent(getApplicationContext(), UnlockedScreenService.class));
+            }
+        }
     }
 }
