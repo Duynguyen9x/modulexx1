@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/custom_layout_below"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <ImageButton
+        android:id="@+id/btn_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="410dp"
+        android:src = "@drawable/action_play"
+        android:background="@drawable/circle_background_item"
+        android:scaleType="fitCenter"/>
+
+    <!--<ProgressBar-->
+        <!--android:id="@+id/progress"-->
+        <!--android:layout_marginStart="50dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--style="?android:attr/progressBarStyleHorizontal"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:layout_marginTop="430dp"-->
+        <!--android:layout_height="10dp" />-->
+
+    <SeekBar
+        android:id="@+id/simpleProgressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginStart="50dp"
+        android:max="100"
+        android:progress="0"
+        android:background="@null"
+        android:shape="oval"
+        android:splitTrack="true"
+        android:progressDrawable="@drawable/progress_background"
+        android:secondaryProgress="0"
+        android:thumbOffset="10dp"
+        android:thumb="@drawable/oval_seekbar_thumb" />
+
+    <Button
+        android:id="@+id/btn_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:text="KiemTra"
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/colorPrimary"/>
+
+</FrameLayout>

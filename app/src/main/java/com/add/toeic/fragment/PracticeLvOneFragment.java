@@ -1,6 +1,7 @@
 package com.add.toeic.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.add.toeic.R;
+import com.add.toeic.activity.PracticeToiecActivity;
 import com.add.toeic.adapter.PracticeLevelAdapter;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.WordInfo;
@@ -43,6 +45,7 @@ public class PracticeLvOneFragment extends Fragment {
     private ListView mListView;
     private View view;
     private Context mContext;
+    private List<WordInfo> wordInfoList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -101,6 +104,12 @@ public class PracticeLvOneFragment extends Fragment {
                 if (position == 0) {
                     Toast.makeText(mContext, "Photo", Toast.LENGTH_SHORT).show();
                 }
+
+                WordInfo info = wordInfoList.get(position);
+                Intent intent = new Intent(getActivity(), PracticeToiecActivity.class);
+                intent.putExtra("keyTitle", info.getEnglsih());
+                startActivity(intent);
+
             }
         });
     }
@@ -128,7 +137,7 @@ public class PracticeLvOneFragment extends Fragment {
     }
 
     private List<WordInfo> getListWord() {
-        List<WordInfo> wordInfoList = new ArrayList<WordInfo>();
+        wordInfoList = new ArrayList<WordInfo>();
 
         WordInfo wordInfo1 = new WordInfo();
         wordInfo1.setEnglish("Part 1");

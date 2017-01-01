@@ -29,6 +29,9 @@
             android:name=".activity.PrivacyPolicyActivity"
             android:label="@string/activity_title_privacy_policy" />
         <activity
+            android:name=".activity.BookDetailsActivity"
+            android:label="@string/activity_title_privacy_policy" />
+        <activity
             android:name=".activity.TopicItemActivity"
             android:label="@string/title_activity_topic_item"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -52,10 +55,13 @@
             android:stopWithTask="false" />
 
         <activity
-            android:configChanges="orientation|touchscreen|screenLayout|uiMode|layoutDirection|screenSize"
             android:name=".activity.LockScreenActivity"
+            android:configChanges="orientation|touchscreen|screenLayout|uiMode|layoutDirection|screenSize"
             android:excludeFromRecents="true"
-            android:launchMode="singleInstance"></activity>
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".activity.PracticeToiecActivity"
+            android:label="@string/title_activity_practice_toiec" />
     </application>
 
 </manifest>

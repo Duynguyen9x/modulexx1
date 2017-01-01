@@ -102,6 +102,8 @@ public class DetailWordActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
+        mViewPager.setCurrentItem(num_word);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -301,7 +303,7 @@ public class DetailWordActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            return PlaceholderFragment.newInstance(mWord + 1, mArrayList, mGroupWord, mWord);
+            return PlaceholderFragment.newInstance(position + 1, mArrayList, mGroupWord, mWord);
         }
 
         @Override

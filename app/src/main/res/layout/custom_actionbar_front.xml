@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="14dp"
+        android:scaleType="fitCenter"
+        android:clickable="true"
+        android:background ="@drawable/ic_action_back"/>
+
+    <TextView
+        android:id="@+id/tv_part_num"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:textSize="22dp"
+        android:text="Part 1"/>
+
+    <TextView
+        android:id="@+id/tv_num_cur"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="14dp"
+        android:textSize="22dp"
+        android:text = "Duy"/>
+
+    <TextView
+        android:id="@+id/tv_num_total"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:textSize="22dp"
+        android:text = "/Duy"/>
+
+    <ImageButton
+        android:id="@+id/btn_previous"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="13dp"
+        android:scaleType="fitCenter"
+        android:src ="@drawable/ic_action_previous"
+        android:background="@drawable/circle_background_item"/>
+
+    <ImageButton
+        android:id="@+id/btn_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="13dp"
+        android:scaleType="fitCenter"
+        android:src ="@drawable/ic_action_next"
+        android:background="@drawable/circle_background_item"/>
+
+</LinearLayout>

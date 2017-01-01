@@ -88,5 +88,6 @@
     <string name="practice_lv_one">Level One</string>
     <string name="practice_lv_two">Level Two</string>
     <string name="practice_lv_three">Level Three</string>
+    <string name="title_activity_practice_toiec">PracticeToiecActivity</string>
 
 </resources>
