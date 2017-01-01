@@ -52,6 +52,7 @@
             android:stopWithTask="false" />
 
         <activity
+            android:configChanges="orientation|touchscreen|screenLayout|uiMode|layoutDirection|screenSize"
             android:name=".activity.LockScreenActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"></activity>

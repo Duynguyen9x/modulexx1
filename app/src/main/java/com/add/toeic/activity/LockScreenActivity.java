@@ -6,6 +6,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -50,7 +51,7 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("anhdt", "LockScreenActivity onCreate");
         try {
             arrWord = WordUtils.readAllData(getApplicationContext());
         } catch (FileNotFoundException e) {
@@ -149,21 +150,6 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
         ln3_unlocked_answer3.setOnClickListener(this);
         ln4_unlocked_answer4.setOnClickListener(this);
         cb_unlocked_remember_word.setOnClickListener(this);
-    }
-
-
-    private void flipLayoutAnimation(boolean isCorrected, int i) {
-        // TODO
-    }
-
-    private boolean isCorrectAnser(int question, int i) {
-        // TODO
-        if (question == 1) {
-            if (i == 1) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private void randomWord() {
