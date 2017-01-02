@@ -1096,7 +1096,7 @@ Từ loại: (n): thái độ, hành vi, cách cư xử, cách đối xử, các
 Ví dụ: Suspicious behavior in a department store will draw the attention of the security guards
 Thái độ khả nghi ở trong cửa hàng bách hóa sẽ thu hút sự chú ý của nhân viên an ninh
 
-checkout  /NA/
+checkout /NA/
 Giải thích: the place where you pay for the things that you are buying in a supermarket 
 Từ loại: (n): thanh toán, quầy thanh toán (ở siêu thị, KS...)
 Ví dụ: The line at this checkout is too long, so let's look for another
@@ -1702,7 +1702,7 @@ Từ loại: (n): khoản tiền phạt
 Ví dụ: To impose a penalty
 nộp tiền phạt
 
-preparation  /,prepə'reiʃn/
+preparation /,prepə'reiʃn/
 Giải thích: the act or process of getting ready for something or making something ready
 Từ loại: (n): ‹sự› chuẩn bị, sửa soạn
 Ví dụ: Income tax preparation can take a long time
@@ -1840,7 +1840,7 @@ Từ loại: (adv): thiếu thận trọng, thiếu suy nghĩ, khinh suất, sơ
 Ví dụ: The manager inconsiderately scheduled the meeting for late Friday afternoon
 Người giám đốc sơ suất lên lịch họp vào cuối buổi chiều thứ Sáu
 
-lobby = foyerlobby = foyer /'lɔbi/
+lobby=foyerlobby=foyer /'lɔbi/
 Giải thích: a large area inside the entrance of a public building where people can meet and wait
 Từ loại: (n): hành lang, sảnh chờ, vận động hành lang
 Ví dụ: The reception area was moved from the lobby of the building to the third floor
@@ -1930,7 +1930,7 @@ Từ loại: (n): ‹quyền/sự› ưu tiên, được xét trước
 Ví dụ: Since the remaining issues were not a priority, the group decided to move them to the next week's agenda
 Vì những vấn đề còn tồn tại không phải là một ưu tiên, nhóm đã quyết định dời chúng vào chương trình nghị sự tuần tới
 
-progres /progress/
+progress /progress/
 Giải thích: the process of improving or developing
 Từ loại: (n): (n) ‹sự› tiến tới, tiến bộ, phát triển; ‹sự› tiến hành, tiến triển; (v) tiến tới, tiến triển
 Ví dụ: The executive committee asked each group to present a report showing their progress for the year
@@ -2116,7 +2116,7 @@ Từ loại: (v): dao động, lên xuống, thay đổi thất thường
 Ví dụ: No one is very comfortable making a large investment while the currency values fluctuate almost daily
 Không ai thấy thật yên tâm thực hiện một đầu tư lớn trong khi giá trị tiền tệ dao động như cơm bữa
 
-get out ofg /NA/
+get out of /NA/
 Giải thích: to exit, escape
 Từ loại: (v): thôi, mất, bỏ, từ bỏ, rời bỏ, tránh né, thoát khỏi
 Ví dụ: The company wanted to get out of the area before property values declined even further
@@ -2272,7 +2272,7 @@ Từ loại: (v): xét xử, phân xử, xét đoán, phán đoán; đánh giá,
 Ví dụ: The restaurant review harshly judged the quality of the service
 Bài nhận xét nhà hàng đã nhận xét gay gắt về chất lượng dịch vụ
 
-Mix-up /'miks'ʌp/
+mix-up /'miks'ʌp/
 Giải thích: a situation that is full of confusion, especially because somebody has made a mistake
 Từ loại: (n): ‹sự› lộn xộn, hỗn độn, hỗn loạn; cuộc đánh lộn
 Ví dụ: There was a mix-up about the ingredients and the dish was ruined
@@ -2356,7 +2356,7 @@ Từ loại: (adj): nhân; nhiều, nhiều mối, nhiều phần
 Ví dụ: a house in multiple ownership/occupancy (= owned/occupied by several different people or families)
 none
 
-narrow  /'nærou/
+narrow /'nærou/
 Giải thích: to become or make something narrower
 Từ loại: (v): chật, hẹp; hạn chế; kỹ, tỉ mỉ
 Ví dụ: This restaurant delivers only pizza and sandwiches, so that certainly narrows down the choices
@@ -2416,7 +2416,7 @@ Từ loại: (n): sự chảy vào, sự tràn vào; luồng đi vào, dòng đi
 Ví dụ: Due to the rise in popularity of cooking as a career, cooking schools report an influx of applications
 Vì việc gia tăng sự phổ biến của nghề nấu ăn, các trường dạy nấu ăn báo cáo một dòng chảy các đơn xin nhập học.
 
-metho /'meθəd/
+method /'meθəd/
 Giải thích: a particular way of doing something
 Từ loại: (n): phương pháp, cách thức
 Ví dụ: Gloria perfected a simple method for making croissants
@@ -2986,7 +2986,7 @@ Từ loại: (n): yếu tố, nguyên tố
 Ví dụ: The audience is an essential element of live theater
 Khán giả là một yếu tố thiết yếu của nhà hát sống (nhà hát trực tiếp)
 
-experiencee /iks'piəriəns/
+experience /iks'piəriəns/
 Giải thích: the knowledge and skill that you have gained through doing something for a period of time
 Từ loại: (n): kinh nghiệm, từng trải
 Ví dụ: The experience of live theater is very thrilling
@@ -3568,19 +3568,19 @@ Từ loại: (n): giới hạn, hạn định, ranh giới
 Ví dụ: We were reaching the limits of civilization.
 Chúng tôi đã đạt đến giới hạn của nền văn minh.
 
-monitor  /'mɔnitə/
+monitor /'mɔnitə/
 Giải thích: to watch and check something over a period of time
 Từ loại: (v): màn hình vi tính, lớp trưởng
 Ví dụ: The patient had weekly appointments so that the doctor could monitor their progress
 Người bệnh có các cuộc hẹn hàng tuần để cho bác sĩ có thể theo dõi tiến triển của họ
 
-potential  /pə'tenʃəl/
+potential /pə'tenʃəl/
 Giải thích: that can develop into something or be developed in the future
 Từ loại: (adj): tiềm tàng, tiềm năng, tiềm lực, khả năng
 Ví dụ: To avoid any potential side effects from the medication, be sure to tell your doctor all the drugs you are currently taking
 Để tránh bất kỳ phản ứng phụ tiềm tàng nào từ thuốc, hãy bảo đảm là kể cho bác sĩ tất cả loại thuốc mà bạn hiện tại đang uốn
 
-sample  /ˈsæmpl/
+sample /ˈsæmpl/
 Giải thích: a small amount of a substance taken from a larger amount and tested in order to obtain information about the substance
 Từ loại: (n): mẫu, hàng mẫu
 Ví dụ: A sample of the population taking the new medicine was surveyed to determine whether it caused side effects
