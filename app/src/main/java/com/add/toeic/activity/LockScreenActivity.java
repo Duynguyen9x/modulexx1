@@ -10,15 +10,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.model.Word;
+import com.add.toeic.utils.Utils;
 import com.add.toeic.utils.WordUtils;
 
 import java.io.FileNotFoundException;
@@ -93,10 +95,17 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void processAnswer(boolean isCorrected, int index_choosen) {
+
         if (isCorrected) {
-            Toast.makeText(getApplicationContext(), "You Right!", Toast.LENGTH_SHORT).show();
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.custom_toast, null);
+            Toast toast = new Toast(getApplicationContext());
+            toast.setView(view);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.show();
             removeLayout();
         } else {
+            Utils.animShaking(getApplicationContext(), mRelativeLayoutUnlocked.findViewById(index_choosen));
             mRelativeLayoutUnlocked.findViewById(index_choosen).setBackground(getResources().getDrawable(R.drawable.lock_answer_layout_bg_incorrect, getTheme()));
         }
     }
@@ -140,7 +149,7 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void removeLayout() {
-        ((WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE)).removeView(mRelativeLayoutUnlocked);
+        Utils.animSlideDown(mRelativeLayoutUnlocked);
         finish();
     }
 

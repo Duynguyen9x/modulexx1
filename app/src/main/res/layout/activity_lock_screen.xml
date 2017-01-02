@@ -74,7 +74,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:lines="2"
                 android:id="@+id/tv_unlocked_answer_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +94,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:lines="2"
                 android:id="@+id/tv_unlocked_answer_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +114,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:lines="2"
                 android:id="@+id/tv_unlocked_answer_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +134,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:lines="2"
                 android:id="@+id/tv_unlocked_answer_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

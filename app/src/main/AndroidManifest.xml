@@ -44,7 +44,7 @@
             android:name=".recievers.UnlockedScreenReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="999">
                 <action android:name="android.app.action.USER_PRESENT" />
             </intent-filter>
         </receiver>

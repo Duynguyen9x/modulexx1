@@ -1,6 +1,9 @@
 package com.add.toeic.utils;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +14,13 @@ import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
+import com.add.toeic.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,4 +86,21 @@ public class Utils {
 //    To request for it you don't use a standard way (int checkSelfPermission (String permission))
 //    but you have to check Settings.canDrawOverlays() or Settings.System.canWrite() appropriately
 
+    public static void animSlideDown(final View view) {
+        ObjectAnimator anim = ObjectAnimator.ofFloat(view, "translationY", view.getHeight());
+        anim.setDuration(1000);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
+            }
+        });
+        anim.start();
+//        ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).removeView(view);
+    }
+
+    public static void animShaking(Context context, View view){
+        Animation shake = AnimationUtils.loadAnimation(context, R.anim.shaking);
+        view.startAnimation(shake);
+    }
 }
