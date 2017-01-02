@@ -7,16 +7,26 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.add.toeic.R;
+import com.add.toeic.model.practice.ListenShort;
+import com.add.toeic.utils.json.JsonListenShortUtils;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class PracticeToiecActivity extends AppCompatActivity {
 
     private Context mContext;
+    private ImageButton btn_play;
+    private SeekBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +35,30 @@ public class PracticeToiecActivity extends AppCompatActivity {
         mContext = this;
 
         initActionBar();
+        initView();
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
     }
+
+    private void initView() {
+
+        View includedLayout = findViewById(R.id.custom_layout_below);
+        btn_play = (ImageButton)includedLayout.findViewById(R.id.btn_play);
+        progressBar = (SeekBar) includedLayout.findViewById(R.id.progressBar);
+
+        try {
+            ArrayList<ListenShort> arr = JsonListenShortUtils.readerOjectFromJson(this, "l1_photo.json");
+            Log.i("duy.pq", "item=" + arr.get(0).toString());
+
+//            for (int i = 0; i < arr.size(); i++) {
+//                Log.i("duy.pq", "item=" + arr.get(i).toString());
+//            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);

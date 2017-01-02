@@ -22,28 +22,28 @@
         android:id="@+id/grp_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="240dp"
         android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/rad_a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:text="(A) "/>
         <RadioButton
             android:id="@+id/rad_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:text="(B) "/>
         <RadioButton
             android:id="@+id/rad_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:text="(C) "/>
         <RadioButton
             android:id="@+id/rad_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:text="(D) "/>
     </RadioGroup>
 
