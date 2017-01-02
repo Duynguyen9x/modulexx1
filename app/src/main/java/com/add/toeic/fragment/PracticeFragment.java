@@ -121,11 +121,11 @@ public class PracticeFragment extends Fragment {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return PracticeLvOneFragment.newInstance();
+                    return PracticeLvOneFragment.newInstance("1", null);
                 case 1:
-                    return PracticeLvTwoFragment.newInstance();
+                    return PracticeLvOneFragment.newInstance("2", null);
                 case 2:
-                    return PracticeLvThreeFragment.newInstance();
+                    return PracticeLvOneFragment.newInstance("3", null);
                 default:
                     return null;
             }

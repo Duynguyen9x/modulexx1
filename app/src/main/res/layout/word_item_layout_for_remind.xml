@@ -51,7 +51,7 @@
         android:id="@+id/remind"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_gravity="center_vertical|right"
+        android:layout_gravity="center_vertical|end"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop" />
 

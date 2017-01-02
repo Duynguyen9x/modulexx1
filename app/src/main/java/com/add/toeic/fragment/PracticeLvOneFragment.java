@@ -33,11 +33,11 @@ import java.util.List;
 public class PracticeLvOneFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String PARAM_KIND = "param_kind";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private String mParamKind;
     private String mParam2;
 
     private ArrayList<WordInfo> mWordInfoArrayList;
@@ -60,9 +60,11 @@ public class PracticeLvOneFragment extends Fragment {
      * @return A new instance of fragment PracticeLvOneFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PracticeLvOneFragment newInstance() {
+    public static PracticeLvOneFragment newInstance(String param1, String param2) {
         PracticeLvOneFragment fragment = new PracticeLvOneFragment();
         Bundle args = new Bundle();
+        args.putString(PARAM_KIND, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -71,7 +73,7 @@ public class PracticeLvOneFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParamKind = getArguments().getString(PARAM_KIND);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
