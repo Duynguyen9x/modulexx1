@@ -1,0 +1,520 @@
+{
+  "Questions":[
+    {
+      "answer":[
+        "1",
+        "0",
+        "3"
+      ],
+      "questions":[
+        "What is the purpose of this fax?",
+        "What had Herbert Rails expected to receive?",
+        "What is Nova’s children’s book line called?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"To: John Andersen, Andersen Components <br> From: Max Green, Herbert Rails <br> Re: Cancellation of order <br> Date: March 23rd <br> Dear John, <br><br> I have bad news, I'm afraid. We are going to have to cancel the order for the 5000 m of electric cables, 5000 nuts and bolts, and the 50 bolt cutters which was placed yesterday morning. We had expected to be awarded a contract to lay rails for a new private railway, but at the last minute, they gave the contract to someone else. Sorry for the inconvenience. <br><br> Sincerely, <br><br> Max",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "To place an order",
+            "To cancel an order",
+            "To confirm an order",
+            "To ask for advice"
+          ]
+        },
+        {
+          "option_2":[
+            "contract to work for a private railway",
+            "5000 m of electric cables",
+            "Some bad news",
+            "A reward"
+          ]
+        },
+        {
+          "option_3":[
+            "Max Green has never contacted John Andersen before.",
+            "Max Green is interested in computers.",
+            "Max sent the fax too late.",
+            "Max Green and John Andersen already know each other."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "2",
+        "0"
+      ],
+      "questions":[
+        "Where would this notice be posted?",
+        "What do members need to open their lockers?",
+        "Why do you think this notice was posted?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>NOTICE: To all patrons of the Blue Wave Fitness Center</b><br><br> The management would like members to note that the Blue Wave Fitness Center is not liable for any items left in the coin lockers. Should you lose anything from the locker, we regret that we will be unable to assist you in any way. Therefore, it is important that you make certain that your locker is kept locked while you are using our facilities. Also, for security reasons, we do not keep a record of members' locker combination codes, so it is vital that you remember the combination you choose.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "In a changing room",
+            "At a railway station",
+            "In a restroom",
+            "In an office"
+          ]
+        },
+        {
+          "option_2":[
+            "A key",
+            "Coins",
+            "A series of numbers",
+            "Nothing"
+          ]
+        },
+        {
+          "option_3":[
+            "The Blue Wave has suffered thefts recently.",
+            "The Blue Wave changed its management.",
+            "The Blue Wave has bought new lockers.",
+            "The Blue Wave is looking for new members."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "1",
+        "3"
+      ],
+      "questions":[
+        "What was Justin doing when Vera called?",
+        "What is Vera sending to Justin?",
+        "Why didn’t Vera send the files earlier?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"Justin,<br><br> Vera called to let you know that she has finished the files and has sent them by courier. You should be getting them this afternoon. She said to call her as soon as you get back from lunch. She wants to discuss some of the details about the plans before tomorrow's meeting. She said she is sorry for keeping them so long, but it has been really busy over at her branch, and she had to wait for Sam to get back from his business trip. <br><br> Susan",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Attending a meeting",
+            "Talking on another line",
+            "Having lunch",
+            "Resting at home"
+          ]
+        },
+        {
+          "option_2":[
+            "A document",
+            "Some files",
+            "Lunch",
+            "A phone call"
+          ]
+        },
+        {
+          "option_3":[
+            "She forgot about them.",
+            "She was away on a business trip.",
+            "She didn’t want to.",
+            "She has been busy."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "3",
+        "1"
+      ],
+      "questions":[
+        "Why did Brian send this email?",
+        "How many voices will be used in the advertisement?",
+        "Why does Brian want to finish the recording quickly?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"To: <b> satty98@hatmail.net</b><br> From: <b>bcyo99@lions.co.sp </b> <br> Subject: <b>Recordings</b> <br><br> Hi Samantha,<br><br> This is just a quick email to let you know that we have found enough voice actors to make the recording for the radio advertisement. The Heartful Acting Agency is providing us with three children who will work with the man and the woman you had already found. They are charging $50 an hour per child, so let's try to get it done as quickly as we can to keep costs down. I have given the agency the scripts. <br><br> See you at the studio. <br><br> Brian",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "To ask Samantha to find more actors",
+            "To let Samantha know they have enough actors",
+            "To tell Samantha about a meeting",
+            "To complain to Samantha"
+          ]
+        },
+        {
+          "option_2":[
+            "Two",
+            "Three",
+            "Four",
+            "Five"
+          ]
+        },
+        {
+          "option_3":[
+            "He",
+            "She",
+            "Four",
+            "Three"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "Who is this article intended for?",
+        "What does the article explain?",
+        "How often are these computer articles published?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Saving Time When Computing</b> <br><br> Here is the second installment in our monthly \"Computing for Business Users\" guides. <br><br> A common complaint among computer users is the amount of time they spend waiting for their laptop to start up and perform its tasks. Here are some handy tips on how to eliminate some of that waiting time. <br><br> Don't shut your laptop all the way off between meetings; just put it in the low-battery consumption \"Standby\" mode. Shutting it down and waiting for it to reboot at the next meeting wastes valuable time. This way you are ready to start as soon as you arrive. <br><br> Having too many programs in your computer's Start Up folder really slows things down. The solution? Eliminate all unnecessary programs. <br><br> Stop too many programs from running at the same time when you start up the computer. Don't know how? It's easy if you follow these instructions: click the Start menu, choose Run, then type \"msconfig\" to launch the System Configuration Utility. Next, on the \"General\" tab, click \"Selective Startup.\" Then go to the \"Startup\" tab and uncheck any startup items that aren't necessary. <br><br> These are small but simple changes that you can make for yourself to save precious time. Next issue we'll be looking at extending your battery life.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Computer programmers",
+            "Business people",
+            "Program designers",
+            "Professional computer game players"
+          ]
+        },
+        {
+          "option_2":[
+            "How to start up your computer",
+            "How to improve the speed of a computer",
+            "How to change a battery",
+            "Where to buy the best computer"
+          ]
+        },
+        {
+          "option_3":[
+            "Every day",
+            "Every week",
+            "Once a month",
+            "Twice a year"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "2",
+        "3"
+      ],
+      "questions":[
+        "What is the purpose of this advertisement?",
+        "How often could an employee expect to receive a bonus?",
+        "Which of the following benefits is NOT mentioned?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Wanted: Graduate Manufacturing Engineer</b><br><br> The candidate should be a recently qualified engineering graduate with experience working both as a member of a team, and alone unsupervised. The ideal candidate will have background studies in the field of manufacturing engineering The candidate should be open-minded and capable of dealing with a challenging, high pressure environment with a view to continuous improvement and development of manufacturing techniques. <br><br> This is a full-time position. The candidate will be required to work 40 hours a week, Monday to Friday, but thanks to our flex-time system, the successful candidate will be able to choose his or her working hours, within reason. The position pays a starting salary of $20,000, with the possibility of quarterly bonuses, dependent upon performance. A pay raise will be offered after 6 months, again depending upon performance. Good prospects for promotion. 15 days paid vacation in the first year, rising in subsequent years. Sponsorship for part-time study is also a possibility after one year's employment. Benefits include subsidized health insurance, company pension, subsidized use of company sports center, and use of child day care center. <br><br> Send resume and cover letter to:Lionel Blair Personnel Manager<br>Grant Manufacturing,<br>Springhurst Industrial Estate,<br>Springhurst <br>NNO 223<br><br><br> Application deadline: December 15th. Only short-listed candidates will be contacted. No phone inquiries, please. Candidates who were unsuccessful in our previous recruitment campaign are kindly asked NOT to reapply.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "To recruit a new engineer",
+            "To advertise something for sale",
+            "To introduce manufacturing engineering",
+            "To promote Grant Manufacturing"
+          ]
+        },
+        {
+          "option_2":[
+            "Once a year",
+            "Twice a year",
+            "Four times a year",
+            "Never"
+          ]
+        },
+        {
+          "option_3":[
+            "Health insurance",
+            "Pension",
+            "Child care",
+            "Subsidized transportation"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "3",
+        "2"
+      ],
+      "questions":[
+        "What part of the car needs repair?",
+        "What form of payment does the seller want?",
+        "When could an interested buyer call?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>FOR SALL</b><br><br> 1986 Celebrity Eurosport.<br><br>Low mileage and one careful previous owner.<br><br> Don't miss this one! Classic F-platform. Has original doors and GM/Delco stereo! New exhaust, shocks, tires, and brakes. <br><br> All replaced within last 6 months. Needs a paint touch-up and some minor repair work on fenders, rear bumper, and engine. Seat covers and Ziggy window shade included. Reliable transportation for a student, or as a second car. $400 or best offer. <br><br>Cash only please. Call Randy, B98-3412, weekdays before 5 p.m.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Shocks",
+            "Fenders",
+            "Exhaust",
+            "Tires"
+          ]
+        },
+        {
+          "option_2":[
+            "Credit card",
+            "Personal check",
+            "Money order",
+            "Cash"
+          ]
+        },
+        {
+          "option_3":[
+            "Sunday morning",
+            "Tuesday night",
+            "Thursday morning",
+            "Saturday night"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "3",
+        "2"
+      ],
+      "questions":[
+        "Where is Mr. Brown now?",
+        "Why did Mr. Brown send this fax?",
+        "When will Mr. Brown arrive in California?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Fax Cover Sheet</b><br><br> Date: August 15th, 2004<br>Time: 9:55 a.m.<br> To: Saul Leganza, Guzzi Imports<br>Fax: [345]123-5668<br>From: Peter Brown, Mel-Mart Superstore<br>Fax: [336]999-7356 <br><br> This is just to confirm that I received your phone message. My flight to California has been canceled because of bad weather. I will now be leaving Denver and arriving at LAX on United Flight 77 tomorrow. I am sorry for any trouble this will cause you. Hopefully we can reschedule our meetings for the 17th. I have attached my new itinerary. Please call me if you have any questions; otherwise, see you soon!",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "LAX",
+            "California",
+            "Denver",
+            "United"
+          ]
+        },
+        {
+          "option_2":[
+            "To confirm a reservation",
+            "To reschedule a flight",
+            "To cancel a meeting",
+            "To confirm a message"
+          ]
+        },
+        {
+          "option_3":[
+            "August 14th",
+            "August 15th",
+            "August 16th",
+            "August 17th"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "3",
+        "3",
+        "2"
+      ],
+      "questions":[
+        "On what day can a person see two movies?",
+        "What two movies are the same type?",
+        "Which movie is the oldest?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>\"Movies at the Marquis\"</b><br><br> The Marquis is proud to announce a repeat of our special feature week. Introduced last month, the special feature week was a great success. We will now be holding this event on a monthly basis.<br><br><b>Classic movies special feature week</b><br><br><b><i>Blazing Rules</i></b> (1956) Western. Kip McVities, Rosie Ranger.<br><Monday, 6:00 p.m.<br><b><i>The Bilge and the Brine</i></b> (1943) Drama. Mack O'Jangler, Gregory Ryan.<br>Wednesday, 7:30 p.m.<br><b><i>Elvis and the Swamp Monster</i></b> (1978) Comedy. Mike Myhrom, Rupaul.<br>Friday, 8:00 p.m.<br><b><i>Digstown</i></b> (1987) Comedy. Lou Gossette, Jr., D.Hasbro Eisenman.Tuesday through Thursday, 9:00 p.m.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Monday",
+            "Friday",
+            "Sunday",
+            "Wednesday"
+          ]
+        },
+        {
+          "option_2":[
+            "Blazing Rules & Digstown",
+            "The Bilge and the Brine & Digstown",
+            "Elvis and the Swamp Monster & Blazing Rules",
+            "Digstown & Elvis and the Swamp Monster"
+          ]
+        },
+        {
+          "option_3":[
+            "Blazing Rules",
+            "Elvis and the Swamp Monster",
+            "The Bilge and the Brine",
+            "Digstown"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "3",
+        "2"
+      ],
+      "questions":[
+        "Why are residents of Carlton unhappy?",
+        "What is NOT mentioned about Magic Tree?",
+        "What is implied about the \"Yummy Restaurant Guide Book\"?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Yummy Restaurant Guide Book Angers</b><br><br> The sale of \"Yummy Restaurant Guide Book\" is being protested by residents as well as by town council members of Carlton, Oregon. The reason for the protests is that in this year's edition, the \"Yummy Restaurant Guide Book\" criticizes a local restaurant. According to the latest edition of the guide book, the 100-year-old Magic Tree now rates zero stars in the guide book's ranking system. The book noted Magic Tree's antiquated oven, gas cooker, and what is called \"overall dull food\". Council member Morgan Lowell has called for booksellers throughout the U.S. to cancel their orders for the book. The review is a marked departure from two years ago, when Magic Tree was praised for \"still having the character and charm one expects from a country diner\". <br><br> \"Tourism is the most important industry along the coast,\" said Mayor McMurtry. \"A country restaurant is a quiet alternative to the anonymity of large restaurants, but the Yummy Restaurant Guide Book editors seem to prefer the chain restaurants in the big cities.\" Mayor McMurtry believes that the reviewers were \"unnecessarily\" critical. The Magic Tree is the town's most important landmark. Reviews like this can really hurt the local economy. Representatives for the publisher did not return calls requesting comment. \"Yummy Restaurant Guide Book\" has been in print for over 40 years.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "They received poor service at a restaurant.",
+            "The local diner received a poor review.",
+            "The local factory is shutting down.",
+            "The tourism industry is in decline."
+          ]
+        },
+        {
+          "option_2":[
+            "It was founded 100 years ago.",
+            "It was listed in a restaurant guide.",
+            "It is the most vital landmark.",
+            "It is owned by residents of Carlton."
+          ]
+        },
+        {
+          "option_3":[
+            "Its price has been increased recently.",
+            "It is only sold in Carlton.",
+            "It can influence tourists’ decision.",
+            "It usually criticizes start-up restaurants."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "1",
+        "1"
+      ],
+      "questions":[
+        "What does the article mainly discuss?",
+        "Where did this event take place?",
+        "Who has donated $500 toward Cure for Alzheimer’s disease?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Charity Event</b><br><br> On October 11, 2006, four members of the New York's Greatest Baseball Club participated in a charity event held at Krown Park to raise money for Cure for Alzheimer's disease. The charity game was put together by former New York Mets first baseman, Clive Giffin, whose mother passed away from Alzheimer's disease. Proceeds go to the Grand Hill Hospital in Brooklyn. New York's Greatest Baseball Club presented Mr. Giffin with a $500 donation toward the charity.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "baseball game",
+            "A benefit event",
+            "A previous sports event",
+            "A product campaign"
+          ]
+        },
+        {
+          "option_2":[
+            "At New York Mets stadium",
+            "At Krown Park",
+            "In Brooklyn",
+            "In Grand Hill Hospital"
+          ]
+        },
+        {
+          "option_3":[
+            "Clive Giffin",
+            "New York's Greatest Baseball Club",
+            "New York Mets",
+            "Grand Hill Hospital"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "0",
+        "2"
+      ],
+      "questions":[
+        "What is the purpose of the article?",
+        "What does the article say about Mr. Peterson?",
+        "What does Mr. Peterson do first when he comes to school?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "question":"<b>Employee of the Month Award</b><br><br> The Fullerton Branch School District gives an Employee of the Month award to one exceptional employee who has demonstrated innovative and outstanding work. Each year, administrative assistants compile information from each staff member's peer reviews and management evaluations. Division managers then recommend the most noteworthy employees to service managers who review the candidates and make the final decision. <br><br> his month's recipient is Donald Peterson, a crossing guard of Buffalo Creek Elementary School. Mr. Peterson has been the crossing guard at our busy intersection since the school opened in 1997. During that time, he has only missed one day of work and that was due to a knee injury. Come rain, shine, or thunderstorms, we all can rest easy knowing Mr. Peterson is keeping our students safe. He takes his job and the safety of our students very seriously. <br><br> Mr. Peterson likes to come to school early. Every day at 6 a.m., he can be found making sure the coffee is ready for our teachers, staff and parent volunteers. Every afternoon, he asks what he can do to lend a hand in our Parent Center. He greets us daily with a smile, eager to work. It truly takes everyone doing their part to make a school successful, and Mr. Peterson does his part every day. We thank Mr. Peterson for his excellent service to our school and the children.",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "introduce new staff members",
+            "To recommend people for promotions",
+            "To announce an award recipient",
+            "To inform employees of the new Human Resources portal"
+          ]
+        },
+        {
+          "option_2":[
+            "He works as a crossing guard.",
+            "He comes to school late in the afternoon.",
+            "He is a student at Buffalo Creek Elementary School.",
+            "He hasn't missed a day."
+          ]
+        },
+        {
+          "option_3":[
+            "He goes to the Parent Center.",
+            "He greets children.",
+            "He makes coffee.",
+            "He eats breakfast."
+          ]
+        }
+      ],
+      "question_type":"1"
+    }
+  ]
+}

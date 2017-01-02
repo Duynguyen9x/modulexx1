@@ -1,0 +1,364 @@
+{
+  "Questions":[
+    {
+      "answer":[
+        "0",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "Why did you get back from your trip so early?",
+        "Will you be attending the seminar, or do you have too much work?",
+        "Why don't you invite John to your party?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_11_13",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Because the meeting got cancel",
+            "Next friday at earliest",
+            "I'll be talking the train "
+          ]
+        },
+        {
+          "option_2":[
+            "No, I will attend to it later.",
+            "I will definitely attend be there.",
+            "Sorry, but I didn't see it."
+          ]
+        },
+        {
+          "option_3":[
+            "No. he isn't.",
+            "Sure, I will be there.",
+            "That 's good idea"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "2",
+        "2"
+      ],
+      "questions":[
+        "Could you show me where the man's sportswear section is?",
+        "How long is the driver to tokyo from here?",
+        "Who is going to attend the Mr. McKenzie's retirement party?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_14_16",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "I like sport too?.",
+            "Go up to the next floor?.",
+            "At two o'clock?"
+          ]
+        },
+        {
+          "option_2":[
+            "Every other week.",
+            "It's great place.",
+            "Roughly an hour."
+          ]
+        },
+        {
+          "option_3":[
+            "He has not arrived yet.",
+            "Let 's go right now.",
+            "Everyone except Jill"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "0",
+        "0"
+      ],
+      "questions":[
+        "Would you like to reserve the large hall for the event?",
+        "The bonuses will be paid this month, don't they?",
+        "Should I go over the material once again before showing it to the client?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_17_19",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Yes, I 've already completed it.",
+            "It's bigger than the others.",
+            "Yes, that 's good be fine."
+          ]
+        },
+        {
+          "option_2":[
+            "Yes, they will.",
+            "No,I paid the bill last month.",
+            "Payday is this friday"
+          ]
+        },
+        {
+          "option_3":[
+            "That 'd be a wise things to do",
+            "He is expected to show up soon",
+            "It 's about our new product"
+          ]
+        }
+        ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "0",
+        "0"
+      ],
+      "questions":[
+        "What does he do for the living?",
+        "Will you call the travel agency now or later?",
+        "Don't you need this note for your presentation?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_20_22",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "No, he moves last week.",
+            "He does it all the time.",
+            "He is an accountant."
+          ]
+        },
+        {
+          "option_2":[
+            "Actually, I call them yesterday.",
+            "yes, I travel a lot.",
+            "The flight should arrive soon."
+          ]
+        },
+        {
+          "option_3":[
+            "Thanks, I almost forgot about it.",
+            "Actually, there was no body present",
+            "No, I didn't take note during the speech"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "2",
+        "0"
+      ],
+      "questions":[
+        "Where should I put this box of ink cartridges, Mrs. Fujimot ?",
+        "Who is good with the computers?",
+        "Won't we have to use with overhead projector at the meeting?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_23_25",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "At the local stationery store.",
+            "Put in the next room.",
+            "She is the receptionist."
+          ]
+        },
+        {
+          "option_2":[
+            "Yes, It's veey good.",
+            "The software come with it.",
+            "John is the person you are looking for."
+          ]
+        },
+        {
+          "option_3":[
+            "Yes, I will set it up soon.",
+            "It is a big project",
+            "I will head over right now"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "1",
+        "1"
+      ],
+      "questions":[
+        "Where do you keep the sale report ?",
+        "Do you want to proofread this proposal, or would you prefer typing up the summary?",
+        "Didn't you backup the work on computer?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_26_28",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Yes, I will.",
+            "To the manager.",
+            "In the filing cabinet."
+          ]
+        },
+        {
+          "option_2":[
+            "Thank you, that would be very nice of you.",
+            "Either is okay with me.",
+            "Yes, I read it over twice."
+          ]
+        },
+        {
+          "option_3":[
+            "No, I came through front door.",
+            "Bo, I forgot all about it",
+            "I will give it back to you today"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "1",
+        "0"
+      ],
+      "questions":[
+        "Could you let me know your decision later today?",
+        "isn't that where the new mall is going to built?",
+        "To whom should I handling these receipts?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_29_31",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "I will give you a ring by 5 o'clock",
+            "I'm sure it will not be too late.",
+            "I could go either way."
+          ]
+        },
+        {
+          "option_2":[
+            "You will be going there this afternoon.",
+            "I think you might be right.",
+            "Yes, the mall is close to here."
+          ]
+        },
+        {
+          "option_3":[
+            "John will take them off your hands.",
+            "She gave them to me today",
+            "To get a tax break"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "0",
+        "1"
+      ],
+      "questions":[
+        "What did you think of the movies we just saw?",
+        "Do I have to deliver it in person?",
+        "Should I schedule you for two this afternoon?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_32_34",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "I'll see it this weekend",
+            "At the theater in the mall.",
+            "It was very exciting."
+          ]
+        },
+        {
+          "option_2":[
+            "No, you can mail it instead.",
+            "Yes, he work at the post office.",
+            "On the first basement floor."
+          ]
+        },
+        {
+          "option_3":[
+            "Yes, I have a full schedule today.",
+            "That would suit me fine",
+            "No, there will be three of us"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "Who will giving the talk at the meeting.",
+        "Why didn't you show up to the meeting this morning?",
+        "This magazine has information about the housing market in Asia, doesn't it?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part2_audio_no_38_40",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "All staff members are invited",
+            "That hasn't been decided yet.",
+            "It begin Wednesday after lunch ."
+          ]
+        },
+        {
+          "option_2":[
+            "It is supposed to be good.",
+            "All staff member will be there.",
+            "Something urgent came up."
+          ]
+        },
+        {
+          "option_3":[
+            "A two bed-room apartment.",
+            "To Japan and Korea",
+            "Yes, on the back page"
+          ]
+        }
+      ],
+      "question_type":"1"
+    }
+  ]
+}

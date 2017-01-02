@@ -1,0 +1,439 @@
+{
+  "Questions": [
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_1",
+      "url_audio": "listening_part1_audio_no_1",
+      "negative_points": "0",
+      "options": [
+        "They 're rowing the board together.",
+        "They 're lefting the rubber boat.",
+        "They 're sitting at the water 's edge.",
+        "They 're swimming in lake."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_2",
+      "url_audio": "listening_part1_audio_no_2",
+      "negative_points": "0",
+      "options": [
+        "Passengers are watting at the airport.",
+        "There are planes flying overhead.",
+        "The Airplanes are parked at the gate.",
+        "The planes have already landed"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_3",
+      "url_audio": "listening_part1_audio_no_3",
+      "negative_points": "0",
+      "options": [
+        "The computer monitor is under the desk.",
+        "The shelves are filled with books.",
+        "There are books neatly arranged on top of the desk.",
+        "Pagers are stracked on the floor."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_4",
+      "url_audio": "listening_part1_audio_no_4",
+      "negative_points": "0",
+      "options": [
+        "One woman is learning back on her chair.",
+        "The man is handing some documents to the woman.",
+        "The people are sorting out documents together.",
+        "The man is looking over some papers."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_5",
+      "url_audio": "listening_part1_audio_no_5",
+      "negative_points": "0",
+      "options": [
+        "They are serving food to the others.",
+        "The are prepaing food on the kitchen.",
+        "They are arranging the plates on the table.",
+        "They are helping themselves to some food."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_6",
+      "url_audio": "listening_part1_audio_no_6",
+      "negative_points": "0",
+      "options": [
+        "He 's getting in subway.",
+        "He 's reading a note on the wall of the train station.",
+        "He 's strolling along the track.",
+        "He 's standing alone on the plaform."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_7",
+      "url_audio": "listening_part1_audio_no_7",
+      "negative_points": "0",
+      "options": [
+        "A waiter is serving food to the customers",
+        "There are people looking down from the balcony.",
+        "Some patron are waiting in line to enter the cafe.",
+        "There are table and chair set up outdoors."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_8",
+      "url_audio": "listening_part1_audio_no_8",
+      "negative_points": "0",
+      "options": [
+        "He is typing on the keyboard.",
+        "He is turning on the computer",
+        "He is talking notes",
+        "He is starting at the monitor."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_9",
+      "url_audio": "listening_part1_audio_no_9",
+      "negative_points": "0",
+      "options": [
+        "There are duildings near the shore.",
+        "There are boat floating on the water.",
+        "Some ducks have landed on the lake ",
+        "Tree are losing their leave. "
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_10",
+      "url_audio": "listening_part1_audio_no_10",
+      "negative_points": "0",
+      "options": [
+        "The jar lids are open",
+        "The bottle are oon the bottom shelf.",
+        "The shelve are being stocker",
+        "There are basket of bread on the lower sell."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_11",
+      "url_audio": "listening_part1_audio_no_11",
+      "negative_points": "0",
+      "options": [
+        "The woman is watching a movie",
+        "The woman is eating at the cafeteria",
+        "The woman is buying something",
+        "The woman is in a meeting"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_12",
+      "url_audio": "listening_part1_audio_no_12",
+      "negative_points": "0",
+      "options": [
+        "The woman is listening to music",
+        "The woman is filming something",
+        "The woman is playing a computer game",
+        "The woman is cleaning her glasses"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_13",
+      "url_audio": "listening_part1_audio_no_13",
+      "negative_points": "0",
+      "options": [
+        "The vehicles are parked on the street.",
+        "The vehicles are parked next to each other",
+        "The vehicles are in the garages",
+        "The vehicles are all for sell"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_14",
+      "url_audio": "listening_part1_audio_no_14",
+      "negative_points": "0",
+      "options": [
+        "The man is looking in the window.",
+        "The man picking the telephone.",
+        "The woman is looking at her watch.",
+        "The people are standing by the wall."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_15",
+      "url_audio": "listening_part1_audio_no_15",
+      "negative_points": "0",
+      "options": [
+        "The bicycle is going fast.",
+        "The bicycle is near the hospital.",
+        "The bicycle has two people on it.",
+        "The bicycle is on the ground."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_17",
+      "url_audio": "listening_part1_audio_no_17",
+      "negative_points": "0",
+      "options": [
+        "The people are trying on jury ",
+        "The people are shopping on the store",
+        "The people are waiting on line.",
+        "The people are outside the building."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_18",
+      "url_audio": "listening_part1_audio_no_18",
+      "negative_points": "0",
+      "options": [
+        "The picture is on the wall",
+        "The picture is in the museum",
+        "The picture is not finished",
+        "The picture is on the chair"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_19",
+      "url_audio": "listening_part1_audio_no_19",
+      "negative_points": "0",
+      "options": [
+        "The bird is eating shit ... :D",
+        "The bird is sitting on the fence ",
+        "The bird is building a nest",
+        "The bird is flying to the tree"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_20",
+      "url_audio": "listening_part1_audio_no_20",
+      "negative_points": "0",
+      "options": [
+        "The man is typing.",
+        "The people are making dinner.",
+        "The woman is painting the wall",
+        "The woman is painting up picture"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_21",
+      "url_audio": "listening_part1_audio_no_21",
+      "negative_points": "0",
+      "options": [
+        "They are playing soccer.",
+        "They are standing in a line.",
+        "They are waiting for a bus.",
+        "They are running in a field."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_22",
+      "url_audio": "listening_part1_audio_no_22",
+      "negative_points": "0",
+      "options": [
+        "The man is drinking coffee from a cup.",
+        "The man is pouring a beverage.",
+        "The table is on top of the cups.",
+        "The coffee is on the table."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_23",
+      "url_audio": "listening_part1_audio_no_23",
+      "negative_points": "0",
+      "options": [
+        "The forest is next to the house.",
+        "There is a gate beside the tall tree.",
+        "The man is walking in the forest.",
+        "There is a fence in front of some trees."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_24",
+      "url_audio": "listening_part1_audio_no_24",
+      "negative_points": "0",
+      "options": [
+        "There is a girl on the railing.",
+        "She is stepping away from the cars.",
+        "She is walking up some steps.",
+        "The girl with the bag is running."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_25",
+      "url_audio": "listening_part1_audio_no_25",
+      "negative_points": "0",
+      "options": [
+        "The youth is using a computer.",
+        "There is a cup on the table.",
+        "The youth is not alone at the table.",
+        "The boy is sleeping at the table."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_26",
+      "url_audio": "listening_part1_audio_no_26",
+      "negative_points": "0",
+      "options": [
+        "They are about to walk between two vehicles.",
+        "They have parked their cars illegally.",
+        "The signs are being changed.",
+        "One of the cars is going to be towed away."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_27",
+      "url_audio": "listening_part1_audio_no_27",
+      "negative_points": "0",
+      "options": [
+        "The women are browsing in a garden.",
+        "There are no flowers for sale.",
+        "The flowers are displayed on a cart.",
+        "The flowers are being offered at a discount."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_28",
+      "url_audio": "listening_part1_audio_no_28",
+      "negative_points": "0",
+      "options": [
+        "The girl is slamming the door shut.",
+        "The girl is knocking on the wall.",
+        "The girl is knocking on the door.",
+        "The girl cannot open the door by herself."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "3",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_29",
+      "url_audio": "listening_part1_audio_no_29",
+      "negative_points": "0",
+      "options": [
+        "The driver is locking up the bus.",
+        "There are a number of passengers on the bus.",
+        "The man has decided not to ride the bus.",
+        "The man is walking alongside the bus."
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_30",
+      "url_audio": "listening_part1_audio_no_30",
+      "negative_points": "0",
+      "options": [
+        "The car is being repaired.",
+        "He is repairing his motorcycle.",
+        "The car's tires have a puncture.",
+        "The car has been in an accident."
+      ],
+      "question_type": "1"
+    }
+  ]
+}

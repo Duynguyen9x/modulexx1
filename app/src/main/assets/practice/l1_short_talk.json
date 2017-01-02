@@ -1,0 +1,435 @@
+{
+  "Questions":[
+    {
+      "answer":[
+        "1",
+        "0",
+        "3"
+      ],
+      "questions":[
+        "On which day does this message take place?",
+        "Which is the caller getting this message",
+        "What should those who wish to make change in their service do?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_71_73",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Saturday",
+            "Monday",
+            "Friday",
+            "Tuesday"
+          ]
+        },
+        {
+          "option_2":[
+            "All the line is busy",
+            "It is a national holiday",
+            "Everyone is out to lunch",
+            "It is after working hour"
+          ]
+        },
+        {
+          "option_3":[
+            "Stay on the line",
+            "Call back another time",
+            "Press a button on the phone",
+            "Talk to an operator"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "0",
+        "1"
+      ],
+      "questions":[
+        "Who would most likely be listening this talk?",
+        "How often will the class mentioned be held?",
+        "What are those interested in the class asked to do?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_74_76",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Once a week",
+            "Twice a week",
+            "Three time a week",
+            "Every Day"
+          ]
+        },
+        {
+          "option_2":[
+            "All the line is busy",
+            "It is a national holiday",
+            "Everyone is out to lunch",
+            "It is after working hour"
+          ]
+        },
+        {
+          "option_3":[
+            "Sign up today at the community center",
+            "Speak with coordinators after the talk",
+            "Deposit a check into the bank account",
+            "Take an admission test after the talk"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "3",
+        "3"
+      ],
+      "questions":[
+        "What does the speaker mention is special about Mr.Rowe?",
+        "Who does Sam credit his success to?",
+        "What will Mr.Rowe talk about?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_77_79",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "He is the youngest person to head the company",
+            "He has followed in the footsteps of his great father ",
+            "He made a lot of money by investing in stock ",
+            "He is relate to the company president"
+          ]
+        },
+        {
+          "option_2":[
+            "Mr. Smith",
+            "One of the investors",
+            "The company CEO",
+            "His father"
+          ]
+        },
+        {
+          "option_3":[
+            "How to get in on the good investments",
+            "How to make the good business contact",
+            "How to climb up the corporate ladder",
+            "How to become optimistic work"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "2",
+        "0"
+      ],
+      "questions":[
+        "What is the purpose of speech?",
+        "Who is Mr. Gieane ?",
+        "According to Gus's report, what is the most considered to be the most harmful to the environment?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_80_82",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "To invite people to charitable function",
+            "To introduce to the next speaker",
+            "To give thanks to the donations",
+            "To announce an upcoming event"
+          ]
+        },
+        {
+          "option_2":[
+            "Mr. Smith",
+            "One of the investors",
+            "The company CEO",
+            "His father"
+          ]
+        },
+        {
+          "option_3":[
+            "A barrie country resident",
+            "The major of Barrie County",
+            "A government worker",
+            "The president of paint company"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "3",
+        "2",
+        "0"
+      ],
+      "questions":[
+        "What is the purpose of announcement?",
+        "What does the speaker ask the listener to do?",
+        "When should the listener talk to the boss?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_83_85",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "To invite staff members to a company event",
+            "To call for emergency meeting",
+            "To notify employee of future repair work on the elevator",
+            "To guide the listeners to safety"
+          ]
+        },
+        {
+          "option_2":[
+            "Immediately speak to to their supervisor",
+            "Take the elevator up to tenth floor",
+            "Walk patently out of the building",
+            "Read through the safe manual"
+          ]
+        },
+        {
+          "option_3":[
+            "If someone if not present",
+            "Right after the announcement",
+            "Before the end of day",
+            "The first thing in the morning"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "3",
+        "0",
+        "3"
+      ],
+      "questions":[
+        "What is the store celebrating?",
+        "A record year of the sales?",
+        "When does the store open this saturday?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_86_88",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "The open of the new store",
+            "A record year of the sales",
+            "The retirement of a staff member",
+            "An important anniversary"
+          ]
+        },
+        {
+          "option_2":[
+            "Today",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ]
+        },
+        {
+          "option_3":[
+            "6 a.m.",
+            "7 a.m.",
+            "8 a.m.",
+            "9 a.m."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "0",
+        "3"
+      ],
+      "questions":[
+        "When will the construction start?",
+        "According to the speaking, who will be mostly affected by the construction?",
+        "Which of the following is NOT mentioned by the speaking?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_89_91",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "January 15",
+            "January 25",
+            "March 15",
+            "March 25"
+          ]
+        },
+        {
+          "option_2":[
+            "Sales staff",
+            "Receptionist",
+            "Customers",
+            "Staff member without car"
+          ]
+        },
+        {
+          "option_3":[
+            "All staff members should park in a specific place",
+            "Some of the employees should commute ",
+            "People who live close to the office should share the ride",
+            "Sales reps should speak with the reception"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "What is causing the flights delay at Heathrow Airport?",
+        "When was the flight originally scheduled for take-off?",
+        "What is being offered to the passengers at the second floor lounge?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_92_94",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "A flight accident",
+            "The local weather",
+            "A security alert",
+            "The overbooking of flights"
+          ]
+        },
+        {
+          "option_2":[
+            "12 o'clock",
+            "2 o'clock",
+            "5 o'clock",
+            "7 o'clock"
+          ]
+        },
+        {
+          "option_3":[
+            "A meal",
+            "A accommodations",
+            "Snacks and drinks",
+            "Flight ticket"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "2",
+        "2"
+      ],
+      "questions":[
+        "What is the speaker doing?",
+        "What does the speaker say is in plan for the Codak in the early part of next year?",
+        "Which of the following is NOT true about the Codak Incorporated?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_95_97",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Giving out an award",
+            "Introducing a guess",
+            "Make a sale presentation",
+            "Conducting an interview"
+          ]
+        },
+        {
+          "option_2":[
+            "They will buy out a japanese company",
+            "They will shut down one of their factories",
+            "They will embark on a business partnership",
+            "They will merge with other company"
+          ]
+        },
+        {
+          "option_3":[
+            "It has over 100000 employees",
+            "The company started a decade ago",
+            "It has a office branch in Japan",
+            "The company is planing to add more plants"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "3",
+        "3"
+      ],
+      "questions":[
+        "What is being advertiser?",
+        "What does the speaker say about The Adonis and Aphrodite Paradise?",
+        "Which of the following is NOT part of the amenities offered?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part4_audio_no_98_100",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "A travel agency",
+            "A gateway resort",
+            "A fitness center",
+            "Restaurant"
+          ]
+        },
+        {
+          "option_2":[
+            "it is visited by many travelers",
+            "There are over 500 rooms",
+            "Famous people vacation there",
+            "It is situated near an ocean"
+          ]
+        },
+        {
+          "option_3":[
+            "An animal show",
+            "A great cuisine",
+            "A swimming pool",
+            "Cycling"
+          ]
+        }
+      ],
+      "question_type":"1"
+    }
+
+  ]
+}

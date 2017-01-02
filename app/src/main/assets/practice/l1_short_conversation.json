@@ -1,0 +1,434 @@
+{
+  "Questions":[
+    {
+      "answer":[
+        "2",
+        "3",
+        "0"
+      ],
+      "questions":[
+        "Who mostly likely are they?",
+        "Why is the man reluctant to transfer to another department?",
+        "What will the man probably do?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_41_43",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "A job candidate and job interviewer",
+            "A marketing manager and a personal manager",
+            "Co-worker who work in the same departure of the company",
+            "A client and the a shop employee"
+          ]
+        },
+        {
+          "option_2":[
+            "He is happy with his current job.",
+            "He feels that he is not qualified for the open position.",
+            "He doesn't like the people in the Marking Department.",
+            "He would to accept a pay cut if he got hired"
+          ]
+        },
+        {
+          "option_3":[
+            "Put in his application and face the outcome.",
+            "Talk to his boss about getting more detail about the position.",
+            "Disregard the opportunity.",
+            "Work harder to be considered for the next promotion"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "2",
+        "3"
+      ],
+      "questions":[
+        "Who is the woman?",
+        "What suggestion does the woman receive from the man?",
+        "What will the woman most likely do?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_44_46",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "A visitor",
+            "A building the",
+            "A parking attendant",
+            "Walk back her house"
+          ]
+        },
+        {
+          "option_2":[
+            "See the art exhibit.",
+            "Park in the underground garage",
+            "Turn back and driver down to the intersection",
+            "An artist"
+          ]
+        },
+        {
+          "option_3":[
+            "Driver back home",
+            "Buy a ticket for the exhibit",
+            "Pay for towing fee",
+            "Park her car somewhere else"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "2",
+        "1"
+      ],
+      "questions":[
+        "What is the man doing?",
+        "How long has the man been there?",
+        "What does the woman suggest may be the man's problem?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_47_49",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Arguing about the seat",
+            "Searching for night spot",
+            "Trying to catch fish",
+            "Moving to different house"
+          ]
+        },
+        {
+          "option_2":[
+            "15 minutes",
+            "30 minutes",
+            "60 minutes",
+            "120 minutes"
+          ]
+        },
+        {
+          "option_3":[
+            "He is sitting in the wron place.",
+            "He is using a wrong bait",
+            "He has been waiting to long",
+            "He is not thing properly"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "What is the man doing?",
+        "Where will the man most likely go next?",
+        "What is special about this place?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_50_52",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "He is trying to buying something clothing",
+            "He is looking for a bank",
+            "He is preparing to start business",
+            "He is serving a customer"
+          ]
+        },
+        {
+          "option_2":[
+            "To another store",
+            "To the back part of store",
+            "To the fashion show",
+            "To see a customer"
+          ]
+        },
+        {
+          "option_3":[
+            "The items is reasonably priced",
+            "It 'd located close to the man 's place",
+            "It carries items the the other store don't have",
+            "It has been in business for many years"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "3",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "What is the man asking the woman about?",
+        "What will the man do?",
+        "When was the bill taken care of?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_53_55",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "An error made by his paycheck",
+            "A warning he had receive at work",
+            "The lunch menu at the restaurant he wants to go",
+            "A notification of an un paid bill"
+          ]
+        },
+        {
+          "option_2":[
+            "Drop by the bank",
+            "Take care of the misunderstanding",
+            "Call another electrician",
+            "Go to ran errand"
+          ]
+        },
+        {
+          "option_3":[
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "This morning"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "2",
+        "0"
+      ],
+      "questions":[
+        "When will the exhibition be held?",
+        "How long does ti take to send the items to the Detroit plant ?",
+        "According to the woman, why is de delivery being rushed?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_56_58",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "On the third of this month",
+            "At the end of October",
+            "In a couple of weeks",
+            "After three days"
+          ]
+        },
+        {
+          "option_2":[
+            "One days",
+            "Two days",
+            "Three days",
+            "Five days"
+          ]
+        },
+        {
+          "option_3":[
+            "To have plenty of time to deal with a problem in one occurs ",
+            "To prepare for the company 's move",
+            "To avoid to running into the possibility of a stock shortage",
+            "To oblige the demand of Mr. Johnson"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "0",
+        "1",
+        "0"
+      ],
+      "questions":[
+        "How far did the man's team go in the tournament?",
+        "According to the woman, why did her team not complete in the tournament?",
+        "What does the man mention about some of the managers of the company?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_59_61",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "The reach the finals before getting defeated. ",
+            "They got in to the semifinals after beating the sales team",
+            "They are defeated in the first round of the tournament",
+            "They went all the way to the finals and won"
+          ]
+        },
+        {
+          "option_2":[
+            "Many of her staff member was out of town on business",
+            "Her boss doesn't like the baseball very much",
+            "She fell down stairs and broke her ankle ",
+            "Her team members were to busy with their work "
+          ]
+        },
+        {
+          "option_3":[
+            "They doesn't consider company morale to be very important.",
+            "They stress winning the tournament too much.",
+            "They worked very hard preparing the tournament.",
+            "They waste too much time talking about sport."
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "2",
+        "1",
+        "1"
+      ],
+      "questions":[
+        "According to the woman, why has the company got over the budget this quarter?",
+        "What do the man suggest they do to solve the problem?",
+        "What does the woman say is the reason why the man's suggestion doesn't work?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_62_64",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "Many employee are marking unnecessary trips",
+            "The staff members are staying at very expensive hotels",
+            "Their travel expense have shot up",
+            "The cost insurance has more doubled "
+          ]
+        },
+        {
+          "option_2":[
+            "Have more people work from their home",
+            "Discriminate against those planing to travel",
+            "Work out a better deal with the airline company",
+            "Get the work to pay their own meals"
+          ]
+        },
+        {
+          "option_3":[
+            "People tent to get lazy working at home",
+            "The manager can not judge which trip are absolutely necessary",
+            "They are already getting a special rate from airline company they deal with",
+            "The rest of managers at the company don't think it 's good idea"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "3",
+        "1",
+        "2"
+      ],
+      "questions":[
+        "Where is the conversation most likely taking place",
+        "What does the woman say is the problem?",
+        "What advise does the man give her?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_65_67",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "At an auto repair shop",
+            "At a ga station",
+            "In the computer store",
+            "A long side away"
+          ]
+        },
+        {
+          "option_2":[
+            "Her computer is down",
+            "The car ignition doesn't work",
+            "The car use too much gas",
+            "Her brother doesn't give good advise"
+          ]
+        },
+        {
+          "option_3":[
+            "Listen to her brother",
+            "Get a new car",
+            "Have the car towed",
+            "Replaced the battery"
+          ]
+        }
+      ],
+      "question_type":"1"
+    },
+    {
+      "answer":[
+        "1",
+        "0",
+        "0"
+      ],
+      "questions":[
+        "For how many nights will the man stay in the hotel?",
+        "What did the man request?",
+        "What will the man mostly likely be doing at 9 in the morning?"
+      ],
+      "points":"3",
+      "duration_in_seconds":"135",
+      "url_audio":"listening_part3_audio_no_68_70",
+      "negative_points":"0",
+      "options":[
+        {
+          "option_1":[
+            "One",
+            "Two",
+            "Three",
+            "Seven"
+          ]
+        },
+        {
+          "option_2":[
+            "Room service",
+            "A wake-up call",
+            "Valet parking",
+            "Cleaning service"
+          ]
+        },
+        {
+          "option_3":[
+            "Giving a speech",
+            "Having a meal",
+            "Swimming in the lake",
+            "Talking a flight out"
+          ]
+        }
+      ],
+      "question_type":"1"
+    }
+  ]
+}

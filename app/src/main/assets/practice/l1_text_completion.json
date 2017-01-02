@@ -1,0 +1,802 @@
+{
+  "Questions": [
+    {
+      "answer": [
+        "2",
+        "3",
+        "0"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Dry Weather Leads To Poor Harvest</b> <br><br>Farms throughout Minnesota are harvesting record low amounts of soybean production. The extremely dry conditions since the first of May (1)........ most of the crop. Corn farmers are slightly better off. <br> Livestock costs are now increasing as feed becomes more expensive and animals continue to be lost during the heat wave.<br> Last year's overproduction of soybeans means stockpiles have been able to supply market needs. Therefore, farmers in other areas who are capable (2) ......... harvesting soybeans this month will not benefit significantly from higher prices.<br> Most farmers will try to (3) .......... their bank loans this fall in hopes of a better crop next year. If that harvest is as poor as this year's, many farmers may be forced out of business.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "destroyed",
+            "will destroy",
+            "have destroyed",
+            "were destroying"
+          ]
+        },
+        {
+          "option_2": [
+            "to",
+            "in",
+            "for",
+            "of"
+          ]
+        },
+        {
+          "option_3": [
+            "extend",
+            "suspend",
+            "spoil",
+            "decorate"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "1",
+        "2",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "Crude oil prices struck a record high of $100.05 a barrel in New York yesterday due to political tensions in the Middle East, surging demand from Asia, and buying interest from investment funds. The weakening US currency is also to (1) ......... because it makes oil cheaper for buyers using stronger currencies. <br><br> With rising oil prices (2) .......... rising food prices. According to The Christian Science Monitor, across the world, basic foods now cost 21 percent more at the wholesale level than in 2005, with key commodities such as grains and vegetable oils up more than 30 percent. For the poor, that means the quality and quantity of nutrition are at risk and that their lives are threatened. <br><br> Analysts predict that oil prices will keep soaring in the foreseeable future. 'Sadly, hardly (3) ........... can be done to change the situation,' said an economist from Harvard,'unless we can all learn to lead a frugal life.'",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "scold",
+            "blame",
+            "praise",
+            "search"
+          ]
+        },
+        {
+          "option_2": [
+            "happen",
+            "bring",
+            "come",
+            "find"
+          ]
+        },
+        {
+          "option_3": [
+            "nothing",
+            "something",
+            "everything",
+            "anything"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "0",
+        "3",
+        "2"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>You Can Make a Wise Investment With Us</b> <br><br> Life naturally has its ups and downs. Wise investing no matter how much or how little is the best way to smooth out the rough times in life while preparing for retirement.At Whole World Investment, we are (1) .......... to helping you prepare for your future. <br><br> Our team of experts can advise you on a flexible life-long plan that (2) ......... into account times of financial stress. <br><br> Contact us at WholeWorld.com  or visit our office nearest you. We specialize in asset management, estate planning services, financial planning, and private banking. The moments you spend with us (3) .......... you years of security and a brighter future.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "dedicated",
+            "decided",
+            "determined",
+            "decisive"
+          ]
+        },
+        {
+          "option_2": [
+            "brings",
+            "gives",
+            "offers",
+            "takes"
+          ]
+        },
+        {
+          "option_3": [
+            "have given",
+            "to give",
+            "will give",
+            "giving"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "0",
+        "2",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Ida Likely To Hit Florida</b> <br><br> The National Weather Forecasting Center issued a hurricane alert from the Caribbean Islands to the southeast of Florida today, (1) ......... fears that the season's latest storm may hit the peninsula within a few days. That is anything but certain.  Last month Hurricane David was on a bull's-eye course with Florida but turned north before hitting the coast. Meteorologists continually try to remind the public that weather (2) .......... is not an exact science, especially with storms the size and intensity of hurricanes. <br><br> Nonetheless, the Florida State Disaster Management Team has issued a yellow flag alert, meaning that severe weather may be expected within three days. Testing of alarm and communication systems must be (3) .......... as soon as possible. The newly named Hurricane Ida is currently only a Category 1 storm, but if it gains in intensity, it could do great damage to Florida.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "raising",
+            "raises",
+            "to raise",
+            "raised"
+          ]
+        },
+        {
+          "option_2": [
+            "presentation",
+            "prescription",
+            "prediction",
+            "presumption"
+          ]
+        },
+        {
+          "option_3": [
+            "dropped out",
+            "carried out",
+            "set out",
+            "filled out"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "1",
+        "0"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Independent Television Broadcasting</b><br><br> 120 Manor Estate <br> Broadgate <br> Tel: 090-889-999 <br> http://www.itb.tv.com<br><br> Mrs. Marion Edwards, <br><br> 56 Stansfield Street <br><br> Manchester<br><br> (1)........  Mrs. Edwards. <br><br> Thank you for your letter regarding one of our recent programs. You wrote to complain about the use of language in the drama Life on the Edge. You felt that the language was inappropriate (2)........ television. I understand your concern, but would like to explain our reasons for including curse words. Life on the Edge does have a large number of curse words, but as it was shown after 10 p.m., we felt that it was (3)....... for a night time audience. Of course, we would never allow bad language to be included in anything shown before 9 p.m. I hope that this incident has not spoiled your enjoyment of ITB programming, and that you will continue to watch our shows. <br><br> Sincerely, <br><br> Michael A. Jameson",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "To",
+            "From",
+            "Dear",
+            "Attention"
+          ]
+        },
+        {
+          "option_2": [
+            "to",
+            "for",
+            "with",
+            "in"
+          ]
+        },
+        {
+          "option_3": [
+            "suitable",
+            "adaptable",
+            "variable",
+            "properly"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "3",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Whitby Annual Carnival: Competition Winners</b><br><br> Please check the list below to see if you are one of the lucky winners from the Whitby Annual Carnival. As you will know,(1)..... the week-long carnival period the town of Whitby holds several contests. Don't think 'Well, I didn't enter, I won't have won.' (2)..... residents of Whitby are automatically entered. Take a look at the list and you might have a nice surprise. <br><br> Our judges have chosen the following residents: <br> Best garden:  Mrs. Gladys O'Brian <br> Best-behaved dog: Fido, owned by Wendy Hillier <br> Most punctual person: Sarah Higgins <br> Kindest neighbor: Antonio Lopez <br><br> Antonio has won the (3)..... neighbor award 4 years in a row. Who will win next year? To claim your prize, please call the Town Hall Carnival office on 021-556-774. All winners will receive a $100 gift voucher for use at the Whitby Supermarket. Congratulations to all winners.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "while",
+            "on",
+            "during",
+            "with"
+          ]
+        },
+        {
+          "option_2": [
+            "Each",
+            "Every",
+            "Almost",
+            "All"
+          ]
+        },
+        {
+          "option_3": [
+            "kinder",
+            "most kind",
+            "kindliest",
+            "kindest"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "1",
+        "2",
+        "2"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Memo</b><br><br> To: Janet Wright, Paolo Svegli <br> From: Andrew Kovaks <br> Re: Illustrations deadline <br> Date: October 23rd, 2005 <br><br> This is just to let you know that the deadline for illustrations for the new series of children 's story books Fairyland Tales has been brought forward to November 13th, (1)....... of November 27th as originally planned. Lisa Takahashi, the editor of the Fairyland Tales series quit suddenly (2)....... night, and we are now having to rearrange a lot of her duties. Because it will take several days to find a suitable replacement, we have decided that the (3)........ thing to do is reschedule each step of the process. Here in the editorial office we feel that it would be better to have all the necessary materials as soon as possible, so that we can hand over a complete package to Lisa's replacement. Sorry for the inconvenience which I know this will cause you; however, we appreciate your understanding. If there are any further changes, I will inform you as soon as possible. Thanks again for your understanding.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "as well as",
+            "instead",
+            "from",
+            "in advance"
+          ]
+        },
+        {
+          "option_2": [
+            "yesterday",
+            "tomorrow",
+            "last",
+            "next"
+          ]
+        },
+        {
+          "option_3": [
+            "most",
+            "good",
+            "best",
+            "more convenient"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "0",
+        "2",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "May 8<br><br> Dear AT&T customers,<br><br> At AT&T, we're always working hard to serve you better. (1)......... recently-developed technology in telecommunication, we can now offer you faster and more convenient service.<br><br> As a part of our continuing effort to provide you with superior-quality service, we have been forced to increase our service fees. Even though the money you have to pay has been increased, you can be (2)..... that you will be receiving top-quality service. <br><br> Please take time to go over the attached information. It (3)..... specific descriptions of the new services you will be offered as the new fees go into effect. <br><br> Please contact our Customer Service Department at 1-800-778-1000 should you have any questions. Thank you for your continued business. <br><br> Sincerely, <br><br> AT&T",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "Thanks to",
+            "Because",
+            "Now that",
+            "In case of"
+          ]
+        },
+        {
+          "option_2": [
+            "firm",
+            "definite",
+            "certain",
+            "established"
+          ]
+        },
+        {
+          "option_3": [
+            "providing",
+            "had provided",
+            "provided",
+            "provides"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "1",
+        "3",
+        "2"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "In response to frequently-occurring computer virus problems, we will be updating our antivirus software. Before installing the update, all staff members are required to restart their computers. A detailed description will appear on-screen (1)....... the security update has been applied. <br><br> Please remember that to be effective, computers must be (2)....... prior to completing the installation. <br><br> We will send this software to any company-owned (3) ...... used remotely. <br><br> Staff members who work off-site will need to install the software themselves. If you have questions, you can reach us at (555) 689-2233.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "following",
+            "after",
+            "next",
+            "soon"
+          ]
+        },
+        {
+          "option_2": [
+            "restarting",
+            "restart",
+            "restarts",
+            "restarted"
+          ]
+        },
+        {
+          "option_3": [
+            "computer",
+            "computing",
+            "provided",
+            "provides"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "0",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>To</b>: All employees <br> <b>Re</b>: New identification cards <br><br> Several computers have disappeared recently. In an effort to prevent theft or misplacement of company property, we have decided to improve security at our offices, (1).........,all employees will receive new security identification cards.<br><br> While new identification cards will be the same size and have the same electronic bar codes as an old one, they will (2)........ a photo image of the card holder. <br><br> The (3)........ that come with the new card will include access to the office and conference room areas, online access to the company network, and discounts at the company cafeteria. <br><br> Employees without new identification cards will not be able to enter the building.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "Otherwise",
+            "However",
+            "Therefore",
+            "Nonetheless"
+          ]
+        },
+        {
+          "option_2": [
+            "feature",
+            "compare",
+            "imply",
+            "retire"
+          ]
+        },
+        {
+          "option_3": [
+            "attempts",
+            "privileges",
+            "remedies",
+            "evaluations"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "3",
+        "1",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>Welcome to Jimmy's Show!</b> <br><br> I know many of you are probably wondering how a television program is made. Come and see for yourself! Jimmy's Show provides you with not only educational and (1)......... information, but also interesting stories that are happening around us. <br><br> Tickets are limited to two per (2) .......... <br><br> (3) .........  tickets are available to those who fill out the online application. Visit us at http://www.jimmyshow.com and apply now!",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "unanimous",
+            "duplicate",
+            "identical",
+            "analytical"
+          ]
+        },
+        {
+          "option_2": [
+            "requests",
+            "request",
+            "requesting",
+            "require"
+          ]
+        },
+        {
+          "option_3": [
+            "Active",
+            "Complimentary",
+            "Combined",
+            "Optimistic"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "1",
+        "2",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "Dear Mrs. Whitman,<br><br> I regret to inform you that your application for a government subsidized housing (1) ........ has been rejected. While we understand that you recently became unemployed, as a home owner who has more than $10,000 dollars currently (2) ........ in a bank account, you simply do not fit any of the basic criteria for a subsidized housing loan. However, as a single parent, if you are receiving no financial support from the father of your children, you may qualify for child care assistance. I suggest that you contact our office to make an appointment to discuss this further. The number to call for (3) ........ appointments is 023-445-4460. The phone line is operational between the hours of 9:00 a.m. and 6:00 p.m. Please have your social security number on hand when you call. This will help peed up the process. <br><br> Sincerely, <br><br> Clarence Dewitt",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "permission",
+            "loan",
+            "affirmation",
+            "agree"
+          ]
+        },
+        {
+          "option_2": [
+            "withdrawn",
+            "transfer",
+            "deposited",
+            "mortgage"
+          ]
+        },
+        {
+          "option_3": [
+            "denomination",
+            "consultation",
+            "remittance",
+            "talking"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "1",
+        "0",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "Over the last few months, we have received (1) ......... letters from readers, asking us where they can buy some of the items that have been on display in the background of a number of our fashion features. It almost seems that the furnishings and decorative items from those photo shoots have (2) ......... interest than the clothes themselves. <br><br> For this reason you will notice that, starting on page 78 of this month's edition, we have introduced a new feature entitled 'Where can I buy...?' This new section will appear immediately after our main fashion photo feature each month. We will be listing the designers and manufacturers for just about everything you can see in each photo, and we will be giving you the numbers and websites you need to find out more. Many of these items will be made available at a (3) .......... to magazine subscribers. <br><br> All the more reason to take out a subscription! <br><br> Take a look and let us know what you think.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "much",
+            "a lot of",
+            "numbers of",
+            "lots"
+          ]
+        },
+        {
+          "option_2": [
+            "aroused more",
+            "aroused",
+            "provoked",
+            "made more"
+          ]
+        },
+        {
+          "option_3": [
+            "bargain",
+            "price off",
+            "major retailer",
+            "discount"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "1",
+        "0"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "To: Fiona Kim <br> From: Baljit Singh <br> Subject: Urgent Business <br> Ms. Kim: <br><br> I wish you to present yourself at my office at 9:00 a.m. tomorrow. It has been (1) .........  to my attention by various members of staff that you have not been acting in a very cooperative manner of late, and I feel we need to meet to discuss the (2) ......... I was very surprised to hear this, and although I have been ignoring it, hoping that this was a temporary matter, it has been going on long enough that I think we need to talk. <br><br> I will not go into (3) .........  in this memo, but needless to say we will be discussing three major incidents which have caused us to lose important contracts. I have not yet decided what will happen to your position at this company; it depends rather on the outcome of our meeting tomorrow and the outcome of a second meeting that I will have with both of your foreman tomorrow afternoon.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "much",
+            "a lot of",
+            "numbers of",
+            "lots"
+          ]
+        },
+        {
+          "option_2": [
+            "aroused more",
+            "aroused",
+            "provoked",
+            "made more"
+          ]
+        },
+        {
+          "option_3": [
+            "bargain",
+            "price off",
+            "major retailer",
+            "discount"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "0",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>WE ARE LOOKING FOR TENANTS IN THE TWIN CITIES AREA</b> <br><br> Apartment Search Magazine (ASM) is (1) ......... to advertising apartment communities, townhouses, and condominiums available in the Twin Cities area. If you have an advertisement you would like included in ASM, call (599) 373-3329 M-F 9:00 a.m.-5:00 p.m., or email us at asm@twincities.org. <br><br> ASM is published (2) ......... and is distributed FREE to our readers. It can be found at key locations such as grocery stores, convention and visitor centers, chambers of commerce, restaurants, college campuses, and hotels and motels. ASM reserves the right to refuse advertising for any reason. No advertisement will be accepted if it is in violation (3) ......... the terms of the Housing Non-Discrimination. <br><br> Act of 1997.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "devotes",
+            "devotee",
+            "devoted",
+            "devotion"
+          ]
+        },
+        {
+          "option_2": [
+            "monthly",
+            "one a month",
+            "by monthly",
+            "in a month"
+          ]
+        },
+        {
+          "option_3": [
+            "to",
+            "from",
+            "for",
+            "of"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "0",
+        "2"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "Good personal hygiene is required of all our food service employees. Please refer to the (1) ........ guidelines. <br><br> Hands must be clean at all times, and you are required to wash them with soap and hot water at the beginning of your shift and at (2) ......... once every hour thereafter, after handling trash, and before returning to work from the restroom or meal breaks. Nails are to be trimmed to a reasonable length. The maximum acceptable length is 1/8 inch longer than your fingertip. Failure to adhere to these guidelines (3) .........  result in your being asked to leave work for the day, and repeated failure or refusal to adhere WILL result in job loss.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "under",
+            "followed",
+            "following",
+            "below"
+          ]
+        },
+        {
+          "option_2": [
+            "least",
+            "most",
+            "all",
+            "many"
+          ]
+        },
+        {
+          "option_3": [
+            "has to",
+            "could have",
+            "might",
+            "should"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "3",
+        "3",
+        "0"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "The annual BIG Mart super sale is here again. For the next seven days, we are offering savings of between 10 and 40% on selected items from our (1) ....... stock. If you have had your eye on a new washing machine, now you can get one from just $300. Looking for a new TV for the living room? We have flat-screen TVs from just $599. We are also offering great savings on MP3 players, DVD players, and many (2) .........  items from our home entertainment range. Check out our website for a list of our special offers. The list is updated hourly. If you can find the same item at a cheaper price in another store, just bring us proof and we'll match the (3) ........ price. Please note all items are either ex-display models or returned merchandise. All items come with a twelve-month warranty.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "now",
+            "next",
+            "contemporary",
+            "current"
+          ]
+        },
+        {
+          "option_2": [
+            "another",
+            "also",
+            "too",
+            "other"
+          ]
+        },
+        {
+          "option_3": [
+            "cheaper",
+            "cheap",
+            "cheaply",
+            "more cheap"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "0",
+        "3"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<p>To: Graeme Lynch <br> From: Finance <br> Re: Taxes <br><br> It has been brought to our (1) ........ that you have been charged incorrectly for taxes over the last five months. We apologize sincerely because this is (2) ........ to an error in our office. We were going through some personnel changes when you joined the company, and unfortunately some incorrect data was entered into our database. We have just realized that you have been charged for a higher tax bracket than you should have been. We are making (3) ......... to rectify the situation immediately, and in your next paycheck you will notice that less tax has been subtracted than in previous months. You can reclaim the previous extra deductions if you file for a rebate at the end of the financial year.</p>",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "notice",
+            "desk",
+            "attention",
+            "sign"
+          ]
+        },
+        {
+          "option_2": [
+            "due",
+            "owed",
+            "indebted",
+            "resulted"
+          ]
+        },
+        {
+          "option_3": [
+            "affords",
+            "results",
+            "designs",
+            "efforts"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "2",
+        "0",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "Today is the first year anniversary of the (1) ........ of the Happy Valley Shopping Center. In celebration of this fact, stores throughout the Happy Valley complex will be holding special events and big discount sales starting today and (2) .........  for the next five days. Now is the time to check out all of your favorite stores and maybe treat yourself to something nice. Shoes and boots will be half price on Monday. Coats and jackets will be marked (3) ........ 25% on Tuesday. Home furnishings are priced15% off on Wednesday, the bookstores are offering a 30% discount on novels on Thursday and on Friday, and the food court is serving free meals to the first 200 customers! Don't miss out, and be sure to tell your friends.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "building",
+            "start",
+            "opening",
+            "closure"
+          ]
+        },
+        {
+          "option_2": [
+            "running",
+            "completing",
+            "organizing",
+            "ran"
+          ]
+        },
+        {
+          "option_3": [
+            "up",
+            "down",
+            "in",
+            "on"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "3",
+        "0",
+        "0"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "<b>To</b>: Division Manager <br> <b>From</b>: Jena Lee <br> <b>Date</b>: November 10 <br> <b>Subject</b>: Annual party <br><br> Dear Division Manager, <br><br> I am writing to (1) ......... the date of the annual party. <br> In my previous e-mail, I (2) .......  told you that it would be on December 12; actually, it will be on December 18 at the Hyatt Hotel. <br> The party is only one month away. As you can probably guess, we have many things to do before then. <br> Therefore, I would like to know (3) ........ will be attending in order to make sure we prepare enough seats and food. <br><br> Thank you for your prompt reply.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "retain",
+            "persuade",
+            "endorse",
+            "correct"
+          ]
+        },
+        {
+          "option_2": [
+            "mistakenly",
+            "modestly",
+            "fortunately",
+            "consequently"
+          ]
+        },
+        {
+          "option_3": [
+            "who",
+            "which",
+            "where",
+            "why"
+          ]
+        }
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": [
+        "0",
+        "3",
+        "1"
+      ],
+      "points": "3",
+      "duration_in_seconds": "135",
+      "question": "To make a purchase, follow these steps. To ensure a (1) ......... delivery, you must be sure to fill in these blanks completely and make your reservation in advance. <br> 1. Sign up on our home page (click here after reading the instructions) to create an account. <br> 2. Inform us of your travel plans, including where you require our services, and where and when you want to pick up the mobile phone. Choose the calling plan that is most cost-effective for you and give us your credit card information. <br> 3. Our system will (2) .......... you an order ID number and a mobile phone number for you to use in other countries. <br> 4. After finishing your online order, print out a receipt for your records. Our computerized system will (3) .........  send you a confirmation e-mail.",
+      "negative_points": "0",
+      "options": [
+        {
+          "option_1": [
+            "timely",
+            "yearly",
+            "friendly",
+            "daily"
+          ]
+        },
+        {
+          "option_2": [
+            "avoid",
+            "accomplish",
+            "compare",
+            "assign"
+          ]
+        },
+        {
+          "option_3": [
+            "sincerely",
+            "automatically",
+            "approximately",
+            "slightly"
+          ]
+        }
+      ],
+      "question_type": "1"
+    }
+  ]
+}

@@ -1,0 +1,3786 @@
+{
+
+    "Questions":[
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Try and be a little more cheerful because if you don't bear ......... soon, you'll make everyone else miserable.",
+            "negative_points":"0",
+            "options":[
+                "through",
+                "along",
+                "up",
+                "to"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We were in a small rowing boat and were terrified that the steamer hadn't seen us as it was bearing ......... on",
+            "negative_points":"0",
+            "options":[
+                "down",
+                "across",
+                "over",
+                "under"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I fully understand your comments and bearing those in ............, I have made the appropriate decision.",
+            "negative_points":"0",
+            "options":[
+                "brain",
+                "mind",
+                "mind",
+                "sense"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"As we have all worked very hard this year, I'm hoping that our efforts will bear .........",
+            "negative_points":"0",
+            "options":[
+                "produce",
+                "benefits",
+                "yields",
+                "fruit"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We all have our ......... to bear so I should be grateful if you would stop complaining all the time.",
+            "negative_points":"0",
+            "options":[
+                "problems",
+                "situations",
+                "crosses",
+                "results"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There is really nothing much you can do to stop it and I'm afraid you'll just have to ......... and bear it.",
+            "negative_points":"0",
+            "options":[
+                "scorn",
+                "grin",
+                "laugh",
+                "smile"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I hope you can be patient for a little longer and bear ......... me while I try and solve the problem.",
+            "negative_points":"0",
+            "options":[
+                "by",
+                "on",
+                "at",
+                "with"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"She has been proved right in everything she did as the report quite clearly bears .........",
+            "negative_points":"0",
+            "options":[
+                "out",
+                "to",
+                "for",
+                "onto"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The judge dismissed the new evidence completely because it had no bearing ......... the trial.",
+            "negative_points":"0",
+            "options":[
+                "to",
+                "on",
+                "into",
+                "by"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Quite honestly the two cases are so completely different that they really don't bear .........",
+            "negative_points":"0",
+            "options":[
+                "confirmation",
+                "contrast",
+                "comprehension",
+                "comparison"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Her latest film ............. its object in a very short space of time, which was to shock.",
+            "negative_points":"0",
+            "options":[
+                "acquired",
+                "got",
+                "attained",
+                "controlled"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The critics ......... to praise the work of this director whatever films he makes.",
+            "negative_points":"0",
+            "options":[
+                "run",
+                "continue",
+                "persist",
+                "insist"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The film was the first to show conditions in which poor people lived and as such was to ......... future directors.",
+            "negative_points":"0",
+            "options":[
+                "influence",
+                "hold",
+                "infect",
+                "show"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The only reason for them going to the cinema on that day was to find some form of .........",
+            "negative_points":"0",
+            "options":[
+                "internment",
+                "involvement",
+                "engrossment",
+                "entertainment"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The director's intention in making the film was to try and ......... simplicity as seen by a child.",
+            "negative_points":"0",
+            "options":[
+                "report",
+                "reprehend",
+                "represent",
+                "comprehend"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The fans outside the cinema on the first showing of the film were unwilling to ....... until all the stars had gone home.",
+            "negative_points":"0",
+            "options":[
+                "dispose",
+                "displace",
+                "discover",
+                "disperse"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The delay in ....... the film to the general public was because certain scenes were considered tasteless.",
+            "negative_points":"0",
+            "options":[
+                "replacing",
+                "repeating",
+                "releasing",
+                "reporting"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The theme of the second film is quite simply a ............. of the first.",
+            "negative_points":"0",
+            "options":[
+                "construction",
+                "continuation",
+                "continuum",
+                "continuing"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In the making of the film the direction is quite ......... from the financing of the project.",
+            "negative_points":"0",
+            "options":[
+                "separate",
+                "separation",
+                "separately",
+                "separates"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Very often someone will give a ......... of a film and when you see it for yourself, it's quite different",
+            "negative_points":"0",
+            "options":[
+                "describing",
+                "describes",
+                "described",
+                "description"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"She's got the kind of job that seems to keep her occupied all the time — 24-...............",
+            "negative_points":"0",
+            "options":[
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"............., I couldn't agree with you more.",
+            "negative_points":"0",
+            "options":[
+                "Totally",
+                "Clearly",
+                "Finally",
+                "Absolutely"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I really think we should talk about the subject we wanted to in the first place and ............. the issue.",
+            "negative_points":"0",
+            "options":[
+                "advise",
+                "speak",
+                "address",
+                "talk"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It's difficult to say exactly how many people are involved but I would say ............. 50.",
+            "negative_points":"0",
+            "options":[
+                "around",
+                "across",
+                "through",
+                "into"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It was one of those sights that you never forget it was ...............",
+            "negative_points":"0",
+            "options":[
+                "fine",
+                "awesome",
+                "interesting",
+                "clear"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We don't know precisely how much it will cost but I could give a ............. figure of 6 million dollars.",
+            "negative_points":"0",
+            "options":[
+                "ball field",
+                "ball place",
+                "ball park",
+                "ball game"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I agree with what you say, ............. but ......",
+            "negative_points":"0",
+            "options":[
+                "wholly",
+                "basically",
+                "quickly",
+                "simply"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"You fill in those forms on a weekly ............",
+            "negative_points":"0",
+            "options":[
+                "stand",
+                "base",
+                "size",
+                "basis"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I hope you will be patient and ............. with me a minute.",
+            "negative_points":"0",
+            "options":[
+                "stay",
+                "hold",
+                "bear",
+                "maintain"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It's difficult to see how to get out of this situation because we're between a rock and a ......... place.",
+            "negative_points":"0",
+            "options":[
+                "difficult",
+                "hard",
+                "soft",
+                "firm"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Interviewer: Perhaps you could start by telling us why you've ............",
+            "negative_points":"0",
+            "options":[
+                "obtained for this job",
+                "applied for this job",
+                "intended for this job",
+                "asked for this job"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Candidate: I think the main reason is because I like working in ............",
+            "negative_points":"0",
+            "options":[
+                "the free air",
+                "the clear air",
+                "the pure air",
+                "the open air"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Interviewer: You mean you like the idea of an office with .............",
+            "negative_points":"0",
+            "options":[
+                "air control",
+                "air management",
+                "air conditioning",
+                "air condition"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Candidate: I'm sorry I don't understand what you're .............",
+            "negative_points":"0",
+            "options":[
+                "in about",
+                "on about",
+                "for about",
+                "off about"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Interviewer: I should have thought this was ...............",
+            "negative_points":"0",
+            "options":[
+                "clear obvious",
+                "mostly obvious",
+                "pretty obvious",
+                "mainly obvious"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Candidate: Not to me, ............",
+            "negative_points":"0",
+            "options":[
+                "it isn't",
+                "it can't be",
+                "it won't be",
+                "it will be"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Interviewer: I think there must be a mistake, I .............",
+            "negative_points":"0",
+            "options":[
+                "put it you're Mr Johnson",
+                "take it you're Mr Johnson",
+                "place it you're Mr Johnson",
+                "try it you're Mr Johnson"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Candidate: I'm Mr Jensen. I'm afraid it's a case of ............",
+            "negative_points":"0",
+            "options":[
+                "mistaken personality",
+                "mistaken character",
+                "mistaken person",
+                "mistaken identity"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Interviewer: So you're not after the job of guardian, ...............",
+            "negative_points":"0",
+            "options":[
+                "I presume",
+                "I pretend",
+                "I prefer",
+                "I preview"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Candidate: No, sorry as I said I like working outside, I want to be a gardener, .........",
+            "negative_points":"0",
+            "options":[
+                "if you don't care",
+                "if you don't agree",
+                "if you don't mind",
+                "if you don't see"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train now ............. at the platform 6 is the 10.30 for London.",
+            "negative_points":"0",
+            "options":[
+                "sitting",
+                "standing",
+                "waiting",
+                "remaining"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Unfortunately it is now 11 o'clock and so there is a ............. of 15 minutes already.",
+            "negative_points":"0",
+            "options":[
+                "waiting",
+                "lateness",
+                "space",
+                "delay"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train at platform 14 cannot leave because there is a power ......... on that particular line.",
+            "negative_points":"0",
+            "options":[
+                "failure",
+                "miss",
+                "failing",
+                "missing"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train for London at platform 6 is still there and is not ............. to leave for at least 20 minutes.",
+            "negative_points":"0",
+            "options":[
+                "intended",
+                "expected",
+                "proposed",
+                "awaited"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The small cafe situated near platform 6 is now ............. free cups of tea to those waiting for the London train.",
+            "negative_points":"0",
+            "options":[
+                "discharging",
+                "dispensing",
+                "offering",
+                "disposing"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Severe storms last night together with heavy rainfall means that some of the lines of the station are now.........",
+            "negative_points":"0",
+            "options":[
+                "waterlogged",
+                "waterproof",
+                "water soaked",
+                "waterfall"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We thought for a moment that the 10.30 for London might be about to catch fire but it was a ............. alarm.",
+            "negative_points":"0",
+            "options":[
+                "wrong",
+                "false",
+                "difficult",
+                "general"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This is a general notice for all passengers: the restaurant in the main ............. is now open.",
+            "negative_points":"0",
+            "options":[
+                "concord",
+                "conduit",
+                "concourse",
+                "condition"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There was in fact a small fire in the train on platform 6 but we're glad to tell you that the flames have been.......",
+            "negative_points":"0",
+            "options":[
+                "distinguished",
+                "dampened",
+                "saturated",
+                "extinguished"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We regret to announce that the 10.30 for London is now out of service because the driver is having a nervous.......",
+            "negative_points":"0",
+            "options":[
+                "breakdown",
+                "low down",
+                "breakout",
+                "low break"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train now ............. at the platform 6 is the 10.30 for London.",
+            "negative_points":"0",
+            "options":[
+                "sitting",
+                "standing",
+                "waiting",
+                "remaining"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Unfortunately it is now 11 o'clock and so there is a ............. of 15 minutes already.",
+            "negative_points":"0",
+            "options":[
+                "waiting",
+                "lateness",
+                "space",
+                "delay"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train at platform 14 cannot leave because there is a power ............. on that particular line......",
+            "negative_points":"0",
+            "options":[
+                "failure",
+                "miss",
+                "failing",
+                "missing"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The train for London at platform 6 is still there and is not ............. to leave for at least 20 minutes.",
+            "negative_points":"0",
+            "options":[
+                "intended",
+                "expected",
+                "proposed",
+                "awaited"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The small cafe situated near platform 6 is now ............. free cups of tea to those waiting for the London train.",
+            "negative_points":"0",
+            "options":[
+                "discharging",
+                "dispensing",
+                "offering",
+                "disposing"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Severe storms last night together with heavy rainfall means that some of the lines of the station are now.......",
+            "negative_points":"0",
+            "options":[
+                "waterlogged",
+                "waterproof",
+                "water soaked",
+                "waterfall"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We thought for a moment that the 10.30 for London might be about to catch fire but it was a ............. alarm.",
+            "negative_points":"0",
+            "options":[
+                "wrong",
+                "false",
+                "difficult",
+                "general"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This is a general notice for all passengers: the restaurant in the main ............. is now open.",
+            "negative_points":"0",
+            "options":[
+                "concord",
+                "conduit",
+                "concourse",
+                "condition"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There was in fact a small fire in the train on platform 6 but we're glad to tell you that the flames have been.......",
+            "negative_points":"0",
+            "options":[
+                "distinguished",
+                "dampened",
+                "saturated",
+                "extinguished"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We regret to announce that the 10.30 for London is now out of service because the driver is having a nervous.......",
+            "negative_points":"0",
+            "options":[
+                "breakdown",
+                "low down",
+                "breakout",
+                "low break"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Will the driver of the blue Ford Fiesta XYZ 343 please ............. their car.",
+            "negative_points":"0",
+            "options":[
+                "send",
+                "move",
+                "take",
+                "tow"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Will the driver of the blue Ford Fiesta XYZ 343 please ............. their car.",
+            "negative_points":"0",
+            "options":[
+                "send",
+                "move",
+                "take",
+                "tow"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The reason for this is that the Fiesta is ............. our delivery lorry from leaving the premises.",
+            "negative_points":"0",
+            "options":[
+                "holding",
+                "keeping",
+                "preventing",
+                "promoting"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We ask the ............. of this vehicle to go back to their car as soon as possible and park their car in another space.",
+            "negative_points":"0",
+            "options":[
+                "possessor",
+                "possessing",
+                "ownership",
+                "owner"
+            ],
+            "question_type":"1"
+        },
+
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This is a customer ............... We have a special offer at the moment on bananas.",
+            "negative_points":"0",
+            "options":[
+                "audition",
+                "announcement",
+                "statement",
+                "prediction"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"For the next hour it will be possible to buy just one ............. of bananas and get one more free.",
+            "negative_points":"0",
+            "options":[
+                "bunch",
+                "branch",
+                "hand",
+                "group"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Further to our ............. for the Ford Fiesta to be reparked, this matter is now very urgent. Our lorry cannot get out.",
+            "negative_points":"0",
+            "options":[
+                "saying",
+                "asking",
+                "request",
+                "question"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We have to inform our customers that the store will be closing in half an hour's ...............",
+            "negative_points":"0",
+            "options":[
+                "o'clock",
+                "time",
+                "hour",
+                "duration"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We would like to ....... our customers that over the Christmas period we will be closing an hour earlier than usual.",
+            "negative_points":"0",
+            "options":[
+                "remember",
+                "retake",
+                "repeat",
+                "remind"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There are now only ten minutes remaining for you to make your ......... and go to the checkout.",
+            "negative_points":"0",
+            "options":[
+                "purchases",
+                "buying",
+                "sales",
+                "selling"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"A final ....... for the driver of the Ford Fiesta: there is no need now to repark as our delivery lorry has done that for you!",
+            "negative_points":"0",
+            "options":[
+                "note",
+                "message",
+                "saying",
+                "hint"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Ladies and gentlemen, I want to thank you for your ......... of our performance.",
+            "negative_points":"0",
+            "options":[
+                "appearance",
+                "appreciation",
+                "appeasement",
+                "apparition"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We have done this play many times in different towns but your ......... has been the greatest so far.",
+            "negative_points":"0",
+            "options":[
+                "appointment",
+                "application",
+                "apposition",
+                "applause"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We will always remember the way you stood up and ............. at some of the speeches in the play.",
+            "negative_points":"0",
+            "options":[
+                "clapped",
+                "clopped",
+                "clipped",
+                "clammed"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"ur leading actor is unable to come on the stage at the moment because he is ......... with emotion.",
+            "negative_points":"0",
+            "options":[
+                "overtaken",
+                "overdrawn",
+                "overcome",
+                "overturned"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Don't worry I'm sure it's only ............. and that he'll soon recover before the next performance.",
+            "negative_points":"0",
+            "options":[
+                "temperate",
+                "temporary",
+                "contemporary",
+                "temporarily"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"That is the reason why I am standing here and making this short .........",
+            "negative_points":"0",
+            "options":[
+                "speak",
+                "speaking",
+                "spoke",
+                "speech"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The leading lady is also absent from our stage and you can probably hear her ......... her heart out as I speak.",
+            "negative_points":"0",
+            "options":[
+                "sobbing",
+                "soaking",
+                "spitting",
+                "calling"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I think that the main ............. for all this emotion is probably the way you have reacted to the play.",
+            "negative_points":"0",
+            "options":[
+                "ratio",
+                "reason",
+                "ration",
+                "rate"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"You see throughout our ............. season we have never received so much laughter as we have from you.",
+            "negative_points":"0",
+            "options":[
+                "currant",
+                "curious",
+                "current",
+                "curtain"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The reason for this is possibly that you thought it was a ......... but in fact it is a tragedy.",
+            "negative_points":"0",
+            "options":[
+                "comic",
+                "comedy",
+                "comedian",
+                "comely"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Welcome to Radio News and now over to our ......... who's covering the procession this morning.",
+            "negative_points":"0",
+            "options":[
+                "reviewer",
+                "reporter",
+                "announcer",
+                "introducer"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Hi listeners, I should explain that I have a ............. eye view of this magnificent sight as the parade passes underneath me.",
+            "negative_points":"0",
+            "options":[
+                "cat's",
+                "dog's",
+                "bird's",
+                "rat's"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"To tell you the truth I shouldn't be ....... up here on top of this large statue of Field Marshal Smith.",
+            "negative_points":"0",
+            "options":[
+                "caught",
+                "catching",
+                "cornered",
+                "perched"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There is a long line of soldiers on horseback marching to the sound of a ....... band.",
+            "negative_points":"0",
+            "options":[
+                "copper",
+                "brass",
+                "zinc",
+                "aluminium"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It really is quite uncomfortable up here and there's a policeman ....... at me, which I don't like.",
+            "negative_points":"0",
+            "options":[
+                "spying",
+                "guiding",
+                "staring",
+                "starring"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"After the soldiers I can see a group of circus ............. who are jumping and dancing as they go.",
+            "negative_points":"0",
+            "options":[
+                "members",
+                "doers",
+                "actors",
+                "performers"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Next I can see some pensioners slowly moving along the road and some can't walk and are in .........",
+            "negative_points":"0",
+            "options":[
+                "highchairs",
+                "low chairs",
+                "wheelchairs",
+                "pushchairs"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"That policeman is getting out his ......... and walking near the statue I'm sitting on.",
+            "negative_points":"0",
+            "options":[
+                "notebook",
+                "exercise book",
+                "storybook",
+                "copybook"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It has started to rain and I shall get ............. to the skin if I stay much longer up here.",
+            "negative_points":"0",
+            "options":[
+                "sunk",
+                "suited",
+                "stuck",
+                "soaked"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Oh dear, listeners, I shall have to return you to the studio because the policeman says he is going to ....... me.",
+            "negative_points":"0",
+            "options":[
+                "seize",
+                "arrest",
+                "grasp",
+                "hold"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":" This is most embarrassing. I can't pay the bill for my meal. I'm afraid .......",
+            "negative_points":"0",
+            "options":[
+                "I've forgotten my wallet at home",
+                "I've left my wallet at home",
+                "I've abandoned my wallet at home",
+                "I've quit my wallet at home"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I would be most obliged if you .......",
+            "negative_points":"0",
+            "options":[
+                "let me to pay later",
+                "permit me pay later",
+                "allow me to pay later",
+                "grant me to pay later"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The other thing I could do is .......",
+            "negative_points":"0",
+            "options":[
+                "leave my watch as a present",
+                "leave my watch as a token",
+                "leave my watch as a gift",
+                "leave my watch as a deposit"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I can see by the expression on your face .........",
+            "negative_points":"0",
+            "options":[
+                "you don't really like the thought",
+                "you don't really like the concept",
+                "you don't really like the idea",
+                " you don't really like the belief"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I could phone someone to .........",
+            "negative_points":"0",
+            "options":[
+                "take me the money",
+                "bring me the money",
+                "carry me the money",
+                "gain me the money"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I see. So what you are saying is .........",
+            "negative_points":"0",
+            "options":[
+                "I'm holding up your trade",
+                "I'm holding off your trade",
+                "I'm holding on your trade",
+                "I'm holding in your trade"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Well, I did say I was sorry and I think .........",
+            "negative_points":"0",
+            "options":[
+                "you're being very indistinct",
+                "you're being very unclear",
+                "you're being very unfavourable",
+                "you're being very unreasonable"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"You say you have no choice but to .........",
+            "negative_points":"0",
+            "options":[
+                "collect the manager",
+                "call the manager",
+                "deliver the manager",
+                "present the manager"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"That sounds a good idea. I'm sure he'll .........",
+            "negative_points":"0",
+            "options":[
+                "symbolise",
+                "energise",
+                "sympathise",
+                "eulogise"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"All right, all right Mr manager. Just as you say, .........",
+            "negative_points":"0",
+            "options":[
+                "of course I'll wash the dishes in the kitchen",
+                "inevitably I'll wash the dishes in the kitchen",
+                "understandably I'll wash the dishes in the kitchen",
+                "indubitably I'll wash the dishes in the kitchen"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In order to check all the telephone calls made during the month I want the account to be .......",
+            "negative_points":"0",
+            "options":[
+                "detailed",
+                "particular",
+                "specialized",
+                "itemized"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"All the representatives are allowed to spend money for entertaining with their ....... account.",
+            "negative_points":"0",
+            "options":[
+                "expensive",
+                "expending",
+                "expense",
+                "expenses"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"To spread the cost of spending on articles you buy many big departments let you open a .......",
+            "negative_points":"0",
+            "options":[
+                "credible",
+                "credit",
+                "credited",
+                "credulous"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Once you are earning money and you want to keep it safe, you can always ......... an account with a bank.",
+            "negative_points":"0",
+            "options":[
+                "open",
+                "start",
+                "begin",
+                "commence"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"At the end of thirty days the company will ask you to ......... the account.",
+            "negative_points":"0",
+            "options":[
+                "open",
+                "start",
+                "begin",
+                "commence"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The finance director is responsible for ......... the accounts for the business.",
+            "negative_points":"0",
+            "options":[
+                "holding",
+                "keeping",
+                "taking",
+                "finding"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"At the end of the financial year it is the responsibility of the chief finance officer to ......... the accounts.",
+            "negative_points":"0",
+            "options":[
+                "print",
+                "edit",
+                "publish",
+                "direct"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Before they got married, they decided to open a ......... account.",
+            "negative_points":"0",
+            "options":[
+                "united",
+                "joint",
+                "unified",
+                "combined"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"If you have saved some money, it is a good idea to put the money into a ......... account.",
+            "negative_points":"0",
+            "options":[
+                "heap",
+                "pile",
+                "lump",
+                "deposit"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"However hard I try, I find it impossible to account ......... this missing sum of money.",
+            "negative_points":"0",
+            "options":[
+                "with",
+                "to",
+                "for",
+                "by"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In order to check all the telephone calls made during the month I want the account to be .........",
+            "negative_points":"0",
+            "options":[
+                "detailed",
+                "particular",
+                "specialized",
+                "itemized"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"All the representatives are allowed to spend money for entertaining with their ......... account.",
+            "negative_points":"0",
+            "options":[
+                "expensive",
+                "expending",
+                "expense",
+                "expenses"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"To spread the cost of spending on articles you buy many big departments let you open a .........",
+            "negative_points":"0",
+            "options":[
+                "credible",
+                "credit",
+                "credited",
+                "credulous"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Once you are earning money and you want to keep it safe, you can always ......... an account with a bank.",
+            "negative_points":"0",
+            "options":[
+                "open",
+                "start",
+                "begin",
+                "commence"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"At the end of thirty days the company will ask you to ......... the account.",
+            "negative_points":"0",
+            "options":[
+                "arrange",
+                "finish",
+                "end",
+                "settle"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The finance director is responsible for ......... the accounts for the business.",
+            "negative_points":"0",
+            "options":[
+                "holding",
+                "keeping",
+                "taking",
+                "finding"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"At the end of the financial year it is the responsibility of the chief finance officer to ......... the accounts.",
+            "negative_points":"0",
+            "options":[
+                "print",
+                "edit",
+                "publish",
+                "direct"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Before they got married, they decided to open a ......... account.",
+            "negative_points":"0",
+            "options":[
+                "united",
+                "joint",
+                "unified",
+                "combined"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"If you have saved some money, it is a good idea to put the money into a ......... account.",
+            "negative_points":"0",
+            "options":[
+                "heap",
+                "pile",
+                "lump",
+                "deposit"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"However hard I try, I find it impossible to account ......... this missing sum of money.",
+            "negative_points":"0",
+            "options":[
+                "with",
+                "to",
+                "for",
+                "by"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In order to make a sensible ......... among the different vacuum cleaners available, it is important to do some research.",
+            "negative_points":"0",
+            "options":[
+                "comparing",
+                "comparison",
+                "compares",
+                "comparative"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The local department store has to make a sustained effort at this time of the year to ......... customer demand for summer clothing.",
+            "negative_points":"0",
+            "options":[
+                "satisfy",
+                "satisfaction",
+                "satisfies",
+                "satisfying"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"A good team leader must be able to ......... his colleagues to face the challenge of a downturn in business.",
+            "negative_points":"0",
+            "options":[
+                "inspiring",
+                "inspiration",
+                "inspires",
+                "inspire"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The ......... trend in children's desire to wear designer label clothes should be exploited.",
+            "negative_points":"0",
+            "options":[
+                "currant",
+                "current",
+                "occuring",
+                "occured"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"You have to ......... the public that it is in their own interest to read the instructions on all our medicines.",
+            "negative_points":"0",
+            "options":[
+                "convict",
+                "conviction",
+                "convince",
+                "convincing"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In order to survive in this business you must adopt a ......... stance.",
+            "negative_points":"0",
+            "options":[
+                "competition",
+                "competing",
+                "competitor",
+                "competitive"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The ......... of alcohol is not allowed in any of the company's premises in order to present a clean image.",
+            "negative_points":"0",
+            "options":[
+                "consumer",
+                "consumption",
+                "consuming",
+                "consumes"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"When you are setting out to ......... new customers in an advertisement, choose the right words.",
+            "negative_points":"0",
+            "options":[
+                "attraction",
+                "attractive",
+                "attract",
+                "attracts"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The really effective television commercial is the one that ......... you of its authenticity.",
+            "negative_points":"0",
+            "options":[
+                "persuades",
+                "persuasion",
+                "persuasive",
+                "persuading"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I can strongly recommend this ......... as the best available on the market today.",
+            "negative_points":"0",
+            "options":[
+                "producer",
+                "product",
+                "production",
+                "produce"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The contract was signed by the three partners who thus agreed to ......... by terms and conditions contained in it.",
+            "negative_points":"0",
+            "options":[
+                "follow",
+                "adhere",
+                "abide",
+                "stick"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There was nothing in the contract that ......... who would be responsible in the event that one of the partners became seriously ill.",
+            "negative_points":"0",
+            "options":[
+                "pointed",
+                "specified",
+                "printed",
+                "developed"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"An independent adviser was called in after the collapse of the company to ............. some of the issues that were not clear.",
+            "negative_points":"0",
+            "options":[
+                "result",
+                "retake",
+                "restrain",
+                "resolve"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"One of the ......... mentioned in the original agreement has decided that she does not want to continue with the profit-sharing scheme.",
+            "negative_points":"0",
+            "options":[
+                "partakers",
+                "participants",
+                "particles",
+                "parties"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In view of the serious problems associated with the takeover the newspaper company has decided to ......... its offer of financial help.",
+            "negative_points":"0",
+            "options":[
+                "throw",
+                "reject",
+                "cancel",
+                "deter"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The main problem was that the newly formed organisation was not attracting enough work and so they decided to ......... the services of a public relations expert.",
+            "negative_points":"0",
+            "options":[
+                "call",
+                "engage",
+                "enter",
+                "register"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"That company has been in business for over 100 years and in fact was ......... in 1899.",
+            "negative_points":"0",
+            "options":[
+                "grounded",
+                "established",
+                "found",
+                "invented"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"After the complaint had been received from the customer about poor service, she was given a written ......... that the matter would be put right.",
+            "negative_points":"0",
+            "options":[
+                "paper",
+                "insurance",
+                "assurance",
+                "conviction"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They were very careful to make sure in the original agreement that ......... would be made to pay for staff redundancies.",
+            "negative_points":"0",
+            "options":[
+                "foresight",
+                "forecast",
+                "providing",
+                "provision"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We decided to employ a solicitor who would be able to ......... the extent of our liability in this matter.",
+            "negative_points":"0",
+            "options":[
+                "decipher",
+                "decide",
+                "defer",
+                "determine"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I would be very interested in ......... for that job",
+            "negative_points":"0",
+            "options":[
+                "entering",
+                "working",
+                "applying",
+                "writing"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Do you want to ......... as a candidate in the local elections?",
+            "negative_points":"0",
+            "options":[
+                "stand",
+                "sit",
+                "go",
+                "try"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They are completely ......... up with all the noise in the centre of town.",
+            "negative_points":"0",
+            "options":[
+                "tired",
+                "fed",
+                "sick",
+                "ill"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The reason there are no buses is because the drivers are on ............",
+            "negative_points":"0",
+            "options":[
+                "hit",
+                "stop",
+                "strike",
+                "leave"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The government has changed its policy and had a complete change of .........",
+            "negative_points":"0",
+            "options":[
+                "view",
+                "opinion",
+                "mind",
+                "heart"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This supermarket is trying to ......... young shoppers by offering fashionable clothes.",
+            "negative_points":"0",
+            "options":[
+                "target",
+                "persuade",
+                "encourage",
+                "trap"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Have you ever tried your ......... at running a business?",
+            "negative_points":"0",
+            "options":[
+                "arm",
+                "finger",
+                "hand",
+                "leg"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"After all these years she has decided to take early ............",
+            "negative_points":"0",
+            "options":[
+                "leave",
+                "finishing",
+                "departure",
+                "retirement"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Going on a spending ............ with your credit card and no concern about how you pay back the money you borrow, is a growing habit these days.",
+            "negative_points":"0",
+            "options":[
+                "burst",
+                "spree",
+                "flight",
+                "day"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There is a popular demand for the system that allows credit companies to offer unlimited credit to young people to be .........",
+            "negative_points":"0",
+            "options":[
+                "overhauled",
+                "overseen",
+                "overlooked",
+                "overtaken"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It has been ............. by a government agency that the percentage of under 25 year olds owing large sums to companies is on the increase.",
+            "negative_points":"0",
+            "options":[
+                "distinguished",
+                "deciphered",
+                "dissolved",
+                "disclosed"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"One director of a major credit company has already been forced to ....... because of the bad publicity his company has attracted.",
+            "negative_points":"0",
+            "options":[
+                "step over",
+                "step through",
+                "step down",
+                "step out"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"One solution that has been suggested to control credit is to ......... the regulations to make it more difficult to get credit in the first place.",
+            "negative_points":"0",
+            "options":[
+                "step under",
+                "step up",
+                "step by",
+                "step across"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"OThe main problem is that a debt ......... has developed recently believing that it is cool to owe large sums of money.",
+            "negative_points":"0",
+            "options":[
+                "cultivation",
+                "cult",
+                "cultivate",
+                "culture"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Recent reports have ......... that being in debt is not now looked upon as a disgrace but rather as an attractive way of life.",
+            "negative_points":"0",
+            "options":[
+                "revealed",
+                "restored",
+                "replied",
+                "responded"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In reality it's a very long ......... to get from owing to paying off all your debts.",
+            "negative_points":"0",
+            "options":[
+                "hail",
+                "halt",
+                "haul",
+                "help"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There are frequently ......... in the family home between parents and children about whether you should enter into credit agreements.",
+            "negative_points":"0",
+            "options":[
+                "collisions",
+                "clashes",
+                "claims",
+                "crashes"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"What concerns people most are the mounting ....... among governments that it will take at least a generation for us to be rid of excessive debt.",
+            "negative_points":"0",
+            "options":[
+                "frights",
+                "fearful",
+                "fears",
+                "afraid"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Without the right software I'm afraid you can't ......... that particular program.",
+            "negative_points":"0",
+            "options":[
+                "reach",
+                "access",
+                "obtain",
+                "find"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The aim of the office manager is to ......... enough room on the building plans so that each employee can have space for a personal computer.",
+            "negative_points":"0",
+            "options":[
+                "arrange",
+                "accord",
+                "allocate",
+                "organize"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Remember that before you leave your workstation, always ............. your computer.",
+            "negative_points":"0",
+            "options":[
+                "shut out",
+                "shut up",
+                "shut in",
+                "shut down"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It's quite easy if you want to find folders and files on the computer, all you do is click here and it immediately starts .........",
+            "negative_points":"0",
+            "options":[
+                "seeking",
+                "searching",
+                "looking",
+                "checking"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I have tried and tried again and again and no matter what I do it still shows 'error' — I just can't ...... what's wrong.",
+            "negative_points":"0",
+            "options":[
+                "look out",
+                "check out",
+                "figure out",
+                "bring out"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I spent hours writing that report and checking all the information was correct and then without thinking I pressed the ......... button.",
+            "negative_points":"0",
+            "options":[
+                "'destroy'",
+                "'delete'",
+                "'deface'",
+                "'deny'"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It's a really clever piece of software because it enables you to ......... on your screen all the information in columns.",
+            "negative_points":"0",
+            "options":[
+                "illustrate",
+                "depict",
+                "depict",
+                "delineate"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Unfortunately this program is not ......... with the operating system on my computer.",
+            "negative_points":"0",
+            "options":[
+                "amicable",
+                "compatible",
+                "adaptable",
+                "amenable"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"When you see that particular symbol on the screen, you have to take that as a ......... that something is wrong.",
+            "negative_points":"0",
+            "options":[
+                "indicating",
+                "checking",
+                "briefing",
+                "warning"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"With this program you can always check your spelling and grammar and if you don't want to accept what itshows, you simply press .........",
+            "negative_points":"0",
+            "options":[
+                "'ignore'",
+                "'quit'",
+                "'leave'",
+                "'forget'"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Concern was expressed by the office manager that the company would buy an ............ financial package.",
+            "negative_points":"0",
+            "options":[
+                "agreeable",
+                "affordable",
+                "absolute",
+                "actual"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The main ......... of stationery for the office suddenly announced there would be an overall increase in their prices.",
+            "negative_points":"0",
+            "options":[
+                "provision",
+                "producer",
+                "provisional",
+                "provider"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The chief administrative officer disliked lack of attention to detail and insisted that such mistakes should never.........",
+            "negative_points":"0",
+            "options":[
+                "recur",
+                "repeat",
+                "retake",
+                "refer"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Once again the company has had to make a ......... in the number of office staff to try and recoup their losses.",
+            "negative_points":"0",
+            "options":[
+                "reducing",
+                "reduction",
+                "reduce",
+                "reduces"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The ....... of zip discs in the office is running dangerously low.",
+            "negative_points":"0",
+            "options":[
+                "share",
+                "state",
+                "stock",
+                "selection"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"If the managers want to stay employed, they will have to learn how to stay on ......... of their jobs.",
+            "negative_points":"0",
+            "options":[
+                "summit",
+                "top",
+                "head",
+                "line"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It's not worth paying for an annual service when you can simply call the supplier on an as-......... basis.",
+            "negative_points":"0",
+            "options":[
+                "needed",
+                "noted",
+                "called",
+                "told"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The new office manager will be in ......... of all the IT requirements that the company uses.",
+            "negative_points":"0",
+            "options":[
+                "use",
+                "mind",
+                "case",
+                "charge"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Currently there is a shortage of clerical staff but it is hoped that by the end of the year they will be up to full.........",
+            "negative_points":"0",
+            "options":[
+                "capability",
+                "capacity",
+                "control",
+                "capable"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Staff are always encouraged to work by themselves and whenever they meet a problem, they should use theirown .......",
+            "negative_points":"0",
+            "options":[
+                "initiative",
+                "interest",
+                "involvement",
+                "initial"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"On her retirement she was given a substantial cheque in ............. of all the work she had done over the last 20 years.",
+            "negative_points":"0",
+            "options":[
+                "respect",
+                "thought",
+                "appreciation",
+                "belief"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Having attended the office procedures course all employees were expected to ......... what they had learned and introduce it into their daily routine.",
+            "negative_points":"0",
+            "options":[
+                "reinforce",
+                "respond",
+                "react",
+                "resource"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Visiting clients had commented on the casual dress ......... of most of the clerical staff.",
+            "negative_points":"0",
+            "options":[
+                "manner",
+                "method",
+                "feature",
+                "code"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The ......... of staff doing physical exercises before the start of the day is well established in Japanese companies.",
+            "negative_points":"0",
+            "options":[
+                "practical",
+                "practicality",
+                "practice",
+                "practically"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There is a lengthy procedure used in this office for staff who have produced shoddy work and it begins with a......... warning.",
+            "negative_points":"0",
+            "options":[
+                "wordy",
+                "verbal",
+                "worded",
+                "verbose"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There was no fixed agenda for that particular day as it was to be regarded simply as a ......... meeting.",
+            "negative_points":"0",
+            "options":[
+                "possible",
+                "probable",
+                "unplanned",
+                "casual"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"At the interview all the candidates were shown round the building but could only really catch a ......... of the sort of work being carried out.",
+            "negative_points":"0",
+            "options":[
+                "look",
+                "view",
+                "glimpse",
+                "picture"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They really need to keep a check on the stationery supplies as they've run ......... A4 paper once again.",
+            "negative_points":"0",
+            "options":[
+                "in to",
+                "up for",
+                "out of",
+                "up to"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Managers prefer to select people who have been ......... to many different types of office environments.",
+            "negative_points":"0",
+            "options":[
+                "devoted",
+                "exposed",
+                "opened",
+                "experienced"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"A troubleshooter was brought into the office from another firm to get rid of some very ......... procedures.",
+            "negative_points":"0",
+            "options":[
+                "outdated",
+                "completed",
+                "finished",
+                "ended"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We got there early so that we could get the best ......... in the sale before anyone else.",
+            "negative_points":"0",
+            "options":[
+                "objects",
+                "products",
+                "bargains",
+                "offerings"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"If you ......... with me, I'll go and see whether we have that in your size.",
+            "negative_points":"0",
+            "options":[
+                "hold",
+                "stay",
+                "bear",
+                "wait"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The trouble with these huge superstores is that they don't have enough ......... to deal with customers at busy times.",
+            "negative_points":"0",
+            "options":[
+                "barriers",
+                "sales points",
+                "exits",
+                "checkouts"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It started off as a small street corner shop over 30 years ago but it has now ......... into a massive departmentstore.",
+            "negative_points":"0",
+            "options":[
+                "expanded",
+                "extended",
+                "explored",
+                "enlarged"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Take a good look at the receipt when you leave so that you can see that all the ......... have been listed.",
+            "negative_points":"0",
+            "options":[
+                "proceeds",
+                "items",
+                "products",
+                "produce"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Whenever I go to the old part of a city, I like to ....... all the shops selling antiques.",
+            "negative_points":"0",
+            "options":[
+                "examine",
+                "search",
+                "check",
+                "explore"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Are you aware of the latest ............. in children's clothing?",
+            "negative_points":"0",
+            "options":[
+                "tendency",
+                "trend",
+                "custom",
+                "habit"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They're quite ....... in their policy of not giving refunds without a receipt in this store.",
+            "negative_points":"0",
+            "options":[
+                "severe",
+                "strong",
+                "strict",
+                "hard"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They're quite ....... in their policy of not giving refunds without a receipt in this store.",
+            "negative_points":"0",
+            "options":[
+                "legal",
+                "reasonable",
+                "required",
+                "mandatory"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They have a ....... restriction in the shop with regard to the number of items of clothing that you can try on atone time.",
+            "negative_points":"0",
+            "options":[
+                "legal",
+                "reasonable",
+                "required",
+                "mandatory"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The extent of the ......... available in this one store is more than you can possibly imagine.",
+            "negative_points":"0",
+            "options":[
+                "merchandise",
+                "objects",
+                "produce",
+                "articles"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I was pleased to receive your response to my proposal but there are one or two points that need .........",
+            "negative_points":"0",
+            "options":[
+                "notification",
+                "certification",
+                "clarification",
+                "signification"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"A report has just been ......... that gives details of the causes of this trend towards informality in the business sector.",
+            "negative_points":"0",
+            "options":[
+                "published",
+                "directed",
+                "opened",
+                "held"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"According to the ......... in the report it is clear that employees under the age of 35 prefer to dress casually at work.",
+            "negative_points":"0",
+            "options":[
+                "seeking",
+                "searching",
+                "findings",
+                "probing"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Thirty years ago this kind of informality would not have been .........",
+            "negative_points":"0",
+            "options":[
+                "withheld",
+                "endured",
+                "suffered",
+                "tolerated"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"All employees are kindly requested to ......... from smoking in the presence of customers.",
+            "negative_points":"0",
+            "options":[
+                "stop",
+                "restrain",
+                "refrain",
+                "restrict"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The meeting went on for three hours and as a result there was no time left to discuss all the topics on the.......",
+            "negative_points":"0",
+            "options":[
+                "list",
+                "index",
+                "contents",
+                "agenda"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"There's really no point in hoping to add important topics right at the end of the meeting under the heading of any other .........",
+            "negative_points":"0",
+            "options":[
+                "business",
+                "work",
+                "activity",
+                "tasks"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The chairman was obliged to bring the meeting to a ......... because a fire broke out in the adjoining room.",
+            "negative_points":"0",
+            "options":[
+                "cessation",
+                "standstill",
+                "stopping",
+                "halt"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It is absolutely essential that the clerk takes care to ......... any decisions that have been reached during the meeting.",
+            "negative_points":"0",
+            "options":[
+                "time",
+                "minute",
+                "detail",
+                "measure"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"As so few members had turned up at the meeting, it was decided to ......... it until further notice.",
+            "negative_points":"0",
+            "options":[
+                "delay",
+                "wait",
+                "postpone",
+                "hold"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I heard of a new company today with which we should co-operate and ......... business with.",
+            "negative_points":"0",
+            "options":[
+                "make",
+                "create",
+                "have",
+                "do"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Shortly after he was dismissed from the firm he decided to ......... himself up in his own business.",
+            "negative_points":"0",
+            "options":[
+                "put",
+                "set",
+                "place",
+                "hold"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They went ......... business shortly after their children had left home and got married.",
+            "negative_points":"0",
+            "options":[
+                "out",
+                "in",
+                "into",
+                "on"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"As soon as they heard what had happened, they ......... it their business to find out the truth.",
+            "negative_points":"0",
+            "options":[
+                "made",
+                "tried",
+                "managed",
+                "called"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I would ask you kindly not to interfere with what I'm doing as in all honesty it's ......... of your business.",
+            "negative_points":"0",
+            "options":[
+                "no",
+                "nothing",
+                "none",
+                "nor"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Despite all the alterations that are taking place in the department store, the management wanted to explain it was business as .........",
+            "negative_points":"0",
+            "options":[
+                "common",
+                "practical",
+                "frequent",
+                "usual"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"She knew that there was some kind of ............ business going on because strange things were happening.",
+            "negative_points":"0",
+            "options":[
+                "weird",
+                "unusual",
+                "funny",
+                "stupid"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We really can't delay any more with our plans and must ......... down to business as soon as possible.",
+            "negative_points":"0",
+            "options":[
+                "set",
+                "get",
+                "cut",
+                "find"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"When the bomb went off, most of the injured were just ordinary people going ......... their business.",
+            "negative_points":"0",
+            "options":[
+                "about",
+                "along",
+                "across",
+                "through"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Although they had high hopes that they would be successful, they ....... out of business within six months.",
+            "negative_points":"0",
+            "options":[
+                "turned",
+                "came",
+                "went",
+                "fell"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I heard of a new company today with which we should co-operate and ....... business with.",
+            "negative_points":"0",
+            "options":[
+                "make",
+                "create",
+                "have",
+                "do"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Shortly after he was dismissed from the firm he decided to ......... himself up in his own business.",
+            "negative_points":"0",
+            "options":[
+                "put",
+                "set",
+                "place",
+                "hold"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They went ......... business shortly after their children had left home and got married.",
+            "negative_points":"0",
+            "options":[
+                "out",
+                "in",
+                "into",
+                "on"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"As soon as they heard what had happened, they ......... it their business to find out the truth.",
+            "negative_points":"0",
+            "options":[
+                "made",
+                "tried",
+                "managed",
+                "called"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I would ask you kindly not to interfere with what I'm doing as in all honesty it's ............. of your business.",
+            "negative_points":"0",
+            "options":[
+                "no",
+                "nothing",
+                "none",
+                "nor"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Despite all the alterations that are taking place in the department store, the management wanted to explain it was business as .........",
+            "negative_points":"0",
+            "options":[
+                "common",
+                "practical",
+                "frequent",
+                "usual"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"She knew that there was some kind of ......... business going on because strange things were happening.",
+            "negative_points":"0",
+            "options":[
+                "weird",
+                "unusual",
+                "funny",
+                "stupid"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"We really can't delay any more with our plans and must ....... down to business as soon as possible.",
+            "negative_points":"0",
+            "options":[
+                "set",
+                "get",
+                "cut",
+                "find"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"When the bomb went off, most of the injured were just ordinary people going ......... their business.",
+            "negative_points":"0",
+            "options":[
+                "about",
+                "along",
+                "across",
+                "through"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Although they had high hopes that they would be successful, they ....... out of business within six months.",
+            "negative_points":"0",
+            "options":[
+                "turned",
+                "came",
+                "went",
+                "fell"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I've warned you before that you shouldn't get involved in this matter and you have ......... business discussing it.",
+            "negative_points":"0",
+            "options":[
+                "some",
+                "little",
+                "no",
+                "not"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"That's really not my concern at all and I'm certainly not ......... the business of telling others what to do.",
+            "negative_points":"0",
+            "options":[
+                "in",
+                "out",
+                "of",
+                "by"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"She was very enthusiastic about her new job and was making rapid progress ....... nobody's business.",
+            "negative_points":"0",
+            "options":[
+                "as",
+                "with",
+                "similar",
+                "like"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I really wouldn't joke about it because these people are deadly serious and ....... business.",
+            "negative_points":"0",
+            "options":[
+                "signify",
+                "mean",
+                "require",
+                "need"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"He didn't hesitate to tell me that I wasn't wanted and just told me to ......... my own business.",
+            "negative_points":"0",
+            "options":[
+                "concern",
+                "look after",
+                "tend to",
+                "mind"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I'm afraid it won't be possible to talk to the boss today because he's away ......... business till Tuesday.",
+            "negative_points":"0",
+            "options":[
+                "off",
+                "on",
+                "for",
+                "to"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"He was very keen that we kept in touch and for that reason he handed me his business .......",
+            "negative_points":"0",
+            "options":[
+                "ticket",
+                "paper",
+                "card",
+                "notice"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This is the really important part of the machine and that's why we call it the business .........",
+            "negative_points":"0",
+            "options":[
+                "centre",
+                "end",
+                "area",
+                "point"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The whole site has nothing but offices and administration centres and that's why we call it a business .......",
+            "negative_points":"0",
+            "options":[
+                "place",
+                "situation",
+                "field",
+                "park"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"All the famous film stars, actors, directors and writers were at the festival representing the world of .......business.",
+            "negative_points":"0",
+            "options":[
+                "play",
+                "drama",
+                "show",
+                "performance"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The company had its own code of ......... in these matters.",
+            "negative_points":"0",
+            "options":[
+                "behaviour",
+                "practice",
+                "dealing",
+                "attitude"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This is a ....... example of what not to do.",
+            "negative_points":"0",
+            "options":[
+                "critical",
+                "pure",
+                "simple",
+                "prime"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Plans have already been drawn ....... to deal with such situations.",
+            "negative_points":"0",
+            "options":[
+                "over",
+                "through",
+                "up",
+                "into"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Thousands of ......... are already signing up for this new telephone service.",
+            "negative_points":"0",
+            "options":[
+                "individuals",
+                "subscribers",
+                "applicants",
+                "interviewees"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Job losses are mainly in the ......... sectors of the industry.",
+            "negative_points":"0",
+            "options":[
+                "blue-collar",
+                "red-collar",
+                "stiff-collar",
+                "high-collar"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The circular will contain ......... financial information to help investors.",
+            "negative_points":"0",
+            "options":[
+                "key",
+                "obvious",
+                "intelligent",
+                "noted"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The report is ......... to show better than expected results.",
+            "negative_points":"0",
+            "options":[
+                "necessary",
+                "possibly",
+                "clearly",
+                "likely"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"So many of these animals have been shot over the years that they are now classed as ......... species.",
+            "negative_points":"0",
+            "options":[
+                "dangerous",
+                "endangered",
+                "unwanted",
+                "limited"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Some people are ......... to learn a foreign language.",
+            "negative_points":"0",
+            "options":[
+                "unaccustomed",
+                "shy",
+                "reluctant",
+                "inhibited"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"It was a big .........for her to give up her acting career to look after her family.",
+            "negative_points":"0",
+            "options":[
+                "trial",
+                "sacrifice",
+                "endeavour",
+                "test"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"My computer is not capable of saving material on a separate ......... because it has no floppy drive.",
+            "negative_points":"0",
+            "options":[
+                "space",
+                "compact",
+                "disc",
+                "place"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I understand that I can make it possible for both my computers to share the same programs by means of.........",
+            "negative_points":"0",
+            "options":[
+                "joining",
+                "connecting",
+                "linking",
+                "networking"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I had only had my computer for three weeks when I had to have the hard drive .......",
+            "negative_points":"0",
+            "options":[
+                "replaced",
+                "restored",
+                "retaken",
+                "revived"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Laptop computers are becoming more and more ......... in the business world.",
+            "negative_points":"0",
+            "options":[
+                "famous",
+                "popular",
+                "sought",
+                "wished"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"You have to have a really ......... mind in order to get your head round some of today's computing technology.",
+            "negative_points":"0",
+            "options":[
+                "acute",
+                "cut",
+                "razor",
+                "sharp"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The great advantage of having an external zip drive is that you can use it as an extra means of .......",
+            "negative_points":"0",
+            "options":[
+                "hoarding",
+                "keeping",
+                "holding",
+                "storage"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"They tried very hard to install the new components on the computer but the language in the manual was too......... for them to understand.",
+            "negative_points":"0",
+            "options":[
+                "technical",
+                "technique",
+                "technician",
+                "technically"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"When you look at the modern office today you could compare the changes with those that took place in the industrial ......... in the 19th century.",
+            "negative_points":"0",
+            "options":[
+                "revolt",
+                "revolution",
+                "revolting",
+                "revolving"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"In order to ......... the method by which staff pay is calculated the company has bought a new software package.",
+            "negative_points":"0",
+            "options":[
+                "facile",
+                "facility",
+                "factual",
+                "facilitate"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Obviously a computer can take all the hard work out of ......... a large mass of data.",
+            "negative_points":"0",
+            "options":[
+                "proceeding",
+                "procedure",
+                "processing",
+                "processes"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The stock market has hit new ......... this year.",
+            "negative_points":"0",
+            "options":[
+                "lows",
+                "bottoms",
+                "depths",
+                "ends"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The government has decided to hold an ......... into the latest financial scandal.",
+            "negative_points":"0",
+            "options":[
+                "examination",
+                "enquiry",
+                "evaluation",
+                "interpretation"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The animal rights organisation has ......... a new campaign to make people aware of cruelty to animals.",
+            "negative_points":"0",
+            "options":[
+                "launched",
+                "pursued",
+                "offered",
+                "ejected"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"I was totally ......... of the increased taxes.",
+            "negative_points":"0",
+            "options":[
+                "unknowing",
+                "unclear",
+                "incredulous",
+                "unaware"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"1",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The price of petrol has ......... again.",
+            "negative_points":"0",
+            "options":[
+                "raised",
+                "risen",
+                "escalated",
+                "ascended"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"The ordinary person is again being asked to ......... to pay for dental treatment.",
+            "negative_points":"0",
+            "options":[
+                "stump up",
+                "throw up",
+                "cheer up",
+                "bring up"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"2",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This car is intended for the ......... market only.",
+            "negative_points":"0",
+            "options":[
+                "internal",
+                "external",
+                "export",
+                "outside"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Credit card holders struggle very hard to ......... the amount they own.",
+            "negative_points":"0",
+            "options":[
+                "reduce",
+                "deduct",
+                "curtail",
+                "shorten"
+            ],
+            "question_type":"1"
+        },
+        {
+            "answer":"0",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"This charity was set up to ............. money for the poor.",
+            "negative_points":"0",
+            "options":[
+                "collect",
+                "gather",
+                "assemble",
+                "convene"
+            ],
+            "question_type":"1"
+        },
+        {
+           "answer":"3",
+            "points":"1",
+            "duration_in_seconds":"45",
+            "question":"Everything ............all right in the end.",
+            "negative_points":"0",
+            "options":[
+                "happened",
+                "occurred",
+                "turned up",
+                " turned out"
+            ],
+            "question_type":"1"
+        }
+    ]
+}
