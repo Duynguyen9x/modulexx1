@@ -25,6 +25,9 @@ public class WordUtils {
     public static final int NUMBER_WORD = 600;
 
     public static String readName(String line) {
+        if (line.contains("N/A")) {
+            return line.replace(" N/A", "");
+        }
         try {
             return (String) line.subSequence(0, line.indexOf("/") - 1);
         } catch (Exception e) {
@@ -56,6 +59,9 @@ public class WordUtils {
     }
 
     public static String readSound(String line) {
+        if (line.contains("N/A")) {
+            return "";
+        }
         try {
             return (String) line.substring(line.indexOf("/"),
                     line.length());
