@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:nestedScrollingEnabled="true"
+    tools:context=".activity.LockScreenActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,9 +29,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                
+
                 <TextView
-                    android:textColor="@android:color/white"
                     android:id="@+id/tv_unlocked_word"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -35,10 +39,10 @@
                     android:layout_alignParentTop="true"
                     android:gravity="center"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white"
                     android:textSize="40sp" />
 
                 <TextView
-                    android:textColor="@android:color/white"
                     android:id="@+id/tv_unlocked_word_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,13 +50,14 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
                 android:gravity="center">
@@ -176,5 +181,11 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/ln4_unlocked_answer4"></View>
+
     </RelativeLayout>
+
 </ScrollView>
