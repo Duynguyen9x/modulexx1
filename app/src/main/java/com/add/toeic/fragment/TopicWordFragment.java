@@ -121,7 +121,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              //  Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
+                //  Log.i("duy.pq", "mListView.setOnItemClickListener=" + mListWord.get(position).getEnglsih());
                 // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
 
                 Intent i = new Intent(mContext, DetailWordActivity.class);
@@ -173,14 +173,18 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
 
     public List<Word> getListWords() {
         ArrayList<Word> arr = null;
-
+        ArrayList<Word> arrResult = new ArrayList<Word>();
         try {
             arr = WordUtils.readAllData(mContext);
+            int k = mLocation * 12;
+            for (int t = k; t < k + 12; t++) {
+                arrResult.add(arr.get(t));
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        return arr;
+        return arrResult;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
