@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_practice_toiec" />
+    <include layout="@layout/srcoll_view_pratice_toeic" />
 
     <include layout="@layout/custom_actionbar_below" />
 
