@@ -82,6 +82,6 @@ public class ImageUtils {
         word = word.replaceAll("-", "_");
         word = word.replaceAll("=", "_");
         String name = word + ".jpg";
-        return "file:///android_asset/jpeg/" + name;
+        return "file:///android_asset/JPEG/" + name;
     }
 }
