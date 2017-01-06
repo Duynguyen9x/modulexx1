@@ -6,7 +6,9 @@
     <color name="tabIndicatorColor">#00AA00</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#BBBBBB</color>
+    <color name="colorGray1">#2fBBBBBB</color>
 
+    <color name="colorRed">#DD2C00</color>
     <color name="colorOrange">#F79743</color>
     <color name="colorGrayDetails">#F0F0F0</color>
 
@@ -14,6 +16,9 @@
     <color name="colorBlue1">#8BC34A</color>
     <color name="colorBlue2">#00E676</color>
     <color name="colorBlue3">#303F9F</color>
+    <color name="colorBlue4">#00C853</color>
+
+    <color name="colorBlack">#9f000000</color>
 
 
 </resources>

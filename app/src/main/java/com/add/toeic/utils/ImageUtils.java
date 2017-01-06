@@ -84,4 +84,12 @@ public class ImageUtils {
         String name = word + ".jpg";
         return "file:///android_asset/JPEG/" + name;
     }
+
+    public static String loadDrawableImage(String word) {
+        word = word.replaceAll(" ", "_");
+        word = word.replaceAll("-", "_");
+        word = word.replaceAll("=", "_");
+        String name = word + ".jpg";
+        return "file:///android_asset/imgpractice/" + name;
+    }
 }

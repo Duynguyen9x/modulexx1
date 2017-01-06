@@ -110,6 +110,7 @@ public class PracticeLvOneFragment extends Fragment {
                 WordInfo info = wordInfoList.get(position);
                 Intent intent = new Intent(getActivity(), PracticeToiecActivity.class);
                 intent.putExtra("keyTitle", info.getEnglsih());
+                intent.putExtra("partNum", position);
                 startActivity(intent);
 
             }

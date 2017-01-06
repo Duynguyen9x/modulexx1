@@ -29,6 +29,8 @@
     <string name="goodbook">Sách Hay</string>
     <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
 
+    <string name="part_description">Chạm vào biểu tượng Play để bắt đầu nghe</string>
+
     <string-array name="new_word_eng">
         <item>General Business</item>
         <item>Office Issues</item>
