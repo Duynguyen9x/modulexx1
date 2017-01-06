@@ -140,7 +140,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_WORD_NAME, word.getName());
         values.put(COLUMN_WORD_SOUND, word.getSound());
         values.put(COLUMN_WORD_NAME_KEY, word.getName_key());
-        values.put(COLUMN_WORD_EXAMPLE, word.getExample_key());
+        values.put(COLUMN_WORD_EXAMPLE, word.getExample());
         values.put(COLUMN_WORD_EXAMPLE_KEY, word.getExample_key());
         values.put(COLUMN_WORD_KIND, word.getKind_word());
 
