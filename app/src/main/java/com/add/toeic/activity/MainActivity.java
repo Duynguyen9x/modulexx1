@@ -35,6 +35,7 @@ import com.add.toeic.fragment.SettingsFragment;
 import com.add.toeic.fragment.WordFragment;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.other.CircleTransform;
+import com.add.toeic.services.FloatingViewService;
 import com.add.toeic.services.UnlockedScreenService;
 import com.add.toeic.utils.Utils;
 import com.bumptech.glide.Glide;
@@ -79,8 +80,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     // Toggle button nav_header_main
     private static final int REQUEST_CODE_SYSTEM_ALERT_WINDOW = 1;
     private static String[] APP_PRE_PERMISSIONS = {Manifest.permission.SYSTEM_ALERT_WINDOW};
-    private static final String PREF_NAME = "saveStateToggleBtn";
+    private static final String PREF_NAME_LOCK_SCREEN = "saveStateLockScreen";
+    private static final String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
+
     private static final String quickAnswerState = "tgbtn_unlocked_quick_answer_state";
+    private static final String screenHeaderView = "screen_header_view_state";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,9 +122,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     }
 
     private void preLockScreenProcess() {
-        SharedPreferences sharedPrefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences sharedPrefs = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE);
         if (sharedPrefs == null) {
-            initSharePreference();
+            initSharePreferenceLockScreen();
         } else {
             tgBtnLockScreen.setChecked(sharedPrefs.getBoolean(quickAnswerState, false));
         }
@@ -136,10 +140,14 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     }
 
-    private void initSharePreference() {
-        SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit();
+    private void initSharePreferenceLockScreen() {
+        SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
         editor.putBoolean(quickAnswerState, false);
         editor.apply();
+
+        SharedPreferences.Editor editor2 = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
+        editor2.putBoolean(screenHeaderView, false);
+        editor2.apply();
     }
 
     public void initView() {
@@ -180,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             @Override
             public void onClick(View v) {
                 boolean state1 = tgBtnLockScreen.isChecked();
-                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
                 editor.putBoolean(quickAnswerState, state1); // value to store
                 editor.apply();
             }
@@ -190,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
+                startService(new Intent(MainActivity.this, FloatingViewService.class));
             }
         });
 
