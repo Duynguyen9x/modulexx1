@@ -15,39 +15,61 @@
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="350dp"
         android:text="part_description"
         android:textSize="22sp"
-        android:layout_gravity="center"/>
+        android:background="@color/colorWhite"/>
 
     <RadioGroup
         android:id="@+id/grp_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
-        android:background="@color/colorGray1"
+        android:layout_marginTop="170dp"
         android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/rad_a"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="(A) "
-            android:textColor="@drawable/rbtn_textcolor_selector"/>
+            android:textSize="18sp"
+            android:textColor="@drawable/rbtn_textcolor_selector"
+            android:theme="@style/MyRadioButton"
+            android:background="@drawable/detail_layout_conner"/>
 
         <RadioButton
             android:id="@+id/rad_b"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="(B) "
-            android:textColor="@drawable/rbtn_textcolor_selector"/>
+            android:textSize="18sp"
+            android:textColor="@drawable/rbtn_textcolor_selector"
+            android:theme="@style/MyRadioButton"
+            android:background="@drawable/detail_layout_conner"/>
 
         <RadioButton
             android:id="@+id/rad_c"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="(C) "
-            android:textColor="@drawable/rbtn_textcolor_selector"/>
+            android:textSize="18sp"
+            android:textColor="@drawable/rbtn_textcolor_selector"
+            android:theme="@style/MyRadioButton"
+            android:background="@drawable/detail_layout_conner"/>
+
+        <RadioButton
+            android:id="@+id/rad_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="(D) "
+            android:textSize="18sp"
+            android:textColor="@drawable/rbtn_textcolor_selector"
+            android:theme="@style/MyRadioButton"
+            android:background="@drawable/detail_layout_conner"/>
     </RadioGroup>
 
 </FrameLayout>

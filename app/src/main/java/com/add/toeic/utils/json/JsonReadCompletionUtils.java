@@ -46,8 +46,9 @@ public class JsonReadCompletionUtils {
     }
 
     private static String AssetJSONFile(String filename, Context context) throws IOException {
+        String PATH_ASSETS = "practice/";
         AssetManager manager = context.getAssets();
-        InputStream file = manager.open(filename);
+        InputStream file = manager.open(PATH_ASSETS + filename);
         byte[] formArray = new byte[file.available()];
         file.read(formArray);
         file.close();
@@ -108,7 +109,8 @@ public class JsonReadCompletionUtils {
             } else if (name.equals(VALUE_DURATION)) {
                 readCompletion.setDuration_in_seconds(reader.nextInt());
             } else if (name.equals(VALUE_QUESTION)) {
-                readCompletion.setQuestion(reader.nextString());
+
+                readCompletion.setQuestions(reader.nextString());
             } else if (name.equals(VALUE_NEGATIVE)) {
                 readCompletion.setNegative_points(reader.nextInt());
             } else if (name.equals(VALUE_OPTION)) {

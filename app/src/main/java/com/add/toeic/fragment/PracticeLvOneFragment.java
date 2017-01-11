@@ -172,6 +172,12 @@ public class PracticeLvOneFragment extends Fragment {
         wordInfo5.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
         wordInfoList.add(wordInfo5);
 
+        WordInfo wordInfo6 = new WordInfo();
+        wordInfo6.setEnglish("Part 6");
+        wordInfo6.setVietnamese("Reading Comprehension");
+        wordInfo6.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
+        wordInfoList.add(wordInfo6);
+
         return wordInfoList;
     }
 

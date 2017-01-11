@@ -42,12 +42,12 @@ public class ReadCompletion {
         this.duration_in_seconds = duration_in_seconds;
     }
 
-    public String getQuestion() {
+    public String getQuestions() {
         return question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestions(String questions) {
+        this.question = questions;
     }
 
     public int getNegative_points() {

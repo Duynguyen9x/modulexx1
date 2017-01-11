@@ -9,9 +9,17 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Paragraph"
+            android:textSize="18dp"/>
+        <TextView
             android:id="@+id/tv_question_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="1. How long does it take to process a passport?"
             android:textSize="18dp"
             android:textStyle="bold"/>
