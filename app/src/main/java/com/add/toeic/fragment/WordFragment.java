@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.add.toeic.R;
+import com.add.toeic.adapter.MyAdapter;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 
 /**
@@ -36,6 +38,7 @@ public class WordFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private static int item_cnt = 3 ;
+    private MyAdapter myAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,6 +71,7 @@ public class WordFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        myAdapter = new MyAdapter(getChildFragmentManager(), getContext());
     }
 
     @Override
@@ -80,7 +84,7 @@ public class WordFragment extends Fragment {
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
 
         //Set an Apater for the View Pager
-        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(myAdapter);
         //setupViewPager(viewPager);
 
         tabLayout.post(new Runnable() {
@@ -98,50 +102,6 @@ public class WordFragment extends Fragment {
 
         Log.i("duynq", "WordFragment : onDestroyView");
         super.onDestroyView();
-    }
-
-    /////////////////////////////////////////////////
-    class MyAdapter extends FragmentPagerAdapter {
-
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        /**
-         * Return fragment with respect to Position .
-         */
-        @Override
-        public Fragment getItem(int position)
-        {
-            switch (position){
-                case 0 : return new WordVocabularyFragment();
-                case 1 : return new WordRemindFragment();
-                case 2 : return new NoteFragment();
-            }
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return item_cnt;
-        }
-
-        /**
-         * This method returns the title of the tab according to the position.
-         */
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            switch (position){
-                case 0 :
-                    return getString(R.string.vocabulary);
-                case 1 :
-                    return getString(R.string.remind);
-                case 2 :
-                    return getString(R.string.notes);
-            }
-            return null;
-        }
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

@@ -52,9 +52,8 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
     private int correctWordId, inCorrectWordId1, inCorrectWordId2, inCorrectWordId3;
     private Context mContext;
 
-    int randomWordIdAns[] = {correctWordId, inCorrectWordId1, inCorrectWordId2, inCorrectWordId3};
-    TextView textViewAns[] = {tv_unlocked_answer_1, tv_unlocked_answer_2, tv_unlocked_answer_3, tv_unlocked_answer_4};
-
+    int randomWordIdAns[];
+    TextView textViewAns[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

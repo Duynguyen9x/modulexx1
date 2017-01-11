@@ -7,72 +7,72 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.util.ArrayList;
-
+import com.add.toeic.Constants.DBInfo;
 import com.add.toeic.model.Word;
 
+import java.util.ArrayList;
+
 /**
- * Created by sev_user on 12/26/2016.
+ * Created by DTA on 1/6/2017.
  */
 
-public class MyDatabaseHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "Toeic.SQLite";
 
-
-    // Phiên bản
-    private static final int DATABASE_VERSION = 1;
-
-
-    // Tên cơ sở dữ liệu.
-    private static final String DATABASE_NAME = "word_manager";
-
+    private static final String DATABASE_NAME = DBInfo.DATABASE_NAME;
+    private static final int DATABASE_VERSION = DBInfo.DATABASE_VERSION;
 
     // Tên bảng: DBInfo.
-    private static final String TABLE_WORD = "word";
+    private static final String TABLE_WORD_REMIND = DBInfo.TABLE_WORD_REMIND;
+    private static final String TABLE_WORD_ALL = DBInfo.TABLE_WORD_ALL;
 
-    private static final String COLUMN_WORD_ID = "word_id";
-    private static final String COLUMN_WORD_NAME = "word_name";
-    private static final String COLUMN_WORD_NAME_KEY = "word_name_key";
-    private static final String COLUMN_WORD_SOUND = "word_sound";
+    private static final String COLUMN_WORD_ID = DBInfo.COLUMN_WORD_ID;
+    private static final String COLUMN_WORD_NAME = DBInfo.COLUMN_WORD_NAME;
+    private static final String COLUMN_WORD_NAME_KEY = DBInfo.COLUMN_WORD_NAME_KEY;
+    private static final String COLUMN_WORD_SOUND = DBInfo.COLUMN_WORD_SOUND;
+    private static final String COLUMN_WORD_EXAMPLE = DBInfo.COLUMN_WORD_EXAMPLE;
+    private static final String COLUMN_WORD_EXAMPLE_KEY = DBInfo.COLUMN_WORD_EXAMPLE_KEY;
+    private static final String COLUMN_WORD_KIND = DBInfo.COLUMN_WORD_KIND;
 
-    private static final String COLUMN_WORD_EXAMPLE = "word_example";
-    private static final String COLUMN_WORD_EXAMPLE_KEY = "word_example_key";
+    // Script tạo bảng.
+    private static final String scriptAllWords = " CREATE TABLE " + TABLE_WORD_ALL + " ( " +
+            COLUMN_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_WORD_NAME + " TEXT NOT NULL, " +
+            COLUMN_WORD_NAME_KEY + " TEXT NOT NULL, " +
+            COLUMN_WORD_SOUND + " TEXT, " +
+            COLUMN_WORD_EXAMPLE + " TEXT, " +
+            COLUMN_WORD_EXAMPLE_KEY + " TEXT, " +
+            COLUMN_WORD_KIND + " INTEGER )";
+    private static final String scriptRemindWords = " CREATE TABLE " + TABLE_WORD_REMIND + " ( " +
+            COLUMN_WORD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_WORD_NAME + " TEXT NOT NULL, " +
+            COLUMN_WORD_NAME_KEY + " TEXT NOT NULL, " +
+            COLUMN_WORD_SOUND + " TEXT, " +
+            COLUMN_WORD_EXAMPLE + " TEXT, " +
+            COLUMN_WORD_EXAMPLE_KEY + " TEXT, " +
+            COLUMN_WORD_KIND + " INTEGER )";
 
-    private static final String COLUMN_WORD_KIND = "word_kind";
-
-
-    public MyDatabaseHelper(Context context) {
+    public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Tạo các bảng.
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i(TAG, "MyDatabaseHelper.onCreate ... ");
-        // Script tạo bảng.
-        String script = "CREATE TABLE " + TABLE_WORD + "("
-                + COLUMN_WORD_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_WORD_NAME + " TEXT,"
-                + COLUMN_WORD_SOUND + " TEXT,"
-                + COLUMN_WORD_NAME_KEY + " TEXT,"
-                + COLUMN_WORD_EXAMPLE + " TEXT,"
-                + COLUMN_WORD_EXAMPLE_KEY + " TEXT,"
-                + COLUMN_WORD_KIND + " INTEGER"
-                + ")";
-        // Chạy lệnh tạo bảng.
-        db.execSQL(script);
-    }
 
+        // chay lenh tao bang
+        db.execSQL(scriptRemindWords);
+        db.execSQL(scriptAllWords);
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
         Log.i(TAG, "MyDatabaseHelper.onUpgrade ... ");
 
         // Hủy (drop) bảng cũ nếu nó đã tồn tại.
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORD);
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORD_REMIND);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORD_ALL);
 
         // Và tạo lại.
         onCreate(db);
@@ -145,7 +145,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_WORD_KIND, word.getKind_word());
 
         // Trèn một dòng dữ liệu vào bảng.
-        db.insert(TABLE_WORD, null, values);
+        db.insert(TABLE_WORD_REMIND, null, values);
 
         // Đóng kết nối database.
         db.close();
@@ -189,7 +189,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String selection = COLUMN_WORD_NAME + "=?";
         String[] arg = {wordname};
 
-        Cursor cursor = db.query(TABLE_WORD, null, selection, arg, null, null, null);
+        Cursor cursor = db.query(TABLE_WORD_REMIND, null, selection, arg, null, null, null);
         if (cursor != null) {
             if (cursor.getCount() == 0) {
                 cursor.close();
@@ -208,7 +208,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         ArrayList<Word> wordList = new ArrayList<Word>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_WORD;
+        String selectQuery = "SELECT  * FROM " + TABLE_WORD_REMIND;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -238,7 +238,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public int getWordsCount() {
         Log.i(TAG, "MyDatabaseHelper.getNotesCount ... ");
 
-        String countQuery = "SELECT  * FROM " + TABLE_WORD;
+        String countQuery = "SELECT  * FROM " + TABLE_WORD_REMIND;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
 
@@ -255,7 +255,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         Log.i(TAG, "MyDatabaseHelper.delete ... " + word.getName());
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_WORD, COLUMN_WORD_NAME + " = ?",
+        db.delete(TABLE_WORD_REMIND, COLUMN_WORD_NAME + " = ?",
                 new String[]{word.getName()});
         db.close();
     }
@@ -263,7 +263,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void deleteAll() {
         Log.i(TAG, "MyDatabaseHelper.delete all ... ");
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_WORD, null, null);
+        db.delete(TABLE_WORD_REMIND, null, null);
         db.close();
     }
 }

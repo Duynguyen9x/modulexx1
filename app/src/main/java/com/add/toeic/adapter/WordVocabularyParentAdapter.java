@@ -1,6 +1,7 @@
 package com.add.toeic.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -12,8 +13,15 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.add.toeic.activity.DetailWordActivity;
+import com.add.toeic.database.DBHelper;
+import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
+import com.add.toeic.utils.WordUtils;
 import com.bumptech.glide.Glide;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,6 +34,7 @@ import com.add.toeic.utils.ImageUtils;
  */
 public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
     private Context mContext;
+    DBHelper db;
 
     private List<WordInfo> mVocabularyHeaderList;  // header titles
 
@@ -37,6 +46,7 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         this.mContext = context;
         this.mVocabularyHeaderList = listDataHeader;
         this.mVocabularyChildList = listChildData;
+        db = new DBHelper(context);
     }
 
     @Override
@@ -92,12 +102,25 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
+                        int location = groupPosition * 5 + childPosition;
                         switch (item.getItemId()) {
                             case R.id.action_auto_learn:
                                 Toast.makeText(mContext, "Auto learn=" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+                                Intent forceRunAuto = new Intent(mContext, DetailWordActivity.class);
+                                forceRunAuto.putExtra("run_from_group_or_reminded", 1);
+                                forceRunAuto.putExtra("num_word", 0);
+                                forceRunAuto.putExtra("num_group", location);
+//                                forceRunAuto.putExtra()
+
+                                mContext.startActivity(forceRunAuto);
                                 break;
                             case R.id.action_add_remider:
-                                Toast.makeText(mContext, "Add reminder=" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+                                addToRemined(location);
+                                Toast.makeText(mContext, "addToRemined =" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_remove_remider:
+                                removeToRemined(location);
+                                Toast.makeText(mContext, "removeToRemined =" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
                                 break;
                             default:
                                 break;
@@ -110,6 +133,45 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         });
 
         return convertView;
+    }
+
+    private void getListRunAuto(ArrayList<String> arr, int location) {
+        List<Word> topicWords = getListTopicWords(location);
+        for (Word word : topicWords) {
+            if(AppProvider.checkHasWord(word, mContext)){
+                arr.add(word.getName());
+            }
+        }
+    }
+
+    private void addToRemined(int location) {
+        List<Word> topicWords = getListTopicWords(location);
+        for (Word word : topicWords) {
+            AppProvider.addToRemind(word, mContext);
+        }
+    }
+
+    private void removeToRemined(int location) {
+        List<Word> topicWords = getListTopicWords(location);
+        for (Word word : topicWords) {
+            AppProvider.removeToRemind(word, mContext);
+        }
+    }
+
+    public List<Word> getListTopicWords(int location) {
+        ArrayList<Word> arr = null;
+        ArrayList<Word> arrResult = new ArrayList<Word>();
+        try {
+            arr = WordUtils.readAllData(mContext);
+            int k = location * 12;
+            for (int t = k; t < k + 12; t++) {
+                arrResult.add(arr.get(t));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return arrResult;
     }
 
     @Override

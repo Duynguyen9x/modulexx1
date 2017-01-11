@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 
 import com.add.toeic.R;
@@ -13,7 +15,7 @@ import com.add.toeic.fragment.TopicWordFragment;
 /**
  * Created by 8470p on 12/18/2016.
  */
-public class TabsPagerAdapter extends FragmentPagerAdapter {
+public class TabsPagerAdapter extends FragmentStatePagerAdapter {
     private int mLocation;
     private Context mContext;
 
@@ -29,10 +31,10 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         switch (index) {
             case 0:
                 // Top Rated fragment activity
-                return new TopicWordFragment(mLocation);
+                return TopicWordFragment.newInstance(mLocation, null);
             case 1:
                 // Games fragment activity
-                return new TopicPracticeFragment();
+                return TopicPracticeFragment.newInstance(null, null);
         }
 
         return null;
@@ -57,5 +59,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
                 return mContext.getString(R.string.practice);
         }
         return null;
+    }
+    @Override
+    public int getItemPosition(Object object){
+        return PagerAdapter.POSITION_NONE;
     }
 }

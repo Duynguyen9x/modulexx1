@@ -34,10 +34,10 @@ import com.add.toeic.utils.WordUtils;
  * Use the {@link TopicWordFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TopicWordFragment extends Fragment implements VocabularyTopicAdapter.OnRemindButtonClickListener {
+public class TopicWordFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String location = "location";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -59,10 +59,8 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     private static int mLocation;
     private ImageLoader mImageLoader;
 
-    public TopicWordFragment(int location) {
-        mLocation = location;
+    public TopicWordFragment() {
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -72,10 +70,10 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
      * @return A new instance of fragment TopicWordFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TopicWordFragment newInstance(String param1, String param2) {
-        TopicWordFragment fragment = new TopicWordFragment(mLocation);
+    public static TopicWordFragment newInstance(int param1, String param2) {
+        TopicWordFragment fragment = new TopicWordFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putInt(location, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -85,7 +83,7 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mLocation = getArguments().getInt(location);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
@@ -116,7 +114,6 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
 
 
         mViewAdapter = new VocabularyTopicAdapter(getContext(), R.layout.word_item_layout_for_remind, mArrWord, mImageLoader);
-        mViewAdapter.setOnRemindButtonClickListener(this);
         mListView.setAdapter(mViewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -125,8 +122,8 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
                 // SoundUtis.play(mContext, mListWord.get(position).getEnglsih());
 
                 Intent i = new Intent(mContext, DetailWordActivity.class);
-                i.putExtra("num_word", position + "");
-                i.putExtra("num_group", mLocation + "");
+                i.putExtra("num_word", position);
+                i.putExtra("num_group", mLocation);
 
                 Log.i("duy.pq", "mListView.num_word=" + position + "/num_word= " + mLocation);
                 startActivity(i);
@@ -218,10 +215,5 @@ public class TopicWordFragment extends Fragment implements VocabularyTopicAdapte
         if (mImageLoader != null) {
             mImageLoader.stopIconLoaderThread();
         }
-    }
-
-    @Override
-    public void onHandleRemindButtonClick() {
-        Toast.makeText(mContext, "ImageButton clicked", Toast.LENGTH_SHORT).show();
     }
 }

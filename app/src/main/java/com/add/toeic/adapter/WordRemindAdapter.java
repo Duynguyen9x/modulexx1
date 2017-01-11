@@ -1,5 +1,6 @@
 package com.add.toeic.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -13,9 +14,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.add.toeic.Constants.DBInfo;
 import com.add.toeic.R;
+import com.add.toeic.database.DBHelper;
+import com.add.toeic.listeners.OnRemindClickListener;
 import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
 import com.bumptech.glide.Glide;
@@ -29,10 +34,12 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
     private Context mContext;
     private ImageLoader mImageLoader;
 
-    private OnRemindButtonClickListener mListener;
+    private OnRemindClickListener mListener;
     private boolean mIsDelete;
 
-    public void setOnRemindButtonClickListener(OnRemindButtonClickListener listener) {
+    private DBHelper db;
+
+    public void setOnRemindClickListener(OnRemindClickListener listener) {
         mListener = listener;
     }
 
@@ -41,6 +48,7 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
         this.mContext = context;
         this.mWordList = mWordList;
         this.mIsDelete = isDelete;
+        db = new DBHelper(mContext);
     }
 
     @Override
@@ -59,9 +67,9 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        Word word = getItem(position);
+        final Word word = getItem(position);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -87,18 +95,22 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
             Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(word.getName())))
                     .centerCrop().into(holder.iconView);
 
+            if (mIsDelete) {
+                holder.remindView.setVisibility(View.VISIBLE);
 
-        //    Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableChild(groupPosition))).centerCrop().into(holder.iconView);
+                holder.remindView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if (db.checkHasWord(mWordList.get(position))) {
+                            AppProvider.removeToRemind(word, getContext());
+                        }
+                        mListener.update();
+                    }
+                });
 
-            // holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_action_alarms));
-            //mImageLoader.loadIcon(wordInfo.getEnglsih(), holder.iconView);
-        }
-
-        holder.remindView.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mListener.onHandleRemindButtonClick();
+            } else {
+                holder.remindView.setVisibility(View.GONE);
             }
-        });
+        }
         return convertView;
     }
 
@@ -109,9 +121,8 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
         public ImageButton remindView;
     }
 
-    // handle event click remind button
-    public interface OnRemindButtonClickListener {
-        // TODO: Update argument type and name
-        void onHandleRemindButtonClick();
+    public void setDelete(boolean isDelete) {
+        this.mIsDelete = isDelete;
+        notifyDataSetChanged();
     }
 }

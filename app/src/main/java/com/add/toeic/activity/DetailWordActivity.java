@@ -35,6 +35,7 @@ import java.util.TimerTask;
 
 import com.add.toeic.R;
 import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.ImageUtils;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.WordUtils;
@@ -51,17 +52,35 @@ public class DetailWordActivity extends AppCompatActivity {
     private static int TIME = 2000;
     int curent_item = 0;
     boolean isRunning = false;
-    private ArrayList<Word> arrWord;
-
+    //    private ArrayList<Word> arrWord;
+//    private ArrayList<Word> arrRemindedWord;
+    private ArrayList<Word> arrWordFinal;
+    int isForceRun;
+    int num_group, s_num_word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_word);
         mContext = this;
 
+        isForceRun = getIntent().getIntExtra("run_from_group_or_reminded", 0);
+
+        getArrWord(isForceRun);
+
         initView();
 
+    }
 
+    private void getArrWord(int isfromRemind) {
+        if (isfromRemind != 2) {
+            num_group = getIntent().getExtras().getInt("num_group");
+            s_num_word = getIntent().getExtras().getInt("num_word");
+
+            Log.i("duy.pq", "DetailWordActivity=" + num_group + "=" + s_num_word);
+            arrWordFinal = getListData(num_group);
+        } else {
+            arrWordFinal = AppProvider.getAllWords(mContext);
+        }
     }
 
     private void initView() {
@@ -73,18 +92,8 @@ public class DetailWordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String s_num_group = getIntent().getExtras().getString("num_group");
-        int num_group = Integer.parseInt(s_num_group);
-
-        String s_num_word = getIntent().getExtras().getString("num_word");
-        int num_word = Integer.parseInt(s_num_word);
-
-        Log.i("duy.pq", "DetailWordActivity=" + num_group + "=" + num_word);
-
-        arrWord = getListData(num_group);
-
-        for (int i = 0; i < arrWord.size(); i++) {
-            Log.i("duy.pq", "arrWord" + arrWord.get(i).toString());
+        for (int i = 0; i < arrWordFinal.size(); i++) {
+            Log.i("duy.pq", "arrWord" + arrWordFinal.get(i).toString());
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -93,16 +102,16 @@ public class DetailWordActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // set data
-        mSectionsPagerAdapter.mGroupWord = num_word;
-        mSectionsPagerAdapter.mWord = num_word;
-        mSectionsPagerAdapter.mArrayList = arrWord;
+        mSectionsPagerAdapter.mGroupWord = num_group;
+        mSectionsPagerAdapter.mWord = s_num_word;
+        mSectionsPagerAdapter.mArrayList = arrWordFinal;
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
-        mViewPager.setCurrentItem(num_word);
+        mViewPager.setCurrentItem(s_num_word);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -125,13 +134,15 @@ public class DetailWordActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             // Toast.makeText(mContext, "duy hand some", Toast.LENGTH_SHORT).show();
-                            isRunning = true;
-                            auto();
+                            auto(arrWordFinal);
                         }
                     }).show();
                 }
             }
         });
+        if(isForceRun == 1 || isForceRun == 2){
+            auto(arrWordFinal);
+        }
     }
 
     private ArrayList<Word> getListData(int grorp) {
@@ -152,7 +163,8 @@ public class DetailWordActivity extends AppCompatActivity {
     }
 
 
-    public void auto() {
+    public void auto(final ArrayList<Word> arrWord) {
+        isRunning = true;
         mTimer = new Timer();
         mTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -160,17 +172,17 @@ public class DetailWordActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        opentag();
+                        opentag(arrWord);
                     }
                 });
             }
         }, TIME, TIME);
     }
 
-    public void opentag() {
+    public void opentag(final ArrayList<Word> arrWord) {
         mViewPager.setCurrentItem(curent_item);
         SoundUtis.play(mContext, arrWord.get(curent_item).getName());
-        if (curent_item == 11) {
+        if (curent_item == arrWord.size() - 1) {
             curent_item = 0;
         } else {
             curent_item++;

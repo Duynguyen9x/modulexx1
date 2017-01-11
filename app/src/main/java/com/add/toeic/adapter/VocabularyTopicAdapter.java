@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.add.toeic.R;
-import com.add.toeic.database.MyDatabaseHelper;
+import com.add.toeic.database.DBHelper;
 import com.add.toeic.model.Word;
-import com.add.toeic.model.WordInfo;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
 import com.bumptech.glide.Glide;
@@ -30,20 +30,15 @@ public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
     private Context mContext;
     private ImageLoader mImageLoader;
 
-    private OnRemindButtonClickListener mListener;
-
-    private MyDatabaseHelper db;// = new MyDatabaseHelper(getActivity());
-
-    public void setOnRemindButtonClickListener(OnRemindButtonClickListener listener) {
-        mListener = listener;
-    }
+    private DBHelper db;// = new MyDatabaseHelper(getActivity());
+    boolean hasword = false;
 
     public VocabularyTopicAdapter(Context context, int resource, ArrayList<Word> mWordList, ImageLoader imageLoader) {
         super(context, resource, mWordList);
         this.mContext = context;
         this.mWordList = mWordList;
         this.mImageLoader = imageLoader;
-        db = new MyDatabaseHelper(mContext);
+        db = new DBHelper(mContext);
     }
 
     @Override
@@ -64,11 +59,12 @@ public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
-        Word word = getItem(position);
+        final Word word = getItem(position);
+        hasword = db.checkHasWord(word);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.word_item_layout_for_remind, null);
+            convertView = layoutInflater.inflate(R.layout.word_item_layout_for_vocabularytopic, null);
 
             holder = new ViewHolder();
 
@@ -83,14 +79,12 @@ public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final boolean isHasWord = db.checkHasWord(mWordList.get(position));
-
         if (null != word) {
             holder.eng_word.setText(word.getName());
             holder.viet_word.setText(word.getName_key());
             //  holder.iconView.setImageDrawable(ImageUtils.loadDrawableLocal(mContext, word.getEnglsih()));
 
-            if (isHasWord) {
+            if (hasword) {
                 holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_on));
             } else {
                 holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
@@ -103,14 +97,14 @@ public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
 
         holder.remindView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mListener.onHandleRemindButtonClick();
+                hasword = !hasword;
 
-                if (isHasWord) {
-                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off));
-                    db.deleteWord(mWordList.get(position));
+                if (hasword) {
+                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_on, null));
+                    AppProvider.addToRemind(word, getContext());
                 } else {
-                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_on));
-                    db.addWord(mWordList.get(position));
+                    holder.remindView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.alarm_off, null));
+                    AppProvider.removeToRemind(word, getContext());
                 }
             }
         });
@@ -123,11 +117,4 @@ public class VocabularyTopicAdapter extends ArrayAdapter<Word> {
         public ImageView iconView;
         public ImageButton remindView;
     }
-
-    // handle event click remind button
-    public interface OnRemindButtonClickListener {
-        // TODO: Update argument type and name
-        void onHandleRemindButtonClick();
-    }
-
 }

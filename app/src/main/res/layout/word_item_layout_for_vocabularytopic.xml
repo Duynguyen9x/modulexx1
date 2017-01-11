@@ -42,8 +42,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginEnd="60dp"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="60dp"
             android:background="#3fBBBBBB"></View>
     </LinearLayout>
 
@@ -52,9 +52,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|end"
-        android:background="@drawable/trash"
-        android:scaleType="centerCrop"
-        android:visibility="gone" />
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop" />
 
 
 </FrameLayout>
