@@ -2,44 +2,6 @@
   "Questions": [
     {
       "answer": [
-        "2",
-        "3",
-        "0"
-      ],
-      "points": "3",
-      "duration_in_seconds": "135",
-      "question": "<b>Dry Weather Leads To Poor Harvest</b> <br><br>Farms throughout Minnesota are harvesting record low amounts of soybean production. The extremely dry conditions since the first of May (1)........ most of the crop. Corn farmers are slightly better off. <br> Livestock costs are now increasing as feed becomes more expensive and animals continue to be lost during the heat wave.<br> Last year's overproduction of soybeans means stockpiles have been able to supply market needs. Therefore, farmers in other areas who are capable (2) ......... harvesting soybeans this month will not benefit significantly from higher prices.<br> Most farmers will try to (3) .......... their bank loans this fall in hopes of a better crop next year. If that harvest is as poor as this year's, many farmers may be forced out of business.",
-      "negative_points": "0",
-      "options": [
-        {
-          "option_1": [
-            "destroyed",
-            "will destroy",
-            "have destroyed",
-            "were destroying"
-          ]
-        },
-        {
-          "option_2": [
-            "to",
-            "in",
-            "for",
-            "of"
-          ]
-        },
-        {
-          "option_3": [
-            "extend",
-            "suspend",
-            "spoil",
-            "decorate"
-          ]
-        }
-      ],
-      "question_type": "1"
-    },
-    {
-      "answer": [
         "1",
         "2",
         "3"

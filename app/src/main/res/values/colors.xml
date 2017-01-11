@@ -13,10 +13,11 @@
     <color name="colorGrayDetails">#F0F0F0</color>
 
     <color name="colorBlue">#1976D2</color>
-    <color name="colorBlue1">#8BC34A</color>
-    <color name="colorBlue2">#00E676</color>
-    <color name="colorBlue3">#303F9F</color>
+    <color name="colorBlue1">#0091EA</color>
+    <color name="colorBlue2">#009688</color>
+    <color name="colorBlue3">#4CAF50</color>
     <color name="colorBlue4">#00C853</color>
+    <color name="colorBlue5">#64DD17</color>
 
     <color name="colorBlack">#9f000000</color>
 

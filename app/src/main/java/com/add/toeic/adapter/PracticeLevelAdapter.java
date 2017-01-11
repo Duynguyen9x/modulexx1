@@ -57,6 +57,18 @@ public class PracticeLevelAdapter extends ArrayAdapter<WordInfo> {
             holder.tv_part_description = (TextView) convertView.findViewById(R.id.tv_part_description);
             holder.imageView = (ImageView) convertView.findViewById(R.id.img_part_topic);
 
+            if (position == 1) {
+                holder.imageView.setBackground(mContext.getDrawable(R.drawable.all_circle_white_bg_practise_1));
+            } else if (position == 2) {
+                holder.imageView.setBackground(mContext.getDrawable(R.drawable.all_circle_white_bg_practise_2));
+            } else if (position == 3) {
+                holder.imageView.setBackground(mContext.getDrawable(R.drawable.all_circle_white_bg_practise_3));
+            } else if (position == 4) {
+                holder.imageView.setBackground(mContext.getDrawable(R.drawable.all_circle_white_bg_practise_4));
+            } else if (position == 5) {
+                holder.imageView.setBackground(mContext.getDrawable(R.drawable.all_circle_white_bg_practise_5));
+            }
+
             convertView.setTag(holder);
 
         } else {

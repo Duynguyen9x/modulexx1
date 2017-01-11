@@ -45,8 +45,9 @@ public class JsonReadSentenceUtils {
     }
 
     private static String AssetJSONFile(String filename, Context context) throws IOException {
+        String PATH_ASSETS = "practice/";
         AssetManager manager = context.getAssets();
-        InputStream file = manager.open(filename);
+        InputStream file = manager.open(PATH_ASSETS + filename);
         byte[] formArray = new byte[file.available()];
         file.read(formArray);
         file.close();
