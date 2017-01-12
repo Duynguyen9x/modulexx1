@@ -58,6 +58,7 @@
 
         <service
             android:name=".services.UnlockedScreenService"
+            android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
 

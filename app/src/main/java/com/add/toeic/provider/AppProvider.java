@@ -1,17 +1,21 @@
 package com.add.toeic.provider;
 
 import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.OperationApplicationException;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.add.toeic.Constants.DBInfo;
@@ -34,6 +38,7 @@ public class AppProvider extends ContentProvider {
     static final int WORD_ID = 2;
 
     private static UriMatcher matcher;
+    DBHelper dbHelper;
 
     static {
         matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -45,7 +50,7 @@ public class AppProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        DBHelper dbHelper = new DBHelper(getContext());
+        dbHelper = new DBHelper(getContext());
         sqlDB = dbHelper.getWritableDatabase();
         return (sqlDB == null) ? false : true;
     }
@@ -111,6 +116,87 @@ public class AppProvider extends ContentProvider {
         return 0;
     }
 
+    @Override
+    public int bulkInsert(Uri uri, ContentValues[] values) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        final int match = matcher.match(uri);
+        Log.d("anhdt", "bulkInsert uri " + uri + "match " + match);
+        switch (match) {
+            case WORDS:
+                return bulkInsert(db, DBInfo.TABLE_WORD_REMIND, uri, values);
+            case WORD_ID:
+                return bulkInsert(db, DBInfo.TABLE_WORD_REMIND, uri, values);
+            default:
+                return super.bulkInsert(uri, values);
+        }
+    }
+
+    private int bulkInsert(SQLiteDatabase db, String tableName, Uri uri, ContentValues[] values) {
+        int count = 0;
+        db.beginTransaction();
+        try {
+            for (ContentValues value : values) {
+                Log.i("anhdt", "values=" + value.toString());
+                long _id = db.insert(tableName, null, value);
+                if (_id != -1) {
+                    count++;
+                }
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        if (count > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return count;
+    }
+
+    public void insertMultiWord(ArrayList<Word> words, Context context) {
+        if (dbHelper != null)
+            dbHelper = new DBHelper(getContext());
+        if (sqlDB != null)
+            sqlDB = dbHelper.getWritableDatabase();
+
+        sqlDB.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            for (Word word : words) {
+                values.put(DBInfo.COLUMN_WORD_ID, word.getId());
+                values.put(DBInfo.COLUMN_WORD_NAME, word.getName());
+                values.put(DBInfo.COLUMN_WORD_NAME_KEY, word.getName_key());
+                values.put(DBInfo.COLUMN_WORD_SOUND, word.getSound());
+                values.put(DBInfo.COLUMN_WORD_EXAMPLE, word.getExample());
+                values.put(DBInfo.COLUMN_WORD_EXAMPLE_KEY, word.getExample_key());
+                values.put(DBInfo.COLUMN_WORD_KIND, word.getKind_word());
+                sqlDB.insert(DBInfo.TABLE_WORD_REMIND, null, values);
+            }
+            sqlDB.setTransactionSuccessful();
+        } finally {
+            sqlDB.endTransaction();
+        }
+    }
+
+    public void deleteMultiWord(ArrayList<Word> words, Context context) {
+        ArrayList<ContentProviderOperation> operations = new ArrayList<>();
+
+        for (Word word : words) {
+            ContentProviderOperation operation = ContentProviderOperation
+                    .newDelete(DBInfo.CONTENT_URI)
+                    .withSelection(DBInfo.DATABASE_NAME + " = ?", new String[]{word.getName()})
+                    .build();
+            operations.add(operation);
+        }
+        try {
+            context.getContentResolver().applyBatch(DBInfo.AUTHORITY, operations);
+        } catch (RemoteException e) {
+
+        } catch (OperationApplicationException e) {
+
+        }
+    }
+
     public static void addToRemind(Word word, Context context) {
         if (checkHasWord(word, context))
             return;
@@ -128,7 +214,7 @@ public class AppProvider extends ContentProvider {
         if (!checkHasWord(word, context)) {
             return;
         } else {
-            context.getContentResolver().delete(ContentUris.withAppendedId(DBInfo.CONTENT_URI, word.getId()), DBInfo.COLUMN_WORD_NAME + " = ?", new String[] {String.valueOf(word.getName())});
+            context.getContentResolver().delete(ContentUris.withAppendedId(DBInfo.CONTENT_URI, word.getId()), DBInfo.COLUMN_WORD_NAME + " = ?", new String[]{String.valueOf(word.getName())});
         }
     }
 
