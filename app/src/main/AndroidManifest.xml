@@ -61,6 +61,11 @@
             android:exported="false"
             android:stopWithTask="false" />
 
+        <service
+            android:name=".services.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity
             android:name=".activity.LockScreenActivity"
             android:configChanges="orientation|touchscreen|screenLayout|uiMode|layoutDirection|screenSize"
