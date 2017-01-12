@@ -20,10 +20,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.activity.MainActivity;
 import com.add.toeic.model.Word;
+import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.WordUtils;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
@@ -43,13 +45,13 @@ public class FloatingViewService extends Service implements SpringListener {
     private Context mContext;
     private static ArrayList<Word> arrayList;
     private CountDownTimer mCountDownTimer;
-    private static int TIME_COUNT_DOWN = 1000;
+    private static int TIME_COUNT_DOWN = 3000;
     private Timer mTimer;
     public static int posi_play;
     private TextView tv_word, tv_word_sound, tv_word_key, tv_detail_word;
     private TextView tv_detail_word_key, tv_detail_word_sound, tv_detail_example, tv_detail_example_key, tv_details_num;
     private Handler mHandler = new Handler();
-    private ImageView closeButtonCollapsed, playButton, nextButton, prevButton, closeButton, openButton;
+    private ImageView closeButtonCollapsed, playButton, nextButton, prevButton, closeButton, openButton, readButton;
     private Button btn_time;
     boolean isRun = true;
     View collapsedView, expandedView;
@@ -136,6 +138,7 @@ public class FloatingViewService extends Service implements SpringListener {
         nextButton = (ImageView) mFloatingView.findViewById(R.id.next_btn);
         prevButton = (ImageView) mFloatingView.findViewById(R.id.prev_btn);
         openButton = (ImageView) mFloatingView.findViewById(R.id.open_button);
+        readButton = (ImageView) mFloatingView.findViewById(R.id.btn_detal_read);
 
         // check box
         cbShowVietName = (CheckBox) mFloatingView.findViewById(R.id.cb_detail_check);
@@ -195,6 +198,14 @@ public class FloatingViewService extends Service implements SpringListener {
 
                 //close the service and remove view from the view hierarchy
                 stopSelf();
+            }
+        });
+
+        readButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(mContext, "reade=" + arrayList.get(posi_play).getName(), Toast.LENGTH_SHORT).show();
+                SoundUtis.play(mContext, arrayList.get(posi_play).getName());
             }
         });
 
@@ -283,16 +294,16 @@ public class FloatingViewService extends Service implements SpringListener {
             @Override
             public void onClick(View v) {
                 if (TIME_COUNT_DOWN == 3000) {
-                    btn_time.setText("5");
+                    btn_time.setText("5 s");
                     TIME_COUNT_DOWN = 5000;
                 } else if (TIME_COUNT_DOWN == 5000) {
-                    btn_time.setText("7");
+                    btn_time.setText("7 s");
                     TIME_COUNT_DOWN = 7000;
                 } else if (TIME_COUNT_DOWN == 7000) {
-                    btn_time.setText("1");
+                    btn_time.setText("1 s");
                     TIME_COUNT_DOWN = 1000;
                 } else if (TIME_COUNT_DOWN == 1000) {
-                    btn_time.setText("3");
+                    btn_time.setText("3 s");
                     TIME_COUNT_DOWN = 3000;
                 }
             }
