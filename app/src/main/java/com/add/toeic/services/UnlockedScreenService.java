@@ -26,7 +26,7 @@ public class UnlockedScreenService extends Service {
         return mUnlockedScreenService != null;
     }
 
-    private static final String PREF_NAME = "saveStateToggleBtn";
+    private static final String PREF_NAME_LOCK_SCREEN = "saveStateLockScreen";
     private static final String quickAnswerState = "tgbtn_unlocked_quick_answer_state";
     private SharedPreferences sharedPrefs;
 
@@ -42,11 +42,14 @@ public class UnlockedScreenService extends Service {
 
         super.onCreate();
         mUnlockedScreenService = this;
-        sharedPrefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        sharedPrefs = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE);
         if (sharedPrefs != null) {
             sharedPrefs.registerOnSharedPreferenceChangeListener(mPrefsListener);
-            if (mUnlockedScreenReceiver == null && sharedPrefs.getBoolean(quickAnswerState, false)) {
+            if (mUnlockedScreenReceiver == null) {
                 mUnlockedScreenReceiver = new UnlockedScreenReceiver();
+            }
+            boolean isEnabled = sharedPrefs.getBoolean(quickAnswerState, false);
+            if (isEnabled) {
                 registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
             }
         }
@@ -59,7 +62,7 @@ public class UnlockedScreenService extends Service {
 
     @Override
     public void onDestroy() {
-        getSharedPreferences(PREF_NAME, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(mPrefsListener);
+        getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(mPrefsListener);
         super.onDestroy();
     }
 

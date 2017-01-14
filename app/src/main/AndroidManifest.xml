@@ -58,8 +58,14 @@
 
         <service
             android:name=".services.UnlockedScreenService"
+            android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
+
+        <service
+            android:name=".services.FloatingViewService"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity
             android:name=".activity.LockScreenActivity"

@@ -99,7 +99,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Thoát hẳn" />
+                        android:text="Thoát hẳn"
+                        android:textColor="@color/colorBlack" />
 
                     <ImageView
                         android:id="@+id/open_button"
@@ -113,7 +114,8 @@
                         android:id="@+id/cb_detail_check"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hiển thị nghĩa" />
+                        android:text="Hiển thị nghĩa"
+                        android:textColor="@color/colorBlack" />
                 </LinearLayout>
 
                 <TextView
@@ -123,6 +125,7 @@
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="(2/100)"
+                    android:textColor="@color/colorBlack"
                     android:textSize="11dp" />
 
                 <LinearLayout
@@ -136,7 +139,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="Headphone"
-                        android:textSize="22dp" />
+                        android:textColor="@color/colorBlack"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_detail_word_sound"
@@ -167,25 +172,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="I have a head phone" />
+                    android:text="I have a head phone"
+                    android:textColor="@color/colorBlack" />
 
                 <TextView
                     android:id="@+id/tv_detail_word_example_key"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text=" Tôi có cái tai nghe" />
+                    android:text=" Tôi có cái tai nghe"
+                    android:textColor="@color/colorBlack" />
 
                 <CheckBox
                     android:id="@+id/cb_detail_check_good"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:text="Đã thuộc từ" />
+                    android:text="Đã thuộc từ"
+                    android:textColor="@color/colorBlack" />
 
                 <LinearLayout
+
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_height="80dp"
                     android:orientation="horizontal"
                     android:padding="8dp"
                     android:visibility="visible">
@@ -221,9 +230,12 @@
 
                     <Button
                         android:id="@+id/btn_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3" />
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/round_button"
+                        android:text="3 s"
+                        android:textColor="@color/colorBlack" />
                 </LinearLayout>
 
             </LinearLayout>
