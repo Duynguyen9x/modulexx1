@@ -34,7 +34,6 @@
             android:text="(A) "
             android:textSize="16sp"
             android:textColor="@drawable/rbtn_textcolor_selector"
-            android:theme="@style/MyRadioButton"
             android:background="@drawable/detail_layout_conner"/>
 
         <RadioButton
@@ -46,7 +45,6 @@
             android:text="(B) "
             android:textSize="16sp"
             android:textColor="@drawable/rbtn_textcolor_selector"
-            android:theme="@style/MyRadioButton"
             android:background="@drawable/detail_layout_conner"/>
 
         <RadioButton
@@ -58,7 +56,6 @@
             android:text="(C) "
             android:textSize="16sp"
             android:textColor="@drawable/rbtn_textcolor_selector"
-            android:theme="@style/MyRadioButton"
             android:background="@drawable/detail_layout_conner"/>
 
         <RadioButton
@@ -70,7 +67,6 @@
             android:text="(D) "
             android:textSize="16sp"
             android:textColor="@drawable/rbtn_textcolor_selector"
-            android:theme="@style/MyRadioButton"
             android:background="@drawable/detail_layout_conner"/>
     </RadioGroup>
 
