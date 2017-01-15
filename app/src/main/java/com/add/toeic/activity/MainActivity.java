@@ -25,7 +25,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private ToggleButton tgBtnLockScreen;
     private ToggleButton remindWordBtn;
     private Context mContext;
+    private LinearLayout ln_navi_lockscreen;
 
     // urls to load navigation header background image
     // and profile image
@@ -96,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("anhdt", "MainActivity onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
@@ -139,6 +143,29 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             };
             generateData.execute();
         }
+        if (getIntent().getBooleanExtra("open_drawer", false)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    drawer.openDrawer(GravityCompat.START);
+                }
+            }, 1000);
+
+            // trigger ripple effect
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ln_navi_lockscreen.setPressed(true);
+                }
+            }, 2000);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ln_navi_lockscreen.setPressed(false);
+                }
+            }, 2100);
+        }
     }
 
     private void preLockScreenProcess() {
@@ -171,6 +198,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         editor2.apply();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("anhdt", "MainActivity resume");
+    }
+
     public void initView() {
 
         Window window = this.getWindow();
@@ -190,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
         tgBtnLockScreen = (ToggleButton) navHeader.findViewById(R.id.lock_screen);
         remindWordBtn = (ToggleButton) navHeader.findViewById(R.id.remind_word);
+        ln_navi_lockscreen = (LinearLayout) navHeader.findViewById(R.id.ln_navi_lockscreen);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);

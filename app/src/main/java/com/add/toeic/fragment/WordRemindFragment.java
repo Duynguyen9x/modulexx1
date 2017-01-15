@@ -272,7 +272,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
 
     private void deleteRemindWordDialog(final boolean isDeleteAll) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setMessage("Write your message here.");
+        builder.setMessage("Delete all reminded words!");
         builder.setCancelable(true);
 
         builder.setPositiveButton(
@@ -296,6 +296,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
                 });
 
         AlertDialog alert = builder.create();
+        alert.getWindow().setBackgroundDrawableResource(R.drawable.all_circle_white_bg_child);
         alert.show();
     }
 
