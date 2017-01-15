@@ -10,7 +10,7 @@
         android:id="@+id/tv_currentDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="420dp"
         android:layout_marginStart="55dp"
         android:text="current time"
         android:textColor="#04cbde"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="duration time"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="420dp"
         android:layout_marginStart="278dp"
         android:textColor="#04cbde"
         android:textStyle="bold"/>

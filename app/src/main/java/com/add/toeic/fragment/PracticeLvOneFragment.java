@@ -162,21 +162,27 @@ public class PracticeLvOneFragment extends Fragment {
 
         WordInfo wordInfo4 = new WordInfo();
         wordInfo4.setEnglish("Part 4");
-        wordInfo4.setVietnamese("Incomplete Sentence");
-        wordInfo4.setIcon(getResources().getDrawable(R.drawable.iincomplete_sentence, mContext.getTheme()));
+        wordInfo4.setVietnamese("Talks");
+        wordInfo4.setIcon(getResources().getDrawable(R.drawable.talks, mContext.getTheme()));
         wordInfoList.add(wordInfo4);
 
         WordInfo wordInfo5 = new WordInfo();
         wordInfo5.setEnglish("Part 5");
-        wordInfo5.setVietnamese("Text Completion");
-        wordInfo5.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
+        wordInfo5.setVietnamese("Incomplete Sentence");
+        wordInfo5.setIcon(getResources().getDrawable(R.drawable.iincomplete_sentence, mContext.getTheme()));
         wordInfoList.add(wordInfo5);
 
         WordInfo wordInfo6 = new WordInfo();
         wordInfo6.setEnglish("Part 6");
-        wordInfo6.setVietnamese("Reading Comprehension");
+        wordInfo6.setVietnamese("Text Completion");
         wordInfo6.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
         wordInfoList.add(wordInfo6);
+
+        WordInfo wordInfo7 = new WordInfo();
+        wordInfo7.setEnglish("Part 7");
+        wordInfo7.setVietnamese("Reading Comprehension");
+        wordInfo7.setIcon(getResources().getDrawable(R.drawable.text_complete, mContext.getTheme()));
+        wordInfoList.add(wordInfo7);
 
         return wordInfoList;
     }
