@@ -6,11 +6,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.ContentObserver;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,21 +27,21 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.add.toeic.Constants.DBInfo;
 import com.add.toeic.R;
 import com.add.toeic.activity.DetailWordActivity;
 import com.add.toeic.adapter.WordRemindAdapter;
-import com.add.toeic.database.DBHelper;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.listeners.OnRemindClickListener;
 import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
+import com.add.toeic.temp.WordContract;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link WordRemindFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WordRemindFragment extends Fragment implements OnRemindClickListener {
+public class WordRemindFragment extends Fragment implements OnRemindClickListener , LoaderManager.LoaderCallbacks<Cursor> {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,13 +66,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
     private ImageButton imgBtnRemindDelete;
 
     private OnFragmentInteractionListener mListener;
-    private DBHelper db;
-
-    public static final String AUTHORITY = "com.add.toeic";
-    public static final String BASE_PATH = "word";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
-    //= Uri.parse("/data/user/0/com.add.toeic/databases/word_manager");
-    //
+    private static final int LOADER_ID = 1;
 
 
     public WordRemindFragment() {
@@ -105,20 +103,22 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
     @Override
     public void onResume() {
         super.onResume();
-//        Log.i("duy.pq", "URI1=" + db.getDatabaseName());
-//        Log.i("duy.pq", "URI2=" + db.toString());
-//        Log.i("duy.pq", "URI3=" + db.getWritableDatabase().getPath());
-        mContext.getContentResolver().registerContentObserver(CONTENT_URI, true, contentObserver);
+        mContext.getContentResolver().registerContentObserver(WordContract.Word.CONTENT_URI_REMIND, true, contentObserver);
     }
 
     private ContentObserver contentObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
             mArrList.clear();
-            mArrList.addAll(db.getAllWords());
+            mArrList.addAll(AppProvider.getAllWords(true));
             mWordRemindAdapter.notifyDataSetChanged();
             Log.i("duy.pq", "contentObserver = ");
+        }
 
+        @Override
+        public boolean deliverSelfNotifications() {
+            // return true avoid onChange() method is called multiple times
+            return true;
         }
     };
 
@@ -131,7 +131,6 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i("duynq", "WordRemindFragment : onCreateView");
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_remind, container, false);
         initRemindList();
         return view;
@@ -166,7 +165,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
 
             @Override
             protected List<Word> doInBackground(Void... params) {
-                return getListWords();
+                return AppProvider.getAllWords(true);
             }
 
             @Override
@@ -184,16 +183,6 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
         };
 
         loadDataTask.execute();
-    }
-
-    public List<Word> getListWords() {
-        List<Word> listWord = new ArrayList<Word>();
-
-        db = new DBHelper(getActivity());
-        //  db.createDefaultNotesIfNeed();
-        ArrayList<Word> arr = db.getAllWords();
-
-        return arr;
     }
 
     @Override
@@ -291,7 +280,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if(isDeleteAll){
-                            mContext.getContentResolver().delete(DBInfo.CONTENT_URI, null, null);
+                            AppProvider.deleteAll(mContext, true);
                         } else {
                             // TODO
                         }
@@ -309,4 +298,33 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+
+        @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        Uri uri = null;
+        String[] projections = null;
+        // muon lay full word thi de null, muon lay reminder thi de nhu duoi
+        String selection = null;
+        // String selection = WordContract.Word.WORD_STATUS + " = " + 0;
+
+        String[] argu = null;
+        String orderBy = null;
+        uri = WordContract.Word.CONTENT_URI_ALL;
+        Log.d("anhdt", " load cursor loader with id " + id);
+        CursorLoader cursorLoader = new CursorLoader(mContext, uri, projections, selection, argu, orderBy);
+        return cursorLoader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+//        initLoadData(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
+    }
+
+
 }

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.add.toeic.activity.DetailWordActivity;
-import com.add.toeic.database.DBHelper;
 import com.add.toeic.model.Word;
 import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.WordUtils;
@@ -29,15 +28,9 @@ import com.add.toeic.R;
 import com.add.toeic.model.WordInfo;
 import com.add.toeic.utils.ImageUtils;
 
-/**
- * Created by 8470p on 12/17/2016.
- */
 public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
     private Context mContext;
-    DBHelper db;
-
     private List<WordInfo> mVocabularyHeaderList;  // header titles
-
     // child data in format of header title, child title
     private HashMap<WordInfo, List<WordInfo>> mVocabularyChildList;
 
@@ -46,7 +39,6 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         this.mContext = context;
         this.mVocabularyHeaderList = listDataHeader;
         this.mVocabularyChildList = listChildData;
-        db = new DBHelper(context);
     }
 
     @Override
@@ -90,7 +82,7 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
             holder.iconView.setImageDrawable(wordInfo.getIcon());
             holder.iconView.setClipToOutline(true);
         }
-        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.icon_more));
+        holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.icon_more, mContext.getTheme()));
 
         holder.expandView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,16 +102,17 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
                                 forceRunAuto.putExtra("run_from_group_or_reminded", 1);
                                 forceRunAuto.putExtra("num_word", 0);
                                 forceRunAuto.putExtra("num_group", location);
-//                                forceRunAuto.putExtra()
 
                                 mContext.startActivity(forceRunAuto);
                                 break;
                             case R.id.action_add_remider:
-                                addToRemined(location);
+                                ArrayList<Word> topicWords = getListTopicWords(location);
+                                AppProvider.addMultiWord(topicWords, true, mContext);
                                 Toast.makeText(mContext, "addToRemined =" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.action_remove_remider:
-                                removeToRemined(location);
+                                ArrayList<Word> words = getListTopicWords(location);
+                                AppProvider.removeMultiWord(words, mContext, true);
                                 Toast.makeText(mContext, "removeToRemined =" + childPosition + "=" + groupPosition + "", Toast.LENGTH_SHORT).show();
                                 break;
                             default:
@@ -135,42 +128,14 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
-    private void getListRunAuto(ArrayList<String> arr, int location) {
-        List<Word> topicWords = getListTopicWords(location);
-        for (Word word : topicWords) {
-            if(AppProvider.checkHasWord(word, mContext)){
-                arr.add(word.getName());
-            }
+    private ArrayList<Word> getListTopicWords(int location) {
+        ArrayList<Word> arr;
+        ArrayList<Word> arrResult = new ArrayList<>();
+        arr = AppProvider.getAllWords(false);
+        int k = location * 12;
+        for (int t = k; t < k + 12; t++) {
+            arrResult.add(arr.get(t));
         }
-    }
-
-    private void addToRemined(int location) {
-        List<Word> topicWords = getListTopicWords(location);
-        for (Word word : topicWords) {
-            AppProvider.addToRemind(word, mContext);
-        }
-    }
-
-    private void removeToRemined(int location) {
-        List<Word> topicWords = getListTopicWords(location);
-        for (Word word : topicWords) {
-            AppProvider.removeToRemind(word, mContext);
-        }
-    }
-
-    public List<Word> getListTopicWords(int location) {
-        ArrayList<Word> arr = null;
-        ArrayList<Word> arrResult = new ArrayList<Word>();
-        try {
-            arr = WordUtils.readAllData(mContext);
-            int k = location * 12;
-            for (int t = k; t < k + 12; t++) {
-                arrResult.add(arr.get(t));
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         return arrResult;
     }
 
@@ -221,7 +186,6 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         if (null != wordInfo) {
             holder.eng_word.setText(wordInfo.getEnglsih());
             holder.viet_word.setText(wordInfo.getVietnamese());
-//            holder.iconView.setImageDrawable(wordInfo.getIcon());
             holder.iconView.setClipToOutline(true);
             Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableChild(groupPosition))).centerCrop().into(holder.iconView);
 

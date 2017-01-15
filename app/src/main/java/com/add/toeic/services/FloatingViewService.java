@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.add.toeic.R;
 import com.add.toeic.activity.MainActivity;
 import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.WordUtils;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
@@ -316,7 +317,7 @@ public class FloatingViewService extends Service implements SpringListener {
         Log.i("duy.pqq", "time1=" + System.currentTimeMillis());
         try {
 
-            ArrayList<Word> arr = WordUtils.readAllData(mContext);
+            ArrayList<Word> arr = AppProvider.getAllWords(false);
 
 //
 //            ArrayList<Word> arr = new ArrayList<Word>();

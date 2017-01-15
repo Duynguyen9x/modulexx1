@@ -1,6 +1,5 @@
 package com.add.toeic.adapter;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -14,12 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.add.toeic.Constants.DBInfo;
 import com.add.toeic.R;
-import com.add.toeic.database.DBHelper;
 import com.add.toeic.listeners.OnRemindClickListener;
 import com.add.toeic.model.Word;
-import com.add.toeic.model.WordInfo;
 import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.ImageUtils;
@@ -37,8 +33,6 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
     private OnRemindClickListener mListener;
     private boolean mIsDelete;
 
-    private DBHelper db;
-
     public void setOnRemindClickListener(OnRemindClickListener listener) {
         mListener = listener;
     }
@@ -48,7 +42,6 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
         this.mContext = context;
         this.mWordList = mWordList;
         this.mIsDelete = isDelete;
-        db = new DBHelper(mContext);
     }
 
     @Override
@@ -100,8 +93,8 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
 
                 holder.remindView.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if (db.checkHasWord(mWordList.get(position))) {
-                            AppProvider.removeToRemind(word, getContext());
+                        if (AppProvider.checkHasWord(mWordList.get(position), true)) {
+                            AppProvider.removeWord(word, getContext(), true);
                         }
                         mListener.update();
                     }

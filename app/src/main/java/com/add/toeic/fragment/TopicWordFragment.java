@@ -24,6 +24,7 @@ import com.add.toeic.adapter.VocabularyTopicAdapter;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.Word;
 import com.add.toeic.model.WordInfo;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.ImageLoader;
 import com.add.toeic.utils.WordUtils;
 
@@ -61,6 +62,7 @@ public class TopicWordFragment extends Fragment {
 
     public TopicWordFragment() {
     }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -171,16 +173,11 @@ public class TopicWordFragment extends Fragment {
     public List<Word> getListWords() {
         ArrayList<Word> arr = null;
         ArrayList<Word> arrResult = new ArrayList<Word>();
-        try {
-            arr = WordUtils.readAllData(mContext);
-            int k = mLocation * 12;
-            for (int t = k; t < k + 12; t++) {
-                arrResult.add(arr.get(t));
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        arr = AppProvider.getAllWords(false);
+        int k = mLocation * 12;
+        for (int t = k; t < k + 12; t++) {
+            arrResult.add(arr.get(t));
         }
-
         return arrResult;
     }
 

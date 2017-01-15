@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.Utils;
 import com.add.toeic.utils.WordUtils;
@@ -54,16 +55,13 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
 
     int randomWordIdAns[];
     TextView textViewAns[];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         Log.d("anhdt", "LockScreenActivity onCreate");
-        try {
-            arrWord = WordUtils.readAllData(mContext);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        arrWord = AppProvider.getAllWords(false);
 
         initLayout();
         itemClicked();
