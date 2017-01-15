@@ -82,8 +82,8 @@ public class UnlockedScreenService extends Service {
         if (isEnabled) {
             if (mUnlockedScreenReceiver == null) {
                 mUnlockedScreenReceiver = new UnlockedScreenReceiver();
-                registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
             }
+            registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
         } else {
             unregisterReceiver(mUnlockedScreenReceiver);
             mUnlockedScreenReceiver = null;
