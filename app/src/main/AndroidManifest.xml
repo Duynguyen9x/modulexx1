@@ -77,6 +77,18 @@
             android:name=".activity.PracticeToiecActivity"
             android:label="@string/title_activity_practice_toiec" />
 
+        <activity android:name=".activity.LoadWordActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+
         <provider
             android:name=".provider.AppProvider"
             android:authorities="com.add.toeic"
