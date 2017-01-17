@@ -28,6 +28,7 @@ import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -59,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
-    private ToggleButton tgBtnLockScreen;
-    private ToggleButton remindWordBtn;
+    private Switch tgBtnLockScreen;
+    private Switch remindWordBtn;
     private Context mContext;
     private LinearLayout ln_navi_lockscreen;
 
@@ -221,8 +222,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        tgBtnLockScreen = (ToggleButton) navHeader.findViewById(R.id.lock_screen);
-        remindWordBtn = (ToggleButton) navHeader.findViewById(R.id.remind_word);
+        tgBtnLockScreen = (Switch) navHeader.findViewById(R.id.lock_screen);
+        remindWordBtn = (Switch) navHeader.findViewById(R.id.remind_word);
         ln_navi_lockscreen = (LinearLayout) navHeader.findViewById(R.id.ln_navi_lockscreen);
 
         // load toolbar titles from string resources
@@ -245,6 +246,16 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                 boolean state1 = tgBtnLockScreen.isChecked();
                 SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
                 editor.putBoolean(quickAnswerState, state1); // value to store
+                editor.apply();
+            }
+        });
+        ln_navi_lockscreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state1 = tgBtnLockScreen.isChecked();
+                tgBtnLockScreen.setChecked(!state1);
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
+                editor.putBoolean(quickAnswerState, !state1); // value to store
                 editor.apply();
             }
         });

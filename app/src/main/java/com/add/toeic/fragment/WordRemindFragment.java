@@ -19,10 +19,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,7 @@ import com.add.toeic.temp.WordContract;
  * Use the {@link WordRemindFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WordRemindFragment extends Fragment implements OnRemindClickListener , LoaderManager.LoaderCallbacks<Cursor> {
+public class WordRemindFragment extends Fragment implements OnRemindClickListener, LoaderManager.LoaderCallbacks<Cursor> {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,13 +63,12 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
     private Button mBtnDelAll;
     private Button mBtnDone;
 
-    LayoutInflater inflater;
-    private LinearLayout mLinearLayout;
+    private LayoutInflater inflater;
+    private LinearLayout mLn_delete_runAuto, mLn_DeleteAll_Done;
     private ImageButton imgBtnRemindDelete;
 
     private OnFragmentInteractionListener mListener;
-    private static final int LOADER_ID = 1;
-
+    private int mCntRemind;
 
     public WordRemindFragment() {
         // Required empty public constructor
@@ -112,6 +113,18 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
             mArrList.clear();
             mArrList.addAll(AppProvider.getAllWords(true));
             mWordRemindAdapter.notifyDataSetChanged();
+            mCntRemind = mArrList.size();
+
+            if (mCntRemind == 0) {
+                mLn_delete_runAuto.setVisibility(View.GONE);
+                mLn_DeleteAll_Done.setVisibility(View.GONE);
+                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                inflater.inflate(R.layout.empty, (ViewGroup) view);
+            } else {
+                if (mLn_DeleteAll_Done.getVisibility() != View.VISIBLE)
+                    mLn_delete_runAuto.setVisibility(View.VISIBLE);
+                ((ViewGroup) view).removeView(view.findViewById(R.id.rl_empty));
+            }
             Log.i("duy.pq", "contentObserver = ");
         }
 
@@ -140,8 +153,13 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater = LayoutInflater.from(mContext);
 
-        mLinearLayout = (LinearLayout) view.findViewById(R.id.layout1);
-        replaceLayoutToDeleteMode(false);
+        mLn_delete_runAuto = (LinearLayout) view.findViewById(R.id.delete_run_button_layout);
+        mLn_DeleteAll_Done = (LinearLayout) view.findViewById(R.id.deleteall_done_button_layout);
+
+        mBtnDel = (Button) view.findViewById(R.id.delete_btn);
+        mBtnRunAuto = (Button) view.findViewById(R.id.run_auto_btn);
+        mBtnDelAll = (Button) view.findViewById((R.id.delete_all_btn));
+        mBtnDone = (Button) view.findViewById((R.id.done_btn));
 
         mListView = (ListView) view.findViewById(R.id.list_remind);
         mArrList = new ArrayList<>();
@@ -150,6 +168,38 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
         mListView.setAdapter(mWordRemindAdapter);
 
         initLoadData();
+
+        mBtnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWordRemindAdapter.setDelete(true);
+                mLn_DeleteAll_Done.setVisibility(View.VISIBLE);
+                mLn_delete_runAuto.setVisibility(View.INVISIBLE);
+            }
+        });
+        mBtnRunAuto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forceRunAuto = new Intent(mContext, DetailWordActivity.class);
+                forceRunAuto.putExtra("run_from_group_or_reminded", 2);
+                mContext.startActivity(forceRunAuto);
+                //TODO
+            }
+        });
+        mBtnDelAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRemindWordDialog(true);
+            }
+        });
+        mBtnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWordRemindAdapter.setDelete(false);
+                mLn_delete_runAuto.setVisibility(View.VISIBLE);
+                mLn_DeleteAll_Done.setVisibility(View.INVISIBLE);
+            }
+        });
         mListView.invalidate();
     }
 
@@ -175,9 +225,18 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
-
+                mCntRemind = listWords.size();
                 mWordRemindAdapter.addAll(listWords);
                 mListView.setAdapter(mWordRemindAdapter);
+                if (mCntRemind == 0) {
+                    mLn_delete_runAuto.setVisibility(View.GONE);
+                    mLn_DeleteAll_Done.setVisibility(View.GONE);
+                    LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    inflater.inflate(R.layout.empty, (ViewGroup) view);
+                } else {
+                    mLn_delete_runAuto.setVisibility(View.VISIBLE);
+                    ((ViewGroup) view).removeView(view.findViewById(R.id.rl_empty));
+                }
                 super.onPostExecute(listWords);
             }
         };
@@ -222,54 +281,6 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
         mWordRemindAdapter.notifyDataSetChanged();
     }
 
-    private void replaceLayoutToDeleteMode(boolean isDeleteMode) {
-        mLinearLayout.removeAllViews();
-        if (isDeleteMode) {
-            View v = inflater.inflate(R.layout.deleteall_done_button_layout, null);
-            mLinearLayout.addView(v);
-            mBtnDelAll = (Button) view.findViewById((R.id.delete_all_btn));
-            mBtnDone = (Button) view.findViewById((R.id.done_btn));
-
-            mBtnDone.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    replaceLayoutToDeleteMode(false);
-                    mWordRemindAdapter.setDelete(false);
-                }
-            });
-
-            mBtnDelAll.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    deleteRemindWordDialog(true);
-                }
-            });
-        } else {
-            View v = inflater.inflate(R.layout.delete_run_button_layout, null);
-            mLinearLayout.addView(v);
-            mBtnDel = (Button) view.findViewById(R.id.delete_btn);
-            mBtnRunAuto = (Button) view.findViewById(R.id.run_auto_btn);
-
-            mBtnDel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    replaceLayoutToDeleteMode(true);
-                    mWordRemindAdapter.setDelete(true);
-                }
-            });
-
-            mBtnRunAuto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent forceRunAuto = new Intent(mContext, DetailWordActivity.class);
-                    forceRunAuto.putExtra("run_from_group_or_reminded", 2);
-                    mContext.startActivity(forceRunAuto);
-                    //TODO
-                }
-            });
-        }
-    }
-
     private void deleteRemindWordDialog(final boolean isDeleteAll) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setMessage("Delete all reminded words!");
@@ -279,7 +290,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
                 "Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if(isDeleteAll){
+                        if (isDeleteAll) {
                             AppProvider.deleteAll(mContext, true);
                         } else {
                             // TODO
@@ -301,7 +312,7 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
     }
 
 
-        @Override
+    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Uri uri = null;
         String[] projections = null;

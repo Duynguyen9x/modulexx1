@@ -244,7 +244,7 @@ public class AppProvider extends ContentProvider {
         return (c.getInt(0) <= 0);
     }
 
-    public static void populateTB_ALL(Context context){
+    public static void populateTB_ALL(Context context) {
         ArrayList<Word> arr = null;
         try {
             arr = WordUtils.readAllData(context);
@@ -254,15 +254,31 @@ public class AppProvider extends ContentProvider {
         addMultiWord(arr, false, context);
     }
 
+    public static Word getWordById_tb_All(int idWord) {
+        Word word = new Word();
+        Cursor cursor = sqlDB.rawQuery("SELECT  * FROM " + WordContract.Word.TB_WORD_ALL + " WHERE " + WordContract.Word.ID + " = " + idWord, null);
+        if (cursor.moveToFirst()) {
+            word.setId(cursor.getInt(0));
+            word.setName(cursor.getString(1));
+            word.setName_key(cursor.getString(2));
+            word.setSound(cursor.getString(3));
+            word.setExample(cursor.getString(4));
+            word.setExample_key(cursor.getString(5));
+            word.setExpand(cursor.getString(6));
+            word.setKind(cursor.getInt(7));
+            word.setRemember(cursor.getInt(8));
+        }
+        return word;
+    }
+
     public static ArrayList<Word> getAllWords(boolean isRemind) {
         Log.i("anhdt", "MyDatabaseHelper.getAllNotes ... " + isRemind);
 
         ArrayList<Word> wordList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + (isRemind ? WordContract.Word.TB_WORD_REMIND : WordContract.Word.TB_WORD_ALL);
-
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        sqlDB = dbHelper.getWritableDatabase();
+        Cursor cursor = sqlDB.rawQuery(selectQuery, null);
 
         // Duyệt trên con trỏ, và thêm vào danh sách.
         if (cursor.moveToFirst()) {
@@ -283,6 +299,51 @@ public class AppProvider extends ContentProvider {
         }
         cursor.close();
         return wordList;
+    }
+
+    public static ArrayList<Word> getAllWords_without_remembered(boolean isRemind) {
+        Log.i("anhdt", "MyDatabaseHelper.getAllWords_without_remembered ... " + isRemind);
+
+        ArrayList<Word> wordList = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + (isRemind ? WordContract.Word.TB_WORD_REMIND : WordContract.Word.TB_WORD_ALL) + " WHERE " + WordContract.Word.REMEMBER + " = ?";
+        String[] args = {"0"};
+        sqlDB = dbHelper.getWritableDatabase();
+        Cursor cursor = sqlDB.rawQuery(selectQuery, args);
+
+        // Duyệt trên con trỏ, và thêm vào danh sách.
+        if (cursor.moveToFirst()) {
+            do {
+                Word word = new Word();
+                word.setId(cursor.getInt(0));
+                word.setName(cursor.getString(1));
+                word.setName_key(cursor.getString(2));
+                word.setSound(cursor.getString(3));
+                word.setExample(cursor.getString(4));
+                word.setExample_key(cursor.getString(5));
+                word.setExpand(cursor.getString(6));
+                word.setKind(cursor.getInt(7));
+                word.setRemember(cursor.getInt(8));
+                // Thêm vào danh sách.
+                wordList.add(word);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return wordList;
+    }
+
+    public static void toggleRemember(Word word, Context context, boolean isRemind) {
+        Log.i("anhdt", "toggleRemember ... ");
+        ContentValues values = new ContentValues();
+        int isRemember = word.getRemember();
+        if(isRemember == 0){
+            isRemember = 1;
+        } else if(isRemember == 1){
+            isRemember = 0;
+        }
+        values.put(WordContract.Word.REMEMBER, isRemember);
+        sqlDB.update(WordContract.Word.TB_WORD_ALL, values, WordContract.Word.NAME + " = " + "'" + word.getName() +"'", null);
+        context.getContentResolver().notifyChange((isRemind ? WordContract.Word.CONTENT_URI_REMIND : WordContract.Word.CONTENT_URI_ALL), null);
     }
 
     private static class DBHelper extends SQLiteOpenHelper {
@@ -321,7 +382,7 @@ public class AppProvider extends ContentProvider {
             bd.append(WordContract.Word.KIND);
             bd.append(" INTEGER, ");
             bd.append(WordContract.Word.REMEMBER);
-            bd.append(" INTEGER ) ");
+            bd.append(" INTEGER ); ");
 
             return bd.toString();
         }
