@@ -1,14 +1,21 @@
 package com.add.toeic.fragment;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
 
 import com.add.toeic.R;
+import com.add.toeic.activity.LoadWordActivity;
+import com.add.toeic.activity.MainActivity;
+import com.add.toeic.listeners.OnFragmentInteractionListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,8 @@ public class NoteFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private View view;
+    private Context mContext;
 
 
     public NoteFragment() {
@@ -61,7 +70,26 @@ public class NoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i("duynq", "NoteFragment : onCreateView");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_note, container, false);
+        view = inflater.inflate(R.layout.fragment_note, container, false);
+        initViewList();
+        return view;
+    }
+
+    public void initViewList() {
+        Button btn_load = (Button) view.findViewById(R.id.btn_load);
+        btn_load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(mContext, LoadWordActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
     }
 
     @Override
