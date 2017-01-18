@@ -1,0 +1,424 @@
+{
+  "Questions": [
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_1",
+      "negative_points": "0",
+      "question":"What did you give Kyle for his birthday?",
+      "options": [
+        "I forgot, sorry, happy birthday",
+        "Yes, he gave it to me",
+        "I got him a book"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_2",
+      "negative_points": "0",
+      "question":"What is the first item on today’s agenda?",
+      "options": [
+        "In the staff room",
+        "I decided not to buy the item",
+        "The new parking policy"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_3",
+      "negative_points": "0",
+      "question":"What did you have for lunch?",
+      "options": [
+        "At about 12.30",
+        "The Japanese restaurant on the high street",
+        "A tuna sandwich"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_4",
+      "negative_points": "0",
+      "question":"What did you talk to Mr. Grover about?",
+      "options": [
+        "I asked him about my pay",
+        "No I didn’t give the talk",
+        "I haven’t decided yet"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_5",
+      "negative_points": "0",
+      "question":"What did you do with the handouts?",
+      "options": [
+        "I distributed them to the participants",
+        "No, it’s inside",
+        "Sorry, I can’t help"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_6",
+      "negative_points": "0",
+      "question":"What was the meeting about?",
+      "options": [
+        "Our problem with the client",
+        "At around 7 p.m",
+        "Would you like to come too?"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_7",
+      "negative_points": "0",
+      "question":"What time do you eat breakfast?",
+      "options": [
+        "Normally at about 7 a.m",
+        "A couple of pieces of toast",
+        "Yes I need a break"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_8",
+      "negative_points": "0",
+      "question":"What is the charge for pressing a shirt?",
+      "options": [
+        "4 dollars per shirt",
+        "Just press the button",
+        "There’s one next to the bank"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_9",
+      "negative_points": "0",
+      "question":"What’s weather like in Beijing today?",
+      "options": [
+        "We usually have good weather in the autumn",
+        "A lot of yellow dust",
+        "He doesn’t like cold weather"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "what_10",
+      "negative_points": "0",
+      "question":"What happened at the staff meeting?",
+      "options": [
+        "I can meet on Tuesday morning",
+        "There’s nothing to do on the weekends here",
+        "3 people from accounting resigned"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_1",
+      "negative_points": "0",
+      "question":"Who was that on the phone?",
+      "options": [
+        "I need direction to the stadium",
+        "It was my accountant",
+        "Our phone rarely rings"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_2",
+      "negative_points": "0",
+      "question":"Who told you about the job opening in the sales department?",
+      "options": [
+        "I’m going to apply",
+        "To be honest, I don’t really remember",
+        "They are closing the department"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_3",
+      "negative_points": "0",
+      "question":"Who will present the information to the shareholders?",
+      "options": [
+        "Thank you for the wonderful gift",
+        "The president herself will ",
+        "To make an informed decision"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_4",
+      "negative_points": "0",
+      "question":"Who authorized this order?",
+      "options": [
+        "I did, is there a problem?",
+        "I’ll call the authority",
+        "They’ll deliver in a week"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_5",
+      "negative_points": "0",
+      "question":"Who’s in charge of controlling the product quality?",
+      "options": [
+        "It’s available at no extra charge",
+        "Our production department",
+        "Choose the course you like"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_6",
+      "negative_points": "0",
+      "question":"Who sent out this invoice?",
+      "options": [
+        "He arrived today ",
+        "Someone in the delivery department",
+        "Yes. I read it"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_7",
+      "negative_points": "0",
+      "question":"Who’s going to give the speech this morning?",
+      "options": [
+        "No I can give you a ride",
+        "The manager will",
+        "The speech was very informative"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_8",
+      "negative_points": "0",
+      "question":"Who is making the hotel reservation?",
+      "options": [
+        "The hotel was already booked",
+        "Perhaps Mr. Chang",
+        "Submit it by email"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_9",
+      "negative_points": "0",
+      "question":"Who takes care of the charity finances?",
+      "options": [
+        "We have accountant on staff",
+        "Yes, we provide free healthcare",
+        "For financial advice"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_10",
+      "negative_points": "0",
+      "question":"Whose note was left in the meeting room?",
+      "options": [
+        "Sorry, that’s all I have left",
+        "It started today at 2.30",
+        "I’ll asked my team"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_11",
+      "negative_points": "0",
+      "question":"Who called?",
+      "options": [
+        "The supplier. Our shipment has arrived",
+        "When I was young I spent a lot of time on the phone",
+        "No I’m sure I didn’t call you"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_12",
+      "negative_points": "0",
+      "question":"Who sent you such a gorgeous dress?",
+      "options": [
+        "My mother did",
+        "You shouldn’t have said so",
+        "For her birthday"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_13",
+      "negative_points": "0",
+      "question":"Who can give me a hand with the new computer?",
+      "options": [
+        "We can’t afford to buy any new computer",
+        "Mr. Kim can go to see and check it today",
+        "No my hand is all dirty now"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_14",
+      "negative_points": "0",
+      "question":"Who is coming to the mortgage and insurance presentation?",
+      "options": [
+        "Ian and Bryan will be joining you",
+        "I don’t have any insurance",
+        "There is schedule of activities on the hall board"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_15",
+      "negative_points": "0",
+      "question":"Who will replace Mr. Martin after he resigns from the position?",
+      "options": [
+        "He left the company 6 months ago",
+        "Nobody knows yet",
+        "He said he had better offer"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_16",
+      "negative_points": "0",
+      "question":"Who was the man at the bar last night?",
+      "options": [
+        "Just a drink or two",
+        "That was client from England",
+        "It is my favorite bar"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_17",
+      "negative_points": "0",
+      "question":"Who are you talking to?",
+      "options": [
+        "I’ll get the phone",
+        "I talk to him yesterday",
+        "That was Dawson, our biggest client"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "1",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_18",
+      "negative_points": "0",
+      "question":"Who is that talking to the director?",
+      "options": [
+        "He’s always gossiping about something",
+        "It’s new intern",
+        "Shares are down 3 percent"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "0",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_19",
+      "negative_points": "0",
+      "question":"Who was awarded the sales contract?",
+      "options": [
+        "A Swedish firm",
+        "They received the award",
+        "There are so many"
+      ],
+      "question_type": "1"
+    },
+    {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_audio": "who_20",
+      "negative_points": "0",
+      "question":"Whose shopping bag is on the table?",
+      "options": [
+        "Oh, you decided to go shopping",
+        "Yes, this is the table we reserved",
+        "That belongs to me"
+      ],
+      "question_type": "1"
+    }
+  ]
+}

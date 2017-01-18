@@ -1,11 +1,20 @@
 package com.add.toeic.activity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Bitmap;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -26,11 +35,13 @@ import android.widget.Toast;
 import com.add.toeic.R;
 import com.add.toeic.model.practice.ListenLong;
 import com.add.toeic.model.practice.ListenShort;
+import com.add.toeic.model.practice.Mp3_Listening;
 import com.add.toeic.model.practice.QuestionResponse;
 import com.add.toeic.model.practice.ReadCompletion;
 import com.add.toeic.model.practice.ReadComprehension;
 import com.add.toeic.model.practice.ReadSentence;
 import com.add.toeic.utils.ImageUtils;
+import com.add.toeic.utils.InternetConnectionDetector;
 import com.add.toeic.utils.TimeUtils;
 import com.add.toeic.utils.json.JsonListenLongUtils;
 import com.add.toeic.utils.json.JsonListenShortUtils;
@@ -40,12 +51,15 @@ import com.add.toeic.utils.json.JsonReadCompletionUtils;
 import com.add.toeic.utils.json.JsonReadSentenceUtils;
 import com.bumptech.glide.Glide;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
+import java.io.OutputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class PracticeToiecActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener, SeekBar.OnSeekBarChangeListener {
@@ -61,14 +75,15 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     ArrayList<ReadCompletion> mListObj_part6;
     ArrayList<ReadComprehension> mListObj_part7;
     ImageButton btn_play, btn_back, btn_next, btn_previous;
-    Button btn_check;
-    TextView tv_title, tv_cur, tv_num, tv_current_duration, tv_total_duration, tv_part2_description;
+    Button btn_check, btn_check_p5, btn_help_p5;
+    TextView tv_title, tv_cur, tv_num, tv_current_duration, tv_total_duration, tv_question_part2, tv_part5_description;
     int position_sentence_1, position_sentence_2, position_sentence_3, position_sentence_4, position_sentence_5, position_sentence_6, position_sentence_7, option_selected;
     RadioGroup ra_group;
     RadioButton ra_a, ra_b, ra_c, ra_d;
 
     MediaPlayer mediaPlayer;
     LayoutInflater inflater;
+    ProgressDialog ringProgressDialog;
     private static boolean mIsCheck = false;
 
     // object for part 3
@@ -82,6 +97,12 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     TimeUtils utils;
     int part_number;
 
+    //Internet status flag
+    Boolean isConnectionExist = false;
+
+    // Connection detector class
+    InternetConnectionDetector cd;
+
     private static final String PATH_FILE_MP3 = "mp3practice/";
     private static final String PATH_FILE_MP3_1 = "mp3practice1/";
     private static final String DUOI_FILE = ".mp3";
@@ -94,6 +115,9 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         setContentView(R.layout.activity_practice_toiec);
         mContext = this;
         option_selected = 0;
+
+        cd = new InternetConnectionDetector(getApplicationContext());
+        Mp3_Listening.putData_part2();
 
         sharedPreference = new SharedPreference();
 
@@ -181,6 +205,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
     private void initBelowLayout() {
         View includedLayout = findViewById(R.id.custom_layout_below);
+        if (part_number == 4)
+            includedLayout.setVisibility(View.GONE);
         btn_play = (ImageButton) includedLayout.findViewById(R.id.btn_play);
         btn_check = (Button) includedLayout.findViewById(R.id.btn_check);
         mProgressBar = (SeekBar) includedLayout.findViewById(R.id.progressBar);
@@ -247,8 +273,10 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         View content_practice_toeic_2 = inflater.inflate(R.layout.content_practice_toeic_part2, null);
         content_practice_toeic.addView(content_practice_toeic_2);
 
-        content_practice_toeic.setPadding(10, 10, 10, 10);
 
+        content_practice_toeic_2.setPadding(30, 0, 30, 410);
+
+        tv_question_part2 = (TextView) findViewById(R.id.tv_question_part2);
         ra_group = (RadioGroup) findViewById(R.id.grp_answer);
         ra_a = (RadioButton) findViewById(R.id.rad_a);
         ra_b = (RadioButton) findViewById(R.id.rad_b);
@@ -285,7 +313,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         initBelowLayout();
 
         try {
-            mListObj_part2 = JsonQuestionResponseUtils.readerOjectFromJson(this, "l1_question_response.json");
+            mListObj_part2 = JsonQuestionResponseUtils.readerOjectFromJson(this, "l1_question_response_1.json");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -443,8 +471,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         FrameLayout content_practice_toeic = (FrameLayout) findViewById(R.id.content_practice_toeic_part1);
         content_practice_toeic.removeAllViews();
 
-        View content_practice_toeic_4 = inflater.inflate(R.layout.content_practice_toeic_part4, null);
-        content_practice_toeic.addView(content_practice_toeic_4);
+        View content_practice_toeic_5 = inflater.inflate(R.layout.content_practice_toeic_part5, null);
+        content_practice_toeic.addView(content_practice_toeic_5);
 
         content_practice_toeic.setPadding(10, 10, 10, 10);
 
@@ -479,16 +507,18 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             }
         });
 
-        tv_part2_description = (TextView) findViewById(R.id.tv_description);
+        tv_part5_description = (TextView) findViewById(R.id.tv_description);
+        btn_check_p5 = (Button) findViewById(R.id.btn_check_p5);
+        btn_help_p5 = (Button) findViewById(R.id.btn_help);
 
         initBelowLayout();
 
-        if (part_number == 4) {
-            btn_play.setVisibility(View.GONE);
-            mProgressBar.setVisibility(View.GONE);
-            tv_current_duration.setVisibility(View.GONE);
-            tv_total_duration.setVisibility(View.GONE);
-        }
+//        if (part_number == 4) {
+//            btn_play.setVisibility(View.GONE);
+//            mProgressBar.setVisibility(View.GONE);
+//            tv_current_duration.setVisibility(View.GONE);
+//            tv_total_duration.setVisibility(View.GONE);
+//        }
 
         try {
             mListObj_part5 = JsonReadSentenceUtils.readerOjectFromJson(this, "l1_sentences.json");
@@ -521,17 +551,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 }else{
                     // Resume song
                     if(mediaPlayer!=null){
-//                        String SDCardRoot = Environment.getExternalStorageDirectory()
-//                                .toString();
-//                        String audioFilePath = SDCardRoot + "/MyAudioFolder/hosannatelugu.mp3";
-////                        MediaPlayer mPlayer = new MediaPlayer();
-//                        try {
-//                            mediaPlayer.setDataSource(audioFilePath);
-//                            mediaPlayer.prepare();
-//                            mediaPlayer.start();
-//                        } catch (IOException e) {
-//                            Log.e("AUDIO PLAYBACK", "prepare() failed");
-//                        }
+
                         playSong(position_sentence_1);
                         mediaPlayer.start();
 
@@ -630,11 +650,16 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 }else{
                     // Resume song
                     if(mediaPlayer!=null){
-                        playSong(position_sentence_2);
-                        mediaPlayer.start();
+                        String fileName = mListObj_part2.get(position_sentence_2).getUrl_audio();
+                        File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
-                        // Changing button image to pause button
-                        btn_play.setImageResource(R.drawable.action_pause);
+                        if (file.exists()) {
+                            playSong(position_sentence_2);
+                            mediaPlayer.start();
+
+                            // Changing button image to pause button
+                            btn_play.setImageResource(R.drawable.action_pause);
+                        }
                     }
                 }
             }
@@ -670,6 +695,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             public void onClick(View v) {
                 mIsCheck = false;
                 btn_check.setText("Kiem tra");
+
                 resetSentence_part12();
                 position_sentence_2--;
                 if (position_sentence_2 == -1) {
@@ -1020,13 +1046,13 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     }
 
     private void initControl_part5() {
-        btn_check.setOnClickListener(new View.OnClickListener() {
+        btn_check_p5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!mIsCheck) {
                     showResult_part4(position_sentence_5);
 
-                    btn_check.setText("Next");
+                    btn_check_p5.setText("Next");
                     mIsCheck = true;
                 } else {
                     position_sentence_5++;
@@ -1038,7 +1064,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     resetSentence_part5();
                     showSentence_part5(position_sentence_5);
 
-                    btn_check.setText("Kiem tra");
+                    btn_check_p5.setText("Kiem tra");
                     mIsCheck = false;
                 }
             }
@@ -1054,7 +1080,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         btn_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_check.setText("Kiem tra");
+                btn_check_p5.setText("Kiem tra");
                 mIsCheck = false;
 
                 resetSentence_part5();
@@ -1071,7 +1097,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_check.setText("Kiem tra");
+                btn_check_p5.setText("Kiem tra");
                 mIsCheck = false;
 
                 position_sentence_5++;
@@ -1082,6 +1108,15 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 sharedPreference.save(mContext, position_sentence_5);
                 resetSentence_part5();
                 showSentence_part5(position_sentence_5);
+            }
+        });
+
+        btn_help_p5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bitmap bitmap = getScreenShot(view);
+                String fileName = "screenShot_part5.jpg";
+                shareImage(store(bitmap, fileName));
             }
         });
     }
@@ -1112,7 +1147,9 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             return;
         }
         String[] s = mListObj_part2.get(position_sentence_2).getOptions();
+        String question = mListObj_part2.get(position_sentence_2).getQuestion();
         int answer = mListObj_part2.get(position_sentence_2).getAnswer();
+        tv_question_part2.setText("Question : " + question);
         ra_a.setText("A : " + s[0]);
         ra_b.setText("B : " + s[1]);
         ra_c.setText("C : " + s[2]);
@@ -1187,6 +1224,25 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         mProgressBar.setOnSeekBarChangeListener(this); // Important
         mediaPlayer.setOnCompletionListener(this);
         utils = new TimeUtils();
+
+        if (part_number == 1) {
+            String fileName = mListObj_part2.get(position_sentence_2).getUrl_audio();
+            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
+
+            if (!file.exists()) {
+                // get Internet status
+                isConnectionExist = cd.checkMobileInternetConn();
+                if (isConnectionExist) {
+                    mProgressBar.setSecondaryProgress(0);
+                    launchRingDialog(fileName);
+                } else {
+                    mProgressBar.setSecondaryProgress(0);
+                    showDisConnectPopup();
+                }
+            } else {
+                mProgressBar.setSecondaryProgress(100);
+            }
+        }
 
         tv_current_duration.setText("0:00");
         if (part_number == 0)
@@ -1301,83 +1357,6 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         }
     }
 
-    private void downloadFile(String d0wnload_file_path, String fileName, String pathToSave) {
-        int downloadedSize = 0;
-        int totalSize = 0;
-
-        try {
-            URL url = new URL(d0wnload_file_path);
-            HttpURLConnection urlConnection = (HttpURLConnection) url
-                    .openConnection();
-
-            urlConnection.setRequestMethod("POST");
-            urlConnection.setDoOutput(true);
-
-            // connect
-            urlConnection.connect();
-
-//            File myDir;
-//            myDir = new File(pathToSave);
-//            myDir.mkdirs();
-//
-//            // create a new file, to save the downloaded file
-//
-//            String mFileName = fileName;
-//            File file = new File(myDir, mFileName);
-
-            String mFileName = fileName;
-            FileOutputStream fileOutput = openFileOutput(mFileName, Context.MODE_PRIVATE);
-
-            // Stream used for reading the data from the internet
-            InputStream inputStream = urlConnection.getInputStream();
-
-            // this is the total size of the file which we are downloading
-            totalSize = urlConnection.getContentLength();
-
-            // runOnUiThread(new Runnable() {
-            // public void run() {
-            // pb.setMax(totalSize);
-            // }
-            // });
-
-            // create a buffer...
-            byte[] buffer = new byte[1024];
-            int bufferLength = 0;
-
-            while ((bufferLength = inputStream.read(buffer)) > 0) {
-                fileOutput.write(buffer, 0, bufferLength);
-                downloadedSize += bufferLength;
-                // update the progressbar //
-                // runOnUiThread(new Runnable() {
-                // public void run() {
-                // pb.setProgress(downloadedSize);
-                // float per = ((float)downloadedSize/totalSize) * 100;
-                // cur_val.setText("Downloaded " + downloadedSize + "KB / " +
-                // totalSize + "KB (" + (int)per + "%)" );
-                // }
-                // });
-            }
-            // close the output stream when complete //
-            fileOutput.close();
-
-            Toast.makeText(mContext, "Downloaded", Toast.LENGTH_LONG).show();
-            // runOnUiThread(new Runnable() {
-            // public void run() {
-            // // pb.dismiss(); // if you want close it..
-            // }
-            // });
-
-        } catch (final MalformedURLException e) {
-            // showError("Error : MalformedURLException " + e);
-            e.printStackTrace();
-        } catch (final IOException e) {
-            // showError("Error : IOException " + e);
-            e.printStackTrace();
-        } catch (final Exception e) {
-            // showError("Error : Please check your internet connection " + e);
-        }
-    }
-
     private void showSentence_part5(int position) {
         if (position < 0 || position >= mListObj_part5.size()) {
             return;
@@ -1389,7 +1368,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         String sentence = mListObj_part5.get(position).getQuestion();
         String[] options = mListObj_part5.get(position).getOptions();
 
-        tv_part2_description.setText(sentence);
+        tv_part5_description.setText(sentence);
         ra_a.setText("A : " + options[0]);
         ra_b.setText("B : " + options[1]);
         ra_c.setText("C : " + options[2]);
@@ -1397,6 +1376,9 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     }
 
     private void resetSentence_part12() {
+
+        if (part_number == 1)
+            tv_question_part2.setText(" ");
 
         ra_a.setText("A");
         ra_b.setText("B");
@@ -1448,18 +1430,37 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     private void playSong(int position) {
         // Play song
         try {
-            AssetFileDescriptor afd;
-            if (part_number == 0 || part_number == 1)
-                afd = this.getAssets().openFd(PATH_FILE_MP3 + mListObj_part1.get(position).getUrl_audio() + DUOI_FILE);
-            else
-                afd = this.getAssets().openFd(PATH_FILE_MP3_1 + mListObj_part3.get(position).getUrl_audio() + DUOI_FILE);
+            if (part_number != 1) {
+                AssetFileDescriptor afd;
+                if (part_number == 0 || part_number == 1)
+                    afd = this.getAssets().openFd(PATH_FILE_MP3 + mListObj_part1.get(position).getUrl_audio() + DUOI_FILE);
+                else
+                    afd = this.getAssets().openFd(PATH_FILE_MP3_1 + mListObj_part3.get(position).getUrl_audio() + DUOI_FILE);
 
-            mediaPlayer.setDataSource(
-                    afd.getFileDescriptor(),
-                    afd.getStartOffset(),
-                    afd.getLength()
-            );
-            afd.close();
+                mediaPlayer.setDataSource(
+                        afd.getFileDescriptor(),
+                        afd.getStartOffset(),
+                        afd.getLength()
+                );
+                afd.close();
+            } else {
+                String fileName = mListObj_part2.get(position).getUrl_audio();
+
+                File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
+                Uri myUri1 = Uri.fromFile(file);
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                try {
+                    mediaPlayer.setDataSource(getApplicationContext(), myUri1);
+                } catch (IllegalArgumentException e) {
+                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalArgumentException!", Toast.LENGTH_LONG).show();
+                } catch (SecurityException e) {
+                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_SecurityException!", Toast.LENGTH_LONG).show();
+                } catch (IllegalStateException e) {
+                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalStateException!", Toast.LENGTH_LONG).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
             mediaPlayer.prepare();
 //            mediaPlayer.start();
@@ -1532,6 +1533,142 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
         // update timer progress again
         updateProgressBar();
+    }
+
+    class DownloadFileAsync extends AsyncTask<Object, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Object... aurl) {
+            int count;
+            try {
+                URL url = new URL((String)aurl[0]);
+                String fileName = (String)aurl[1];
+
+                URLConnection connection = url.openConnection();
+                connection.connect();
+
+                int lenghtOfFile = connection.getContentLength();
+
+//                File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "MyDownloadEx");
+//                if (!folder.exists()) {
+//                    folder.mkdir();
+//                }
+//                File file =new File(folder,"listening_part1_audio_no_2"+".mp3");
+
+                InputStream input = new BufferedInputStream(url.openStream());
+//                OutputStream output = new FileOutputStream(file);
+                OutputStream output = openFileOutput(fileName + DUOI_FILE, MODE_PRIVATE);
+                byte data[] = new byte[1024];
+                long total = 0;
+                while ((count = input.read(data)) != -1) {
+                    total += count;
+                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+                    output.write(data, 0, count);
+                }
+
+                output.flush();
+                output.close();
+                input.close();
+                Toast.makeText(mContext, "Downloaded", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {}
+            return null;
+        }
+
+        protected void onProgressUpdate(String... progress) {
+            mProgressBar.setSecondaryProgress(Integer.parseInt(progress[0]));
+        }
+
+        @Override
+        protected void onPostExecute(String unused) {
+            ringProgressDialog.dismiss();
+        }
+    }
+
+    public void launchRingDialog(String fileName) {
+
+        ringProgressDialog = new ProgressDialog(PracticeToiecActivity.this);
+        ringProgressDialog.setMessage("Downloading data ...");
+        ringProgressDialog.setProgressStyle(ringProgressDialog.STYLE_SPINNER);
+        ringProgressDialog.setIndeterminate(true);
+        ringProgressDialog.setCancelable(true);
+        ringProgressDialog.show();
+
+        startDownload(fileName);
+    }
+
+    public void showDisConnectPopup() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Không có kết nối Internet!");
+        alertDialogBuilder.setPositiveButton("Đóng",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        arg0.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void startDownload(String fileName) {
+
+        String url_audio = (String) Mp3_Listening.hashMap.get(fileName);
+
+        new DownloadFileAsync().execute(url_audio, fileName);
+    }
+
+    private Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    private File store(Bitmap bm, String fileName){
+        String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+        File dir = new File(dirPath);
+        if(!dir.exists())
+            dir.mkdirs();
+        File file = new File(dir, fileName);
+
+        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
+
+        try {
+            file.createNewFile();
+            FileOutputStream fileoutputstream = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.PNG, 85, bytearrayoutputstream);
+
+            fileoutputstream.write(bytearrayoutputstream.toByteArray());
+            fileoutputstream.flush();
+            fileoutputstream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return file;
+    }
+
+    private void shareImage(File file){
+        Uri uri = Uri.fromFile(file);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/*");
+
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        try {
+            startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(mContext, "No App Available", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
