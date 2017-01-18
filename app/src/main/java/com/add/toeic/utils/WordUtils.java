@@ -2,7 +2,6 @@ package com.add.toeic.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -168,7 +167,7 @@ public class WordUtils {
 
                     new_word.setExpand(readExpand(l2));
 
-                    new_word.setKind_word(readkind(l3));
+                    new_word.setKind(readkind(l3));
                     new_word.setName_key(readNameKey(l3));
 
                     new_word.setExample(readExample(l4));

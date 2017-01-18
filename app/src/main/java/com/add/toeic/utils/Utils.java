@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -86,9 +87,9 @@ public class Utils {
 //    To request for it you don't use a standard way (int checkSelfPermission (String permission))
 //    but you have to check Settings.canDrawOverlays() or Settings.System.canWrite() appropriately
 
-    public static void animSlideDown(final View view) {
+    public static void animSlideDown(final View view, long dur) {
         ObjectAnimator anim = ObjectAnimator.ofFloat(view, "translationY", view.getHeight());
-        anim.setDuration(1000);
+        anim.setDuration(dur);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -96,10 +97,9 @@ public class Utils {
             }
         });
         anim.start();
-//        ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).removeView(view);
     }
 
-    public static void animShaking(Context context, View view){
+    public static void animShaking(Context context, View view) {
         Animation shake = AnimationUtils.loadAnimation(context, R.anim.shaking);
         view.startAnimation(shake);
     }

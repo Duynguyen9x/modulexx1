@@ -1,20 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/layout1"
+    <LinearLayout
+        android:id="@+id/delete_run_button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/delete_run_button_layout"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_btn_delete_remind"
+            android:drawableLeft="@drawable/trash241"
+            android:text="@string/delete_button" />
+
+        <Button
+            android:id="@+id/run_auto_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_btn_delete_remind"
+            android:drawableLeft="@drawable/film241"
+            android:text="@string/auto_run" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deleteall_done_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/list_remind"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/delete_all_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_btn_delete_remind"
+            android:drawableLeft="@drawable/trash241"
+            android:text="Delete All" />
+
+        <Button
+            android:id="@+id/done_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_btn_delete_remind"
+            android:drawableLeft="@drawable/done1"
+            android:text="Done" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list_remind"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delete_run_button_layout"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:descendantFocusability="blocksDescendants"></ListView>
 
-    </ListView>
-
-</LinearLayout>
+</RelativeLayout>

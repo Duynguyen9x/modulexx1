@@ -90,7 +90,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             w1.setSound("gâu");
             w1.setExample("I go to school");
             w1.setExample_key("Toi di hoc");
-            w1.setKind_word(1);
+            w1.setKind(1);
 
             this.addWord(w1);
 
@@ -100,7 +100,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             w2.setSound("gâu");
             w2.setExample("I go to school");
             w2.setExample_key("Toi di hoc");
-            w2.setKind_word(2);
+            w2.setKind(2);
             this.addWord(w2);
 
 
@@ -110,7 +110,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             w3.setSound("gâu");
             w3.setExample("I go to school");
             w3.setExample_key("Toi di hoc");
-            w3.setKind_word(4);
+            w3.setKind(4);
             this.addWord(w3);
 
 
@@ -120,7 +120,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             w4.setSound("gâu");
             w4.setExample("I go to school");
             w4.setExample_key("Toi di hoc");
-            w4.setKind_word(0);
+            w4.setKind(0);
             this.addWord(w4);
         }
     }
@@ -142,7 +142,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_WORD_NAME_KEY, word.getName_key());
         values.put(COLUMN_WORD_EXAMPLE, word.getExample());
         values.put(COLUMN_WORD_EXAMPLE_KEY, word.getExample_key());
-        values.put(COLUMN_WORD_KIND, word.getKind_word());
+        values.put(COLUMN_WORD_KIND, word.getKind());
 
         // Trèn một dòng dữ liệu vào bảng.
         db.insert(TABLE_WORD, null, values);
@@ -178,7 +178,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 //        word.setName_key(cursor.getString(3));
 //        word.setExample(cursor.getString(4));
 //        word.setExample_key(cursor.getString(5));
-//        word.setKind_word(Integer.parseInt(cursor.getString(6)));
+//        word.setKind(Integer.parseInt(cursor.getString(6)));
 //
 //        return word;
 //    }
@@ -224,7 +224,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 word.setName_key(cursor.getString(3));
                 word.setExample(cursor.getString(4));
                 word.setExample_key(cursor.getString(5));
-                word.setKind_word(Integer.parseInt(cursor.getString(6)));
+                word.setKind(Integer.parseInt(cursor.getString(6)));
                 // Thêm vào danh sách.
                 wordList.add(word);
             } while (cursor.moveToNext());

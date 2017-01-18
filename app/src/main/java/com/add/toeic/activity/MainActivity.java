@@ -14,9 +14,6 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,12 +25,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.add.toeic.Constants.DBInfo;
 import com.add.toeic.R;
 import com.add.toeic.fragment.BookFragment;
 import com.add.toeic.fragment.NotificationsFragment;
@@ -42,8 +41,8 @@ import com.add.toeic.fragment.SettingsFragment;
 import com.add.toeic.fragment.WordFragment;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.Word;
-import com.add.toeic.model.WordInfo;
 import com.add.toeic.other.CircleTransform;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.services.FloatingViewService;
 import com.add.toeic.services.UnlockedScreenService;
 import com.add.toeic.utils.Utils;
@@ -52,7 +51,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener, LoaderManager.LoaderCallbacks<Cursor> {
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -61,9 +60,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
-    private ToggleButton tgBtnLockScreen;
-    private ToggleButton remindWordBtn;
+    private Switch tgBtnLockScreen;
+    private Switch remindWordBtn;
     private Context mContext;
+    private LinearLayout ln_navi_lockscreen;
 
     // urls to load navigation header background image
     // and profile image
@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("anhdt", "MainActivity onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
@@ -132,8 +133,40 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         preLockScreenProcess();
 
-        getSupportLoaderManager().initLoader(LOADER_CALLBACK_ID, null, this);
+        if (AppProvider.tb_All_is_Empty()) {
+            AsyncTask<Void, Void, Void> generateData = new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    Log.d("anhdt", "populateTB_ALL");
+                    AppProvider.populateTB_ALL(mContext);
+                    return null;
+                }
+            };
+            generateData.execute();
+        }
+        if (getIntent().getBooleanExtra("open_drawer", false)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    drawer.openDrawer(GravityCompat.START);
+                }
+            }, 1000);
 
+            // trigger ripple effect
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ln_navi_lockscreen.setPressed(true);
+                }
+            }, 2000);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ln_navi_lockscreen.setPressed(false);
+                }
+            }, 2100);
+        }
     }
 
     private void preLockScreenProcess() {
@@ -166,6 +199,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         editor2.apply();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("anhdt", "MainActivity resume");
+    }
+
     public void initView() {
 
         Window window = this.getWindow();
@@ -183,8 +222,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        tgBtnLockScreen = (ToggleButton) navHeader.findViewById(R.id.lock_screen);
-        remindWordBtn = (ToggleButton) navHeader.findViewById(R.id.remind_word);
+        tgBtnLockScreen = (Switch) navHeader.findViewById(R.id.lock_screen);
+        remindWordBtn = (Switch) navHeader.findViewById(R.id.remind_word);
+        ln_navi_lockscreen = (LinearLayout) navHeader.findViewById(R.id.ln_navi_lockscreen);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -206,6 +246,16 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                 boolean state1 = tgBtnLockScreen.isChecked();
                 SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
                 editor.putBoolean(quickAnswerState, state1); // value to store
+                editor.apply();
+            }
+        });
+        ln_navi_lockscreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state1 = tgBtnLockScreen.isChecked();
+                tgBtnLockScreen.setChecked(!state1);
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
+                editor.putBoolean(quickAnswerState, !state1); // value to store
                 editor.apply();
             }
         });
@@ -495,32 +545,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     }
 
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Uri uri = null;
-        String[] projections = null;
-
-        // muon lay full word thi de null, muon lay reminder thi de nhu duoi
-        String selection = null;
-        // String selection = WordContract.Word.WORD_STATUS + " = " + 0;
-
-        String[] argu = null;
-        String orderBy = null;
-        uri = DBInfo.CONTENT_URI;
-        Log.d("anhdt", " load cursor loader with id " + id);
-        CursorLoader cursorLoader = new CursorLoader(mContext, uri, projections, selection, argu, orderBy);
-        return cursorLoader;
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        initLoadData(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-
-    }
     private void initLoadData(Cursor cursor) {
         AsyncTask<Cursor, Void, ArrayList<Word>> loadBitmapTask = new AsyncTask<Cursor, Void, ArrayList<Word>>() {
             @Override
@@ -531,7 +555,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
             @Override
             protected ArrayList<Word> doInBackground(Cursor... params) {
-                return getListWord(params[0]);
+                return AppProvider.getAllWords(false);
             }
 
             @Override
@@ -545,40 +569,5 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         };
 
         loadBitmapTask.execute(cursor);
-    }
-
-    private ArrayList<Word> getListWord(Cursor cursor) {
-        ArrayList<Word> arr = new ArrayList<>();
-
-        if (cursor != null) {
-            Log.d("anhdt", " cursor " + cursor.getCount());
-            while (cursor.moveToNext()) {
-                Word app = new Word();
-                String id = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_ID));
-                app.setName(id);
-
-                String name = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_NAME));
-                app.setName(name);
-
-                String name_key = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_NAME_KEY));
-                app.setName_key(name_key);
-
-                String sound = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_SOUND));
-                app.setSound(sound);
-
-                String examlpe = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_EXAMPLE));
-                app.setExample(examlpe);
-
-                String examlpe_key = cursor.getString(cursor.getColumnIndex(DBInfo.COLUMN_WORD_EXAMPLE_KEY));
-                app.setExample(examlpe_key);
-
-                int kind = cursor.getInt(cursor.getColumnIndex(DBInfo.COLUMN_WORD_KIND));
-                app.setKind_word(kind);
-                // viet full get doi tuong o day
-                arr.add(app);
-            }
-            cursor.close();
-        }
-        return arr;
     }
 }

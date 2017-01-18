@@ -2,39 +2,40 @@ package com.add.toeic.model;
 
 public class Word {
 
-	public int id;
-	public String name;
-	public String sound;
-	public String name_key;
-	public String examle;
-	public String example_key;
-	public String expand;
-	public int kind_word;
+	private int id;
+	private String name;
+	private String name_key;
+	private String sound;
+	private String example;
+	private String example_key;
+	private String expand;
+	private int kind;
+	private int remember;
 
-	// kind_word==1 ==> Nound
-	// kind_word==2 ==> V
-	// kind_word==3 ==> adj
-	// kind_word==4 ==> adv
-	// kind_word==0 ==> (n, adv)... lan lon
+    // kind==1 ==> Nound
+	// kind==2 ==> V
+	// kind==3 ==> adj
+	// kind==4 ==> adv
+	// kind==0 ==> (n, adv)... lan lon
+
+	public String getExample() {
+		return example;
+	}
+
+	public void setExample(String example) {
+		this.example = example;
+	}
+
+	public String getExample_key() {
+		return example_key;
+	}
+
+	public void setExample_key(String example_key) {
+		this.example_key = example_key;
+	}
 
 	public String getExpand() {
 		return expand;
-	}
-
-	public String getSound() {
-		return sound;
-	}
-
-	public void setSound(String sound) {
-		this.sound = sound;
-	}
-
-	public int getKind_word() {
-		return kind_word;
-	}
-
-	public void setKind_word(int kind_word) {
-		this.kind_word = kind_word;
 	}
 
 	public void setExpand(String expand) {
@@ -47,6 +48,14 @@ public class Word {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getKind() {
+		return kind;
+	}
+
+	public void setKind(int kind) {
+		this.kind = kind;
 	}
 
 	public String getName() {
@@ -65,28 +74,20 @@ public class Word {
 		this.name_key = name_key;
 	}
 
-	public String getExample() {
-		return examle;
+	public String getSound() {
+		return sound;
 	}
 
-	public void setExample(String examle) {
-		this.examle = examle;
+	public void setSound(String sound) {
+		this.sound = sound;
 	}
 
-	public String getExample_key() {
-		return example_key;
+	public int getRemember() {
+		return remember;
 	}
 
-	public void setExample_key(String example_key) {
-		this.example_key = example_key;
-	}
-
-	@Override
-	public String toString() {
-		return "Word [id=" + id + ", name=" + name + ", sound=" + sound
-				+ ", name_key=" + name_key + ", examle=" + examle
-				+ ", example_key=" + example_key + ", expand=" + expand
-				+ ", kind_word=" + kind_word + "]";
+	public void setRemember(int remember) {
+		this.remember = remember;
 	}
 
 }

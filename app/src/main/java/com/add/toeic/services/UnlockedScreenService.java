@@ -51,6 +51,7 @@ public class UnlockedScreenService extends Service {
             boolean isEnabled = sharedPrefs.getBoolean(quickAnswerState, false);
             if (isEnabled) {
                 registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
+                Log.d("anhdt", "registerReceiver - 0 -");
             }
         }
     }
@@ -82,11 +83,13 @@ public class UnlockedScreenService extends Service {
         if (isEnabled) {
             if (mUnlockedScreenReceiver == null) {
                 mUnlockedScreenReceiver = new UnlockedScreenReceiver();
-                registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
             }
+            registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
+            Log.d("anhdt", "registerReceiver - 1 -");
         } else {
             unregisterReceiver(mUnlockedScreenReceiver);
             mUnlockedScreenReceiver = null;
+            Log.d("anhdt", "unRegisterReceiver - 1 -");
         }
     }
 }

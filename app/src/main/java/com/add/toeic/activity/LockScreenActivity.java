@@ -1,20 +1,22 @@
 package com.add.toeic.activity;
 
+import android.annotation.TargetApi;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -22,12 +24,10 @@ import android.widget.Toast;
 
 import com.add.toeic.R;
 import com.add.toeic.model.Word;
+import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.Utils;
-import com.add.toeic.utils.WordUtils;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -36,7 +36,7 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
 
     private WindowManager mWindowManager;
     private ScrollView mRelativeLayoutUnlocked;
-    private LinearLayout ln0_unlocked_choice_remember_word, ln1_unlocked_answer1,
+    private LinearLayout ln_word, ln0_unlocked_choice_remember_word, ln1_unlocked_answer1,
             ln2_unlocked_answer2, ln3_unlocked_answer3, ln4_unlocked_answer4;
     private TextView tv_unlocked_word, tv_unlocked_word_type,
             tv_unlocked_answer_1,
@@ -45,28 +45,30 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
             tv_unlocked_answer_4;
     private CheckBox cb_unlocked_remember_word;
     private ImageButton img_btn_lock_speaker;
+    private Button btn_turn_off_lockscreen;
 
-    private ArrayList<Word> arrWord;
-    private int numAns = 4;
-    private int posCorrectWordAns;
     private int correctWordId, inCorrectWordId1, inCorrectWordId2, inCorrectWordId3;
     private Context mContext;
+    private Word correct, incorrect1, incorrect2, incorrect3;
 
-    int randomWordIdAns[];
-    TextView textViewAns[];
+    private int randomWordIdAns[];
+    private TextView textViewAns[];
+
+    private static final int SIZE_ALL_WORDS = 600;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         Log.d("anhdt", "LockScreenActivity onCreate");
-        try {
-            arrWord = WordUtils.readAllData(mContext);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         initLayout();
         itemClicked();
+    }
+
+    @TargetApi(21)
+    @Override
+    public void onBackPressed() {
+        Log.d("anhdt", "@TargetApi(21) :onBackPressed");
     }
 
     @Override
@@ -90,11 +92,25 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
                 processAnswer(isCorrected, R.id.ln4_unlocked_answer4);
                 break;
             case R.id.img_btn_lock_speaker:
-                SoundUtis.play(mContext, arrWord.get(correctWordId).getName());
+                SoundUtis.play(mContext, correct.getName());
                 break;
             case R.id.cb_unlocked_remember_word:
-                if (cb_unlocked_remember_word.isChecked())
+                if (cb_unlocked_remember_word.isChecked()) {
                     Toast.makeText(mContext, "Good", Toast.LENGTH_SHORT).show();
+                }
+                AppProvider.toggleRemember(correct, mContext, false);
+                break;
+            case R.id.btn_turn_off_lockscreen:
+                removeLayout();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent close = new Intent(LockScreenActivity.this, MainActivity.class);
+                        close.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        close.putExtra("open_drawer", true);
+                        startActivity(close);
+                    }
+                }, 1000);
                 break;
 
             default:
@@ -138,6 +154,8 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
         ln3_unlocked_answer3 = (LinearLayout) mRelativeLayoutUnlocked.findViewById(R.id.ln3_unlocked_answer3);
         ln4_unlocked_answer4 = (LinearLayout) mRelativeLayoutUnlocked.findViewById(R.id.ln4_unlocked_answer4);
 
+        ln_word = (LinearLayout) mRelativeLayoutUnlocked.findViewById(R.id.ln_word);
+        ln0_unlocked_choice_remember_word = (LinearLayout) mRelativeLayoutUnlocked.findViewById(R.id.ln0_unlocked_choice_remember_word);
         tv_unlocked_word = (TextView) mRelativeLayoutUnlocked.findViewById(R.id.tv_unlocked_word);
         tv_unlocked_word_type = (TextView) mRelativeLayoutUnlocked.findViewById(R.id.tv_unlocked_word_type);
         tv_unlocked_answer_1 = (TextView) mRelativeLayoutUnlocked.findViewById(R.id.tv_unlocked_answer_1);
@@ -147,6 +165,7 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
 
         cb_unlocked_remember_word = (CheckBox) mRelativeLayoutUnlocked.findViewById(R.id.cb_unlocked_remember_word);
         img_btn_lock_speaker = (ImageButton) mRelativeLayoutUnlocked.findViewById(R.id.img_btn_lock_speaker);
+        btn_turn_off_lockscreen = (Button) mRelativeLayoutUnlocked.findViewById(R.id.btn_turn_off_lockscreen);
 
         mWindowManager.addView(mRelativeLayoutUnlocked, params);
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
@@ -154,11 +173,17 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
         mRelativeLayoutUnlocked.setBackground(wallpaperDrawable);
 
         randomWord();
-
+        ln_word.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        ln0_unlocked_choice_remember_word.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.zoom_in_22));
+        ln1_unlocked_answer1.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_10));
+        ln2_unlocked_answer2.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_12));
+        ln3_unlocked_answer3.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_14));
+        ln4_unlocked_answer4.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_16));
+        btn_turn_off_lockscreen.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_right_22));
     }
 
     private void removeLayout() {
-        Utils.animSlideDown(mRelativeLayoutUnlocked);
+        Utils.animSlideDown(mRelativeLayoutUnlocked, 1000);
         finish();
     }
 
@@ -169,24 +194,33 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
         ln4_unlocked_answer4.setOnClickListener(this);
         cb_unlocked_remember_word.setOnClickListener(this);
         img_btn_lock_speaker.setOnClickListener(this);
+        btn_turn_off_lockscreen.setOnClickListener(this);
     }
 
     private void randomWord() {
+        Log.d("anhdt", "random start = " + System.currentTimeMillis());
         Random r = new Random();
-        posCorrectWordAns = r.nextInt(numAns - 1);
-        correctWordId = r.nextInt(arrWord.size());
         do {
-            inCorrectWordId1 = r.nextInt(arrWord.size());
-        } while (inCorrectWordId1 == correctWordId);
+            correctWordId = r.nextInt(SIZE_ALL_WORDS);
+        } while (isRemembered(correctWordId));
+        correct = AppProvider.getWordById_tb_All(correctWordId);
 
         do {
-            inCorrectWordId2 = r.nextInt(arrWord.size());
-        } while (inCorrectWordId2 == inCorrectWordId1 || inCorrectWordId2 == correctWordId);
+            inCorrectWordId1 = r.nextInt(SIZE_ALL_WORDS);
+        } while (inCorrectWordId1 == correctWordId || isRemembered(inCorrectWordId1));
+        incorrect1 = AppProvider.getWordById_tb_All(inCorrectWordId1);
 
         do {
-            inCorrectWordId3 = r.nextInt(arrWord.size());
+            inCorrectWordId2 = r.nextInt(SIZE_ALL_WORDS);
         }
-        while (inCorrectWordId3 == inCorrectWordId2 || inCorrectWordId3 == inCorrectWordId1 || inCorrectWordId3 == correctWordId);
+        while (inCorrectWordId2 == inCorrectWordId1 || inCorrectWordId2 == correctWordId || isRemembered(inCorrectWordId2));
+        incorrect2 = AppProvider.getWordById_tb_All(inCorrectWordId2);
+
+        do {
+            inCorrectWordId3 = r.nextInt(SIZE_ALL_WORDS);
+        }
+        while (inCorrectWordId3 == inCorrectWordId2 || inCorrectWordId3 == inCorrectWordId1 || inCorrectWordId3 == correctWordId || isRemembered(inCorrectWordId3));
+        incorrect3 = AppProvider.getWordById_tb_All(inCorrectWordId3);
 
         randomWordIdAns = new int[]{correctWordId, inCorrectWordId1, inCorrectWordId2, inCorrectWordId3};
         textViewAns = new TextView[]{tv_unlocked_answer_1, tv_unlocked_answer_2, tv_unlocked_answer_3, tv_unlocked_answer_4};
@@ -195,11 +229,27 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
         Collections.shuffle(Arrays.asList(randomWordIdAns));
         Collections.shuffle(Arrays.asList(textViewAns));
 
-        tv_unlocked_word.setText(arrWord.get(correctWordId).getName());
-        tv_unlocked_word_type.setText(arrWord.get(correctWordId).getSound());
-        textViewAns[0].setText(arrWord.get(randomWordIdAns[0]).getName_key());
-        textViewAns[1].setText(arrWord.get(randomWordIdAns[1]).getName_key());
-        textViewAns[2].setText(arrWord.get(randomWordIdAns[2]).getName_key());
-        textViewAns[3].setText(arrWord.get(randomWordIdAns[3]).getName_key());
+        tv_unlocked_word.setText(correct.getName());
+        tv_unlocked_word_type.setText(correct.getSound());
+        textViewAns[0].setText(AppProvider.getWordById_tb_All(randomWordIdAns[0]).getName_key());
+        textViewAns[1].setText(AppProvider.getWordById_tb_All(randomWordIdAns[1]).getName_key());
+        textViewAns[2].setText(AppProvider.getWordById_tb_All(randomWordIdAns[2]).getName_key());
+        textViewAns[3].setText(AppProvider.getWordById_tb_All(randomWordIdAns[3]).getName_key());
+        Log.d("anhdt", "random end = " + System.currentTimeMillis());
+    }
+
+    private boolean isRemembered(int idWord) {
+        return AppProvider.getWordById_tb_All(idWord).getRemember() != 0;
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("anhdt", "LockScreenAc destroy");
+        super.onDestroy();
+        if (mRelativeLayoutUnlocked.getWindowToken() != null) {
+            Log.d("anhdt", "LockScreenAc destroy  mWindowManager.removeViewImmediate(mRelativeLayoutUnlocked)");
+            // avoid -> has leaked window android.widget.ScrollView ... that was originally added here
+            mWindowManager.removeViewImmediate(mRelativeLayoutUnlocked);
+        }
     }
 }

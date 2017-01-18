@@ -72,6 +72,7 @@ public class DetailWordActivity extends AppCompatActivity {
     }
 
     private void getArrWord(int isfromRemind) {
+        // 1 : get 12 word, 2 : get all remind words
         if (isfromRemind != 2) {
             num_group = getIntent().getExtras().getInt("num_group");
             s_num_word = getIntent().getExtras().getInt("num_word");
@@ -79,7 +80,7 @@ public class DetailWordActivity extends AppCompatActivity {
             Log.i("duy.pq", "DetailWordActivity=" + num_group + "=" + s_num_word);
             arrWordFinal = getListData(num_group);
         } else {
-            arrWordFinal = AppProvider.getAllWords(mContext);
+            arrWordFinal = AppProvider.getAllWords(true);
         }
     }
 
@@ -149,11 +150,7 @@ public class DetailWordActivity extends AppCompatActivity {
         ArrayList<Word> arrAll = null;
         ArrayList<Word> arr = new ArrayList<Word>();
 
-        try {
-            arrAll = WordUtils.readAllData(mContext);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        arrAll = AppProvider.getAllWords(false);
         if (arrAll == null)
             return null;
         for (int i = grorp * 12; i < (grorp * 12 + 12); i++) {
