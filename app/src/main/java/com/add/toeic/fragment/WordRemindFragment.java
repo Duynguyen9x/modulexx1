@@ -173,8 +173,10 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
             @Override
             public void onClick(View v) {
                 mWordRemindAdapter.setDelete(true);
-                mLn_DeleteAll_Done.setVisibility(View.VISIBLE);
                 mLn_delete_runAuto.setVisibility(View.INVISIBLE);
+                mLn_delete_runAuto.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slide_out_left));
+                mLn_DeleteAll_Done.setVisibility(View.VISIBLE);
+                mLn_DeleteAll_Done.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slide_in_right));
             }
         });
         mBtnRunAuto.setOnClickListener(new View.OnClickListener() {
@@ -196,8 +198,10 @@ public class WordRemindFragment extends Fragment implements OnRemindClickListene
             @Override
             public void onClick(View v) {
                 mWordRemindAdapter.setDelete(false);
-                mLn_delete_runAuto.setVisibility(View.VISIBLE);
                 mLn_DeleteAll_Done.setVisibility(View.INVISIBLE);
+                mLn_DeleteAll_Done.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slide_out_right));
+                mLn_delete_runAuto.setVisibility(View.VISIBLE);
+                mLn_delete_runAuto.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slide_in_left));
             }
         });
         mListView.invalidate();

@@ -84,13 +84,12 @@ public class WordRemindAdapter extends ArrayAdapter<Word> {
         if (null != word) {
             holder.eng_word.setText(word.getName());
             holder.viet_word.setText(word.getName_key());
-
+            holder.iconView.setClipToOutline(true);
             Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableWord(word.getName())))
                     .centerCrop().into(holder.iconView);
 
             if (mIsDelete) {
                 holder.remindView.setVisibility(View.VISIBLE);
-
                 holder.remindView.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         if (AppProvider.checkHasWord(mWordList.get(position), true)) {

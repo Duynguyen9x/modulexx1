@@ -28,7 +28,6 @@ import com.add.toeic.provider.AppProvider;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -175,12 +174,12 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
 
         randomWord();
         ln_word.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
-        ln0_unlocked_choice_remember_word.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.zoom_in));
-        ln1_unlocked_answer1.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.scale_full_width10));
-        ln2_unlocked_answer2.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.scale_full_width12));
-        ln3_unlocked_answer3.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.scale_full_width14));
-        ln4_unlocked_answer4.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.scale_full_width16));
-        btn_turn_off_lockscreen.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.scale_expand_from_left));
+        ln0_unlocked_choice_remember_word.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.zoom_in_22));
+        ln1_unlocked_answer1.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_10));
+        ln2_unlocked_answer2.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_12));
+        ln3_unlocked_answer3.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_14));
+        ln4_unlocked_answer4.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_16));
+        btn_turn_off_lockscreen.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_right_22));
     }
 
     private void removeLayout() {
