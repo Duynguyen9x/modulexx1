@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         preLockScreenProcess();
 
-        if (AppProvider.tb_All_is_Empty()) {
+        if (AppProvider.tb_All_is_Empty(mContext)) {
             AsyncTask<Void, Void, Void> generateData = new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... params) {

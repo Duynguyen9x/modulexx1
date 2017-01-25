@@ -25,6 +25,7 @@ import java.util.HashMap;
 
 public class AppProvider extends ContentProvider {
 
+    private static final String TAG = "AppProvider";
     private static final String DATABASE_NAME = "addtoeic.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -47,6 +48,7 @@ public class AppProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        Log.d("anhdt", TAG + "onCreate");
         dbHelper = new DBHelper(getContext());
         sqlDB = dbHelper.getWritableDatabase();
         return (sqlDB != null);
@@ -237,8 +239,14 @@ public class AppProvider extends ContentProvider {
         return false;
     }
 
-    public static boolean tb_All_is_Empty() {
+    public static boolean tb_All_is_Empty(Context context) {
         String count = "SELECT count(*) FROM " + WordContract.Word.TB_WORD_ALL;
+        if (dbHelper == null) {
+            dbHelper = new DBHelper(context);
+        }
+        if (sqlDB == null) {
+            sqlDB = dbHelper.getWritableDatabase();
+        }
         Cursor c = sqlDB.rawQuery(count, null);
         c.moveToFirst();
         return (c.getInt(0) <= 0);
@@ -336,13 +344,13 @@ public class AppProvider extends ContentProvider {
         Log.i("anhdt", "toggleRemember ... ");
         ContentValues values = new ContentValues();
         int isRemember = word.getRemember();
-        if(isRemember == 0){
+        if (isRemember == 0) {
             isRemember = 1;
-        } else if(isRemember == 1){
+        } else if (isRemember == 1) {
             isRemember = 0;
         }
         values.put(WordContract.Word.REMEMBER, isRemember);
-        sqlDB.update(WordContract.Word.TB_WORD_ALL, values, WordContract.Word.NAME + " = " + "'" + word.getName() +"'", null);
+        sqlDB.update(WordContract.Word.TB_WORD_ALL, values, WordContract.Word.NAME + " = " + "'" + word.getName() + "'", null);
         context.getContentResolver().notifyChange((isRemind ? WordContract.Word.CONTENT_URI_REMIND : WordContract.Word.CONTENT_URI_ALL), null);
     }
 
