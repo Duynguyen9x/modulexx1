@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             }
         });
 
-        ln_navi_lockscreen.setOnClickListener(new View.OnClickListener() {
+        ln_navi_chatheader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean state1 = mSwitchChatHeader.isChecked();
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                 editor.putBoolean(CHATHEADER_IS_OPEN, !state1); // value to store
                 editor.apply();
 
-                if(state1) {
+                if(!state1) {
                    // Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
                     startService(new Intent(MainActivity.this, FloatingViewService.class));
                 } else {

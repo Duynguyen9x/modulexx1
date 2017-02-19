@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Toeic 650+</string>
+    <string name="app_name">Daily Toeic</string>
     <string name="search_label">Search</string>
     <string name="search_hint">Search word</string>
     <string name="search_description">Search Description</string>
