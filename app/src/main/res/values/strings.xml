@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Toeic 650+</string>
+    <string name="search_label">Search</string>
+    <string name="search_hint">Search word</string>
+    <string name="search_description">Search Description</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -92,4 +95,12 @@
     <string name="practice_lv_three">Level Three</string>
     <string name="title_activity_practice_toiec">PracticeToiecActivity</string>
 
+    <string-array name="meo_thi_part">
+        <item>Mẹo thi toeic part 1</item>
+        <item>Mẹo thi toeic part 2</item>
+        <item>Mẹo thi toeic part 3</item>
+        <item>Mẹo thi toeic part 4</item>
+        <item>Mẹo thi toeic part 5 va 6</item>
+        <item>Mẹo thi toeic part 7</item>
+    </string-array>
 </resources>

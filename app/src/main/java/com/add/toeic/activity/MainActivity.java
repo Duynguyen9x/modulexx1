@@ -25,13 +25,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.add.toeic.R;
 import com.add.toeic.fragment.BookFragment;
@@ -342,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         Runnable mPendingRunnable = new Runnable() {
             @Override
             public void run() {
-                // update the main content by replacing fragments
+                // update the main_menu content by replacing fragments
                 Fragment fragment = getHomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
@@ -384,7 +382,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
-                    //Replacing the main content with ContentFragment Which is our Inbox View;
+                    //Replacing the main_menu content with ContentFragment Which is our Inbox View;
                     case R.id.nav_word:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_WORDs;
@@ -485,7 +483,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         // show menu only when home fragment is selected
         if (navItemIndex == 0) {
-            getMenuInflater().inflate(R.menu.main, menu);
+            getMenuInflater().inflate(R.menu.main_menu, menu);
         }
 
         // when fragment is notifications, load the menu created for notifications
@@ -518,6 +516,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         // and selected 'Clear All'
         if (id == R.id.action_clear_notifications) {
             Toast.makeText(getApplicationContext(), "Clear all notifications!", Toast.LENGTH_LONG).show();
+        }
+
+        if (id == R.id.action_search_main) {
+            Intent intentSearch = new Intent(this, SearchActivity.class);
+            startActivity(intentSearch);
         }
 
         return super.onOptionsItemSelected(item);

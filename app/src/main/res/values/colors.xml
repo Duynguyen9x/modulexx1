@@ -3,6 +3,7 @@
     <color name="colorPrimary">#00AA00</color>
     <color name="colorPrimaryDark">#00AA00</color>
     <color name="colorAccent">#00AA00</color>
+    <color name="cursorAccent">#c0c</color>
     <color name="tabIndicatorColor">#00AA00</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#BBBBBB</color>

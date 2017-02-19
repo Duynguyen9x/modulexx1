@@ -10,6 +10,7 @@ import com.add.toeic.R;
 
 public class BookDetailsActivity extends AppCompatActivity {
     String mNumber, mContent;
+    int isFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,24 @@ public class BookDetailsActivity extends AppCompatActivity {
 
         mNumber = getIntent().getStringExtra("number");
         mContent = getIntent().getStringExtra("content");
+        isFrom = getIntent().getIntExtra("isFrom", -1);
 
         view.loadUrl(loadUrl(mNumber));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Bài " + mNumber + ":" + mContent);
+        getSupportActionBar().setTitle("Bài " + mNumber + " : " + mContent);
     }
 
-    private String loadUrl(String number) {
-        return "file:///android_asset/book/" + number + ".htm";
+    private String loadUrl(String name) {
+        if(isFrom == 1){
+            if(name.equals("6")){
+                name = String.valueOf(7);
+            }
+            return "file:///android_asset/book/meothipart" + name + ".htm";
+        } else if(isFrom == 2){
+            return "file:///android_asset/book/" + name + ".htm";
+        }
+        return null;
     }
 
     @Override

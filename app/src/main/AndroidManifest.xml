@@ -31,6 +31,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".activity.SearchActivity" />
         </activity>
         <activity
             android:name=".activity.AboutUsActivity"
@@ -64,7 +67,6 @@
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
-
         <service
             android:name=".services.FloatingViewService"
             android:enabled="true"
@@ -78,16 +80,14 @@
         <activity
             android:name=".activity.PracticeToiecActivity"
             android:label="@string/title_activity_practice_toiec" />
-
         <activity android:name=".activity.LoadWordActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                />
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/*"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/*" />
             </intent-filter>
         </activity>
 
@@ -96,7 +96,23 @@
             android:authorities="com.add.toeic"
             android:exported="true"
             android:readPermission="com.add.toeic.permission.READ"
-            android:writePermission="com.add.toeic.permission.WRITE"></provider>
+            android:writePermission="com.add.toeic.permission.WRITE" />
+
+        <provider
+            android:name="com.add.toeic.provider.SearchProvider"
+            android:authorities="com.add.toeic.provider.SearchProvider"></provider>
+
+        <activity
+            android:name=".activity.SearchActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
     </application>
 
 </manifest>

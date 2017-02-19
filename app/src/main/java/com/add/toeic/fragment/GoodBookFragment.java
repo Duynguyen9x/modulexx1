@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.add.toeic.R;
@@ -51,6 +52,7 @@ public class GoodBookFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private int mKind;
+    private static final int number_of_part = 6;
 
     public GoodBookFragment() {
         // Required empty public constructor
@@ -109,21 +111,13 @@ public class GoodBookFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mKind == 1) {
-
-                }
-
-                if (mKind == 2) {
-                    Toast.makeText(mContext, "mo=" + position, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(mContext, "mKind = " + mKind + ", position = " + position, Toast.LENGTH_SHORT).show();
                     BookTheory openBook = mArrList.get(position);
-
                     Intent i = new Intent(mContext, BookDetailsActivity.class);
                     i.putExtra("number", openBook.getNumber());
                     i.putExtra("content", openBook.getContent());
-
+                    i.putExtra("isFrom", mKind);
                     startActivity(i);
-                }
             }
         });
 
@@ -157,23 +151,15 @@ public class GoodBookFragment extends Fragment {
 
     public ArrayList<BookTheory> getListBooks() {
         if (mKind == 1) {
-            ArrayList<BookTheory> listBook = new ArrayList<BookTheory>();
+            ArrayList<BookTheory> listBook = new ArrayList<>();
+            List<String> name = Arrays.asList(mContext.getResources().getStringArray(R.array.meo_thi_part));
 
-            BookTheory book1 = new BookTheory();
-            book1.setNumber("1. ");
-            book1.setContent("Sach hay 1");
-            listBook.add(book1);
-
-            BookTheory book2 = new BookTheory();
-            book2.setNumber("2. ");
-            book2.setContent("Sach hay 2");
-            listBook.add(book2);
-
-            BookTheory book3 = new BookTheory();
-            book3.setNumber("3. ");
-            book3.setContent("Sach hay 3");
-            listBook.add(book3);
-
+            for(int i = 0; i < number_of_part; i++){
+                BookTheory book = new BookTheory();
+                book.setNumber(String.valueOf(i+1));
+                book.setContent(name.get(i));
+                listBook.add(book);
+            }
             return listBook;
         }
 
