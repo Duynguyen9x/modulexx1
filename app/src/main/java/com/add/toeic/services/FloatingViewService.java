@@ -3,6 +3,7 @@ package com.add.toeic.services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -48,7 +49,7 @@ public class FloatingViewService extends Service implements SpringListener {
     private Timer mTimer;
     public static int posi_play;
     private TextView tv_word, tv_word_sound, tv_word_key, tv_detail_word;
-    private TextView tv_detail_word_key, tv_detail_word_sound, tv_detail_example, tv_detail_example_key, tv_details_num;
+    private TextView tv_detail_word_key, tv_detail_word_sound, tv_detail_example, tv_detail_example_key, tv_details_num,tv_exit;
     private Handler mHandler = new Handler();
     private ImageView closeButtonCollapsed, playButton, nextButton, prevButton, closeButton, openButton;
     private Button btn_time;
@@ -130,9 +131,11 @@ public class FloatingViewService extends Service implements SpringListener {
         tv_detail_example = (TextView) mFloatingView.findViewById(R.id.tv_detail_word_example);
         tv_detail_example_key = (TextView) mFloatingView.findViewById(R.id.tv_detail_word_example_key);
         tv_details_num = (TextView) mFloatingView.findViewById(R.id.tv_detail_num);
+        tv_exit= (TextView) mFloatingView.findViewById(R.id.tv_close_btn);
 
         //Set the close button
         closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
+
         playButton = (ImageView) mFloatingView.findViewById(R.id.play_btn);
         nextButton = (ImageView) mFloatingView.findViewById(R.id.next_btn);
         prevButton = (ImageView) mFloatingView.findViewById(R.id.prev_btn);
@@ -154,6 +157,24 @@ public class FloatingViewService extends Service implements SpringListener {
             @Override
             public void onClick(View view) {
                 //close the service and remove the from from the window
+                String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
+                String CHATHEADER_IS_OPEN = "chatheader_is_open";
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
+                editor.putBoolean(CHATHEADER_IS_OPEN, false); // value to store
+                editor.apply();
+                stopSelf();
+            }
+        });
+
+        tv_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //close the service and remove the from from the window
+                String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
+                String CHATHEADER_IS_OPEN = "chatheader_is_open";
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
+                editor.putBoolean(CHATHEADER_IS_OPEN, false); // value to store
+                editor.apply();
                 stopSelf();
             }
         });

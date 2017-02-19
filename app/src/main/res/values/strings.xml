@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Toeic 650+</string>
+    <string name="app_name">Daily Toeic</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,12 +7,15 @@
     <string name="closeDrawer">close_drawer</string>
 
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_word">Từ vựng TOEIC</string>
-    <string name="nav_book">Ngữ pháp TOEIC</string>
-    <string name="nav_practice">Luyện thi TOEIC</string>
+    <string name="nav_word">Vocabulary TOEIC</string>
+    <string name="nav_book">Grammar TOEIC</string>
+    <string name="nav_practice">Practice TOEIC</string>
     <string name="nav_notifications">Notifications</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about_us">About Us</string>
+    <string name="lock_screen">Lock screen</string>
+    <string name="remind_word">Pop-up lean work</string>
+
 
     <string name="delete_button">Delete</string>
     <string name="auto_run">Run Auto</string>
@@ -20,11 +23,10 @@
     <!-- Sub titles of WordFragment -->
     <string name="vocabulary">Vocabulary</string>
     <string name="remind">Reminder</string>
-    <string name="notes">Notes</string>
+    <string name="notes">Add word</string>
     <string name="practice">Practice</string>
 
-    <string name="lock_screen">Khóa màn hình</string>
-    <string name="remind_word">Nhắc từ</string>
+
 
     <string name="goodbook">Sách Hay</string>
     <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
