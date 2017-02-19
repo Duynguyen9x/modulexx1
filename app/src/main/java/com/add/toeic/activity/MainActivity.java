@@ -9,9 +9,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -51,17 +49,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
-    private NavigationView navigationView;
-    private DrawerLayout drawer;
-    private View navHeader;
-    private ImageView imgNavHeaderBg, imgProfile;
+    private NavigationView mNavigationView;
+    private DrawerLayout mDrawer;
+    private View mNavHeader;
+    private ImageView mImgNavHeaderBg, mImgProfile;
     private TextView txtName, txtWebsite;
-    private Toolbar toolbar;
-    private FloatingActionButton fab;
-    private Switch tgBtnLockScreen;
-    private Switch remindWordBtn;
+    private Toolbar mToolbar;
+    private Switch mSwitchLockScreen;
+    private Switch mSwitchChatHeader;
     private Context mContext;
     private LinearLayout ln_navi_lockscreen;
+    private LinearLayout ln_navi_chatheader;
 
     // urls to load navigation header background image
     // and profile image
@@ -92,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private static final String PREF_NAME_LOCK_SCREEN = "saveStateLockScreen";
     private static final String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
 
-    private static final String quickAnswerState = "tgbtn_unlocked_quick_answer_state";
+    private static final String LOCKSCREEN_IS_OPEN = "lockscreen_is_open";
+    private static final String CHATHEADER_IS_OPEN = "chatheader_is_open";
     private static final String screenHeaderView = "screen_header_view_state";
     private static final int LOADER_CALLBACK_ID = 0;
 
@@ -102,20 +101,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         mHandler = new Handler();
 
         initView();
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         // load nav menu header data
         loadNavHeader();
@@ -146,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    drawer.openDrawer(GravityCompat.START);
+                    mDrawer.openDrawer(GravityCompat.START);
                 }
             }, 1000);
 
@@ -172,8 +163,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         if (sharedPrefs == null) {
             initSharePreferenceLockScreen();
         } else {
-            boolean isEnabled = sharedPrefs.getBoolean(quickAnswerState, false);
-            tgBtnLockScreen.setChecked(isEnabled);
+            boolean isEnabled = sharedPrefs.getBoolean(LOCKSCREEN_IS_OPEN, false);
+            mSwitchLockScreen.setChecked(isEnabled);
         }
         if (!UnlockedScreenService.isCreated()) {
             if (Utils.isUnderM()) {
@@ -187,9 +178,30 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     }
 
+    private void preChatHeaderProcess() {
+        SharedPreferences sharedPrefs = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE);
+        if (sharedPrefs == null) {
+            initSharePreferenceLockScreen();
+        } else {
+            boolean isEnabled = sharedPrefs.getBoolean(LOCKSCREEN_IS_OPEN, false);
+            mSwitchChatHeader.setChecked(isEnabled);
+        }
+        if (!UnlockedScreenService.isCreated()) {
+            if (Utils.isUnderM()) {
+                startService(new Intent(getApplicationContext(), UnlockedScreenService.class));
+            } else {
+                // if not, the permission will be handled in onActivityResult
+                if (Utils.checkAndRequestPermissions(this, APP_PRE_PERMISSIONS, REQUEST_CODE_SYSTEM_ALERT_WINDOW)) {
+                    startService(new Intent(getApplicationContext(), UnlockedScreenService.class));
+                }
+            }
+        }
+    }
+    
+
     private void initSharePreferenceLockScreen() {
         SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
-        editor.putBoolean(quickAnswerState, false);
+        editor.putBoolean(LOCKSCREEN_IS_OPEN, false);
         editor.apply();
 
         SharedPreferences.Editor editor2 = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
@@ -200,7 +212,22 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     @Override
     protected void onResume() {
         super.onResume();
+        refreshSwithButton();
         Log.d("anhdt", "MainActivity resume");
+    }
+
+    private void refreshSwithButton(){
+        SharedPreferences sharedPrefs= getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE);
+        if(sharedPrefs==null) {
+            mSwitchChatHeader.setChecked(false);
+            return;
+        }
+        boolean isEnabled = sharedPrefs.getBoolean(CHATHEADER_IS_OPEN, false);
+        if(isEnabled) {
+            mSwitchChatHeader.setChecked(true);
+        } else {
+            mSwitchChatHeader.setChecked(false);
+        }
     }
 
     public void initView() {
@@ -210,59 +237,80 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
 
         // Navigation view header
-        navHeader = navigationView.getHeaderView(0);
-        txtName = (TextView) navHeader.findViewById(R.id.name);
-        txtWebsite = (TextView) navHeader.findViewById(R.id.website);
-        imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        tgBtnLockScreen = (Switch) navHeader.findViewById(R.id.lock_screen);
-        remindWordBtn = (Switch) navHeader.findViewById(R.id.remind_word);
-        ln_navi_lockscreen = (LinearLayout) navHeader.findViewById(R.id.ln_navi_lockscreen);
-
+        mNavHeader = mNavigationView.getHeaderView(0);
+        txtName = (TextView) mNavHeader.findViewById(R.id.name);
+        txtWebsite = (TextView) mNavHeader.findViewById(R.id.website);
+        mImgNavHeaderBg = (ImageView) mNavHeader.findViewById(R.id.img_header_bg);
+        mImgProfile = (ImageView) mNavHeader.findViewById(R.id.img_profile);
+        mSwitchLockScreen = (Switch) mNavHeader.findViewById(R.id.lock_screen);
+        mSwitchChatHeader = (Switch) mNavHeader.findViewById(R.id.remind_word);
+        ln_navi_lockscreen = (LinearLayout) mNavHeader.findViewById(R.id.ln_navi_lockscreen);
+        ln_navi_chatheader = (LinearLayout) mNavHeader.findViewById(R.id.ln_navi_chatheader);
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
     }
 
-    /***
-     * Load navigation menu header information
-     * like background image, profile image
-     * name, website, notifications action view (dot)
-     */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Toiec 650+");
-        txtWebsite.setText("duynguyen93.vnu@gmail.com");
+        txtName.setText(getResources().getString(R.string.app_name));
+        txtWebsite.setText("");
 
-        tgBtnLockScreen.setOnClickListener(new View.OnClickListener() {
+        mSwitchLockScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean state1 = tgBtnLockScreen.isChecked();
+                boolean state1 = mSwitchLockScreen.isChecked();
                 SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
-                editor.putBoolean(quickAnswerState, state1); // value to store
+                editor.putBoolean(LOCKSCREEN_IS_OPEN, state1); // value to store
                 editor.apply();
             }
         });
         ln_navi_lockscreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean state1 = tgBtnLockScreen.isChecked();
-                tgBtnLockScreen.setChecked(!state1);
+                boolean state1 = mSwitchLockScreen.isChecked();
+                mSwitchLockScreen.setChecked(!state1);
                 SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
-                editor.putBoolean(quickAnswerState, !state1); // value to store
+                editor.putBoolean(LOCKSCREEN_IS_OPEN, !state1); // value to store
                 editor.apply();
             }
         });
 
-        remindWordBtn.setOnClickListener(new View.OnClickListener() {
+        mSwitchChatHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
-                startService(new Intent(MainActivity.this, FloatingViewService.class));
+
+                boolean state1 = mSwitchChatHeader.isChecked();
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
+                editor.putBoolean(CHATHEADER_IS_OPEN, state1); // value to store
+                editor.apply();
+                if(state1) {
+                    //Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
+                    startService(new Intent(MainActivity.this, FloatingViewService.class));
+                } else {
+                    stopService(new Intent(MainActivity.this, FloatingViewService.class));
+                }
+            }
+        });
+
+        ln_navi_lockscreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean state1 = mSwitchChatHeader.isChecked();
+                mSwitchChatHeader.setChecked(!state1);
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
+                editor.putBoolean(CHATHEADER_IS_OPEN, !state1); // value to store
+                editor.apply();
+
+                if(state1) {
+                   // Toast.makeText(getApplicationContext(), "remind word started", Toast.LENGTH_SHORT).show();
+                    startService(new Intent(MainActivity.this, FloatingViewService.class));
+                } else {
+                    stopService(new Intent(MainActivity.this, FloatingViewService.class));
+                }
             }
         });
 
@@ -270,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         Glide.with(this).load(urlNavHeaderBg)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgNavHeaderBg);
+                .into(mImgNavHeaderBg);
 
         // Loading profile image
         Glide.with(this).load(urlProfileImg)
@@ -278,10 +326,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                 .thumbnail(0.5f)
                 .bitmapTransform(new CircleTransform(this))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgProfile);
+                .into(mImgProfile);
 
         // showing dot next to notifications label
-        navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
+        mNavigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
     }
 
     private Fragment getHomeFragment() {
@@ -326,10 +374,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         // if user select the current navigation menu again, don't do anything
         // just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
-            drawer.closeDrawers();
+            mDrawer.closeDrawers();
 
-            // show or hide the fab button
-            toggleFab();
             return;
         }
 
@@ -355,11 +401,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             mHandler.post(mPendingRunnable);
         }
 
-        // show or hide the fab button
-        toggleFab();
-
         //Closing drawer on item click
-        drawer.closeDrawers();
+        mDrawer.closeDrawers();
 
         // refresh toolbar menu
         invalidateOptionsMenu();
@@ -370,12 +413,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     }
 
     private void selectNavMenu() {
-        navigationView.getMenu().getItem(navItemIndex).setChecked(true);
+        mNavigationView.getMenu().getItem(navItemIndex).setChecked(true);
     }
 
     private void setUpNavigationView() {
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             // This method will trigger on item Click of navigation menu
             @Override
@@ -406,12 +449,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
-                        drawer.closeDrawers();
+                        mDrawer.closeDrawers();
                         return true;
                     case R.id.nav_privacy_policy:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
-                        drawer.closeDrawers();
+                        mDrawer.closeDrawers();
                         return true;
                     default:
                         navItemIndex = 0;
@@ -432,7 +475,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         });
 
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, mToolbar, R.string.openDrawer, R.string.closeDrawer) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -448,7 +491,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         };
 
         //Setting the actionbarToggle to drawer layout
-        drawer.setDrawerListener(actionBarDrawerToggle);
+        mDrawer.setDrawerListener(actionBarDrawerToggle);
 
         //calling sync state is necessary or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();
@@ -456,8 +499,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawers();
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawers();
             return;
         }
 
@@ -479,7 +522,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
 
         // show menu only when home fragment is selected
         if (navItemIndex == 0) {
@@ -495,9 +537,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -524,14 +563,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    // show or hide the fab
-    private void toggleFab() {
-        if (navItemIndex == 0)
-            fab.show();
-        else
-            fab.hide();
     }
 
     @Override

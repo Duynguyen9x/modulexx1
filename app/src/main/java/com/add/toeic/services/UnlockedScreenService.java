@@ -27,7 +27,7 @@ public class UnlockedScreenService extends Service {
     }
 
     private static final String PREF_NAME_LOCK_SCREEN = "saveStateLockScreen";
-    private static final String quickAnswerState = "tgbtn_unlocked_quick_answer_state";
+    private static final String LOCKSCREEN_IS_OPEN = "lockscreen_is_open";
     private SharedPreferences sharedPrefs;
 
     @Nullable
@@ -48,7 +48,7 @@ public class UnlockedScreenService extends Service {
             if (mUnlockedScreenReceiver == null) {
                 mUnlockedScreenReceiver = new UnlockedScreenReceiver();
             }
-            boolean isEnabled = sharedPrefs.getBoolean(quickAnswerState, false);
+            boolean isEnabled = sharedPrefs.getBoolean(LOCKSCREEN_IS_OPEN, false);
             if (isEnabled) {
                 registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
                 Log.d("anhdt", "registerReceiver - 0 -");
@@ -72,7 +72,7 @@ public class UnlockedScreenService extends Service {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if (sharedPreferences.equals(sharedPrefs)) {
                 boolean newState = sharedPrefs.getBoolean(key, false);
-                if (key.equalsIgnoreCase(quickAnswerState)) {
+                if (key.equalsIgnoreCase(LOCKSCREEN_IS_OPEN)) {
                     onUnlockedScreen(newState);
                 }
             }

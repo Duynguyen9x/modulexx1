@@ -79,7 +79,8 @@ public class WordVocabularyParentAdapter extends BaseExpandableListAdapter {
         if (null != wordInfo) {
             holder.eng_word.setText(wordInfo.getEnglsih());
             holder.viet_word.setText(wordInfo.getVietnamese());
-            holder.iconView.setImageDrawable(wordInfo.getIcon());
+          //  holder.iconView.setImageDrawable(wordInfo.getIcon());
+            Glide.with(mContext).load(Uri.parse(ImageUtils.loadDrawableParent(groupPosition,childPosition))).centerCrop().into(holder.iconView);
             holder.iconView.setClipToOutline(true);
         }
         holder.expandView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.icon_more, mContext.getTheme()));

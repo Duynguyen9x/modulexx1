@@ -248,7 +248,7 @@ public class WordVocabularyFragment extends Fragment {
             WordInfo wordInfo = new WordInfo();
             wordInfo.setEnglish(mHederWord.get(position * 5 + i).getHeader_eng());
             wordInfo.setVietnamese(mHederWord.get(position * 5 + i).getHeader_vi());
-            wordInfo.setIcon(ImageUtils.loadDrawableChild(mContext, position, i));
+           // wordInfo.setIcon(ImageUtils.loadDrawableChild(mContext, position, i));
             header1.add(wordInfo);
         }
         return header1;
