@@ -60,6 +60,7 @@
             android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.app.action.USER_PRESENT" />
+                <action android:name="android.intent.action.SCREEN_OFF"/>
             </intent-filter>
         </receiver>
 

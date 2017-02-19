@@ -50,7 +50,10 @@ public class UnlockedScreenService extends Service {
             }
             boolean isEnabled = sharedPrefs.getBoolean(LOCKSCREEN_IS_OPEN, false);
             if (isEnabled) {
-                registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
+                IntentFilter filter = new IntentFilter();
+                filter.addAction(Intent.ACTION_USER_PRESENT);
+                filter.addAction(Intent.ACTION_SCREEN_OFF);
+                registerReceiver(mUnlockedScreenReceiver, filter);
                 Log.d("anhdt", "registerReceiver - 0 -");
             }
         }
@@ -84,7 +87,10 @@ public class UnlockedScreenService extends Service {
             if (mUnlockedScreenReceiver == null) {
                 mUnlockedScreenReceiver = new UnlockedScreenReceiver();
             }
-            registerReceiver(mUnlockedScreenReceiver, new IntentFilter(Intent.ACTION_USER_PRESENT));
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(Intent.ACTION_USER_PRESENT);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            registerReceiver(mUnlockedScreenReceiver, filter);
             Log.d("anhdt", "registerReceiver - 1 -");
         } else {
             unregisterReceiver(mUnlockedScreenReceiver);

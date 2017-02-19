@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.add.toeic.R;
 import com.add.toeic.model.Word;
 import com.add.toeic.provider.AppProvider;
+import com.add.toeic.services.FloatingViewService;
 import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.Utils;
 
@@ -185,6 +187,19 @@ public class LockScreenActivity extends AppCompatActivity implements View.OnClic
     private void removeLayout() {
         Utils.animSlideDown(mRelativeLayoutUnlocked, 1000);
         finish();
+
+        String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
+        String CHATHEADER_IS_OPEN = "chatheader_is_open";
+        SharedPreferences sharedPrefs = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE);
+
+        if (sharedPrefs.getBoolean(CHATHEADER_IS_OPEN, false)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mContext.startService(new Intent(mContext, FloatingViewService.class));
+                }
+            }, 1000);
+        }
     }
 
     private void itemClicked() {

@@ -78,6 +78,8 @@ public class FloatingViewService extends Service implements SpringListener {
 
     @Override
     public void onCreate() {
+        Log.d("duy.pq", "FloatingViewService start");
+
         super.onCreate();
         mContext = this;
         initView();
@@ -329,6 +331,8 @@ public class FloatingViewService extends Service implements SpringListener {
 
     @Override
     public void onDestroy() {
+        Log.d("duy.pq", "FloatingViewService onDestroy");
+
         super.onDestroy();
         if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
         pauseWord();
