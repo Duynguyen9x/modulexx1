@@ -22,6 +22,7 @@ import java.util.List;
 import com.add.toeic.R;
 import com.add.toeic.activity.BookDetailsActivity;
 import com.add.toeic.activity.DetailWordActivity;
+import com.add.toeic.activity.YoutubeActivity;
 import com.add.toeic.adapter.BookTheoryAdapter;
 import com.add.toeic.listeners.OnFragmentInteractionListener;
 import com.add.toeic.model.BookTheory;
@@ -89,6 +90,9 @@ public class GoodBookFragment extends Fragment {
             if (mParamKind.equals("2")) {
                 mKind = 2;
             }
+            if (mParamKind.equals("3")) {
+                mKind = 3;
+            }
         }
     }
 
@@ -112,12 +116,17 @@ public class GoodBookFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(mContext, "mKind = " + mKind + ", position = " + position, Toast.LENGTH_SHORT).show();
+                if(mKind==1||mKind==2) {
                     BookTheory openBook = mArrList.get(position);
                     Intent i = new Intent(mContext, BookDetailsActivity.class);
                     i.putExtra("number", openBook.getNumber());
                     i.putExtra("content", openBook.getContent());
                     i.putExtra("isFrom", mKind);
                     startActivity(i);
+                } else {
+                    Intent i = new Intent(mContext, YoutubeActivity.class);
+                    startActivity(i);
+                }
             }
         });
 
@@ -154,7 +163,7 @@ public class GoodBookFragment extends Fragment {
             ArrayList<BookTheory> listBook = new ArrayList<>();
             List<String> name = Arrays.asList(mContext.getResources().getStringArray(R.array.meo_thi_part));
 
-            for(int i = 0; i < number_of_part; i++){
+            for(int i = 0; i < name.size(); i++){
                 BookTheory book = new BookTheory();
                 book.setNumber(String.valueOf(i+1));
                 book.setContent(name.get(i));
@@ -172,6 +181,20 @@ public class GoodBookFragment extends Fragment {
             }
             return arr;
         }
+
+        if (mKind == 3) {
+            ArrayList<BookTheory> listBook = new ArrayList<>();
+            List<String> name = Arrays.asList(mContext.getResources().getStringArray(R.array.video_maiphuong));
+
+            for(int i = 0; i < name.size(); i++){
+                BookTheory book = new BookTheory();
+                book.setNumber(String.valueOf(i+1));
+                book.setContent(name.get(i));
+                listBook.add(book);
+            }
+            return listBook;
+        }
+
         return null;
     }
 

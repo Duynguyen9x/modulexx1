@@ -23,4 +23,8 @@
     <string name="notes"> Thêm từ</string>
     <string name="practice"> Thực hành</string>
 
+    <string name="goodbook">Sách Hay</string>
+    <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
+    <string name="video_maiphuong">Bài giảng cô Mai Phương </string>
+
 </resources>

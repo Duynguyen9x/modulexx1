@@ -29,8 +29,9 @@
     <string name="lock_screen">Khóa màn hình</string>
     <string name="remind_word">Nhắc từ</string>
 
-    <string name="goodbook">Sách Hay</string>
-    <string name="basic_theory">50 Lý Thuyết Cơ Bản</string>
+    <string name="goodbook">Good Book</string>
+    <string name="basic_theory">50 Grammar Toeic</string>
+    <string name="video_maiphuong">Video Ms Mai Phuong</string>
 
     <string name="part_description">Chạm vào biểu tượng Play để bắt đầu nghe</string>
 
@@ -102,5 +103,12 @@
         <item>Mẹo thi toeic part 4</item>
         <item>Mẹo thi toeic part 5 va 6</item>
         <item>Mẹo thi toeic part 7</item>
+    </string-array>
+
+    <string-array name="video_maiphuong">
+        <item>Video 1</item>
+        <item>Video 2</item>
+        <item>Video 3</item>
+        <item>Video 4</item>
     </string-array>
 </resources>

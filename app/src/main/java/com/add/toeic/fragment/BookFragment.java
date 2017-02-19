@@ -35,7 +35,7 @@ public class BookFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static int int_items = 2;
+    private static int int_items = 3;
 
 
     private OnFragmentInteractionListener mListener;
@@ -113,6 +113,8 @@ public class BookFragment extends Fragment {
                     return GoodBookFragment.newInstance("1", null);
                 case 1:
                     return GoodBookFragment.newInstance("2", null);
+                case 2:
+                    return GoodBookFragment.newInstance("3", null);
             }
             return null;
         }
@@ -133,6 +135,8 @@ public class BookFragment extends Fragment {
                     return getString(R.string.goodbook);
                 case 1:
                     return getString(R.string.basic_theory);
+                case 2:
+                    return getString(R.string.video_maiphuong);
             }
             return null;
         }
