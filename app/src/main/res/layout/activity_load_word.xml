@@ -5,24 +5,24 @@
     android:id="@+id/activity_load_word"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-
-    <TextView
-        android:id="@+id/tv_kq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="23dp"
-        android:text="Button"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Nhắc từ"/>
+
+    <TextView
+        android:id="@+id/tv_kq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Từ vừng dưới đây được lưu trong file txt nhập sẵn: "
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/lv_word"

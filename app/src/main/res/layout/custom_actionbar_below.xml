@@ -1,72 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/custom_layout_below"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="15dp">
+
     <TextView
         android:id="@+id/tv_currentDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
-        android:layout_marginStart="55dp"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignStart="@+id/progressBar"
+        android:layout_marginBottom="-7dp"
         android:text="current time"
         android:textColor="#04cbde"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
     <!-- Total Duration Label -->
     <TextView
         android:id="@+id/tv_totalDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignEnd="@+id/progressBar"
+        android:layout_marginBottom="-7dp"
         android:text="duration time"
-        android:layout_marginTop="420dp"
-        android:layout_marginStart="278dp"
         android:textColor="#04cbde"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/btn_play"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="426dp"
-        android:src = "@drawable/action_play"
+        android:layout_above="@+id/btn_check"
+        android:layout_gravity="center_vertical"
         android:background="@drawable/circle_background_item_1"
-        android:scaleType="fitCenter"/>
-
-    <!--<ProgressBar-->
-        <!--android:id="@+id/progress"-->
-        <!--android:layout_marginStart="50dp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--style="?android:attr/progressBarStyleHorizontal"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:layout_marginTop="430dp"-->
-        <!--android:layout_height="10dp" />-->
+        android:scaleType="fitCenter"
+        android:src="@drawable/action_play" />
 
     <SeekBar
         android:id="@+id/progressBar"
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:layout_marginTop="437dp"
-        android:layout_marginStart="50dp"
+        android:layout_alignBottom="@+id/btn_play"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@+id/btn_play"
+        android:background="@null"
         android:max="100"
         android:progress="0"
-        android:background="@null"
-        android:shape="oval"
-        android:splitTrack="true"
         android:progressDrawable="@drawable/progress_background"
         android:secondaryProgress="0"
-        android:thumbOffset="10dp"
-        android:thumb="@drawable/oval_seekbar_thumb" />
+        android:shape="oval"
+        android:splitTrack="true"
+        android:thumb="@drawable/oval_seekbar_thumb"
+        android:thumbOffset="10dp" />
 
     <Button
         android:id="@+id/btn_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="470dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/colorPrimary"
         android:text="KiemTra"
-        android:textColor="@color/colorWhite"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:textColor="@color/colorWhite" />
 
-</FrameLayout>
+</RelativeLayout>

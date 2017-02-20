@@ -1,34 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.add.toeic.fragment.NoteFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Tính năng học từ với file nhập sẵn txt : \n -Tên file là phuongthuy.txt, \n -Copy File đó trong bộ nhớ máy với cú pháp dưới đây: \n (hoặc bạn có thể mở trực tiếp file txt bằng phần mềm)"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/detail_layout_conner"
-        android:padding="10dp"
-        android:text=" Cancellation \n Hủy bỏ \n \n Cover \n Che, bao phủ \n \n Expiration \n Sự mãn hạn, sự hết hạn." />
-    />
+        android:background="@drawable/detail_layout_conner">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text=" Cancellation \n Hủy bỏ \n \n Cover \n Che, bao phủ \n \n Expiration \n Sự mãn hạn, sự hết hạn." />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="20dp"
         android:text="Load" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:textSize="14dp"
-        android:text="Tính năng học từ với file nhập sẵn txt : \n -Tên file là PhuongThuy.txt, \n -Copy File đó trong bộ nhớ máy với cú pháp dưới đây: \n (hoặc bạn có thể mở trực tiếp file txt bằng phần mềm)" />
-
-</FrameLayout>
+</LinearLayout>

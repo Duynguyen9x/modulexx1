@@ -73,6 +73,9 @@
             android:name=".services.FloatingViewService"
             android:enabled="true"
             android:exported="false" />
+        <service android:name=".services.FloatingViewServiceSimple"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity
             android:name=".activity.LockScreenActivity"
@@ -81,6 +84,7 @@
             android:launchMode="singleInstance" />
         <activity
             android:name=".activity.PracticeToiecActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_practice_toiec" />
         <activity android:name=".activity.LoadWordActivity">
             <intent-filter>
