@@ -8,7 +8,7 @@
       ],
       "questions":[
         "On which day does this message take place?",
-        "Which is the caller getting this message",
+        "Why is the caller getting this message",
         "What should those who wish to make change in their service do?"
       ],
       "points":"3",
@@ -50,7 +50,7 @@
         "1"
       ],
       "questions":[
-        "Who would most likely be listening this talk?",
+        "Who would most likely be listening to this talk?",
         "How often will the class mentioned be held?",
         "What are those interested in the class asked to do?"
       ],

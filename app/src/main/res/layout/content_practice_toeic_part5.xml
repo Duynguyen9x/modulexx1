@@ -4,20 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    android:background="@drawable/detail_layout_conner"
     tools:showIn="@layout/activity_main">
 
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:padding="3dp"
+        android:padding="12dp"
         android:text="part_description"
         android:gravity="center_vertical"
         android:textSize="22sp"
@@ -81,7 +79,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/grp_answer">
+        android:layout_below="@+id/grp_answer"
+        android:layout_marginTop="23dp">
 
         <Button
             android:id="@+id/btn_check_p5"

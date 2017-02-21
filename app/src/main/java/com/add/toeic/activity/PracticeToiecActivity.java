@@ -118,7 +118,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         option_selected = 0;
 
         cd = new InternetConnectionDetector(getApplicationContext());
-        DataOnline.putData_part2();
+        DataOnline.putData();
 
         sharedPreference = new SharedPreference();
 
@@ -469,16 +469,15 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
         try {
             if (part_number == 2)
-                mListObj_part3 = JsonListenLongUtils.readerOjectFromJson(this, "l1_short_talk.json");
+                mListObj_part3 = JsonListenLongUtils.readerOjectFromJson(this, "l1_short_conversation.json"); //l1_short_conversation.json
             else if (part_number == 3) {
-                mListObj_part4 = JsonListenLongUtils.readerOjectFromJson(this, "l1_short_conversation.json");
+                mListObj_part4 = JsonListenLongUtils.readerOjectFromJson(this, "l1_short_talk.json");
             } else if (part_number == 5) {
                 mListObj_part6 = JsonReadCompletionUtils.readerOjectFromJson(this, "l1_text_completion.json");
-                for (int i=0;i<5;i++){
+                for (int i = 0; i < 5; i++) {
                     Log.i("duy.pq", "item5=" + mListObj_part6.get(i).toString());
                 }
-            }
-            else
+            } else
                 mListObj_part7 = JsonReadComplehensionUtils.readerOjectFromJson(this, "l1_reading_comprehension.json");
         } catch (IOException e) {
             e.printStackTrace();
@@ -555,22 +554,26 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             @Override
             public void onClick(View v) {
                 // check for already playing
-                if(mediaPlayer.isPlaying()){
-                    if(mediaPlayer!=null){
+                if (mediaPlayer.isPlaying()) {
+                    if (mediaPlayer != null) {
                         mediaPlayer.pause();
 
                         // Changing button image to play button
                         btn_play.setImageDrawable(getResources().getDrawable(R.drawable.action_play, mContext.getTheme()));
                     }
-                }else{
+                } else {
                     // Resume song
-                    if(mediaPlayer!=null){
+                    if (mediaPlayer != null) {
+                        String fileName = mListObj_part1.get(position_sentence_1).getUrl_audio();
+                        File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
-                        playSong(position_sentence_1);
-                        mediaPlayer.start();
+                        if (file.exists()) {
+                            playSong(position_sentence_1);
+                            mediaPlayer.start();
 
-                        // Changing button image to pause button
-                        btn_play.setImageResource(R.drawable.action_pause);
+                            // Changing button image to pause button
+                            btn_play.setImageResource(R.drawable.action_pause);
+                        }
                     }
                 }
             }
@@ -582,7 +585,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 if (!mIsCheck) {
                     showResult_part1(position_sentence_1);
                     mIsCheck = true;
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check.setText("Next");
                 } else {
                     position_sentence_1++;
@@ -596,7 +599,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     mediaPlayer.stop();
                     showSentence_part12(position_sentence_1);
 
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check.setText("Kiem tra");
                     mIsCheck = false;
                 }
@@ -656,16 +659,16 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             @Override
             public void onClick(View v) {
                 // check for already playing
-                if(mediaPlayer.isPlaying()){
-                    if(mediaPlayer!=null){
+                if (mediaPlayer.isPlaying()) {
+                    if (mediaPlayer != null) {
                         mediaPlayer.pause();
 
                         // Changing button image to play button
                         btn_play.setImageDrawable(getResources().getDrawable(R.drawable.action_play, mContext.getTheme()));
                     }
-                }else{
+                } else {
                     // Resume song
-                    if(mediaPlayer!=null){
+                    if (mediaPlayer != null) {
                         String fileName = mListObj_part2.get(position_sentence_2).getUrl_audio();
                         File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
@@ -686,7 +689,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             public void onClick(View v) {
                 if (!mIsCheck) {
                     showResult_part2(position_sentence_2);
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check.setText("Next");
                     mIsCheck = true;
                 } else {
@@ -702,7 +705,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     showSentence_part12(position_sentence_2);
 
                     mIsCheck = false;
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check.setText("Kiem tra");
                 }
             }
@@ -771,11 +774,16 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     } else {
                         // Resume song
                         if (mediaPlayer != null) {
-                            playSong(position_sentence_3);
-                            mediaPlayer.start();
+                            String fileName = mListObj_part3.get(position_sentence_3).getUrl_audio();
+                            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
-                            // Changing button image to pause button
-                            btn_play.setImageResource(R.drawable.action_pause);
+                            if (file.exists()) {
+                                playSong(position_sentence_3);
+                                mediaPlayer.start();
+
+                                // Changing button image to pause button
+                                btn_play.setImageResource(R.drawable.action_pause);
+                            }
                         }
                     }
                 }
@@ -787,7 +795,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     if (!mIsCheck) {
                         showResult_part3(position_sentence_3);
                         mIsCheck = true;
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Next");
                     } else {
                         position_sentence_3++;
@@ -804,7 +812,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                         showSentence_part3(position_sentence_3);
 
                         mIsCheck = false;
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Kiem tra");
                     }
                 }
@@ -865,11 +873,16 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     } else {
                         // Resume song
                         if (mediaPlayer != null) {
-                            playSong(position_sentence_4);
-                            mediaPlayer.start();
+                            String fileName = mListObj_part4.get(position_sentence_4).getUrl_audio();
+                            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
-                            // Changing button image to pause button
-                            btn_play.setImageResource(R.drawable.action_pause);
+                            if (file.exists()) {
+                                playSong(position_sentence_4);
+                                mediaPlayer.start();
+
+                                // Changing button image to pause button
+                                btn_play.setImageResource(R.drawable.action_pause);
+                            }
                         }
                     }
                 }
@@ -881,7 +894,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     if (!mIsCheck) {
                         showResult_part3(position_sentence_4);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Next");
                         mIsCheck = true;
                     } else {
@@ -898,7 +911,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                         resetSentence_part3();
                         showSentence_part3(position_sentence_4);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Kiem tra");
                         mIsCheck = false;
                     }
@@ -952,7 +965,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     if (!mIsCheck) {
                         showResult_part3(position_sentence_6);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Next");
                         mIsCheck = true;
                     } else {
@@ -966,7 +979,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                         resetSentence_part3();
                         showSentence_part3(position_sentence_6);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Kiem tra");
                         mIsCheck = false;
                     }
@@ -1014,7 +1027,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     if (!mIsCheck) {
                         showResult_part3(position_sentence_7);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Next");
                         mIsCheck = true;
                     } else {
@@ -1028,7 +1041,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                         resetSentence_part3();
                         showSentence_part3(position_sentence_7);
 
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                         btn_check.setText("Kiem tra");
                         mIsCheck = false;
                     }
@@ -1078,7 +1091,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 if (!mIsCheck) {
                     showResult_part4(position_sentence_5);
 
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check_p5.setText("Next");
                     mIsCheck = true;
                 } else {
@@ -1091,7 +1104,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                     resetSentence_part5();
                     showSentence_part5(position_sentence_5);
 
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade));
+                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
                     btn_check_p5.setText("Kiem tra");
                     mIsCheck = false;
                 }
@@ -1265,23 +1278,26 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         mediaPlayer.setOnCompletionListener(this);
         utils = new TimeUtils();
 
+        String fileName = null;
         if (part_number == 1) {
-            String fileName = mListObj_part2.get(position_sentence_2).getUrl_audio();
-            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
+            fileName = mListObj_part2.get(position_sentence_2).getUrl_audio();
+        } else {
+            fileName = mListObj_part1.get(position_sentence_1).getUrl_audio();
+        }
+        File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
 
-            if (!file.exists()) {
-                // get Internet status
-                isConnectionExist = cd.checkMobileInternetConn();
-                if (isConnectionExist) {
-                    mProgressBar.setSecondaryProgress(0);
-                    launchRingDialog(fileName);
-                } else {
-                    mProgressBar.setSecondaryProgress(0);
-                    showDisConnectPopup();
-                }
+        if (!file.exists()) {
+            // get Internet status
+            isConnectionExist = cd.checkMobileInternetConn();
+            if (isConnectionExist) {
+                mProgressBar.setSecondaryProgress(0);
+                launchRingDialog(fileName);
             } else {
-                mProgressBar.setSecondaryProgress(100);
+                mProgressBar.setSecondaryProgress(0);
+                showDisConnectPopup();
             }
+        } else {
+            mProgressBar.setSecondaryProgress(100);
         }
 
         tv_current_duration.setText("0:00");
@@ -1329,7 +1345,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             options_3 = mListObj_part6.get(position).getOption_3();
             String paragraph = mListObj_part6.get(position).getQuestions();
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                tv_paragraph.setText(Html.fromHtml(paragraph,Html.FROM_HTML_MODE_LEGACY));
+                tv_paragraph.setText(Html.fromHtml(paragraph, Html.FROM_HTML_MODE_LEGACY));
             } else {
                 tv_paragraph.setText(Html.fromHtml(paragraph));
             }
@@ -1342,7 +1358,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             String paragraph = mListObj_part7.get(position).getQuestion();
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                tv_paragraph.setText(Html.fromHtml(paragraph,Html.FROM_HTML_MODE_LEGACY));
+                tv_paragraph.setText(Html.fromHtml(paragraph, Html.FROM_HTML_MODE_LEGACY));
             } else {
                 tv_paragraph.setText(Html.fromHtml(paragraph));
             }
@@ -1392,6 +1408,30 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             mProgressBar.setOnSeekBarChangeListener(this); // Important
             mediaPlayer.setOnCompletionListener(this);
             utils = new TimeUtils();
+
+            String fileName = null;
+            if (part_number == 2) {
+                fileName = mListObj_part3.get(position_sentence_3).getUrl_audio();
+            } else {
+                fileName = mListObj_part4.get(position_sentence_4).getUrl_audio();
+            }
+            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
+
+            if (!file.exists()) {
+                // get Internet status
+                isConnectionExist = cd.checkMobileInternetConn();
+                if (isConnectionExist) {
+                    mProgressBar.setSecondaryProgress(0);
+                    launchRingDialog(fileName);
+                } else {
+                    mProgressBar.setSecondaryProgress(0);
+                    showDisConnectPopup();
+                }
+            } else {
+                mProgressBar.setSecondaryProgress(100);
+            }
+
+
             tv_current_duration.setText("0:00");
             if (part_number == 2)
                 tv_total_duration.setText("0:" + mListObj_part3.get(position).getDuration_in_seconds());
@@ -1475,37 +1515,42 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     private void playSong(int position) {
         // Play song
         try {
-            if (part_number != 1) {
-                AssetFileDescriptor afd;
-                if (part_number == 0 || part_number == 1)
-                    afd = this.getAssets().openFd(PATH_FILE_MP3 + mListObj_part1.get(position).getUrl_audio() + DUOI_FILE);
-                else
-                    afd = this.getAssets().openFd(PATH_FILE_MP3_1 + mListObj_part3.get(position).getUrl_audio() + DUOI_FILE);
-
-                mediaPlayer.setDataSource(
-                        afd.getFileDescriptor(),
-                        afd.getStartOffset(),
-                        afd.getLength()
-                );
-                afd.close();
-            } else {
-                String fileName = mListObj_part2.get(position).getUrl_audio();
-
-                File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
-                Uri myUri1 = Uri.fromFile(file);
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                try {
-                    mediaPlayer.setDataSource(getApplicationContext(), myUri1);
-                } catch (IllegalArgumentException e) {
-                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalArgumentException!", Toast.LENGTH_LONG).show();
-                } catch (SecurityException e) {
-                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_SecurityException!", Toast.LENGTH_LONG).show();
-                } catch (IllegalStateException e) {
-                    Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalStateException!", Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//            if (part_number != 1) {
+//                AssetFileDescriptor afd;
+//                if (part_number == 0 || part_number == 1)
+//                    afd = this.getAssets().openFd(PATH_FILE_MP3 + mListObj_part1.get(position).getUrl_audio() + DUOI_FILE);
+//                else
+//                    afd = this.getAssets().openFd(PATH_FILE_MP3_1 + mListObj_part3.get(position).getUrl_audio() + DUOI_FILE);
+//
+//                mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+//                afd.close();
+//            } else {
+            String fileName = null;
+            if (part_number == 0) {
+                fileName = mListObj_part1.get(position).getUrl_audio();
+            } else if (part_number == 1) {
+                fileName = mListObj_part2.get(position).getUrl_audio();
+            } else if (part_number == 2) {
+                fileName = mListObj_part3.get(position).getUrl_audio();
+            } else if (part_number == 3) {
+                fileName = mListObj_part4.get(position).getUrl_audio();
             }
+
+            File file = new File(getFilesDir() + "/" + fileName + DUOI_FILE);
+            Uri myUri1 = Uri.fromFile(file);
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            try {
+                mediaPlayer.setDataSource(getApplicationContext(), myUri1);
+            } catch (IllegalArgumentException e) {
+//                Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalArgumentException!", Toast.LENGTH_LONG).show();
+            } catch (SecurityException e) {
+//                Toast.makeText(getApplicationContext(), "You might not set the URI correctly_SecurityException!", Toast.LENGTH_LONG).show();
+            } catch (IllegalStateException e) {
+//                Toast.makeText(getApplicationContext(), "You might not set the URI correctly_IllegalStateException!", Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+//            }
 
             mediaPlayer.prepare();
 //            mediaPlayer.start();
@@ -1531,7 +1576,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
     /**
      * Background Runnable thread
-     * */
+     */
     private Runnable mUpdateTimeTask = new Runnable() {
         public void run() {
             long totalDuration = mediaPlayer.getDuration();
@@ -1543,8 +1588,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             tv_total_duration.setText("" + utils.milliSecondsToTimer(totalDuration));
 
             // Updating progress bar
-            int progress = (int)(utils.getProgressPercentage(currentDuration, totalDuration));
-            Log.d("duy.nq", "progress = "+progress);
+            int progress = (int) (utils.getProgressPercentage(currentDuration, totalDuration));
+            Log.d("duy.nq", "progress = " + progress);
             mProgressBar.setProgress(progress);
 
             // Running this thread after 100 milliseconds
@@ -1591,8 +1636,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         protected String doInBackground(Object... aurl) {
             int count;
             try {
-                URL url = new URL((String)aurl[0]);
-                String fileName = (String)aurl[1];
+                URL url = new URL((String) aurl[0]);
+                String fileName = (String) aurl[1];
 
                 URLConnection connection = url.openConnection();
                 connection.connect();
@@ -1612,7 +1657,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 long total = 0;
                 while ((count = input.read(data)) != -1) {
                     total += count;
-                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+                    publishProgress("" + (int) ((total * 100) / lenghtOfFile));
                     output.write(data, 0, count);
                 }
 
@@ -1620,7 +1665,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
                 output.close();
                 input.close();
                 Toast.makeText(mContext, "Downloaded", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             return null;
         }
 
@@ -1677,10 +1723,10 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         return bitmap;
     }
 
-    private File store(Bitmap bm, String fileName){
+    private File store(Bitmap bm, String fileName) {
         String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
         File dir = new File(dirPath);
-        if(!dir.exists())
+        if (!dir.exists())
             dir.mkdirs();
         File file = new File(dir, fileName);
 
@@ -1701,7 +1747,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         return file;
     }
 
-    private void shareImage(File file){
+    private void shareImage(File file) {
         Uri uri = Uri.fromFile(file);
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
@@ -1729,7 +1775,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
     public void setAnimationForRadioButton(RadioGroup radioGroup) {
 
-        for (int i = 0; i <=3; i++) {
+        for (int i = 0; i <= 3; i++) {
             if (i == 0)
                 ((RadioButton) radioGroup.getChildAt(i)).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.expand_left_4));
             else if (i == 1)

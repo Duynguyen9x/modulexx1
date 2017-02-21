@@ -226,6 +226,21 @@
       "question_type": "1"
     },
     {
+      "answer": "2",
+      "points": "1",
+      "duration_in_seconds": "45",
+      "url_photo": "listening_part1_no_16",
+      "url_audio": "listening_part1_audio_no_16",
+      "negative_points": "0",
+      "options": [
+        "The man is talking on the telephone.",
+        "The man is relaxing on the park.",
+        "The man is cleaning the aisle.",
+        "The man is watering the plant"
+      ],
+      "question_type": "1"
+    },
+    {
       "answer": "3",
       "points": "1",
       "duration_in_seconds": "45",
