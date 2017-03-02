@@ -1,8 +1,10 @@
 package com.add.toeic.services;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.os.CountDownTimer;
@@ -24,15 +26,15 @@ import android.widget.TextView;
 
 import com.add.toeic.R;
 import com.add.toeic.activity.MainActivity;
+import com.add.toeic.fragment.SettingsFragment;
 import com.add.toeic.model.Word;
 import com.add.toeic.provider.AppProvider;
-import com.add.toeic.utils.WordUtils;
+import com.add.toeic.utils.SoundUtis;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
 import com.facebook.rebound.SpringListener;
 import com.facebook.rebound.SpringSystem;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,15 +45,15 @@ public class FloatingViewService extends Service implements SpringListener {
     private WindowManager mWindowManager;
     private View mFloatingView;
     private Context mContext;
-    private static ArrayList<Word> arrayList;
+    private static ArrayList<Word> mArrayList;
     private CountDownTimer mCountDownTimer;
     private static int TIME_COUNT_DOWN = 1000;
     private Timer mTimer;
     public static int posi_play;
     private TextView tv_word, tv_word_sound, tv_word_key, tv_detail_word;
-    private TextView tv_detail_word_key, tv_detail_word_sound, tv_detail_example, tv_detail_example_key, tv_details_num,tv_exit;
+    private TextView tv_detail_word_key, tv_detail_word_sound, tv_detail_example, tv_detail_example_key, tv_details_num, tv_exit;
     private Handler mHandler = new Handler();
-    private ImageView closeButtonCollapsed, playButton, nextButton, prevButton, closeButton, openButton;
+    private ImageView closeButtonCollapsed, playButton, nextButton, prevButton, closeButton, openButton, readButton;
     private Button btn_time;
     boolean isRun = true;
     View collapsedView, expandedView;
@@ -65,6 +67,11 @@ public class FloatingViewService extends Service implements SpringListener {
     private static double DAMPER = 20; //friction
     private SpringSystem mSpringSystem;
     private Spring mSpring;
+    private int mStyle;
+    BroadcastReceiver changeStyleChatheaderReceiver;
+
+    public static final String PREFS_NAME = "OUR_STYLE";
+    public static final String PREFS_STYLE = "DEFAULT";
 
     public FloatingViewService() {
     }
@@ -83,7 +90,7 @@ public class FloatingViewService extends Service implements SpringListener {
         super.onCreate();
         mContext = this;
         initView();
-        arrayList = getDataFull(mContext);
+        mArrayList = getDataFull(mContext);
         initControl();
         auto();
 
@@ -94,6 +101,34 @@ public class FloatingViewService extends Service implements SpringListener {
 
         SpringConfig config = new SpringConfig(TENSION, DAMPER);
         mSpring.setSpringConfig(config);
+
+        IntentFilter filter = new IntentFilter("com.add.toeic.CUSTOM_INTENT_STYLE");
+        changeStyleChatheaderReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                SharedPreferences sharedPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                mStyle = sharedPrefs.getInt(PREFS_STYLE, 0);
+
+                if (mStyle == SettingsFragment.BLUE_STYLE) {
+                    collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_blue_style, null));
+                    expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_blue_style, null));
+                } else if (mStyle == SettingsFragment.GREEN_STYLE) {
+                    collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_lightgreen_style, null));
+                    expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_lightgreen_style, null));
+                } else if (mStyle == SettingsFragment.PINK_STYLE) {
+                    collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_pink_style, null));
+                    expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_pink_style, null));
+                } else if (mStyle == SettingsFragment.ORANGE_STYLE) {
+                    collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_orange_style, null));
+                    expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_orange_style, null));
+                } else if (mStyle == SettingsFragment.DEFAULT) {
+                    collapsedView.setBackground(getResources().getDrawable(R.drawable.circle_chatheader_full, null));
+                    expandedView.setBackground(getResources().getDrawable(R.drawable.circle_chatheader_full, null));
+                }
+            }
+        };
+        registerReceiver(changeStyleChatheaderReceiver, filter);
     }
 
 
@@ -116,11 +151,37 @@ public class FloatingViewService extends Service implements SpringListener {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
+        SharedPreferences sharedPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         //The root element of the collapsed view layout
         collapsedView = mFloatingView.findViewById(R.id.collapse_view);
         //The root element of the expanded view layout
         expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
+        mStyle = sharedPrefs.getInt(PREFS_STYLE, 0);
+
+        switch (mStyle) {
+            case SettingsFragment.BLUE_STYLE:
+                collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_blue_style, null));
+                expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_blue_style, null));
+                break;
+            case SettingsFragment.GREEN_STYLE:
+                collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_lightgreen_style, null));
+                expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_lightgreen_style, null));
+                break;
+            case SettingsFragment.PINK_STYLE:
+                collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_pink_style, null));
+                expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_pink_style, null));
+                break;
+            case SettingsFragment.ORANGE_STYLE:
+                collapsedView.setBackground(getResources().getDrawable(R.drawable.chatheader_orange_style, null));
+                expandedView.setBackground(getResources().getDrawable(R.drawable.chatheader_orange_style, null));
+                break;
+            case SettingsFragment.DEFAULT:
+                collapsedView.setBackground(getResources().getDrawable(R.drawable.circle_chatheader_full, null));
+                expandedView.setBackground(getResources().getDrawable(R.drawable.circle_chatheader_full, null));
+                break;
+        }
 
         //load textview
         tv_word = (TextView) mFloatingView.findViewById(R.id.tv_word);
@@ -133,10 +194,11 @@ public class FloatingViewService extends Service implements SpringListener {
         tv_detail_example = (TextView) mFloatingView.findViewById(R.id.tv_detail_word_example);
         tv_detail_example_key = (TextView) mFloatingView.findViewById(R.id.tv_detail_word_example_key);
         tv_details_num = (TextView) mFloatingView.findViewById(R.id.tv_detail_num);
-        tv_exit= (TextView) mFloatingView.findViewById(R.id.tv_close_btn);
+        tv_exit = (TextView) mFloatingView.findViewById(R.id.tv_close_btn);
 
         //Set the close button
         closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
+        readButton = (ImageView) mFloatingView.findViewById(R.id.btn_detal_read);
 
         playButton = (ImageView) mFloatingView.findViewById(R.id.play_btn);
         nextButton = (ImageView) mFloatingView.findViewById(R.id.next_btn);
@@ -152,19 +214,28 @@ public class FloatingViewService extends Service implements SpringListener {
 
     }
 
-    ;
-
     private void initControl() {
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //close the service and remove the from from the window
+                Intent intent = new Intent();
+                intent.setAction("com.add.toeic.CUSTOM_INTENT_SWITCH_OFF");
+                mContext.sendBroadcast(intent);
+
                 String PREF_NAME_CHAT_HEADER = "saveStateChatheader";
                 String CHATHEADER_IS_OPEN = "chatheader_is_open";
                 SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
                 editor.putBoolean(CHATHEADER_IS_OPEN, false); // value to store
                 editor.apply();
                 stopSelf();
+            }
+        });
+
+        readButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SoundUtis.play(mContext, mArrayList.get(posi_play).getName());
             }
         });
 
@@ -334,6 +405,7 @@ public class FloatingViewService extends Service implements SpringListener {
         Log.d("duy.pq", "FloatingViewService onDestroy");
 
         super.onDestroy();
+        unregisterReceiver(changeStyleChatheaderReceiver);
         if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
         pauseWord();
     }
@@ -390,10 +462,10 @@ public class FloatingViewService extends Service implements SpringListener {
 
     public void playNext() {
         remember();
-        if (arrayList == null) {
+        if (mArrayList == null) {
             return;
         }
-        if (posi_play == arrayList.size() - 1) {
+        if (posi_play == mArrayList.size() - 1) {
             posi_play = 0;
         } else {
             posi_play++;
@@ -403,10 +475,10 @@ public class FloatingViewService extends Service implements SpringListener {
 
     public void playBack() {
         remember();
-        if (arrayList == null) {
+        if (mArrayList == null) {
             return;
         } else if (posi_play == 0) {
-            posi_play = arrayList.size() - 1;
+            posi_play = mArrayList.size() - 1;
         } else {
             posi_play--;
         }
@@ -416,11 +488,11 @@ public class FloatingViewService extends Service implements SpringListener {
     public void playWord() {
         remember();
 
-        if (arrayList.size() == 0) {
+        if (mArrayList.size() == 0) {
             stopSelf();
             return;
         }
-        setViewWord(arrayList.get(posi_play));
+        setViewWord(mArrayList.get(posi_play));
     }
 
     public void auto() {
@@ -476,7 +548,7 @@ public class FloatingViewService extends Service implements SpringListener {
 
     private void remember() {
         if (isRemember) {
-            arrayList.remove(arrayList.get(posi_play));
+            mArrayList.remove(mArrayList.get(posi_play));
             // remove this data in database
             isRemember = false;
             posi_play--;
@@ -502,9 +574,9 @@ public class FloatingViewService extends Service implements SpringListener {
         tv_detail_word_key.setText(w.getName_key());
         tv_detail_word_sound.setText(w.getSound());
 
-        //    tv_detail_example.setText(w.getExamle());
+        tv_detail_example.setText(w.getExample());
         tv_detail_example_key.setText(w.getExample_key());
-        tv_details_num.setText("(" + (posi_play + 1) + ":" + arrayList.size() + ")");
+        tv_details_num.setText("(" + (posi_play + 1) + ":" + mArrayList.size() + ")");
     }
 
 }

@@ -1,8 +1,10 @@
 package com.add.toeic.activity;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private static final String screenHeaderView = "screen_header_view_state";
     private static final int LOADER_CALLBACK_ID = 0;
 
+    BroadcastReceiver refreshSwitchChathearReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("anhdt", "MainActivity onCreate");
@@ -105,6 +109,17 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setSupportActionBar(mToolbar);
 
         mHandler = new Handler();
+
+        IntentFilter filter = new IntentFilter("com.add.toeic.CUSTOM_INTENT_SWITCH_OFF");
+        refreshSwitchChathearReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                mSwitchChatHeader.setChecked(false);
+            }
+        };
+
+        registerReceiver(refreshSwitchChathearReceiver, filter);
 
         initView();
 
@@ -212,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     @Override
     protected void onResume() {
         super.onResume();
-        refreshSwithButton();
+//        refreshSwithButton();
         Log.d("anhdt", "MainActivity resume");
     }
 
@@ -301,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             public void onClick(View v) {
                 boolean state1 = mSwitchChatHeader.isChecked();
                 mSwitchChatHeader.setChecked(!state1);
-                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_LOCK_SCREEN, MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME_CHAT_HEADER, MODE_PRIVATE).edit();
                 editor.putBoolean(CHATHEADER_IS_OPEN, !state1); // value to store
                 editor.apply();
 
@@ -603,5 +618,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         };
 
         loadBitmapTask.execute(cursor);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        unregisterReceiver(refreshSwitchChathearReceiver);
     }
 }

@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:text="Nhắc từ"/>
+        android:text="Nhắc từ"
+        android:background="@drawable/bg_btn_delete_remind" />
 
     <TextView
         android:id="@+id/tv_kq"

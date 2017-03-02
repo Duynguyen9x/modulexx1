@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
+import com.add.toeic.R;
+
 import java.io.IOException;
 
 /**
@@ -35,6 +37,18 @@ public class SoundUtis {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void playCorrect(Context context) {
+        MediaPlayer mpintro = MediaPlayer.create(context, R.raw.correct);
+        mpintro.setLooping(false);
+        mpintro.start();
+    }
+
+    public static void playInCorrect(Context context) {
+        MediaPlayer mpintro = MediaPlayer.create(context, R.raw.incorrect);
+        mpintro.setLooping(false);
+        mpintro.start();
     }
 
 }

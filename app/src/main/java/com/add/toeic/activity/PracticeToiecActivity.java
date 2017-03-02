@@ -43,7 +43,9 @@ import com.add.toeic.model.practice.ReadComprehension;
 import com.add.toeic.model.practice.ReadSentence;
 import com.add.toeic.utils.ImageUtils;
 import com.add.toeic.utils.InternetConnectionDetector;
+import com.add.toeic.utils.SoundUtis;
 import com.add.toeic.utils.TimeUtils;
+import com.add.toeic.utils.Utils;
 import com.add.toeic.utils.json.JsonListenLongUtils;
 import com.add.toeic.utils.json.JsonListenShortUtils;
 import com.add.toeic.utils.json.JsonQuestionResponseUtils;
@@ -104,8 +106,6 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
     // Connection detector class
     InternetConnectionDetector cd;
 
-    private static final String PATH_FILE_MP3 = "mp3practice/";
-    private static final String PATH_FILE_MP3_1 = "mp3practice1/";
     private static final String DUOI_FILE = ".mp3";
 
     private SharedPreference sharedPreference;
@@ -196,8 +196,6 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
         tv_title = (TextView) view.findViewById(R.id.tv_part_num);
         btn_back = (ImageButton) view.findViewById(R.id.btn_back);
-        btn_next = (ImageButton) view.findViewById(R.id.btn_next);
-        btn_previous = (ImageButton) view.findViewById(R.id.btn_previous);
         tv_cur = (TextView) view.findViewById(R.id.tv_num_cur);
         tv_num = (TextView) view.findViewById(R.id.tv_num_total);
 
@@ -213,6 +211,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
 
         btn_play = (ImageButton) includedLayout.findViewById(R.id.btn_play);
         btn_check = (Button) includedLayout.findViewById(R.id.btn_check);
+        btn_next = (ImageButton) includedLayout.findViewById(R.id.btn_next);
+        btn_previous = (ImageButton) includedLayout.findViewById(R.id.btn_previous);
         mProgressBar = (SeekBar) includedLayout.findViewById(R.id.progressBar);
         tv_current_duration = (TextView) includedLayout.findViewById(R.id.tv_currentDuration);
         tv_total_duration = (TextView) includedLayout.findViewById(R.id.tv_totalDuration);
@@ -582,28 +582,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mIsCheck) {
-                    showResult_part1(position_sentence_1);
-                    mIsCheck = true;
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check.setText("Next");
-                } else {
-                    position_sentence_1++;
-                    if (position_sentence_1 == mListObj_part1.size()) {
-                        position_sentence_1 = 0;
-                    }
-
-                    sharedPreference.save(mContext, position_sentence_1);
-                    resetSentence_part12();
-                    mediaPlayer.pause();
-                    mediaPlayer.stop();
-                    showSentence_part12(position_sentence_1);
-
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check.setText("Kiem tra");
-                    mIsCheck = false;
-                }
-
+                showResult_part1(position_sentence_1);
             }
         });
 
@@ -687,27 +666,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mIsCheck) {
-                    showResult_part2(position_sentence_2);
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check.setText("Next");
-                    mIsCheck = true;
-                } else {
-                    position_sentence_2++;
-                    if (position_sentence_2 == mListObj_part2.size()) {
-                        position_sentence_2 = 0;
-                    }
-
-                    sharedPreference.save(mContext, position_sentence_2);
-                    resetSentence_part12();
-                    mediaPlayer.pause();
-                    mediaPlayer.stop();
-                    showSentence_part12(position_sentence_2);
-
-                    mIsCheck = false;
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check.setText("Kiem tra");
-                }
+                showResult_part2(position_sentence_2);
             }
         });
 
@@ -792,29 +751,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             btn_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!mIsCheck) {
-                        showResult_part3(position_sentence_3);
-                        mIsCheck = true;
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Next");
-                    } else {
-                        position_sentence_3++;
-
-                        if (position_sentence_3 == mListObj_part3.size()) {
-                            position_sentence_3 = 0;
-                        }
-
-                        mediaPlayer.pause();
-                        mediaPlayer.stop();
-
-                        sharedPreference.save(mContext, position_sentence_3);
-                        resetSentence_part3();
-                        showSentence_part3(position_sentence_3);
-
-                        mIsCheck = false;
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Kiem tra");
-                    }
+                    showResult_part3(position_sentence_3);
                 }
             });
 
@@ -891,30 +828,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             btn_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!mIsCheck) {
-                        showResult_part3(position_sentence_4);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Next");
-                        mIsCheck = true;
-                    } else {
-                        position_sentence_4++;
-
-                        if (position_sentence_4 == mListObj_part4.size()) {
-                            position_sentence_4 = 0;
-                        }
-
-                        mediaPlayer.pause();
-                        mediaPlayer.stop();
-
-                        sharedPreference.save(mContext, position_sentence_4);
-                        resetSentence_part3();
-                        showSentence_part3(position_sentence_4);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Kiem tra");
-                        mIsCheck = false;
-                    }
+                    showResult_part3(position_sentence_4);
                 }
             });
 
@@ -962,27 +876,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             btn_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!mIsCheck) {
-                        showResult_part3(position_sentence_6);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Next");
-                        mIsCheck = true;
-                    } else {
-                        position_sentence_6++;
-
-                        if (position_sentence_6 == mListObj_part6.size()) {
-                            position_sentence_6 = 0;
-                        }
-
-                        sharedPreference.save(mContext, position_sentence_6);
-                        resetSentence_part3();
-                        showSentence_part3(position_sentence_6);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Kiem tra");
-                        mIsCheck = false;
-                    }
+                    showResult_part3(position_sentence_6);
                 }
             });
 
@@ -1024,27 +918,7 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             btn_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!mIsCheck) {
-                        showResult_part3(position_sentence_7);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Next");
-                        mIsCheck = true;
-                    } else {
-                        position_sentence_7++;
-
-                        if (position_sentence_7 == mListObj_part7.size()) {
-                            position_sentence_7 = 0;
-                        }
-
-                        sharedPreference.save(mContext, position_sentence_7);
-                        resetSentence_part3();
-                        showSentence_part3(position_sentence_7);
-
-                        btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                        btn_check.setText("Kiem tra");
-                        mIsCheck = false;
-                    }
+                    showResult_part3(position_sentence_7);
                 }
             });
 
@@ -1088,26 +962,8 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         btn_check_p5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mIsCheck) {
-                    showResult_part4(position_sentence_5);
+                showResult_part4(position_sentence_5);
 
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check_p5.setText("Next");
-                    mIsCheck = true;
-                } else {
-                    position_sentence_5++;
-                    if (position_sentence_5 == mListObj_part5.size()) {
-                        position_sentence_5 = 0;
-                    }
-
-                    sharedPreference.save(mContext, position_sentence_5);
-                    resetSentence_part5();
-                    showSentence_part5(position_sentence_5);
-
-                    btn_check.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.slow_fade));
-                    btn_check_p5.setText("Kiem tra");
-                    mIsCheck = false;
-                }
             }
         });
 
@@ -1174,10 +1030,12 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         ra_d.setText("D : " + s[3]);
 
         ((RadioButton) ra_group.getChildAt(answer)).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group.getChildAt(answer)).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group.getChildAt(answer));
         if (answer == option_selected) {
+            SoundUtis.playCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Right!", Toast.LENGTH_SHORT).show();
         } else {
+            SoundUtis.playInCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Wrong!", Toast.LENGTH_SHORT).show();
         }
 
@@ -1197,11 +1055,13 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         ra_c.setText("C : " + s[2]);
 
         ((RadioButton) ra_group.getChildAt(answer)).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group.getChildAt(answer)).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group.getChildAt(answer));
 
         if (answer == option_selected) {
+            SoundUtis.playCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Right!", Toast.LENGTH_SHORT).show();
         } else {
+            SoundUtis.playInCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Wrong!", Toast.LENGTH_SHORT).show();
         }
 
@@ -1223,14 +1083,28 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
             answer = mListObj_part7.get(position).getAnswer();
 
         ((RadioButton) ra_group1.getChildAt(answer[0])).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group1.getChildAt(answer[0])).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group1.getChildAt(answer[0]));
 
         ((RadioButton) ra_group2.getChildAt(answer[1])).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group2.getChildAt(answer[1])).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group2.getChildAt(answer[1]));
 
         ((RadioButton) ra_group3.getChildAt(answer[2])).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group3.getChildAt(answer[2])).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group3.getChildAt(answer[2]));
 
+        if (option_selected_1 == answer[0] && option_selected_2 == answer[1] && option_selected_3 == answer[2]) {
+            SoundUtis.playCorrect(mContext);
+            Toast.makeText(getApplicationContext(), "You Right 3/3!", Toast.LENGTH_SHORT).show();
+        } else {
+            int count = 0;
+            if (option_selected_1 == answer[0])
+                count++;
+            if (option_selected_2 == answer[1])
+                count++;
+            if (option_selected_3 == answer[2])
+                count++;
+            SoundUtis.playInCorrect(mContext);
+            Toast.makeText(getApplicationContext(), "You Right " + count + "/3!", Toast.LENGTH_SHORT).show();
+        }
         setEnableRadioButton(ra_group1, false);
         setEnableRadioButton(ra_group2, false);
         setEnableRadioButton(ra_group3, false);
@@ -1241,11 +1115,13 @@ public class PracticeToiecActivity extends AppCompatActivity implements MediaPla
         int answer = mListObj_part5.get(position).getAnswer();
 
         ((RadioButton) ra_group.getChildAt(answer)).setTextColor(mContext.getResources().getColor(R.color.colorRed));
-        ((RadioButton) ra_group.getChildAt(answer)).startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.rotate));
+        Utils.animShaking(mContext, (RadioButton) ra_group.getChildAt(answer));
 
         if (answer == option_selected) {
+            SoundUtis.playCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Right!", Toast.LENGTH_SHORT).show();
         } else {
+            SoundUtis.playInCorrect(mContext);
             Toast.makeText(getApplicationContext(), "You Wrong!", Toast.LENGTH_SHORT).show();
         }
 

@@ -61,5 +61,14 @@
         <item name="android:textColor">@color/colorGray</item>
     </style>
 
+    <style name="PinkTheme" >
+        <item name="android:background">#FF1493</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="BlueTheme" >
+        <item name="android:background">#B0E0E6</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
 
 </resources>

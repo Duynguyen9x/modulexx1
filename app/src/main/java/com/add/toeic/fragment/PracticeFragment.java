@@ -36,7 +36,7 @@ public class PracticeFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static int item_cnt = 3;
+    private static int item_cnt = 2;
     private View view;
 
     public PracticeFragment() {
@@ -124,8 +124,6 @@ public class PracticeFragment extends Fragment {
                     return PracticeLvOneFragment.newInstance("1", null);
                 case 1:
                     return PracticeLvOneFragment.newInstance("2", null);
-                case 2:
-                    return PracticeLvOneFragment.newInstance("3", null);
                 default:
                     return null;
             }
@@ -143,8 +141,6 @@ public class PracticeFragment extends Fragment {
                     return getString(R.string.practice_lv_one);
                 case 1:
                     return getString(R.string.practice_lv_two);
-                case 2:
-                    return getString(R.string.practice_lv_three);
                 default:
                     return null;
             }
